@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <style>
+      .grid-hairline { stroke: #0D9488; stroke-width: 1; stroke-dasharray: 4 4; opacity: 0.4; }
+      .circle-track { fill: none; stroke: rgba(13, 148, 136, 0.2); stroke-width: 1; stroke-dasharray: 3 3; }
+      .open-ring { fill: none; stroke: #F8FAFC; stroke-width: 22; stroke-linecap: round; }
+      .vector-arrow { stroke: #0D9488; stroke-width: 4.5; stroke-linecap: round; }
+      .vector-head { fill: #0D9488; }
+      .center-node { fill: #0D9488; }
+    </style>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0F172A" />
+
+  <!-- Technical Hairlines -->
+  <line class="grid-hairline" x1="250" y1="50" x2="250" y2="450" />
+  <line class="grid-hairline" x1="50" y1="250" x2="450" y2="250" />
+  <circle class="circle-track" cx="250" cy="250" r="180" />
+
+  <!-- Open Ring (Arc from approx 30 deg to 330 deg - open at right) -->
+  <!-- Center (250, 250), Radius 130 -->
+  <path class="open-ring" d="M 342 158 A 130 130 0 1 0 342 342" />
+
+  <!-- Diagonal Vector Arrow Passing through Center (from bottom-left to top-right ~45 deg) -->
+  <line class="vector-arrow" x1="120" y1="380" x2="380" y2="120" />
+  <polygon class="vector-head" points="380,120 350,126 374,150" />
+
+  <!-- Central Node -->
+  <circle class="center-node" cx="250" cy="250" r="18" />
+</svg>

@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Function OS | Turn a Corpus Into Drafts You Can Defend</title>
+  <meta name="description" content="An AI-assisted synthesis system for transforming large personal, legal, and institutional corpora into auditable, decision-grade drafts. Built for provenance and multi-agent review.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Charter:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-primary);
+      font-family: var(--font-editorial);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Top Bar Navigation */
+    header {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--color-border-hairline);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0.85rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+    }
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--color-primary-base);
+    }
+    .brand-tag {
+      font-family: var(--font-technical);
+      font-size: 0.7rem;
+      color: var(--color-accent-action);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .nav-links a {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .nav-links a:hover {
+      color: var(--color-accent-action);
+    }
+    .nav-cta {
+      background: var(--color-accent-action);
+      color: #FFFFFF !important;
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-xs);
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Hero Section */
+    .hero-wrapper {
+      padding: 4.5rem 0 3.5rem;
+      border-bottom: 1px solid var(--color-border-hairline);
+      background: #FFFFFF;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .eyebrow {
+      font-family: var(--font-technical);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-accent-action);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--color-warm-accent);
+      border-radius: 50%;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 3.25rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--color-primary-base);
+      margin-bottom: 1.5rem;
+    }
+    .hero-lede {
+      font-size: 1.25rem;
+      line-height: 1.55;
+      color: var(--color-text-secondary);
+      margin-bottom: 2rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .spine-box {
+      border-left: 3px solid var(--color-accent-action);
+      background: var(--color-surface-subtle);
+      padding: 1.25rem 1.5rem;
+      font-size: 0.95rem;
+      color: var(--color-primary-base);
+      font-family: var(--font-editorial);
+      font-style: italic;
+    }
+
+    .hero-card {
+      background: #0F172A;
+      color: #F8FAFC;
+      border-radius: var(--radius-sm);
+      padding: 1.75rem;
+      border: 1px solid #334155;
+      box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.2);
+    }
+    .terminal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+      font-family: var(--font-technical);
+      font-size: 0.75rem;
+      color: #94A3B8;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 4.5rem 0;
+    }
+    .section-head {
+      margin-bottom: 3rem;
+    }
+    .section-tag {
+      font-family: var(--font-technical);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-accent-action);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--color-primary-base);
+    }
+    .section-intro {
+      font-size: 1.15rem;
+      color: var(--color-text-secondary);
+      max-width: 800px;
+      margin-top: 0.75rem;
+    }
+
+    /* Tri-Branch Network (The Spider Hub) */
+    .branch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    .branch-card {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .branch-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+      border-color: var(--color-accent-action);
+    }
+    .branch-badge {
+      align-self: flex-start;
+      margin-bottom: 1rem;
+    }
+    .branch-name {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-primary-base);
+      margin-bottom: 0.5rem;
+    }
+    .branch-org {
+      font-family: var(--font-technical);
+      font-size: 0.75rem;
+      color: var(--color-accent-action);
+      margin-bottom: 1rem;
+    }
+    .branch-desc {
+      font-size: 0.95rem;
+      color: var(--color-text-secondary);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    .branch-links {
+      list-style: none;
+      border-top: 1px solid var(--color-border-hairline);
+      padding-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      font-family: var(--font-technical);
+      font-size: 0.8rem;
+    }
+    .branch-links a {
+      color: var(--color-primary-base);
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.15s;
+    }
+    .branch-links a:hover {
+      color: var(--color-accent-action);
+    }
+
+    /* Engine Walkthrough (HybridRAG) */
+    .engine-section {
+      background: #FFFFFF;
+      border-top: 1px solid var(--color-border-hairline);
+      border-bottom: 1px solid var(--color-border-hairline);
+    }
+    .pipeline-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .step-card {
+      background: var(--color-bg-canvas);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-xs);
+      padding: 1.5rem;
+    }
+    .step-num {
+      font-family: var(--font-technical);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-accent-action);
+      margin-bottom: 0.5rem;
+    }
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-primary-base);
+      margin-bottom: 0.5rem;
+    }
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Research Callout: Percolation & Network Dynamics */
+    .research-callout {
+      background: #0F172A;
+      color: #F8FAFC;
+      border-radius: var(--radius-sm);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--color-border-hairline);
+      padding: 3rem 0;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--color-primary-base);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    .footer-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-family: var(--font-technical);
+      font-size: 0.8rem;
+    }
+    .footer-list a {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+    }
+    .footer-list a:hover {
+      color: var(--color-accent-action);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="nav-container">
+      <a href="/" class="brand-group">
+        <svg class="brand-logo" viewBox="0 0 64 64">
+          <rect width="64" height="64" rx="8" fill="#0F172A" />
+          <circle cx="16" cy="16" r="4" fill="#F8FAFC" />
+          <circle cx="48" cy="16" r="4.5" fill="#0D9488" />
+          <circle cx="32" cy="32" r="5" fill="#0D9488" />
+          <circle cx="16" cy="48" r="4" fill="#F8FAFC" />
+          <circle cx="48" cy="48" r="5" fill="#D97706" />
+          <line x1="16" y1="16" x2="48" y2="48" stroke="#334155" stroke-width="2" />
+          <line x1="16" y1="48" x2="48" y2="16" stroke="#334155" stroke-width="2" />
+        </svg>
+        <div>
+          <div class="brand-name">Executive Function OS</div>
+          <div class="brand-tag">SYSTEM SYNTHESIS & REPRODUCIBILITY</div>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#branches">Ecosystem</a>
+        <a href="#method">HybridRAG Engine</a>
+        <a href="#proof">Adversarial Proof</a>
+        <a href="#research">Open Science</a>
+        <a href="https://demo.executivefunctionos.com" target="_blank" class="nav-cta">Launch Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero-wrapper">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Structural Clarity & Dynamic Resonance
+        </div>
+        <h1 class="hero-title">
+          Turn a corpus you can't hold in your head into drafts you can defend.
+        </h1>
+        <p class="hero-lede">
+          An AI-assisted synthesis system for transforming large, high-stakes corpora into auditable, decision-grade drafts. Built for provenance, multi-agent epistemic auditing, and institutional accountability.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#method" class="sc-btn sc-btn-active">Explore Methodology</a>
+          <a href="https://demo.executivefunctionos.com" target="_blank" class="sc-btn sc-btn-default">Interactive Dynamics Demo &rarr;</a>
+        </div>
+
+        <div class="spine-box">
+          "Complex procedural systems exceed human working memory. When someone fails inside one, the failure is structural rather than personal."
+        </div>
+      </div>
+
+      <!-- Right Visual Card: Live Multi-Pass Telemetry -->
+      <div>
+        <div class="hero-card">
+          <div class="terminal-header">
+            <span>PROVENANCE AUDIT ENGINE // v2.4</span>
+            <span style="color: var(--color-accent-action);">● VERIFIED</span>
+          </div>
+
+          <div style="font-family: var(--font-technical); font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.85rem;">
+            <div style="display:flex; justify-content:space-between; border-bottom: 1px solid #1E293B; padding-bottom: 0.5rem;">
+              <span style="color: #94A3B8;">Corpus Documents</span>
+              <span style="color: #F8FAFC; font-weight:600;">1,420 PDFs / 6,280 KSLOC</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-bottom: 1px solid #1E293B; padding-bottom: 0.5rem;">
+              <span style="color: #94A3B8;">Extracted Assertions</span>
+              <span style="color: #F8FAFC; font-weight:600;">3,842 Triples</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-bottom: 1px solid #1E293B; padding-bottom: 0.5rem;">
+              <span style="color: #94A3B8;">Citation Audit</span>
+              <span style="color: #0D9488; font-weight:600;">100% CaseLaw Verified</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-bottom: 1px solid #1E293B; padding-bottom: 0.5rem;">
+              <span style="color: #94A3B8;">Hallucination Guard</span>
+              <span style="color: #D97706; font-weight:600;">Zero Tolerated</span>
+            </div>
+            <div style="display:flex; justify-content:space-between;">
+              <span style="color: #94A3B8;">Deliverable Output</span>
+              <span style="color: #F8FAFC; font-weight:600;">UTCR 2.010 Pleading Paper</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #334155; font-family: var(--font-technical); font-size: 0.72rem; color: #94A3B8;">
+            Pipeline status: Ready for federal review & clinical research pilots.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Ecosystem: Tri-Branch Architecture (Spidering Out) -->
+  <section id="branches">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag">01 / Ecosystem Architecture</div>
+        <h2 class="section-title">One Spine, Three Operational Branches</h2>
+        <p class="section-intro">
+          Executive Function OS serves as the unified research foundation. From this core, three specialized operational branches address public benefit, enterprise automation, and creative cognitive synthesis.
+        </p>
+      </div>
+
+      <div class="branch-grid">
+        <!-- Branch 1: Public Benefit & Science -->
+        <div class="branch-card">
+          <span class="sc-badge sc-badge-active branch-badge"><span class="sc-badge-dot"></span>Public Benefit & Justice</span>
+          <h3 class="branch-name">Executive-Function-OS</h3>
+          <div class="branch-org">github.com/Executive-Function-OS</div>
+          <p class="branch-desc">
+            Open-source legal aid infrastructure, computational psychiatry preprints, and non-dilutive grant research (NSF, NIH SBIR, LSC TIG). Dedicated to closing procedural justice gaps.
+          </p>
+          <ul class="branch-links">
+            <li><a href="https://github.com/Executive-Function-OS/JustiTeX" target="_blank">JustiTeX Pleading Engine (AGPL Core) <span>&rarr;</span></a></li>
+            <li><a href="https://demo.executivefunctionos.com" target="_blank">Cognitive Dynamics Demo (demo.efos) <span>&rarr;</span></a></li>
+            <li><a href="#proof">HyperRAG Adversarial Case Pipeline <span>&rarr;</span></a></li>
+            <li><a href="#research">Preprint & Federal SBIR Roadmap <span>&rarr;</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Branch 2: Commercial & Enterprise -->
+        <div class="branch-card">
+          <span class="sc-badge sc-badge-alert branch-badge"><span class="sc-badge-dot"></span>Commercial & SaaS</span>
+          <h3 class="branch-name">Precedent Systems</h3>
+          <div class="branch-org">github.com/Precedent-Systems</div>
+          <p class="branch-desc">
+            Commercial enterprise legal automation, institutional B2B APIs, and hardware/retail operational infrastructure. High-reliability tooling engineered for professional liability separation.
+          </p>
+          <ul class="branch-links">
+            <li><a href="https://github.com/Precedent-Systems/FormGuide" target="_blank">FormGuide White-Label Suite <span>&rarr;</span></a></li>
+            <li><a href="https://github.com/Precedent-Systems/DocSplit" target="_blank">DocSplit Enterprise Document Parser <span>&rarr;</span></a></li>
+            <li><a href="https://github.com/Precedent-Systems/den-silicon-lab" target="_blank">Den Silicon Lab Commerce Hub <span>&rarr;</span></a></li>
+            <li><a href="#">Enterprise Licensing & SLAs <span>&rarr;</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Branch 3: Creative Synthesis & Exploratory -->
+        <div class="branch-card">
+          <span class="sc-badge branch-badge" style="background:#F1F5F9; color:#475569;"><span class="sc-badge-dot" style="background:#94A3B8;"></span>Creative Labs</span>
+          <h3 class="branch-name">Transdimensional Studio</h3>
+          <div class="branch-org">github.com/erikssonaicloud-gif</div>
+          <p class="branch-desc">
+            Emergent cognitive play, spatial geometry, procedural audio engineering, and flow-state acceleration. Testing the boundary between human attention and algorithmic structure.
+          </p>
+          <ul class="branch-links">
+            <li><a href="#">NESTRIS Δ & 3D Spatial Spec <span>&rarr;</span></a></li>
+            <li><a href="#">Asset-Linker Mobile Workspace <span>&rarr;</span></a></li>
+            <li><a href="#">Procedural Audio & Synthesizer Lab <span>&rarr;</span></a></li>
+            <li><a href="#">Generative Interface Prototypes <span>&rarr;</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Method: HybridRAG & Multi-Agent Provenance -->
+  <section id="method" class="engine-section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag">02 / Core Technology</div>
+        <h2 class="section-title">The Multi-Agent Provenance Engine</h2>
+        <p class="section-intro">
+          Most retrieval systems retrieve passages and guess. Executive Function OS extracts grounded factual assertions, builds an auditable entity graph, checks legal citations against authoritative databases, and enforces an absolute zero-hallucination policy.
+        </p>
+      </div>
+
+      <div class="pipeline-steps">
+        <div class="step-card">
+          <div class="step-num">STAGE 01</div>
+          <h3 class="step-title">Corpus Ingestion</h3>
+          <p class="step-desc">
+            Raw, unstructured PDFs, transcripts, court dockets, and audio records pass through client-side OCR and extraction pipelines without external data exfiltration.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">STAGE 02</div>
+          <h3 class="step-title">Entity Knowledge Graph</h3>
+          <p class="step-desc">
+            Chronological timelines, relational actors, statutory duties, and exhibits are structured into an audited graph network with explicit bi-directional links.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">STAGE 03</div>
+          <h3 class="step-title">Adversarial Auditing</h3>
+          <p class="step-desc">
+            Every factual proposition is cross-referenced against original exhibits. Citations are verified live via CourtListener. Hallucinated quotes and fabricated rules are purged.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">STAGE 04</div>
+          <h3 class="step-title">Decision-Grade Drafts</h3>
+          <p class="step-desc">
+            Clean, formatted deliverables compiled in locked 28-line UTCR pleading format or peer-reviewable research reports ready for immediate external scrutiny.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Adversarial Proof: Case Study -->
+  <section id="proof">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag">03 / Empirical Validation</div>
+        <h2 class="section-title">Battle-Tested Against Adversarial Systems</h2>
+        <p class="section-intro">
+          The pipeline was forged not in an academic sandbox, but under the extreme pressures of active federal civil rights litigation (Eriksson v. Oregon City, 3:26-cv-01885-IM) and municipal quiet title proceedings.
+        </p>
+      </div>
+
+      <div style="background:#FFFFFF; border: 1px solid var(--color-border-hairline); border-radius: var(--radius-sm); padding: 2rem;">
+        <table class="sc-table">
+          <thead>
+            <tr>
+              <th>Deliverable / Case Milestone</th>
+              <th>Pipeline Role</th>
+              <th>Output Integrity Gate</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Federal Complaint (3:26-cv-01885-IM)</td>
+              <td>12-Count Section 1983 & Monell Analysis</td>
+              <td>100% Plaintext Evidence Grounded</td>
+              <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>Filed / Active</span></td>
+            </tr>
+            <tr>
+              <td>Oregon City Municipal ADA Audit</td>
+              <td>35-Year Absence of ADA Coordinator Evidence</td>
+              <td>Public Records Verification</td>
+              <td><span class="sc-badge sc-badge-alert"><span class="sc-badge-dot"></span>Systemic Finding</span></td>
+            </tr>
+            <tr>
+              <td>Appellate Reconsideration Motion</td>
+              <td>Clackamas Circuit Foreclosure Defense</td>
+              <td>UTCR 2.010 28-Line LaTeX Build</td>
+              <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>Compiled</span></td>
+            </tr>
+            <tr>
+              <td>Exhibit Package (180+ Records)</td>
+              <td>Automated Stamping, OCR, Cover Generation</td>
+              <td>Multi-page Resolution Integrity</td>
+              <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>Packaged</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Science & Research Callout -->
+  <section id="research">
+    <div class="container">
+      <div class="research-callout">
+        <div>
+          <div class="section-tag" style="color: #2DD4BF;">04 / Open Science & Research Inquiry</div>
+          <h2 style="font-family: var(--font-display); font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">
+            Percolation Dynamics & Network Physiology
+          </h2>
+          <p style="color: #CBD5E1; font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6;">
+            We explore percolation theory and observer-operator dynamics not as a finalized commercial cure, but as a rigorous, open scientific hypothesis: can digital interaction graphs and physiological time-series detect cognitive phase transitions and fragmentation before functional collapse occurs?
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://demo.executivefunctionos.com" target="_blank" class="sc-btn sc-btn-active">Visit Interactive Demo &rarr;</a>
+            <a href="mailto:contact@executivefunctionos.com" class="sc-btn" style="background:transparent; border:1px solid #64748B; color:#F8FAFC;">Research Collaboration</a>
+          </div>
+        </div>
+
+        <div style="border-left: 1px solid #334155; padding-left: 2rem; font-family: var(--font-technical); font-size: 0.8rem; color: #94A3B8;">
+          <div style="margin-bottom: 1rem; color: #F8FAFC; font-weight: 600;">ACADEMIC PREPRINTS & GRANTS</div>
+          <div style="margin-bottom: 0.75rem;">• Target: NSF SBIR Phase I (Human-Computer Interaction)</div>
+          <div style="margin-bottom: 0.75rem;">• Target: NIH PA-27-100 (Digital Mental Health / EF)</div>
+          <div style="margin-bottom: 0.75rem;">• Target: LSC TIG (Access to Justice Technology)</div>
+          <div style="color: var(--color-accent-action);">Open Science Framework: In Registration</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--color-primary-base); margin-bottom: 0.5rem;">
+            Executive Function OS
+          </div>
+          <p style="max-width: 340px; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
+            Translating complex systems into transparent, functional frameworks that maximize agency and practical outcomes.
+          </p>
+          <div style="font-family: var(--font-technical); font-size: 0.75rem; color: var(--color-accent-action);">
+            Structured Thought. Functional Action.
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Ecosystem</div>
+          <ul class="footer-list">
+            <li><a href="https://demo.executivefunctionos.com" target="_blank">demo.efos</a></li>
+            <li><a href="https://github.com/Executive-Function-OS/JustiTeX" target="_blank">JustiTeX</a></li>
+            <li><a href="https://github.com/Precedent-Systems/FormGuide" target="_blank">FormGuide</a></li>
+            <li><a href="https://github.com/Precedent-Systems/DocSplit" target="_blank">DocSplit</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Organizations</div>
+          <ul class="footer-list">
+            <li><a href="https://github.com/Executive-Function-OS" target="_blank">Executive-Function-OS</a></li>
+            <li><a href="https://github.com/Precedent-Systems" target="_blank">Precedent Systems</a></li>
+            <li><a href="https://github.com/erikssonaicloud-gif" target="_blank">Studio / Labs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Architecture</div>
+          <ul class="footer-list">
+            <li><a href="#method">HybridRAG</a></li>
+            <li><a href="#proof">Provenance Audit</a></li>
+            <li><a href="#research">Percolation Hypothesis</a></li>
+            <li><a href="#">Design System Tokens</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid var(--color-border-hairline); padding-top: 1.5rem; display: flex; justify-content: space-between; font-family: var(--font-technical); font-size: 0.75rem;">
+        <div>&copy; 2026 Annika Eriksson. All rights reserved. Built with Canva AI Visual Identity System.</div>
+        <div>UTILITY OVER ORNAMENT // ZERO SERVER EXFILTRATION</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

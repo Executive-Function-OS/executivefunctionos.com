@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="100%" height="100%">
+  <defs>
+    <style>
+      .grid-hairline { stroke: #0D9488; stroke-width: 1; stroke-dasharray: 4 4; opacity: 0.4; }
+      .structure-line { stroke: #F8FAFC; stroke-width: 2.5; stroke-linecap: round; }
+      .wave-line { stroke: #F8FAFC; stroke-width: 3.5; fill: none; stroke-linecap: round; }
+      .node-white { fill: #F8FAFC; }
+      .label-text { font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #0D9488; font-weight: 600; }
+    </style>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0F172A" />
+
+  <!-- Coordinates / Column lines -->
+  <!-- Col A: x=120, Col B: x=220, Col C: x=320, Col D: x=420 -->
+  <line class="grid-hairline" x1="120" y1="50" x2="120" y2="430" />
+  <line class="grid-hairline" x1="220" y1="50" x2="220" y2="430" />
+  <line class="grid-hairline" x1="320" y1="50" x2="320" y2="430" />
+  <line class="grid-hairline" x1="420" y1="50" x2="420" y2="430" />
+
+  <!-- Row lines -->
+  <!-- Row 04: y=120, Row 03: y=200, Row 02: y=280, Row 01: y=360 -->
+  <line class="grid-hairline" x1="70" y1="120" x2="600" y2="120" />
+  <line class="grid-hairline" x1="70" y1="200" x2="600" y2="200" />
+  <line class="grid-hairline" x1="70" y1="280" x2="600" y2="280" />
+  <line class="grid-hairline" x1="70" y1="360" x2="600" y2="360" />
+
+  <!-- Row Labels -->
+  <text class="label-text" x="75" y="125">04</text>
+  <text class="label-text" x="75" y="205">03</text>
+  <text class="label-text" x="75" y="285">02</text>
+  <text class="label-text" x="75" y="365">01</text>
+
+  <!-- Column Labels -->
+  <text class="label-text" x="115" y="415">A</text>
+  <text class="label-text" x="215" y="415">B</text>
+  <text class="label-text" x="315" y="415">C</text>
+  <text class="label-text" x="415" y="415">D</text>
+
+  <!-- Structural Mesh (A, B, C nodes connected horizontally, vertically, diagonally) -->
+  <!-- Vertical lines -->
+  <line class="structure-line" x1="120" y1="120" x2="120" y2="360" />
+  <line class="structure-line" x1="220" y1="120" x2="220" y2="360" />
+  <line class="structure-line" x1="320" y1="120" x2="320" y2="360" />
+
+  <!-- Horizontal lines -->
+  <line class="structure-line" x1="120" y1="120" x2="320" y2="120" />
+  <line class="structure-line" x1="120" y1="200" x2="320" y2="200" />
+  <line class="structure-line" x1="120" y1="280" x2="320" y2="280" />
+  <line class="structure-line" x1="120" y1="360" x2="320" y2="360" />
+
+  <!-- Diagonal X braces -->
+  <!-- Box A-B Row 04-03 -->
+  <line class="structure-line" x1="120" y1="120" x2="220" y2="200" />
+  <line class="structure-line" x1="120" y1="200" x2="220" y2="120" />
+  <!-- Box B-C Row 04-03 -->
+  <line class="structure-line" x1="220" y1="120" x2="320" y2="200" />
+  <line class="structure-line" x1="220" y1="200" x2="320" y2="120" />
+
+  <!-- Box A-B Row 03-02 -->
+  <line class="structure-line" x1="120" y1="200" x2="220" y2="280" />
+  <line class="structure-line" x1="120" y1="280" x2="220" y2="200" />
+  <!-- Box B-C Row 03-02 -->
+  <line class="structure-line" x1="220" y1="200" x2="320" y2="280" />
+  <line class="structure-line" x1="220" y1="280" x2="320" y2="200" />
+
+  <!-- Box A-B Row 02-01 -->
+  <line class="structure-line" x1="120" y1="280" x2="220" y2="360" />
+  <line class="structure-line" x1="120" y1="360" x2="220" y2="280" />
+  <!-- Box B-C Row 02-01 -->
+  <line class="structure-line" x1="220" y1="280" x2="320" y2="360" />
+  <line class="structure-line" x1="220" y1="360" x2="320" y2="280" />
+
+  <!-- Continuous Wave Contours Extending from Column C through Column D and beyond -->
+  <!-- Row 04 Wave -->
+  <path class="wave-line" d="M 320 120 C 370 120, 390 155, 440 155 C 490 155, 520 110, 580 110" />
+  <!-- Row 03 Wave -->
+  <path class="wave-line" d="M 320 200 C 370 200, 390 235, 440 235 C 490 235, 520 190, 580 190" />
+  <!-- Row 02 Wave -->
+  <path class="wave-line" d="M 320 280 C 370 280, 390 315, 440 315 C 490 315, 520 270, 580 270" />
+  <!-- Row 01 Wave -->
+  <path class="wave-line" d="M 320 360 C 370 360, 390 395, 440 395 C 490 395, 520 350, 580 350" />
+
+  <!-- Lattice Nodes -->
+  <!-- Col A -->
+  <circle class="node-white" cx="120" cy="120" r="11" />
+  <circle class="node-white" cx="120" cy="200" r="11" />
+  <circle class="node-white" cx="120" cy="280" r="11" />
+  <circle class="node-white" cx="120" cy="360" r="11" />
+
+  <!-- Col B -->
+  <circle class="node-white" cx="220" cy="120" r="11" />
+  <circle class="node-white" cx="220" cy="200" r="11" />
+  <circle class="node-white" cx="220" cy="280" r="11" />
+  <circle class="node-white" cx="220" cy="360" r="11" />
+
+  <!-- Col C (Transition Nodes) -->
+  <circle class="node-white" cx="320" cy="120" r="11" />
+  <circle class="node-white" cx="320" cy="200" r="11" />
+  <circle class="node-white" cx="320" cy="280" r="11" />
+  <circle class="node-white" cx="320" cy="360" r="11" />
+</svg>

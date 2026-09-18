@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg-grid { stroke: rgba(148, 163, 184, 0.25); stroke-width: 1; stroke-dasharray: 2 4; }
+      .base-line { stroke: #0F172A; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .wave-path-1 { stroke: #0D9488; stroke-width: 2.2; fill: none; opacity: 0.95; }
+      .wave-path-2 { stroke: #14B8A6; stroke-width: 1.8; fill: none; opacity: 0.8; }
+      .wave-path-3 { stroke: #2DD4BF; stroke-width: 1.5; fill: none; opacity: 0.65; }
+      .wave-path-subtle { stroke: #99F6E4; stroke-width: 1.2; fill: none; opacity: 0.5; }
+      .node-base { fill: #0F172A; }
+      .node-teal { fill: #0D9488; }
+      .node-amber { fill: #D97706; }
+      .node-ring { fill: none; stroke: #D97706; stroke-width: 2; opacity: 0.6; }
+    </style>
+  </defs>
+
+  <!-- Isometric Lattice Nodes and Connectors -->
+  <g transform="translate(180, 120)">
+    <!-- Structural Edges -->
+    <path class="base-line" d="
+      M 160 30 L 70 82 L 70 186 L 160 238 L 250 186 L 250 82 Z
+      M 160 30 L 160 134 L 70 186
+      M 160 134 L 250 186
+      M 160 134 L 160 238
+      M 70 82 L 160 134 L 250 82
+      M 115 56 L 115 160 L 205 212
+      M 205 56 L 205 160 L 115 212
+      M 70 134 L 250 134
+    " />
+
+    <!-- Wave Contours Flowing Rightward from Transition Nodes -->
+    <!-- Top node wave stream (from 250, 82) -->
+    <path class="wave-path-1" d="M 250 82 C 300 82, 330 110, 380 110 C 430 110, 460 60, 520 60 C 580 60, 620 95, 680 95" />
+    <path class="wave-path-2" d="M 250 82 C 290 92, 330 125, 380 125 C 430 125, 460 75, 520 75 C 580 75, 620 110, 680 110" />
+
+    <!-- Upper-mid transition (from 205, 110) -->
+    <path class="wave-path-1" d="M 205 110 C 260 110, 310 145, 360 145 C 420 145, 450 90, 510 90 C 570 90, 610 130, 680 130" />
+    <path class="wave-path-3" d="M 205 110 C 250 125, 300 160, 360 160 C 420 160, 450 105, 510 105 C 570 105, 610 145, 680 145" />
+
+    <!-- Resonant Amber Node (Transition Focal Node at 250, 134) -->
+    <path class="wave-path-1" d="M 250 134 C 295 134, 330 175, 380 175 C 430 175, 465 120, 525 120 C 585 120, 620 165, 680 165" />
+    <path class="wave-path-2" d="M 250 134 C 295 148, 330 190, 380 190 C 430 190, 465 135, 525 135 C 585 135, 620 180, 680 180" />
+
+    <!-- Lower-mid transition (from 205, 160) -->
+    <path class="wave-path-1" d="M 205 160 C 260 160, 300 205, 360 205 C 420 205, 455 150, 515 150 C 575 150, 615 195, 680 195" />
+    <path class="wave-path-3" d="M 205 160 C 250 175, 300 220, 360 220 C 420 220, 455 165, 515 165 C 575 165, 615 210, 680 210" />
+
+    <!-- Bottom transition (from 250, 186) -->
+    <path class="wave-path-1" d="M 250 186 C 295 186, 330 235, 385 235 C 440 235, 470 180, 530 180 C 590 180, 630 225, 680 225" />
+    <path class="wave-path-subtle" d="M 250 186 C 295 200, 330 250, 385 250 C 440 250, 470 195, 530 195 C 590 195, 630 240, 680 240" />
+
+    <!-- Base Lattice Nodes (Deep Slate #0F172A) -->
+    <circle class="node-base" cx="160" cy="30" r="9" />
+    <circle class="node-base" cx="70" cy="82" r="9" />
+    <circle class="node-base" cx="70" cy="134" r="9" />
+    <circle class="node-base" cx="70" cy="186" r="9" />
+    <circle class="node-base" cx="160" cy="238" r="9" />
+    <circle class="node-base" cx="115" cy="56" r="8" />
+    <circle class="node-base" cx="115" cy="108" r="8" />
+    <circle class="node-base" cx="115" cy="160" r="8" />
+    <circle class="node-base" cx="115" cy="212" r="8" />
+    <circle class="node-base" cx="160" cy="82" r="8" />
+    <circle class="node-base" cx="160" cy="134" r="9" />
+    <circle class="node-base" cx="160" cy="186" r="8" />
+
+    <!-- Transition Nodes (Signal Teal #0D9488) -->
+    <circle class="node-teal" cx="205" cy="56" r="8" />
+    <circle class="node-teal" cx="250" cy="82" r="9" />
+    <circle class="node-teal" cx="205" cy="110" r="8" />
+    <circle class="node-teal" cx="205" cy="160" r="8" />
+    <circle class="node-teal" cx="250" cy="186" r="9" />
+    <circle class="node-teal" cx="205" cy="212" r="8" />
+
+    <!-- Focal Resonant Amber Node (#D97706) -->
+    <circle class="node-ring" cx="250" cy="134" r="14" />
+    <circle class="node-amber" cx="250" cy="134" r="9" />
+  </g>
+</svg>
