@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structural Clarity UI Kit | Premium Design System for Analytical Architecture</title>
+  <meta name="description" content="Production-ready design tokens, Tailwind preset, vector marks, and modular dashboard templates built for complex systems architecture.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Charter:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--color-bg-canvas);
+      color: var(--color-text-primary);
+      font-family: var(--font-editorial);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--color-border-hairline);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-logo { width: 32px; height: 32px; }
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--color-primary-base);
+    }
+    .brand-sub {
+      font-family: var(--font-technical);
+      font-size: 0.7rem;
+      color: var(--color-accent-action);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem;
+    }
+
+    /* Hero */
+    .store-hero {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 4rem;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .store-title {
+      font-family: var(--font-display);
+      font-size: 3.25rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--color-primary-base);
+      margin-bottom: 1.25rem;
+    }
+    .store-subtitle {
+      font-size: 1.25rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Live Interactive Preview Box */
+    .preview-box {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 2.5rem;
+      margin-bottom: 5rem;
+      box-shadow: var(--shadow-technical);
+    }
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--color-border-hairline);
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Pricing Grid */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 5rem;
+    }
+    .price-card {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .price-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.1);
+      border-color: var(--color-accent-action);
+    }
+    .price-card.featured {
+      border: 2px solid var(--color-accent-action);
+      box-shadow: 0 10px 30px -5px rgba(13, 148, 136, 0.2);
+    }
+    .featured-tag {
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      background: var(--color-accent-action);
+      color: #FFFFFF;
+      font-family: var(--font-technical);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .tier-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-primary-base);
+      margin-bottom: 0.5rem;
+    }
+    .tier-price {
+      font-family: var(--font-display);
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: var(--color-primary-base);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+    .tier-price span {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--color-text-muted);
+    }
+    .tier-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      margin-bottom: 1.75rem;
+      min-height: 48px;
+    }
+    .tier-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      font-family: var(--font-technical);
+      font-size: 0.8rem;
+      color: var(--color-text-primary);
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+    .tier-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .tier-features li::before {
+      content: "✓";
+      color: var(--color-accent-action);
+      font-weight: bold;
+    }
+
+    /* Checkout simulator / modal */
+    .simulator-card {
+      background: #0F172A;
+      color: #F8FAFC;
+      border-radius: var(--radius-sm);
+      padding: 3rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    footer {
+      border-top: 1px solid var(--color-border-hairline);
+      background: #FFFFFF;
+      padding: 2.5rem 0;
+      text-align: center;
+      font-family: var(--font-technical);
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand-link">
+        <svg class="brand-logo" viewBox="0 0 64 64">
+          <rect width="64" height="64" rx="8" fill="#0F172A" />
+          <circle cx="16" cy="16" r="4" fill="#F8FAFC" />
+          <circle cx="48" cy="16" r="4.5" fill="#0D9488" />
+          <circle cx="32" cy="32" r="5" fill="#0D9488" />
+          <circle cx="16" cy="48" r="4" fill="#F8FAFC" />
+          <circle cx="48" cy="48" r="5" fill="#D97706" />
+          <line x1="16" y1="16" x2="48" y2="48" stroke="#334155" stroke-width="2" />
+          <line x1="16" y1="48" x2="48" y2="20" stroke="#334155" stroke-width="2" />
+        </svg>
+        <div>
+          <div class="brand-title">Structural Clarity UI Kit</div>
+          <div class="brand-sub">CANVA AI DESIGN SYSTEM &bull; PRODUCTION TEMPLATE</div>
+        </div>
+      </a>
+
+      <div style="display:flex; gap:1rem; align-items:center;">
+        <a href="index.html" class="sc-btn sc-btn-default">&larr; Back to EFOS Hub</a>
+        <a href="#pricing" class="sc-btn sc-btn-active">Get the Kit</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Store Hero -->
+    <div class="store-hero">
+      <div class="hero-badge">
+        <span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>VERSION 1.0 RELEASE</span>
+        <span class="sc-badge sc-badge-alert"><span class="sc-badge-dot"></span>AAA CONTRAST VALIDATED</span>
+      </div>
+      <h1 class="store-title">
+        The Design System Built for Complex Systems Architecture.
+      </h1>
+      <p class="store-subtitle">
+        Engineered for system architects, technical founders, and data-dense dashboards. Built on Deep Slate, Signal Teal, and Resonant Amber with validated typography hierarchy, modular cards, and zero fluff.
+      </p>
+    </div>
+
+    <!-- Live Interactive Component Preview -->
+    <div class="preview-box">
+      <div class="preview-header">
+        <div>
+          <h2 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; text-transform: uppercase;">
+            Live Component Architecture Preview
+          </h2>
+          <p style="font-size: 0.85rem; color: var(--color-text-secondary);">
+            Interactive demonstration of included tokens, state badges, and monospace tables.
+          </p>
+        </div>
+        <span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>Interactive Preview</span>
+      </div>
+
+      <!-- Live Dashboard Snippet Inside Box -->
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+        <div>
+          <div style="font-family: var(--font-technical); font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.5rem;">INTERACTIVE STATE CONTROLS</div>
+          <div style="display:flex; flex-direction:column; gap: 0.75rem;">
+            <button class="sc-btn sc-btn-default">Default State Button</button>
+            <button class="sc-btn sc-btn-active">Active Primary CTA</button>
+            <button class="sc-btn sc-btn-alert">Alert / Caution Action</button>
+            <button class="sc-btn sc-btn-disabled" disabled>Disabled State Control</button>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-family: var(--font-technical); font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.5rem;">MONOCHROMATIC TELEMETRY</div>
+          <table class="sc-table">
+            <thead>
+              <tr><th>Metric</th><th>Status</th><th style="text-align:right;">Delta</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lattice Node Stability</td>
+                <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>Active</span></td>
+                <td style="text-align:right; color:var(--color-accent-action); font-weight:600;">+2.4%</td>
+              </tr>
+              <tr>
+                <td>Cognitive Phase Delay</td>
+                <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>Active</span></td>
+                <td style="text-align:right; color:var(--color-accent-action); font-weight:600;">-18 ms</td>
+              </tr>
+              <tr>
+                <td>Adversarial Stress State</td>
+                <td><span class="sc-badge sc-badge-alert"><span class="sc-badge-dot"></span>Focal</span></td>
+                <td style="text-align:right; color:var(--color-warm-accent); font-weight:600;">Threshold</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Tiers Section -->
+    <div id="pricing" style="text-align:center; margin-bottom: 3rem;">
+      <div class="section-tag" style="font-family:var(--font-technical); font-size:0.75rem; color:var(--color-accent-action); font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">
+        Commercial Licensing Options
+      </div>
+      <h2 style="font-family:var(--font-display); font-size: 2.25rem; font-weight: 800; color:var(--color-primary-base);">
+        Choose Your Implementation Tier
+      </h2>
+      <p style="font-size: 1rem; color: var(--color-text-secondary); max-width: 600px; margin: 0.5rem auto 0;">
+        All tiers include instant digital delivery, lifetime updates to v1.x, and a perpetual commercial license.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Tier 1: Solo Architect -->
+      <div class="price-card">
+        <h3 class="tier-name">Solo Architect</h3>
+        <div class="tier-price">$199 <span>/ one-time</span></div>
+        <p class="tier-desc">
+          For solo developers, indie hackers, and system engineers building high-clarity tools.
+        </p>
+        <ul class="tier-features">
+          <li>Production CSS Design Tokens (tokens.css)</li>
+          <li>JSON Tokens (tokens.json) for tooling</li>
+          <li>Tailwind CSS Configuration Preset</li>
+          <li>Vector Marks (Harmonic Lattice & Threshold Node)</li>
+          <li>Responsive HTML Dashboard Template</li>
+          <li>Perpetual Single-Seat Commercial License</li>
+        </ul>
+        <a href="https://buy.stripe.com/fZu5kwelI5DI70D16K6J207" class="sc-btn sc-btn-default" style="text-align:center; justify-content:center;">
+          Purchase Solo License &rarr;
+        </a>
+      </div>
+
+      <!-- Tier 2: Studio & Agency (Featured) -->
+      <div class="price-card featured">
+        <span class="featured-tag">Recommended</span>
+        <h3 class="tier-name">Studio & Agency</h3>
+        <div class="tier-price">$499 <span>/ one-time</span></div>
+        <p class="tier-desc">
+          For software agencies, design teams, and consulting firms deploying client dashboards.
+        </p>
+        <ul class="tier-features">
+          <li>Everything in Solo Architect</li>
+          <li>5-Seat Commercial Team License</li>
+          <li>Figma & Canva Tokens Architecture Map</li>
+          <li>White-Label Client Project Rights</li>
+          <li>Monochromatic Table & Form Component Pack</li>
+          <li>Priority Implementation Support via Email</li>
+        </ul>
+        <a href="https://buy.stripe.com/fZu5kw6Tg7LQ1Gj4iW6J208" class="sc-btn sc-btn-active" style="text-align:center; justify-content:center;">
+          Purchase Studio License &rarr;
+        </a>
+      </div>
+
+      <!-- Tier 3: Enterprise Systems -->
+      <div class="price-card">
+        <h3 class="tier-name">Enterprise Systems</h3>
+        <div class="tier-price">$2,999 <span>/ one-time</span></div>
+        <p class="tier-desc">
+          For mission-critical enterprises, law firms, and institutions requiring bespoke integration.
+        </p>
+        <ul class="tier-features">
+          <li>Everything in Studio & Agency</li>
+          <li>Unlimited Seat Enterprise License</li>
+          <li>Custom Architecture Audit by Annika Eriksson</li>
+          <li>1-on-1 Implementation Workshop (2 Hours)</li>
+          <li>Bespoke Component & Telemetry Tailoring</li>
+          <li>Direct Slack/Discord Architecture Channel</li>
+        </ul>
+        <a href="https://buy.stripe.com/28E00c91o1nsckXg1E6J209" class="sc-btn sc-btn-default" style="text-align:center; justify-content:center;">
+          Purchase Enterprise &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Automated Delivery & Free Trial Simulator -->
+    <div class="simulator-card">
+      <span class="sc-badge sc-badge-active" style="background:rgba(13, 148, 136, 0.2); color:#2DD4BF; margin-bottom: 1rem;">
+        <span class="sc-badge-dot"></span>AUTOMATED DELIVERY ENGINE
+      </span>
+      <h3 style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; margin-bottom: 0.75rem;">
+        Test the Instant Delivery Flow
+      </h3>
+      <p style="color: #94A3B8; font-size: 0.95rem; max-width: 600px; margin: 0 auto 1.75rem; line-height: 1.6;">
+        Want to test how customers receive the kit? Enter your email below to simulate the post-purchase webhook and immediately download the compiled package.
+      </p>
+
+      <form id="simForm" onsubmit="handleSimulate(event)" style="display:flex; justify-content:center; gap:0.75rem; max-width:520px; margin:0 auto;">
+        <input type="email" id="simEmail" placeholder="your.email@organization.com" required style="padding:0.75rem 1rem; border-radius:4px; border:1px solid #334155; background:#1E293B; color:#FFFFFF; font-family:var(--font-technical); font-size:0.85rem; flex-grow:1; outline:none;">
+        <button type="submit" class="sc-btn sc-btn-active">Test Delivery</button>
+      </form>
+
+      <div id="simSuccess" style="display:none; margin-top:1.5rem; padding:1.25rem; background:rgba(13, 148, 136, 0.15); border:1px solid var(--color-accent-action); border-radius:4px;">
+        <div style="font-family:var(--font-display); font-weight:700; color:#2DD4BF; margin-bottom:0.25rem;">✓ Webhook Simulated Successfully!</div>
+        <p style="font-size:0.85rem; color:#CBD5E1; margin-bottom:0.75rem;">Download generated: Structural_Clarity_UI_Kit_v1.0.zip (6.9 MB)</p>
+        <a href="Structural_Clarity_UI_Kit_v1.0.zip" download class="sc-btn sc-btn-active" style="display:inline-flex;">
+          Download Asset Pack (.zip) &darr;
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container" style="padding:0;">
+      <div>&copy; 2026 Structural Clarity UI Kit &bull; Precedent Systems &bull; Annika Eriksson</div>
+      <div style="margin-top:0.5rem; color:var(--color-accent-action);">Automated Payments Powered by Stripe &bull; Zero-Server Exfiltration</div>
+    </div>
+  </footer>
+
+  <script>
+    function handleSimulate(e) {
+      e.preventDefault();
+      const email = document.getElementById('simEmail').value;
+      if (!email) return;
+      document.getElementById('simSuccess').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
