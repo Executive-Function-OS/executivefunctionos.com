@@ -17,6 +17,14 @@
   --color-warm-accent: #D97706;       /* Resonant Amber: Energy, focal nodes, alerts */
   --color-neutral-canvas: #F8FAFC;    /* Chalk White: Light canvas, legibility */
 
+  /* Juridical Profile (JudgeSmoke / PALADIN A2J) */
+  --color-juridical-paper: #F3EADC;        /* Pleading Cream / 24lb legal paper */
+  --color-juridical-ink: #1C1710;          /* Deep Pleading Ink */
+  --color-juridical-stamp: #1F5F58;        /* Courthouse Stamp Teal */
+  --color-juridical-terracotta: #C45C3E;   /* Calling Card Terracotta */
+  --color-juridical-rule: rgba(28, 23, 16, 0.18); /* Pleading hairline rules */
+  --color-juridical-rule-strong: rgba(31, 95, 88, 0.4);
+
   /* Surface & Background Tiers */
   --color-bg-canvas: #F8FAFC;         /* Light background */
   --color-bg-canvas-dark: #0F172A;    /* Dark background */

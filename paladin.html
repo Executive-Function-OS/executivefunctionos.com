@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PALADIN | Have Brief — Will Gavel • Pro Se Litigant Juridical Defense Suite</title>
+  <meta name="description" content="A territorial-courthouse juridical toolkit built for self-represented litigants standing against institutional overreach. Formatted strictly for legal aid and nonprofit Access to Justice (A2J).">
+  <link rel="icon" type="image/svg+xml" href="favicon-paladin.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Charter:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="kinetic_clarity_buttons.css">
+
+  <!-- OpenGraph & Twitter Cards -->
+  <meta property="og:title" content="PALADIN | Have Brief — Will Gavel">
+  <meta property="og:description" content="The pro se litigant standing on the land is the modern homesteader. The brief is the modern Winchester.">
+  <meta property="og:image" content="https://executive-function-os.github.io/executivefunctionos.com/paladin-knight-mark.svg">
+  <meta property="og:url" content="https://executive-function-os.github.io/executivefunctionos.com/paladin.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@AnniEriksson1">
+
+  <style>
+    /* JudgeSmoke Juridical Theme Overrides */
+    :root {
+      --paladin-paper: #F3EADC;
+      --paladin-paper-subtle: #FAF6EE;
+      --paladin-ink: #1C1710;
+      --paladin-ink-muted: #574F44;
+      --paladin-teal: #1F5F58;
+      --paladin-teal-light: #EBF4F3;
+      --paladin-terracotta: #C45C3E;
+      --paladin-terracotta-light: #FBF0ED;
+      --paladin-rule: rgba(28, 23, 16, 0.16);
+      --paladin-rule-strong: rgba(31, 95, 88, 0.35);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5.5rem;
+      background-color: var(--paladin-paper);
+    }
+
+    [id] {
+      scroll-margin-top: 5.5rem;
+    }
+
+    body {
+      background-color: var(--paladin-paper);
+      color: var(--paladin-ink);
+      font-family: var(--font-editorial);
+      line-height: 1.65;
+      font-size: 1.05rem;
+      position: relative;
+    }
+
+    /* Subtle Pleading Paper Background Grid Texture */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: 
+        linear-gradient(to right, rgba(31, 95, 88, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(28, 23, 16, 0.035) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(243, 234, 220, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--paladin-teal);
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(28, 23, 16, 0.05);
+    }
+
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: var(--paladin-ink);
+    }
+
+    .brand-logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(28, 23, 16, 0.2);
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--paladin-ink);
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-family: var(--font-technical);
+      font-size: 0.68rem;
+      color: var(--paladin-teal);
+      letter-spacing: 0.06em;
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .paladin-nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-family: var(--font-technical);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .paladin-nav-links a {
+      color: var(--paladin-ink);
+      text-decoration: none;
+      transition: color 0.15s ease;
+      padding: 0.25rem 0.2rem;
+    }
+
+    .paladin-nav-links a:hover {
+      color: var(--paladin-terracotta);
+      border-bottom: 1.5px solid var(--paladin-terracotta);
+    }
+
+    /* Badges & Tags */
+    .p-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-technical);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .p-badge-teal {
+      background: var(--paladin-teal-light);
+      color: var(--paladin-teal);
+      border: 1px solid var(--paladin-teal);
+    }
+
+    .p-badge-terracotta {
+      background: var(--paladin-terracotta-light);
+      color: var(--paladin-terracotta);
+      border: 1px solid var(--paladin-terracotta);
+    }
+
+    .p-badge-ink {
+      background: rgba(28, 23, 16, 0.08);
+      color: var(--paladin-ink);
+      border: 1px solid rgba(28, 23, 16, 0.25);
+    }
+
+    /* Hero Section */
+    .paladin-hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      align-items: center;
+      padding: 4.5rem 0 3.5rem;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-technical);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--paladin-terracotta);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .hero-tagline::before {
+      content: "";
+      display: inline-block;
+      width: 18px;
+      height: 2px;
+      background: var(--paladin-terracotta);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 3.25rem;
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--paladin-ink);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-lead {
+      font-size: 1.22rem;
+      color: var(--paladin-ink-muted);
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* Pleading Paper Hero Specimen */
+    .pleading-sheet {
+      background: #FFFDF9;
+      border: 1px solid rgba(28, 23, 16, 0.25);
+      box-shadow: 0 16px 36px -12px rgba(28, 23, 16, 0.25), 0 0 0 1px rgba(243, 234, 220, 0.5);
+      border-radius: 2px;
+      padding: 1.75rem 1.75rem 2rem 3.5rem;
+      position: relative;
+      font-family: var(--font-editorial);
+      color: var(--paladin-ink);
+      font-size: 0.88rem;
+      line-height: 1.75;
+      user-select: none;
+    }
+
+    /* 28-Line Pleading Numbered Left Margin */
+    .pleading-sheet::before {
+      content: "1\A 2\A 3\A 4\A 5\A 6\A 7\A 8\A 9\A 10\A 11\A 12\A 13\A 14\A 15\A 16\A 17\A 18\A 19\A 20\A 21\A 22\A 23\A 24\A 25\A 26\A 27\A 28";
+      white-space: pre-line;
+      position: absolute;
+      top: 1.75rem;
+      left: 1.25rem;
+      font-family: var(--font-technical);
+      font-size: 0.72rem;
+      color: rgba(28, 23, 16, 0.4);
+      line-height: 1.75;
+      text-align: right;
+      width: 1.5rem;
+    }
+
+    /* Double Left Rule */
+    .pleading-sheet::after {
+      content: "";
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 3rem;
+      width: 3px;
+      border-left: 1px solid var(--paladin-teal);
+      border-right: 1px solid var(--paladin-teal);
+      opacity: 0.55;
+    }
+
+    .caption-box {
+      border: 1px solid var(--paladin-ink);
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      font-family: var(--font-technical);
+      font-size: 0.75rem;
+      line-height: 1.4;
+      background: var(--paladin-paper-subtle);
+    }
+
+    .caption-header {
+      text-align: center;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      color: var(--paladin-teal);
+    }
+
+    .caption-columns {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 0.5rem;
+      border-top: 1px solid var(--paladin-rule);
+      padding-top: 0.5rem;
+    }
+
+    .caption-divider {
+      border-left: 1px solid var(--paladin-rule);
+      padding-left: 0.5rem;
+    }
+
+    /* Paladin Calling Card Specimen */
+    .calling-card {
+      background: var(--paladin-terracotta);
+      color: #FFFDF9;
+      padding: 1.25rem 1.5rem;
+      border-radius: 2px;
+      box-shadow: 0 10px 20px -5px rgba(196, 92, 62, 0.4);
+      margin-top: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .calling-card::after {
+      content: "";
+      position: absolute;
+      right: -10px; bottom: -15px;
+      width: 80px; height: 80px;
+      background-image: url('favicon-paladin.svg');
+      background-size: cover;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-subtitle {
+      font-family: var(--font-editorial);
+      font-style: italic;
+      font-size: 0.95rem;
+      opacity: 0.92;
+      margin: 0.25rem 0 0.75rem;
+    }
+
+    .card-rule {
+      height: 1px;
+      background: rgba(255, 253, 249, 0.3);
+      margin-bottom: 0.75rem;
+    }
+
+    .card-body {
+      font-family: var(--font-technical);
+      font-size: 0.76rem;
+      line-height: 1.5;
+      letter-spacing: 0.02em;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 4rem 0;
+      position: relative;
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+      border-bottom: 2px solid var(--paladin-rule);
+      padding-bottom: 1rem;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-technical);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--paladin-teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--paladin-ink);
+      line-height: 1.2;
+    }
+
+    .section-desc {
+      font-size: 1.12rem;
+      color: var(--paladin-ink-muted);
+      max-width: 820px;
+      margin-top: 0.5rem;
+    }
+
+    /* Manifesto Box */
+    .manifesto-panel {
+      background: #FFFDF9;
+      border: 1px solid var(--paladin-rule);
+      border-left: 6px solid var(--paladin-teal);
+      padding: 2.5rem;
+      box-shadow: 0 4px 12px rgba(28, 23, 16, 0.04);
+      margin-bottom: 2rem;
+    }
+
+    .manifesto-quote {
+      font-family: var(--font-editorial);
+      font-size: 1.45rem;
+      font-style: italic;
+      color: var(--paladin-ink);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .manifesto-body {
+      font-size: 1.08rem;
+      color: var(--paladin-ink-muted);
+      line-height: 1.75;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* The Comparison Matrix Table */
+    .matrix-wrapper {
+      background: #FFFDF9;
+      border: 1px solid var(--paladin-rule);
+      box-shadow: 0 4px 16px rgba(28, 23, 16, 0.05);
+      border-radius: 2px;
+      overflow-x: auto;
+      margin-bottom: 3rem;
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    .matrix-table th {
+      background: var(--paladin-teal);
+      color: #FFFDF9;
+      font-family: var(--font-technical);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1rem 1.25rem;
+      border-right: 1px solid rgba(255, 253, 249, 0.2);
+    }
+
+    .matrix-table th:last-child { border-right: none; }
+
+    .matrix-table td {
+      padding: 1.25rem;
+      border-bottom: 1px solid var(--paladin-rule);
+      border-right: 1px solid var(--paladin-rule);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .matrix-table td:last-child { border-right: none; }
+
+    .matrix-table tr:last-child td { border-bottom: none; }
+
+    .matrix-table tr:hover td {
+      background-color: var(--paladin-paper-subtle);
+    }
+
+    .pattern-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--paladin-ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .pattern-sub {
+      font-family: var(--font-technical);
+      font-size: 0.78rem;
+      color: var(--paladin-terracotta);
+      font-weight: 600;
+    }
+
+    .principle-tag {
+      font-family: var(--font-technical);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--paladin-teal);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+      display: block;
+    }
+
+    /* Weaponry Cards Grid */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .tool-card {
+      background: #FFFDF9;
+      border: 1px solid var(--paladin-rule);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(28, 23, 16, 0.08);
+      border-color: var(--paladin-teal);
+    }
+
+    .tool-num {
+      font-family: var(--font-technical);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--paladin-terracotta);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tool-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--paladin-ink);
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .tool-desc {
+      font-size: 0.98rem;
+      color: var(--paladin-ink-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .tool-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-family: var(--font-technical);
+      font-size: 0.78rem;
+      color: var(--paladin-ink);
+      border-top: 1px solid var(--paladin-rule);
+      padding-top: 1rem;
+    }
+
+    .tool-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    .tool-features li::before {
+      content: "§";
+      color: var(--paladin-teal);
+      font-weight: bold;
+    }
+
+    /* Document Rescue Specimen Section */
+    .rescue-panel {
+      background: #FFFDF9;
+      border: 2px solid var(--paladin-teal);
+      padding: 3rem;
+      box-shadow: 0 12px 32px rgba(31, 95, 88, 0.1);
+      margin-bottom: 4rem;
+    }
+
+    .rescue-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .rescue-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .rescue-step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .rescue-step-num {
+      background: var(--paladin-teal);
+      color: #FFFDF9;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-technical);
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .rescue-step-content h4 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--paladin-ink);
+      margin-bottom: 0.2rem;
+    }
+
+    .rescue-step-content p {
+      font-size: 0.92rem;
+      color: var(--paladin-ink-muted);
+      line-height: 1.5;
+    }
+
+    .rescue-intake-card {
+      background: var(--paladin-paper-subtle);
+      border: 1px solid var(--paladin-rule);
+      padding: 2rem;
+      border-radius: 2px;
+    }
+
+    .intake-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--paladin-ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .intake-sub {
+      font-family: var(--font-technical);
+      font-size: 0.78rem;
+      color: var(--paladin-ink-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .intake-row {
+      margin-bottom: 1.15rem;
+    }
+
+    .intake-label {
+      display: block;
+      font-family: var(--font-technical);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--paladin-ink);
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .intake-select, .intake-input {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      font-family: var(--font-technical);
+      font-size: 0.85rem;
+      background: #FFFDF9;
+      border: 1px solid var(--paladin-rule);
+      color: var(--paladin-ink);
+      border-radius: 2px;
+    }
+
+    .intake-select:focus, .intake-input:focus {
+      outline: none;
+      border-color: var(--paladin-teal);
+      box-shadow: 0 0 0 2px rgba(31, 95, 88, 0.2);
+    }
+
+    /* A2J Non-Profit Pledge */
+    .a2j-pledge {
+      background: var(--paladin-ink);
+      color: var(--paladin-paper);
+      padding: 3rem;
+      margin-bottom: 4rem;
+      border-radius: 2px;
+      box-shadow: 0 16px 36px rgba(28, 23, 16, 0.3);
+    }
+
+    .a2j-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .a2j-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--paladin-paper);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .a2j-lead {
+      font-size: 1.05rem;
+      color: #D1C5B4;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .a2j-specs {
+      border-left: 2px solid var(--paladin-terracotta);
+      padding-left: 1.5rem;
+      font-family: var(--font-technical);
+      font-size: 0.82rem;
+      color: #D1C5B4;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 2px solid var(--paladin-teal);
+      background: var(--paladin-paper-subtle);
+      padding: 3.5rem 0;
+      font-size: 0.88rem;
+      color: var(--paladin-ink-muted);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--paladin-ink);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--paladin-ink);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+
+    .footer-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-family: var(--font-technical);
+      font-size: 0.8rem;
+    }
+
+    .footer-list a {
+      color: var(--paladin-ink-muted);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .footer-list a:hover {
+      color: var(--paladin-terracotta);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--paladin-rule);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-technical);
+      font-size: 0.75rem;
+      color: var(--paladin-ink-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .paladin-hero { grid-template-columns: 1fr; }
+      .rescue-grid { grid-template-columns: 1fr; }
+      .a2j-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .paladin-nav-links { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-title { font-size: 2.4rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .pleading-sheet { padding-left: 2.75rem; }
+      .pleading-sheet::after { left: 2.25rem; }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand-link" title="Return to EFOS Hub">
+        <img src="paladin-knight-mark.svg" alt="Paladin Mark" class="brand-logo-img">
+        <div>
+          <div class="brand-title">PALADIN</div>
+          <div class="brand-sub">Have Brief — Will Gavel &bull; A2J Defense Suite</div>
+        </div>
+      </a>
+
+      <div style="display:flex; gap:1.25rem; align-items:center;">
+        <nav class="paladin-nav-links">
+          <a href="#manifesto">Manifesto</a>
+          <a href="#matrix">Frontier vs. Machine</a>
+          <a href="#weapons">The Weapons</a>
+          <a href="#rescue">Document Rescue</a>
+          <a href="store.html">UI Kit</a>
+          <a href="lab.html">Lab</a>
+        </nav>
+        <a href="#rescue" class="sc-btn sc-3d-slate sc-btn--sm">Rescue Pleading</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero Section -->
+    <div class="paladin-hero">
+      <div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem;">
+          <span class="p-badge p-badge-teal">JURIDICAL DEFENSE SYSTEM</span>
+          <span class="p-badge p-badge-terracotta">JUDGESMOKE PROFILE</span>
+          <span class="p-badge p-badge-ink">NONPROFIT ACCESS TO JUSTICE</span>
+        </div>
+        <div class="hero-tagline">The Full Circle of Real Property Law</div>
+        <h1 class="hero-title">
+          The Pro Se Litigant Standing on the Land Is the Modern Homesteader.
+        </h1>
+        <p class="hero-lead">
+          The brief is the modern Winchester. The ancient formalities of real property law—standing, production of the note, and an unbroken recorded chain of title—are the only weapons that still work against an absentee empire that lost track of its own paper.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#manifesto" class="sc-btn sc-btn-active">Read The Manifesto</a>
+          <a href="#matrix" class="sc-btn sc-btn-default">Inspect The Matrix</a>
+          <a href="#weapons" class="sc-btn sc-outline-bracket">View Pro Se Weapons</a>
+        </div>
+      </div>
+
+      <!-- Live Pleading Sheet Specimen -->
+      <div class="pleading-sheet">
+        <div class="caption-box">
+          <div class="caption-header">In the Circuit Court of the State of Oregon<br>For the County of Clackamas</div>
+          <div class="caption-columns">
+            <div>
+              SELF-REPRESENTED LITIGANT,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defendant / Homesteader,<br>
+              &nbsp;&nbsp;v.<br>
+              ABSENTEE RMBS TRUST et al.,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plaintiff / Syndicate.
+            </div>
+            <div class="caption-divider">
+              Case No. 17CV38591<br>
+              <strong>DEFENDANT'S OBJECTIONS TO VOID ORDER; DEMAND FOR WET-INK NOTE</strong><br>
+              (UCC § 3-301 / ORS 73.0301)
+            </div>
+          </div>
+        </div>
+
+        <p style="text-indent: 2rem; margin-bottom: 0.75rem;">
+          <strong>COME NOW</strong> the self-represented occupants, defending their hearth and parcel against an absentee financial trust possessing zero personal knowledge of the real property.
+        </p>
+        <p style="text-indent: 2rem; margin-bottom: 0.75rem;">
+          Plaintiff operates as a remote derivative pool, having bypassed the Clackamas County deed registry via private MERS ledgers. Under centuries-old real property law, an electronic notation cannot alienate physical soil. The negotiable instrument must be physically produced in open court.
+        </p>
+
+        <!-- Terracotta Knight Calling Card -->
+        <div class="calling-card">
+          <div class="card-title">
+            <span>PALADIN</span>
+            <span style="font-size:0.75rem; letter-spacing:0.04em;">A2J DEFENSE</span>
+          </div>
+          <div class="card-subtitle">Have Brief — Will Gavel</div>
+          <div class="card-rule"></div>
+          <div class="card-body">
+            DEFENSE OF THE HOMESTEAD &bull; STRICT EVIDENTIARY AUDITING<br>
+            OREGON UTCR 28-LINE COMPLIANCE &bull; ZERO-HALLUCINATION VERIFICATION
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 1: The Manifesto -->
+    <section id="manifesto">
+      <div class="section-header">
+        <div class="section-eyebrow">01 — Structural Inevitability</div>
+        <h2 class="section-heading">The Rules Were Never Repealed</h2>
+        <p class="section-desc">
+          The parallel between the 19th-century frontier range wars and modern mortgage securitization is not poetic. It is structural.
+        </p>
+      </div>
+
+      <div class="manifesto-panel">
+        <div class="manifesto-quote">
+          &ldquo;Physical, immovable land and human possession versus absentee, frictionless capital that treats the land as an algorithmic line-item. Everything else follows from that single contradiction.&rdquo;
+        </div>
+        <div class="manifesto-body">
+          <p>
+            For thirty years, modern financial architecture operated on a single core assumption: that physical real property could be abstracted into frictionless, high-frequency digital securities that trade across global clearinghouses in nanoseconds without county recording fees, without physical deed books, and without human accountability.
+          </p>
+          <p>
+            <strong>Real property refused.</strong>
+          </p>
+          <p>
+            The physical soil, the immobility of the ground, the GPS coordinates, the wet-ink promissory note, and the public county recording acts still impose an inescapable friction that pure financial capital cannot fully erase. When the debt goes bad and the foreclosure machine scrambles back into a local county courthouse to seize the home, it must step out of the frictionless digital ether and enter the ancient domain of real property law.
+          </p>
+          <p>
+            <strong>The ancient rules were never repealed. The industry simply tried to route around them.</strong>
+          </p>
+          <p>
+            They invented MERS to bypass the county clerk. They invented Lost Note Affidavits to paper over lost negotiable instruments. They automated robosigning to fabricate chains of title that never existed. But the moment a self-represented homeowner stands before a judge and demands proof of standing, production of the original instrument under UCC Article 3, and an unbroken chain of assignments under the state recording acts, the ancient common-law formalities reassert their full legal authority.
+          </p>
+          <p>
+            That is the breach in the fortress. That is the opening the pro se litigant can walk through.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Frontier vs. Modern Machine Comparison Matrix -->
+    <section id="matrix">
+      <div class="section-header">
+        <div class="section-eyebrow">02 — The Clean Architecture of the Parallel</div>
+        <h2 class="section-heading">Frontier Pattern vs. Modern Machine</h2>
+        <p class="section-desc">
+          How the 19th-century range war playbook re-emerged in high-finance securitization—and the enduring legal friction that stops it.
+        </p>
+      </div>
+
+      <div class="matrix-wrapper">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="width: 23%;">Frontier Pattern</th>
+              <th style="width: 25%;">Modern Machine</th>
+              <th style="width: 27%;">Unbroken Legal Principle</th>
+              <th style="width: 25%;">PALADIN Countermeasure</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="pattern-title">Distant Syndicate</div>
+                <div class="pattern-sub">Boston/Scottish capital, railroad land grants</div>
+                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
+                  Absentee cartels claiming vast territorial acreage without setting foot on the soil or knowing its occupants.
+                </p>
+              </td>
+              <td>
+                <div class="pattern-title">RMBS Trusts + Servicers</div>
+                <div class="pattern-sub">Wall Street pools, automated sub-servicers</div>
+                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
+                  Corporate trustees in Delaware with automated sub-servicers treating human dispossessions as algorithmic spreadsheet entries.
+                </p>
+              </td>
+              <td>
+                <span class="principle-tag">Rule of Evidence: Personal Knowledge</span>
+                A distant entity cannot testify to events without personal knowledge. Corporate affidavits based on automated databases fail under Rule 803(6) and personal standing thresholds.
+              </td>
+              <td>
+                <strong>Standing Audit & Motion to Strike:</strong> Dissects plaintiff's lack of personal knowledge and challenges corporate witness affidavits lacking foundation.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="pattern-title">Circumventing Land Offices</div>
+                <div class="pattern-sub">Dummy filers, fraudulent preemption corridors</div>
+                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
+                  Speculator cartels bypassing local territorial land registries to evade scrutiny and monopolize title.
+                </p>
+              </td>
+              <td>
+                <div class="pattern-title">MERS Electronic Database</div>
+                <div class="pattern-sub">Private ledger bypassing county deed books</div>
+                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
+                  Mortgage Electronic Registration Systems established to avoid county recording fees and hide true debt ownership from public inspection.
+                </p>
+              </td>
+              <td>
+                <span class="principle-tag">Public Recording Acts Endure</span>
+                State recording acts were never repealed. A private electronic ledger entry does not confer lawful recorded ownership over physical land without a public deed record.
+              </td>
+              <td>
+                <strong>Chain of Title Verification:</strong> Cross-references county public deed records against unrecorded electronic transfers to establish fatal breaks in the title chain.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="pattern-title">Manufactured Paper</div>
+                <div class="pattern-sub">Backdated warrants, forged land scrip</div>
+                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
+                  Territorial land rings manufacturing paper claims to dispossess established homesteaders under color of law.
+                </p>
+              </td>
+              <td>
+                <div class="pattern-title">Robosigning & Lost Notes</div>
+                <div class="pattern-sub">Assembly-line affidavits, missing indorsements</div>
+                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
+                  Document mills mass-signing mortgage assignments, backdating transfers, and swearing "Lost Note Affidavits" when original notes are lost.
+                </p>
+              </td>
+              <td>
+                <span class="principle-tag">UCC Article 3 Negotiable Instruments</span>
+                A mortgage note is a negotiable instrument. Enforcing it requires physical possession of the original instrument (the wet-ink note) or strict statutory proof of loss.
+              </td>
+              <td>
+                <strong>Demand for Wet-Ink Production:</strong> Compels formal in-camera inspection of the original negotiable promissory note under UCC § 3-301 / ORS 73.0301.
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="pattern-title">Captured Marshal</div>
+                <div class="pattern-sub">Enforcing writs for the cattle syndicate</div>
+                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
+                  Using territorial lawmen to serve eviction writs on behalf of cattle barons against small homesteaders.
+                </p>
+              </td>
+              <td>
+                <div class="pattern-title">Municipal Enforcement</div>
+                <div class="pattern-sub">Sheriffs & code officers executing void process</div>
+                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
+                  Local law enforcement and city code compliance weaponized to execute evictions and placards on behalf of invalid orders.
+                </p>
+              </td>
+              <td>
+                <span class="principle-tag">Constitutional Due Process</span>
+                An enforcement officer's writ is only as valid as the underlying jurisdiction. Orders entered without subject-matter jurisdiction or proper service are void ab initio.
+              </td>
+              <td>
+                <strong>Emergency Stay & Procedural Injunction:</strong> Equips the homesteader with emergency filings to halt unlawful enforcement pending full evidentiary review.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 3: The Weaponry (Pro Se Tools) -->
+    <section id="weapons">
+      <div class="section-header">
+        <div class="section-eyebrow">03 — The Pro Se Litigant's Arsenal</div>
+        <h2 class="section-heading">Weapons for the Frontier Defender</h2>
+        <p class="section-desc">
+          Engineered from years of high-stakes court litigation. Built to eliminate the technical traps that courts use to dismiss unrepresented citizens.
+        </p>
+      </div>
+
+      <div class="tools-grid">
+        <!-- Tool 1 -->
+        <div class="tool-card">
+          <div class="tool-num">
+            <span>TOOL 01</span>
+            <span class="p-badge p-badge-teal">JUSTITEX ENGINE</span>
+          </div>
+          <h3 class="tool-title">UTCR 28-Line Pleading Engine</h3>
+          <p class="tool-desc">
+            Automates the strict mathematical formatting required by Oregon Uniform Trial Court Rules. Eliminates the margin errors, line spacing defects, and caption irregularities that lead to automatic clerk rejections.
+          </p>
+          <ul class="tool-features">
+            <li>Strict 28-line numbered vertical margin grid</li>
+            <li>Two-column court caption geometry (Clackamas / Multnomah / Marion)</li>
+            <li>Automated certificates of service and declaration signature blocks</li>
+            <li>LaTeX / LibreOffice lossless compilation to court-ready PDF</li>
+          </ul>
+        </div>
+
+        <!-- Tool 2 -->
+        <div class="tool-card">
+          <div class="tool-num">
+            <span>TOOL 02</span>
+            <span class="p-badge p-badge-terracotta">FIREWALL GATE</span>
+          </div>
+          <h3 class="tool-title">Citation Auditor & Hallucination Firewall</h3>
+          <p class="tool-desc">
+            Every legal assertion must stand on solid bedrock. Connects directly to CourtListener to verify case citations, reporter volume numbers, and pinpoint pages while strictly blocking hallucinated citations.
+          </p>
+          <ul class="tool-features">
+            <li>Automated reporter, volume, and page verification</li>
+            <li>Strict firewall against fictional case names and phantom statutes</li>
+            <li>Validates Oregon Revised Statutes (ORS) and Oregon Rules of Civil Procedure (ORCP)</li>
+            <li>Flags adverse precedent and overruled authorities before filing</li>
+          </ul>
+        </div>
+
+        <!-- Tool 3 -->
+        <div class="tool-card">
+          <div class="tool-num">
+            <span>TOOL 03</span>
+            <span class="p-badge p-badge-teal">EXHIBIT PACKAGER</span>
+          </div>
+          <h3 class="tool-title">Bates Stamping & Exhibit Packaging</h3>
+          <p class="tool-desc">
+            Takes messy PDF evidence drops and compiles them into a unified, court-ready deliverable. Automatically splits documents, applies alphanumeric labels, generates cover sheets, and builds an indexed table of exhibits.
+          </p>
+          <ul class="tool-features">
+            <li>Automated alphanumeric exhibit stamping (Exhibit 101, 102...)</li>
+            <li>Embedded PDF outline bookmarks matching pleading citations</li>
+            <li>Resolution-sensitive selective compression preserving text readability</li>
+            <li>Generates formal UTCR 13.110 Exhibit Manifest & Table of Contents</li>
+          </ul>
+        </div>
+
+        <!-- Tool 4 -->
+        <div class="tool-card">
+          <div class="tool-num">
+            <span>TOOL 04</span>
+            <span class="p-badge p-badge-ink">TRUTH ENGINE</span>
+          </div>
+          <h3 class="tool-title">Chronological Ground Truth Matrix</h3>
+          <p class="tool-desc">
+            Prevents factual exaggeration and narrative drift. Bi-directionally links every sentence of the statement of facts to a specific Bates-stamped document in the verified record.
+          </p>
+          <ul class="tool-features">
+            <li>Zero-tolerance cross-check against CASE_GROUND_TRUTH</li>
+            <li>Enforces strictly linear chronology (eliminates temporal hallucinations)</li>
+            <li>Links every factual allegation to Bates-numbered evidence</li>
+            <li>Separates confirmed documentary facts from contested legal claims</li>
+          </ul>
+        </div>
+
+        <!-- Tool 5 -->
+        <div class="tool-card">
+          <div class="tool-num">
+            <span>TOOL 05</span>
+            <span class="p-badge p-badge-teal">HYPERRAG CORE</span>
+          </div>
+          <h3 class="tool-title">HyperRAG Retrospective Case Assistant</h3>
+          <p class="tool-desc">
+            Retrieval-augmented semantic intelligence over thousands of pages of court dockets, transcripts, and authorities. Uncovers overlooked defenses, jurisdictional defects, and unbriefed errors in prior rulings.
+          </p>
+          <ul class="tool-features">
+            <li>Hybrid lexical/vector retrieval over massive case corpora</li>
+            <li>Knowledge graph linking related parties, trusts, and servicers</li>
+            <li>Detects void orders and lack of subject-matter jurisdiction</li>
+            <li>Directly integrated into the Oregon Legal Foundation grant framework</li>
+          </ul>
+        </div>
+
+        <!-- Tool 6 -->
+        <div class="tool-card">
+          <div class="tool-num">
+            <span>TOOL 06</span>
+            <span class="p-badge p-badge-terracotta">ACCESS TO JUSTICE</span>
+          </div>
+          <h3 class="tool-title">Fee Waiver & Procedural Guidance Gate</h3>
+          <p class="tool-desc">
+            Removes economic barriers to the courtroom. Streamlines the preparation of statutory indigency waivers under 28 U.S.C. § 1915 and ORS 21.682 with comprehensive procedural checklists.
+          </p>
+          <ul class="tool-features">
+            <li>Guided preparation of in forma pauperis (IFP) applications</li>
+            <li>UTCR 21 e-filing mechanical preflight checks</li>
+            <li>Emergency stay checklists for imminent sheriff notices</li>
+            <li>Clear plain-language explanations of court timelines and reply windows</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Document Rescue Specimen -->
+    <section id="rescue">
+      <div class="section-header">
+        <div class="section-eyebrow">04 — Evidentiary Triage</div>
+        <h2 class="section-heading">The Court Document Rescue</h2>
+        <p class="section-desc">
+          Not generic AI writing. We take rejected drafts, messy PDFs, and urgent filing deadlines, and reconstruct a compliant, verified legal document that courts cannot dismiss on procedural defects.
+        </p>
+      </div>
+
+      <div class="rescue-panel">
+        <div class="rescue-grid">
+          <div>
+            <span class="p-badge p-badge-terracotta" style="margin-bottom:0.75rem;">RAPID RESCUE WORKFLOW</span>
+            <h3 style="font-family:var(--font-display); font-size:1.85rem; font-weight:800; color:var(--paladin-ink); margin-bottom:0.75rem;">
+              Turn Rejected Pleadings Into Impregnable Court Deliverables
+            </h3>
+            <p style="font-size:1.05rem; color:var(--paladin-ink-muted); line-height:1.65;">
+              Courts reject pro se filings not because the facts are wrong, but because the margins are off, the case citations contain formatting errors, or the exhibits are disorganized. The Document Rescue fixes the mechanics so the judge is forced to confront the actual evidence.
+            </p>
+
+            <div class="rescue-steps">
+              <div class="rescue-step">
+                <div class="rescue-step-num">1</div>
+                <div class="rescue-step-content">
+                  <h4>Citation & Rule Audit</h4>
+                  <p>Every case citation is audited against CourtListener. Hallucinated quotes and defective rule citations are purged and replaced with binding authority.</p>
+                </div>
+              </div>
+
+              <div class="rescue-step">
+                <div class="rescue-step-num">2</div>
+                <div class="rescue-step-content">
+                  <h4>28-Line Pleading Standardization</h4>
+                  <p>Your arguments are placed into strict Oregon UTCR 28-line pleading paper with formal two-column captioning, numbered paragraphs, and signature blocks.</p>
+                </div>
+              </div>
+
+              <div class="rescue-step">
+                <div class="rescue-step-num">3</div>
+                <div class="rescue-step-content">
+                  <h4>Bates Exhibit Package Compilation</h4>
+                  <p>Your supporting evidence is cleaned, stamped with alphanumeric identifiers, bookmarked, and bound with an indexed table of exhibits.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:1rem; align-items:center;">
+              <a href="mailto:annika@executivefunctionos.com?subject=Court%20Document%20Rescue%20Inquiry" class="sc-btn sc-btn-active">Request Document Rescue</a>
+              <span style="font-family:var(--font-technical); font-size:0.8rem; color:var(--paladin-ink-muted);">Sliding Scale / A2J Grant Subsidized</span>
+            </div>
+          </div>
+
+          <!-- Interactive Mock Intake Card -->
+          <div class="rescue-intake-card">
+            <div class="intake-title">Document Rescue Simulator</div>
+            <div class="intake-sub">ESTIMATE PROCEDURAL INTEGRITY & REJECTION RISK</div>
+
+            <div class="intake-row">
+              <label class="intake-label">Court Jurisdiction</label>
+              <select class="intake-select" id="rescue-court">
+                <option>Oregon Circuit Court (Clackamas / Multnomah)</option>
+                <option>U.S. District Court for District of Oregon</option>
+                <option>Oregon Court of Appeals / Supreme Court</option>
+                <option>Other State Court (General Jurisdiction)</option>
+              </select>
+            </div>
+
+            <div class="intake-row">
+              <label class="intake-label">Pleading Document Type</label>
+              <select class="intake-select" id="rescue-type">
+                <option>Motion to Vacate Void Judgment (ORCP 71)</option>
+                <option>Emergency Motion for Stay of Enforcement</option>
+                <option>Objections to Proposed Order (UTCR 5.100)</option>
+                <option>Motion to Dismiss for Lack of Standing</option>
+                <option>Complaint / Amended Pleading</option>
+              </select>
+            </div>
+
+            <div class="intake-row">
+              <label class="intake-label">Current Exhibit Count</label>
+              <input type="number" class="intake-input" value="14" min="1" max="150" id="rescue-exhibits">
+            </div>
+
+            <div style="background:#FFFDF9; border:1px solid var(--paladin-rule); padding:1rem; margin:1.25rem 0; font-family:var(--font-technical); font-size:0.75rem;">
+              <div style="color:var(--paladin-teal); font-weight:700; margin-bottom:0.25rem;">PREFLIGHT DIAGNOSTIC:</div>
+              <div>&bull; UTCR 28-Line Pleading Paper: <span style="color:var(--paladin-terracotta); font-weight:700;">REQUIRED</span></div>
+              <div>&bull; CourtListener Citation Audit: <span style="color:var(--paladin-teal); font-weight:700;">ENABLED</span></div>
+              <div>&bull; Exhibit Stamping & Bookmarking: <span style="color:var(--paladin-teal); font-weight:700;">READY</span></div>
+            </div>
+
+            <button type="button" class="sc-btn sc-3d-amber sc-btn--block" onclick="alert('Document Rescue Simulator: Input registered. For live rescue triage, email contact@executivefunctionos.com with your draft document.')">
+              Run Preflight Rescue Audit
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Legal Aid & Nonprofit A2J Pledge -->
+    <section id="a2j-charter">
+      <div class="a2j-pledge">
+        <div class="a2j-grid">
+          <div>
+            <div style="font-family:var(--font-technical); font-size:0.78rem; font-weight:700; color:var(--paladin-terracotta); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.5rem;">
+              Public Benefit Charter
+            </div>
+            <h2 class="a2j-title">Monetized Exclusively in Legal Aid & Nonprofit Contexts</h2>
+            <p class="a2j-lead">
+              PALADIN was not engineered to be a predatory consumer SaaS product or a billing multiplier for corporate law firms. It exists to level the playing field for the self-represented citizen defending their rights against institutional syndicates.
+            </p>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+              <span class="p-badge p-badge-teal" style="background:rgba(31,95,88,0.3); border-color:#2a8278; color:#7ddcd1;">LSC TIG COMPLIANT</span>
+              <span class="p-badge p-badge-terracotta" style="background:rgba(196,92,62,0.3); border-color:#e07759; color:#f6b19e;">OREGON LAW FOUNDATION</span>
+              <span class="p-badge p-badge-ink" style="background:rgba(255,253,249,0.1); border-color:rgba(255,253,249,0.3); color:#FFFDF9;">ZERO COST TO INDIGENT FILERS</span>
+            </div>
+          </div>
+
+          <div class="a2j-specs">
+            <h4 style="font-family:var(--font-display); font-size:1.1rem; color:#FFFDF9; margin-bottom:0.75rem;">Supported Grant Streams</h4>
+            <p style="margin-bottom:0.75rem;">
+              <strong>Legal Services Corporation (LSC):</strong> Technology Initiative Grants (TIG) funding court self-help center kiosks and automated pleading assembly.
+            </p>
+            <p style="margin-bottom:0.75rem;">
+              <strong>Oregon Law Foundation (OLF):</strong> Category B Access to Justice project grants supporting legal aid clinics and foreclosure defense networks.
+            </p>
+            <p>
+              <strong>Pro Bono Clinic Multi-Tenancy:</strong> Permitting legal aid staff attorneys to oversee 10× more self-represented clients without drowning in administrative formatting.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+            <img src="paladin-knight-mark.svg" alt="Paladin Mark" style="width:28px; height:28px; border-radius:4px;">
+            <div class="footer-brand">PALADIN</div>
+          </div>
+          <p style="line-height:1.6; margin-bottom:1rem; font-size:0.85rem;">
+            Have Brief — Will Gavel. A territorial-courthouse juridical defense toolkit built for self-represented litigants. Formatted strictly for legal aid and nonprofit Access to Justice (A2J).
+          </p>
+          <div style="font-family:var(--font-technical); font-size:0.75rem; color:var(--paladin-teal);">
+            JUDGESMOKE JURIDICAL SUB-THEME &bull; EXECUTIVE FUNCTION OS
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">The Suite</div>
+          <ul class="footer-list">
+            <li><a href="#weapons">UTCR Pleading Engine</a></li>
+            <li><a href="#weapons">Citation Auditor</a></li>
+            <li><a href="#weapons">Bates Exhibit Studio</a></li>
+            <li><a href="#weapons">Chronological Ground Truth</a></li>
+            <li><a href="#weapons">HyperRAG Retrospective</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Philosophy</div>
+          <ul class="footer-list">
+            <li><a href="#manifesto">The Manifesto</a></li>
+            <li><a href="#matrix">Frontier vs. Machine</a></li>
+            <li><a href="#a2j-charter">Public Benefit Charter</a></li>
+            <li><a href="#rescue">Court Document Rescue</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Ecosystem</div>
+          <ul class="footer-list">
+            <li><a href="index.html">EFOS Hub</a></li>
+            <li><a href="store.html">UI Kit Store</a></li>
+            <li><a href="lab.html">Telemetry Studio</a></li>
+            <li><a href="buttons.html">Kinetic Buttons (24)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Precedent Systems &bull; Access to Justice Initiative. All rights reserved.</div>
+        <div style="display:flex; gap:1.25rem;">
+          <a href="#top" style="color:var(--paladin-teal); text-decoration:none;">&uarr; Back to Top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
