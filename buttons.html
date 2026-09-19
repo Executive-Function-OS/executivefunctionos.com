@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kinetic Clarity Buttons — 24 Animated CSS Buttons | Structural Clarity Design System</title>
+  <meta name="description" content="24 pure CSS animated buttons re-themed for the Canva AI Visual Identity System. Deep Slate, Signal Teal, Resonant Amber, and Chalk White. Zero dependencies, GPU-accelerated.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="kinetic_clarity_buttons.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #0F172A;
+      color: #F8FAFC;
+      font-family: var(--font-display, 'Space Grotesk', sans-serif);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        linear-gradient(to right, rgba(51, 65, 85, 0.25) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(51, 65, 85, 0.25) 1px, transparent 1px);
+      background-size: 32px 32px;
+      min-height: 100vh;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #334155;
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: #F8FAFC;
+    }
+    .brand-logo { width: 32px; height: 32px; }
+    .brand-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+    }
+    .brand-sub {
+      font-family: var(--font-technical, 'JetBrains Mono', monospace);
+      font-size: 0.68rem;
+      color: #0D9488;
+      letter-spacing: 0.05em;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .nav-link {
+      color: #94A3B8;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+    .nav-link:hover { color: #0D9488; }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 3.5rem;
+    }
+    .badge-bar {
+      display: inline-flex;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-family: var(--font-technical, monospace);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+    .badge-teal {
+      background: rgba(13, 148, 136, 0.15);
+      color: #14B8A6;
+      border: 1px solid rgba(13, 148, 136, 0.35);
+    }
+    .badge-amber {
+      background: rgba(217, 119, 6, 0.15);
+      color: #F59E0B;
+      border: 1px solid rgba(217, 119, 6, 0.35);
+    }
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    h1.title {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #F8FAFC 0%, #CBD5E1 50%, #0D9488 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.lead {
+      font-size: 1.15rem;
+      color: #94A3B8;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Control Bar */
+    .controls-panel {
+      background: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      padding: 1.25rem 1.75rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+    }
+    .control-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .control-label {
+      font-family: var(--font-technical, monospace);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #64748B;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .btn-toggle-group {
+      display: inline-flex;
+      background: #0F172A;
+      border: 1px solid #334155;
+      border-radius: 4px;
+      padding: 3px;
+      gap: 3px;
+    }
+    .toggle-btn {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      font-family: var(--font-technical, monospace);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.4rem 0.85rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .toggle-btn:hover { color: #F8FAFC; }
+    .toggle-btn.active {
+      background: #0D9488;
+      color: #F8FAFC;
+    }
+
+    /* Filter Pills */
+    .filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      margin-bottom: 2.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: #334155 transparent;
+    }
+    .filter-chip {
+      background: #1E293B;
+      color: #94A3B8;
+      border: 1px solid #334155;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      font-family: var(--font-technical, monospace);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .filter-chip:hover {
+      border-color: #0D9488;
+      color: #F8FAFC;
+    }
+    .filter-chip.active {
+      background: rgba(13, 148, 136, 0.2);
+      border-color: #0D9488;
+      color: #14B8A6;
+    }
+
+    /* Buttons Grid */
+    .buttons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 4rem;
+    }
+    .button-card {
+      background: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .button-card:hover {
+      border-color: #0D9488;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -6px rgba(0,0,0,0.5);
+    }
+    .card-preview-stage {
+      padding: 3rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0F172A;
+      border-bottom: 1px solid #334155;
+      min-height: 140px;
+      position: relative;
+    }
+    .card-info {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex-grow: 1;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .card-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+    .card-category {
+      font-family: var(--font-technical, monospace);
+      font-size: 0.68rem;
+      color: #0D9488;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .card-desc {
+      font-size: 0.82rem;
+      color: #94A3B8;
+      line-height: 1.45;
+    }
+    .card-classes {
+      background: #0F172A;
+      border: 1px solid #334155;
+      border-radius: 3px;
+      padding: 0.5rem 0.75rem;
+      font-family: var(--font-technical, monospace);
+      font-size: 0.74rem;
+      color: #14B8A6;
+      word-break: break-all;
+      user-select: all;
+    }
+    .card-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+    .copy-btn {
+      flex: 1;
+      background: #0F172A;
+      border: 1px solid #334155;
+      color: #CBD5E1;
+      font-family: var(--font-technical, monospace);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.45rem 0.5rem;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+    }
+    .copy-btn:hover {
+      border-color: #0D9488;
+      color: #14B8A6;
+      background: rgba(13, 148, 136, 0.1);
+    }
+    .copy-btn.copied {
+      border-color: #14B8A6;
+      color: #F8FAFC;
+      background: #0D9488;
+    }
+
+    /* Integration Guide Section */
+    .guide-box {
+      background: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      padding: 2.5rem;
+      margin-top: 4rem;
+    }
+    .guide-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #F8FAFC;
+      margin-bottom: 0.5rem;
+    }
+    .guide-subtitle {
+      font-size: 0.9rem;
+      color: #94A3B8;
+      margin-bottom: 1.75rem;
+    }
+    .code-block {
+      background: #0F172A;
+      border: 1px solid #334155;
+      border-radius: 4px;
+      padding: 1.25rem;
+      font-family: var(--font-technical, monospace);
+      font-size: 0.85rem;
+      color: #F8FAFC;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #334155;
+      background: #0B1120;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .footer-text {
+      font-size: 0.85rem;
+      color: #64748B;
+      font-family: var(--font-technical, monospace);
+    }
+
+    /* Toast Notification */
+    #toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #0D9488;
+      color: #F8FAFC;
+      font-family: var(--font-technical, monospace);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.75rem 1.25rem;
+      border-radius: 4px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.2s ease;
+      pointer-events: none;
+      z-index: 100;
+    }
+    #toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <svg class="brand-logo" viewBox="0 0 64 64">
+          <rect width="64" height="64" rx="8" fill="#0F172A" />
+          <circle cx="16" cy="16" r="4" fill="#F8FAFC" />
+          <circle cx="48" cy="16" r="4.5" fill="#0D9488" />
+          <circle cx="32" cy="32" r="5" fill="#0D9488" />
+          <circle cx="16" cy="48" r="4" fill="#F8FAFC" />
+          <circle cx="48" cy="48" r="5" fill="#D97706" />
+          <line x1="16" y1="16" x2="48" y2="48" stroke="#334155" stroke-width="2" />
+          <line x1="16" y1="48" x2="48" y2="20" stroke="#334155" stroke-width="2" />
+        </svg>
+        <div>
+          <div class="brand-title">Kinetic Clarity Buttons</div>
+          <div class="brand-sub">STRUCTURAL CLARITY &bull; 24 ANIMATED CSS BUTTONS</div>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <a href="store.html" class="nav-link">&larr; Storefront</a>
+        <a href="index.html" class="nav-link">EFOS Hub</a>
+        <a href="store.html#pricing" class="sc-btn sc-gradient-teal sc-btn--sm">Get UI Kit</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="badge-bar">
+        <span class="badge badge-teal"><span class="badge-dot"></span>24 Pure CSS Variants</span>
+        <span class="badge badge-amber"><span class="badge-dot"></span>Canva AI Visual Identity System</span>
+        <span class="badge badge-teal"><span class="badge-dot"></span>Zero JS Dependencies</span>
+      </div>
+      <h1 class="title">Kinetic Clarity Buttons</h1>
+      <p class="lead">
+        A curated suite of 24 GPU-accelerated animated CSS buttons engineered specifically for the Canva AI Visual Identity System palette: Deep Slate (<span style="color:#CBD5E1">#0F172A</span>), Signal Teal (<span style="color:#14B8A6">#0D9488</span>), Resonant Amber (<span style="color:#F59E0B">#D97706</span>), and Chalk White (<span style="color:#FFFFFF">#F8FAFC</span>).
+      </p>
+    </div>
+
+    <!-- Live Controls: Geometry & Size Switcher -->
+    <div class="controls-panel">
+      <div class="control-group">
+        <span class="control-label">Geometry:</span>
+        <div class="btn-toggle-group" id="shapeToggle">
+          <button class="toggle-btn active" data-shape="standard">Standard (4px)</button>
+          <button class="toggle-btn" data-shape="pill">Pill (9999px)</button>
+          <button class="toggle-btn" data-shape="sharp">Sharp (0px)</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <span class="control-label">Scale:</span>
+        <div class="btn-toggle-group" id="sizeToggle">
+          <button class="toggle-btn" data-size="sm">Small</button>
+          <button class="toggle-btn active" data-size="md">Standard</button>
+          <button class="toggle-btn" data-size="lg">Large</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <span class="control-label">Background Stage:</span>
+        <div class="btn-toggle-group" id="stageBgToggle">
+          <button class="toggle-btn active" data-bg="#0F172A">Deep Slate</button>
+          <button class="toggle-btn" data-bg="#1E293B">Panel Slate</button>
+          <button class="toggle-btn" data-bg="#000000">Pure Black</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="filter-bar" id="categoryFilter">
+      <button class="filter-chip active" data-filter="all">All Buttons (24)</button>
+      <button class="filter-chip" data-filter="gradient">Gradients (4)</button>
+      <button class="filter-chip" data-filter="glass">Glassmorphism (3)</button>
+      <button class="filter-chip" data-filter="neon">Harmonic Glow (3)</button>
+      <button class="filter-chip" data-filter="neumorphic">Neumorphic (3)</button>
+      <button class="filter-chip" data-filter="kinetic">Kinetic Motion (5)</button>
+      <button class="filter-chip" data-filter="outline">Ghost & HUD (3)</button>
+      <button class="filter-chip" data-filter="3d">3D Tactile Keys (3)</button>
+    </div>
+
+    <!-- 24 Button Cards Grid -->
+    <div class="buttons-grid" id="buttonsGrid">
+
+      <!-- 1. Gradient Ocean Teal -->
+      <div class="button-card" data-category="gradient">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-gradient-teal demo-btn">Signal Teal Ocean</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Signal Teal Ocean</h3>
+            <span class="card-category">Gradient</span>
+          </div>
+          <p class="card-desc">High-energy teal linear gradient with dynamic hover position shift and layered elevation shadow.</p>
+          <div class="card-classes">sc-btn sc-gradient-teal</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-gradient-teal\">Signal Teal Ocean</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-gradient-teal')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Gradient Amber Sunrise -->
+      <div class="button-card" data-category="gradient">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-gradient-amber demo-btn">Resonant Amber Sunrise</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Amber Sunrise</h3>
+            <span class="card-category">Gradient</span>
+          </div>
+          <p class="card-desc">Warm focal gradient in Resonant Amber with high-contrast Deep Slate typography.</p>
+          <div class="card-classes">sc-btn sc-gradient-amber</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-gradient-amber\">Resonant Amber Sunrise</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-gradient-amber')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Gradient Aurora Lattice -->
+      <div class="button-card" data-category="gradient">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-gradient-aurora demo-btn">Harmonic Aurora</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Harmonic Aurora</h3>
+            <span class="card-category">Gradient</span>
+          </div>
+          <p class="card-desc">Tri-color wave transitioning from Signal Teal through Slate Indigo into Resonant Amber.</p>
+          <div class="card-classes">sc-btn sc-gradient-aurora</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-gradient-aurora\">Harmonic Aurora</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-gradient-aurora')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Gradient Deep Twilight -->
+      <div class="button-card" data-category="gradient">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-gradient-twilight demo-btn">Twilight Cosmic</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Twilight Cosmic</h3>
+            <span class="card-category">Gradient</span>
+          </div>
+          <p class="card-desc">Subtle deep-slate cosmic illumination transitioning into rich Signal Teal depth.</p>
+          <div class="card-classes">sc-btn sc-gradient-twilight</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-gradient-twilight\">Twilight Cosmic</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-gradient-twilight')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Glass Frost -->
+      <div class="button-card" data-category="glass">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-glass-frost demo-btn">Chalk Frost Glass</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Chalk Frost Glass</h3>
+            <span class="card-category">Glassmorphism</span>
+          </div>
+          <p class="card-desc">16px backdrop blur with translucent Chalk White fill and hairline specular highlight.</p>
+          <div class="card-classes">sc-btn sc-glass-frost</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-glass-frost\">Chalk Frost Glass</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-glass-frost')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Dark Obsidian Glass -->
+      <div class="button-card" data-category="glass">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-glass-dark demo-btn">Dark Obsidian Glass</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Obsidian Glass</h3>
+            <span class="card-category">Glassmorphism</span>
+          </div>
+          <p class="card-desc">Deep Slate frosted panel glass with subtle dark rim reflections and teal glow on hover.</p>
+          <div class="card-classes">sc-btn sc-glass-dark</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-glass-dark\">Dark Obsidian Glass</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-glass-dark')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Prismatic Lattice Glass -->
+      <div class="button-card" data-category="glass">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-glass-prism demo-btn">Prismatic Lattice Glass</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Prismatic Lattice</h3>
+            <span class="card-category">Glassmorphism</span>
+          </div>
+          <p class="card-desc">Masked chromatic border halo cycling across Teal, Amber, and Slate spectrums.</p>
+          <div class="card-classes">sc-btn sc-glass-prism</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-glass-prism\">Prismatic Lattice Glass</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-glass-prism')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Neon Signal Teal -->
+      <div class="button-card" data-category="neon">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-neon-teal demo-btn">Neon Signal Teal</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Neon Signal Teal</h3>
+            <span class="card-category">Harmonic Glow</span>
+          </div>
+          <p class="card-desc">Vibrant teal phosphor text shadow with inverted full-bloom radiation on hover.</p>
+          <div class="card-classes">sc-btn sc-neon-teal</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-neon-teal\">Neon Signal Teal</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-neon-teal')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Neon Resonant Amber -->
+      <div class="button-card" data-category="neon">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-neon-amber demo-btn">Neon Resonant Amber</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Neon Resonant Amber</h3>
+            <span class="card-category">Harmonic Glow</span>
+          </div>
+          <p class="card-desc">High-alert phosphor amber halo designed for attention anchors and threshold actions.</p>
+          <div class="card-classes">sc-btn sc-neon-amber</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-neon-amber\">Neon Resonant Amber</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-neon-amber')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Neon Chalk Pulse -->
+      <div class="button-card" data-category="neon">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-neon-chalk demo-btn">Neon Chalk White</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Neon Chalk White</h3>
+            <span class="card-category">Harmonic Glow</span>
+          </div>
+          <p class="card-desc">Specular white illumination with soft teal ambient back-glow on trigger.</p>
+          <div class="card-classes">sc-btn sc-neon-chalk</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-neon-chalk\">Neon Chalk White</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-neon-chalk')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. Soft Neumorphic Inset -->
+      <div class="button-card" data-category="neumorphic">
+        <div class="card-preview-stage" style="background:#e2e8f0;">
+          <button class="sc-btn sc-neumorphic-soft demo-btn">Soft Technical Slab</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Soft Technical Slab</h3>
+            <span class="card-category">Neumorphic</span>
+          </div>
+          <p class="card-desc">Clean light-canvas extrusion with tactile recessed press-down on click.</p>
+          <div class="card-classes">sc-btn sc-neumorphic-soft</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-neumorphic-soft\">Soft Technical Slab</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-neumorphic-soft')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. Dark Neumorphic Monolith -->
+      <div class="button-card" data-category="neumorphic">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-neumorphic-dark demo-btn">Dark Monolith Slab</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Dark Monolith Slab</h3>
+            <span class="card-category">Neumorphic</span>
+          </div>
+          <p class="card-desc">Deep Slate dual-shadow extrusion with recessed tactile active state.</p>
+          <div class="card-classes">sc-btn sc-neumorphic-dark</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-neumorphic-dark\">Dark Monolith Slab</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-neumorphic-dark')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 13. Concave Signal Halo -->
+      <div class="button-card" data-category="neumorphic">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-neumorphic-concave demo-btn">Concave Signal Halo</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Concave Signal Halo</h3>
+            <span class="card-category">Neumorphic</span>
+          </div>
+          <p class="card-desc">Curved gradient bed with Signal Teal inset accent and inverted highlight on hover.</p>
+          <div class="card-classes">sc-btn sc-neumorphic-concave</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-neumorphic-concave\">Concave Signal Halo</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-neumorphic-concave')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14. Kinetic Shimmer Light Beam -->
+      <div class="button-card" data-category="kinetic">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-kinetic-shimmer demo-btn">Laser Shimmer Beam</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Laser Shimmer Beam</h3>
+            <span class="card-category">Kinetic Motion</span>
+          </div>
+          <p class="card-desc">Continuous 3.5s angled photon sweep across Deep Slate with teal rim illumination.</p>
+          <div class="card-classes">sc-btn sc-kinetic-shimmer</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-kinetic-shimmer\">Laser Shimmer Beam</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-kinetic-shimmer')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 15. Kinetic Pulse Ring -->
+      <div class="button-card" data-category="kinetic">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-kinetic-pulse demo-btn">Harmonic Pulse Ring</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Harmonic Pulse Ring</h3>
+            <span class="card-category">Kinetic Motion</span>
+          </div>
+          <p class="card-desc">Radar ping animation radiating outward in continuous harmonic resonance.</p>
+          <div class="card-classes">sc-btn sc-kinetic-pulse</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-kinetic-pulse\">Harmonic Pulse Ring</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-kinetic-pulse')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 16. Kinetic Conic Border Beam -->
+      <div class="button-card" data-category="kinetic">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-kinetic-border demo-btn">Conic Border Orbit</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Conic Border Orbit</h3>
+            <span class="card-category">Kinetic Motion</span>
+          </div>
+          <p class="card-desc">Rotating 360-degree conic gradient laser beam tracing button perimeter in Teal & Amber.</p>
+          <div class="card-classes">sc-btn sc-kinetic-border</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-kinetic-border\">Conic Border Orbit</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-kinetic-border')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 17. Kinetic Floating Elevation -->
+      <div class="button-card" data-category="kinetic">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-kinetic-float demo-btn">Harmonic Elevation</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Harmonic Elevation</h3>
+            <span class="card-category">Kinetic Motion</span>
+          </div>
+          <p class="card-desc">Continuous sinusoidal floating motion in Y axis with synchronized shadow blur.</p>
+          <div class="card-classes">sc-btn sc-kinetic-float</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-kinetic-float\">Harmonic Elevation</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-kinetic-float')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 18. Cybernetic Diagnostic Glitch -->
+      <div class="button-card" data-category="kinetic">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-kinetic-glitch demo-btn" data-text="DIAGNOSTIC CORE">DIAGNOSTIC CORE</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Diagnostic Glitch</h3>
+            <span class="card-category">Kinetic Motion</span>
+          </div>
+          <p class="card-desc">Dual clip-path chromatic slice splitting into Amber and Teal on hover.</p>
+          <div class="card-classes">sc-btn sc-kinetic-glitch</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-kinetic-glitch\" data-text=\"DIAGNOSTIC CORE\">DIAGNOSTIC CORE</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-kinetic-glitch')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 19. Structural Hairline Inversion -->
+      <div class="button-card" data-category="outline">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-outline-minimal demo-btn">Hairline Inversion</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Hairline Inversion</h3>
+            <span class="card-category">Ghost & HUD</span>
+          </div>
+          <p class="card-desc">Minimalist transparent outline with solid Chalk White sliding fill on hover.</p>
+          <div class="card-classes">sc-btn sc-outline-minimal</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-outline-minimal\">Hairline Inversion</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-outline-minimal')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 20. Gradient Border Fill -->
+      <div class="button-card" data-category="outline">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-outline-gradient demo-btn">Harmonic Rim Fill</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">Harmonic Rim Fill</h3>
+            <span class="card-category">Ghost & HUD</span>
+          </div>
+          <p class="card-desc">Dual-gradient border mask that floods into complete multi-tone radiance on hover.</p>
+          <div class="card-classes">sc-btn sc-outline-gradient</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-outline-gradient\">Harmonic Rim Fill</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-outline-gradient')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 21. HUD Technical Bracket -->
+      <div class="button-card" data-category="outline">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-outline-bracket demo-btn">SYS_EXECUTE_NODE</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">HUD Tech Bracket</h3>
+            <span class="card-category">Ghost & HUD</span>
+          </div>
+          <p class="card-desc">Monospace HUD brackets [ ] expanding dynamically around technical telemetry commands.</p>
+          <div class="card-classes">sc-btn sc-outline-bracket</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-outline-bracket\">SYS_EXECUTE_NODE</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-outline-bracket')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 22. 3D Resonant Amber Push -->
+      <div class="button-card" data-category="3d">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-3d-amber demo-btn">Resonant Amber Push</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">3D Amber Push</h3>
+            <span class="card-category">3D Tactile Keys</span>
+          </div>
+          <p class="card-desc">Mechanical keycap switch feel with tactile 6px depth travel in Resonant Amber.</p>
+          <div class="card-classes">sc-btn sc-3d-amber</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-3d-amber\">Resonant Amber Push</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-3d-amber')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 23. 3D Deep Slate Slab -->
+      <div class="button-card" data-category="3d">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-3d-slate demo-btn">Deep Slate 3D Slab</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">3D Slate Keycap</h3>
+            <span class="card-category">3D Tactile Keys</span>
+          </div>
+          <p class="card-desc">Tactile terminal key in Deep Slate with 5px mechanical base travel.</p>
+          <div class="card-classes">sc-btn sc-3d-slate</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-3d-slate\">Deep Slate 3D Slab</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-3d-slate')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 24. 3D Signal Teal Cyber Press -->
+      <div class="button-card" data-category="3d">
+        <div class="card-preview-stage">
+          <button class="sc-btn sc-3d-teal demo-btn">Signal Teal 3D Press</button>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3 class="card-name">3D Teal Cyber Press</h3>
+            <span class="card-category">3D Tactile Keys</span>
+          </div>
+          <p class="card-desc">Physical mechanical push in Signal Teal with deep cyan base and travel compression.</p>
+          <div class="card-classes">sc-btn sc-3d-teal</div>
+          <div class="card-actions">
+            <button class="copy-btn" onclick="copySnippet(this, '<button class=\"sc-btn sc-3d-teal\">Signal Teal 3D Press</button>')">Copy HTML</button>
+            <button class="copy-btn" onclick="copySnippet(this, 'sc-btn sc-3d-teal')">Copy Class</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Integration & Quickstart Guide -->
+    <div class="guide-box">
+      <h2 class="guide-title">Drop-In Integration Guide</h2>
+      <p class="guide-subtitle">Pure zero-dependency CSS. Fully compatible with Tailwind CSS, React, Vue, Svelte, or vanilla HTML.</p>
+
+      <div style="font-family: var(--font-technical, monospace); font-size: 0.8rem; color: #14B8A6; margin-bottom: 0.5rem;">STEP 1: LINK STYLESHEET IN YOUR &lt;HEAD&gt;</div>
+      <div class="code-block">&lt;!-- Import Canva AI Tokens &amp; Kinetic Clarity Buttons --&gt;
+&lt;link rel="stylesheet" href="tokens.css"&gt;
+&lt;link rel="stylesheet" href="kinetic_clarity_buttons.css"&gt;</div>
+
+      <div style="font-family: var(--font-technical, monospace); font-size: 0.8rem; color: #14B8A6; margin-bottom: 0.5rem;">STEP 2: ADD CLASSES TO ANY &lt;button&gt; OR &lt;a&gt; ELEMENT</div>
+      <div class="code-block">&lt;!-- Primary Kinetic Shimmer CTA --&gt;
+&lt;button class="sc-btn sc-kinetic-shimmer sc-btn--lg"&gt;
+  Execute Mission
+&lt;/button&gt;
+
+&lt;!-- HUD Technical Bracket Link --&gt;
+&lt;a href="/telemetry" class="sc-btn sc-outline-bracket"&gt;
+  [VIEW_TELEMETRY]
+&lt;/a&gt;</div>
+
+      <div style="font-family: var(--font-technical, monospace); font-size: 0.8rem; color: #14B8A6; margin-bottom: 0.5rem;">ACCESSIBILITY &amp; REDUCED MOTION BUILT-IN</div>
+      <p style="font-size: 0.85rem; color: #94A3B8; line-height: 1.5;">
+        All kinetic animations automatically disable when the user has enabled <code>prefers-reduced-motion: reduce</code> in their operating system. Focus outlines strictly adhere to WCAG AAA contrast requirements against both dark slate and light backgrounds.
+      </p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-text">
+      Structural Clarity &amp; Dynamic Resonance &bull; Canva AI Visual Identity System &bull; Precedent Systems
+    </div>
+  </footer>
+
+  <div id="toast">Copied to clipboard</div>
+
+  <script>
+    // Shape switcher
+    const shapeButtons = document.querySelectorAll('#shapeToggle .toggle-btn');
+    const demoButtons = document.querySelectorAll('.demo-btn');
+    shapeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        shapeButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const shape = btn.dataset.shape;
+        demoButtons.forEach(db => {
+          db.classList.remove('sc-btn--pill', 'sc-btn--sharp');
+          if (shape === 'pill') db.classList.add('sc-btn--pill');
+          if (shape === 'sharp') db.classList.add('sc-btn--sharp');
+        });
+      });
+    });
+
+    // Scale switcher
+    const sizeButtons = document.querySelectorAll('#sizeToggle .toggle-btn');
+    sizeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        sizeButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const size = btn.dataset.size;
+        demoButtons.forEach(db => {
+          db.classList.remove('sc-btn--sm', 'sc-btn--lg');
+          if (size === 'sm') db.classList.add('sc-btn--sm');
+          if (size === 'lg') db.classList.add('sc-btn--lg');
+        });
+      });
+    });
+
+    // Stage Background switcher
+    const bgButtons = document.querySelectorAll('#stageBgToggle .toggle-btn');
+    const stages = document.querySelectorAll('.card-preview-stage');
+    bgButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        bgButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const color = btn.dataset.bg;
+        stages.forEach(st => {
+          st.style.background = color;
+        });
+      });
+    });
+
+    // Category Filter
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const cards = document.querySelectorAll('.button-card');
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const filter = chip.dataset.filter;
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Copy to clipboard helper
+    function copySnippet(btn, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        showToast('Copied to clipboard: ' + text);
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.classList.remove('copied');
+        }, 1800);
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2200);
+    }
+  </script>
+</body>
+</html>
