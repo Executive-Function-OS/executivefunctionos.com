@@ -12,6 +12,13 @@
   <link rel="stylesheet" href="tokens.css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem;
+    }
+    section, [id] {
+      scroll-margin-top: 5rem;
+    }
     body {
       background-color: var(--color-bg-canvas);
       color: var(--color-text-primary);
@@ -65,7 +72,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.75rem;
+      gap: 1.5rem;
       font-family: var(--font-display);
       font-size: 0.85rem;
       font-weight: 600;
@@ -78,6 +85,23 @@
     .nav-links a:hover {
       color: var(--color-accent-action);
     }
+    .nav-store-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--color-primary-base) !important;
+    }
+    .nav-badge-pill {
+      font-family: var(--font-technical);
+      font-size: 0.65rem;
+      background: #F0FDFA;
+      color: var(--color-accent-action);
+      padding: 0.15rem 0.45rem;
+      border-radius: var(--radius-xs);
+      border: 1px solid rgba(13, 148, 136, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
     .nav-cta {
       background: var(--color-accent-action);
       color: #FFFFFF !important;
@@ -87,6 +111,10 @@
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      transition: background 0.15s ease;
+    }
+    .nav-cta:hover {
+      background: #0F766E;
     }
 
     .container {
@@ -356,18 +384,72 @@
     .footer-list a {
       color: var(--color-text-secondary);
       text-decoration: none;
+      transition: color 0.15s ease;
     }
     .footer-list a:hover {
       color: var(--color-accent-action);
     }
+    .back-to-top {
+      font-family: var(--font-technical);
+      font-size: 0.75rem;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: color 0.15s;
+    }
+    .back-to-top:hover {
+      color: var(--color-accent-action);
+    }
+    .section-nav-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid #334155;
+      font-family: var(--font-technical);
+      font-size: 0.75rem;
+    }
+    .section-nav-strip a {
+      color: #94A3B8;
+      text-decoration: none;
+      padding: 0.35rem 0.65rem;
+      border: 1px solid #334155;
+      border-radius: var(--radius-xs);
+      background: rgba(15, 23, 42, 0.6);
+      transition: all 0.15s ease;
+    }
+    .section-nav-strip a:hover {
+      color: #F8FAFC;
+      border-color: var(--color-accent-action);
+      background: rgba(13, 148, 136, 0.2);
+    }
+
+    /* Responsive Architecture */
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .branch-grid { grid-template-columns: 1fr; }
+      .pipeline-steps { grid-template-columns: 1fr 1fr; }
+      .research-callout { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 680px) {
+      .nav-container { flex-direction: column; gap: 1rem; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; gap: 0.85rem; }
+      .pipeline-steps { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
-<body>
+<body id="top">
 
   <!-- Navigation Bar -->
   <header>
     <div class="nav-container">
-      <a href="/" class="brand-group">
+      <a href="index.html" class="brand-group" title="Executive Function OS Hub">
         <svg class="brand-logo" viewBox="0 0 64 64">
           <rect width="64" height="64" rx="8" fill="#0F172A" />
           <circle cx="16" cy="16" r="4" fill="#F8FAFC" />
@@ -380,7 +462,7 @@
         </svg>
         <div>
           <div class="brand-name">Executive Function OS</div>
-          <div class="brand-tag">SYSTEM SYNTHESIS & REPRODUCIBILITY</div>
+          <div class="brand-tag">SYSTEM SYNTHESIS &amp; REPRODUCIBILITY</div>
         </div>
       </a>
 
@@ -389,7 +471,8 @@
         <a href="#method">HybridRAG Engine</a>
         <a href="#proof">Adversarial Proof</a>
         <a href="#research">Open Science</a>
-        <a href="https://demo.executivefunctionos.com" target="_blank" class="nav-cta">Launch Demo</a>
+        <a href="store.html" class="nav-store-link">UI Kit &amp; Tokens <span class="nav-badge-pill">Store</span></a>
+        <a href="https://demo.executivefunctionos.com" target="_blank" rel="noopener noreferrer" class="nav-cta">Launch Demo</a>
       </nav>
     </div>
   </header>
@@ -479,10 +562,11 @@
             Open-source legal aid infrastructure, computational psychiatry preprints, and non-dilutive grant research (NSF, NIH SBIR, LSC TIG). Dedicated to closing procedural justice gaps.
           </p>
           <ul class="branch-links">
-            <li><a href="https://github.com/Executive-Function-OS/JustiTeX" target="_blank">JustiTeX Pleading Engine (AGPL Core) <span>&rarr;</span></a></li>
-            <li><a href="https://demo.executivefunctionos.com" target="_blank">Cognitive Dynamics Demo (demo.efos) <span>&rarr;</span></a></li>
-            <li><a href="#proof">HyperRAG Adversarial Case Pipeline <span>&rarr;</span></a></li>
-            <li><a href="#research">Preprint & Federal SBIR Roadmap <span>&rarr;</span></a></li>
+            <li><a href="https://github.com/Executive-Function-OS/JustiTeX" target="_blank" rel="noopener noreferrer">JustiTeX Pleading Engine (AGPL Core) <span>&rarr;</span></a></li>
+            <li><a href="https://demo.executivefunctionos.com" target="_blank" rel="noopener noreferrer">Cognitive Dynamics Demo (demo.efos) <span>&rarr;</span></a></li>
+            <li><a href="https://github.com/Executive-Function-OS/Filing-pipeline" target="_blank" rel="noopener noreferrer">Court Filing &amp; Provenance Pipeline <span>&rarr;</span></a></li>
+            <li><a href="https://github.com/Executive-Function-OS/percolation-import" target="_blank" rel="noopener noreferrer">Percolation Engine Codebase <span>&rarr;</span></a></li>
+            <li><a href="#research">Open Science &amp; SBIR Roadmap <span>&darr;</span></a></li>
           </ul>
         </div>
 
@@ -495,10 +579,11 @@
             Commercial enterprise legal automation, institutional B2B APIs, and hardware/retail operational infrastructure. High-reliability tooling engineered for professional liability separation.
           </p>
           <ul class="branch-links">
-            <li><a href="https://github.com/Precedent-Systems/FormGuide" target="_blank">FormGuide White-Label Suite <span>&rarr;</span></a></li>
-            <li><a href="https://github.com/Precedent-Systems/DocSplit" target="_blank">DocSplit Enterprise Document Parser <span>&rarr;</span></a></li>
-            <li><a href="https://github.com/Precedent-Systems/den-silicon-lab" target="_blank">Den Silicon Lab Commerce Hub <span>&rarr;</span></a></li>
-            <li><a href="#">Enterprise Licensing & SLAs <span>&rarr;</span></a></li>
+            <li><a href="https://github.com/Precedent-Systems/FormGuide" target="_blank" rel="noopener noreferrer">FormGuide White-Label Suite <span>&rarr;</span></a></li>
+            <li><a href="https://github.com/Precedent-Systems/DocSplit" target="_blank" rel="noopener noreferrer">DocSplit Enterprise Document Parser <span>&rarr;</span></a></li>
+            <li><a href="https://github.com/Precedent-Systems/den-silicon-lab" target="_blank" rel="noopener noreferrer">Den Silicon Lab Commerce Hub <span>&rarr;</span></a></li>
+            <li><a href="store.html">Structural Clarity UI Kit &amp; Tokens <span>&rarr;</span></a></li>
+            <li><a href="store.html#pricing">Commercial Licensing &amp; SLAs ($199–$2,999) <span>&rarr;</span></a></li>
           </ul>
         </div>
 
@@ -511,10 +596,10 @@
             Emergent cognitive play, spatial geometry, procedural audio engineering, and flow-state acceleration. Testing the boundary between human attention and algorithmic structure.
           </p>
           <ul class="branch-links">
-            <li><a href="#">NESTRIS Δ & 3D Spatial Spec <span>&rarr;</span></a></li>
-            <li><a href="#">Asset-Linker Mobile Workspace <span>&rarr;</span></a></li>
-            <li><a href="#">Procedural Audio & Synthesizer Lab <span>&rarr;</span></a></li>
-            <li><a href="#">Generative Interface Prototypes <span>&rarr;</span></a></li>
+            <li><a href="https://github.com/erikssonaicloud-gif/Nestris-3D" target="_blank" rel="noopener noreferrer">NESTRIS Δ &amp; 3D Spatial Engine <span>&rarr;</span></a></li>
+            <li><a href="https://github.com/erikssonaicloud-gif/Asset-Linker" target="_blank" rel="noopener noreferrer">Asset-Linker Mobile Workspace <span>&rarr;</span></a></li>
+            <li><a href="https://github.com/erikssonaicloud-gif/Project-Level" target="_blank" rel="noopener noreferrer">Procedural Synthesis &amp; Audio Lab <span>&rarr;</span></a></li>
+            <li><a href="https://github.com/erikssonaicloud-gif/Percolation-demo" target="_blank" rel="noopener noreferrer">Cognitive Dynamics &amp; Phase Prototypes <span>&rarr;</span></a></li>
           </ul>
         </div>
       </div>
@@ -586,36 +671,74 @@
               <th>Deliverable / Case Milestone</th>
               <th>Pipeline Role</th>
               <th>Output Integrity Gate</th>
-              <th>Status</th>
+              <th>Status / Evidence</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Federal Complaint (3:26-cv-01885-IM)</td>
-              <td>12-Count Section 1983 & Monell Analysis</td>
+              <td>
+                <a href="https://github.com/erikssonaicloud-gif/eriksson-v-oregon-city-records" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary-base); text-decoration:none; font-weight:600;">
+                  Federal Complaint (3:26-cv-01885-IM) &rarr;
+                </a>
+              </td>
+              <td>12-Count Section 1983 &amp; Monell Analysis</td>
               <td>100% Plaintext Evidence Grounded</td>
-              <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>Filed / Active</span></td>
+              <td>
+                <a href="https://github.com/erikssonaicloud-gif/eriksson-v-oregon-city-records" target="_blank" rel="noopener noreferrer" class="sc-badge sc-badge-active" style="text-decoration:none;">
+                  <span class="sc-badge-dot"></span>Filed / D. Or. Records &rarr;
+                </a>
+              </td>
             </tr>
             <tr>
-              <td>Oregon City Municipal ADA Audit</td>
+              <td>
+                <a href="https://github.com/erikssonaicloud-gif/eriksson-v-oregon-city-records" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary-base); text-decoration:none; font-weight:600;">
+                  Oregon City Municipal ADA Audit &rarr;
+                </a>
+              </td>
               <td>35-Year Absence of ADA Coordinator Evidence</td>
               <td>Public Records Verification</td>
-              <td><span class="sc-badge sc-badge-alert"><span class="sc-badge-dot"></span>Systemic Finding</span></td>
+              <td>
+                <a href="https://github.com/erikssonaicloud-gif/eriksson-v-oregon-city-records" target="_blank" rel="noopener noreferrer" class="sc-badge sc-badge-alert" style="text-decoration:none;">
+                  <span class="sc-badge-dot"></span>Public Records Finding &rarr;
+                </a>
+              </td>
             </tr>
             <tr>
-              <td>Appellate Reconsideration Motion</td>
-              <td>Clackamas Circuit Foreclosure Defense</td>
+              <td>
+                <a href="https://github.com/erikssonaicloud-gif/clackamas-foreclosure" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary-base); text-decoration:none; font-weight:600;">
+                  Appellate Reconsideration Motion &rarr;
+                </a>
+              </td>
+              <td>Clackamas Circuit Foreclosure Defense (17CV38591)</td>
               <td>UTCR 2.010 28-Line LaTeX Build</td>
-              <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>Compiled</span></td>
+              <td>
+                <a href="https://github.com/erikssonaicloud-gif/clackamas-foreclosure" target="_blank" rel="noopener noreferrer" class="sc-badge sc-badge-active" style="text-decoration:none;">
+                  <span class="sc-badge-dot"></span>Compiled Record &rarr;
+                </a>
+              </td>
             </tr>
             <tr>
-              <td>Exhibit Package (180+ Records)</td>
+              <td>
+                <a href="https://github.com/Executive-Function-OS/Filing-pipeline" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary-base); text-decoration:none; font-weight:600;">
+                  Automated Exhibit Package (180+ Records) &rarr;
+                </a>
+              </td>
               <td>Automated Stamping, OCR, Cover Generation</td>
               <td>Multi-page Resolution Integrity</td>
-              <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>Packaged</span></td>
+              <td>
+                <a href="https://github.com/Executive-Function-OS/Filing-pipeline" target="_blank" rel="noopener noreferrer" class="sc-badge sc-badge-active" style="text-decoration:none;">
+                  <span class="sc-badge-dot"></span>Filing Pipeline Engine &rarr;
+                </a>
+              </td>
             </tr>
           </tbody>
         </table>
+        <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--color-border-hairline); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; font-family:var(--font-technical); font-size:0.8rem;">
+          <span style="color:var(--color-text-secondary);">Evidence and pleading source pipeline maintained under open adversarial review.</span>
+          <a href="https://github.com/Executive-Function-OS/Filing-pipeline" target="_blank" rel="noopener noreferrer" style="color:var(--color-accent-action); text-decoration:none; font-weight:600;">
+            View Open Source Pipeline on GitHub &rarr;
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -625,25 +748,54 @@
     <div class="container">
       <div class="research-callout">
         <div>
-          <div class="section-tag" style="color: #2DD4BF;">04 / Open Science & Research Inquiry</div>
+          <div class="section-tag" style="color: #2DD4BF;">04 / Open Science &amp; Research Inquiry</div>
           <h2 style="font-family: var(--font-display); font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">
-            Percolation Dynamics & Network Physiology
+            Percolation Dynamics &amp; Network Physiology
           </h2>
           <p style="color: #CBD5E1; font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6;">
             We explore percolation theory and observer-operator dynamics not as a finalized commercial cure, but as a rigorous, open scientific hypothesis: can digital interaction graphs and physiological time-series detect cognitive phase transitions and fragmentation before functional collapse occurs?
           </p>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="https://demo.executivefunctionos.com" target="_blank" class="sc-btn sc-btn-active">Visit Interactive Demo &rarr;</a>
+          <div style="display: flex; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+            <a href="https://demo.executivefunctionos.com" target="_blank" rel="noopener noreferrer" class="sc-btn sc-btn-active">Visit Interactive Demo &rarr;</a>
+            <a href="https://github.com/Executive-Function-OS/percolation-import" target="_blank" rel="noopener noreferrer" class="sc-btn" style="background:transparent; border:1px solid #2DD4BF; color:#2DD4BF;">Percolation Engine Repo &rarr;</a>
             <a href="mailto:contact@executivefunctionos.com" class="sc-btn" style="background:transparent; border:1px solid #64748B; color:#F8FAFC;">Research Collaboration</a>
+          </div>
+
+          <!-- In-Page Jump Bar to navigate smoothly across the hub without getting trapped -->
+          <div class="section-nav-strip">
+            <span style="color:#64748B; font-weight:600;">QUICK JUMP:</span>
+            <a href="#branches">&larr; Ecosystem Branches</a>
+            <a href="#method">HybridRAG Engine</a>
+            <a href="#proof">Adversarial Proof</a>
+            <a href="store.html">Design System &amp; Store &rarr;</a>
+            <a href="#top" style="color: #2DD4BF; border-color: #2DD4BF;">&uarr; Top of Page</a>
           </div>
         </div>
 
         <div style="border-left: 1px solid #334155; padding-left: 2rem; font-family: var(--font-technical); font-size: 0.8rem; color: #94A3B8;">
-          <div style="margin-bottom: 1rem; color: #F8FAFC; font-weight: 600;">ACADEMIC PREPRINTS & GRANTS</div>
-          <div style="margin-bottom: 0.75rem;">• Target: NSF SBIR Phase I (Human-Computer Interaction)</div>
-          <div style="margin-bottom: 0.75rem;">• Target: NIH PA-27-100 (Digital Mental Health / EF)</div>
-          <div style="margin-bottom: 0.75rem;">• Target: LSC TIG (Access to Justice Technology)</div>
-          <div style="color: var(--color-accent-action);">Open Science Framework: In Registration</div>
+          <div style="margin-bottom: 1rem; color: #F8FAFC; font-weight: 600; letter-spacing: 0.05em;">ACADEMIC PREPRINTS &amp; GRANTS</div>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <div style="color: #F8FAFC; font-weight: 600;">• NSF SBIR Phase I</div>
+              <div style="color: #94A3B8; font-size: 0.75rem;">Human-Computer Interaction &amp; Computational Phenotyping</div>
+              <a href="mailto:contact@executivefunctionos.com?subject=NSF%20SBIR%20Research%20Collaboration" style="color: var(--color-accent-action); text-decoration: none; font-size: 0.72rem;">Research Collaboration Inquiry &rarr;</a>
+            </div>
+            <div>
+              <div style="color: #F8FAFC; font-weight: 600;">• NIH PA-27-100</div>
+              <div style="color: #94A3B8; font-size: 0.75rem;">Digital Mental Health / Sensorless Trace Dynamics</div>
+              <a href="mailto:contact@executivefunctionos.com?subject=NIH%20Research%20Inquiry" style="color: var(--color-accent-action); text-decoration: none; font-size: 0.72rem;">Clinical Pilot Collaboration &rarr;</a>
+            </div>
+            <div>
+              <div style="color: #F8FAFC; font-weight: 600;">• LSC TIG (Access to Justice)</div>
+              <div style="color: #94A3B8; font-size: 0.75rem;">JustiTeX &amp; Pleading Provenance Engine</div>
+              <a href="https://github.com/Executive-Function-OS/JustiTeX" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent-action); text-decoration: none; font-size: 0.72rem;">Explore JustiTeX Core &rarr;</a>
+            </div>
+            <div style="padding-top: 0.5rem; border-top: 1px solid #1E293B;">
+              <span style="color: #2DD4BF;">Open Science Framework (OSF):</span>
+              <div style="color: #94A3B8; font-size: 0.72rem;">BMS 4.0 Pre-registration In Progress</div>
+              <a href="https://github.com/Executive-Function-OS/percolation-import" target="_blank" rel="noopener noreferrer" style="color: #2DD4BF; text-decoration: none; font-size: 0.72rem;">View Open Source Codebase &rarr;</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -660,44 +812,57 @@
           <p style="max-width: 340px; line-height: 1.5; color: var(--color-text-secondary); margin-bottom: 1rem;">
             Translating complex systems into transparent, functional frameworks that maximize agency and practical outcomes.
           </p>
-          <div style="font-family: var(--font-technical); font-size: 0.75rem; color: var(--color-accent-action);">
+          <div style="font-family: var(--font-technical); font-size: 0.75rem; color: var(--color-accent-action); margin-bottom: 1rem;">
             Structured Thought. Functional Action.
           </div>
+          <a href="#top" class="back-to-top">&uarr; Back to Top</a>
         </div>
 
         <div>
           <div class="footer-col-title">Ecosystem</div>
           <ul class="footer-list">
-            <li><a href="https://demo.executivefunctionos.com" target="_blank">demo.efos</a></li>
-            <li><a href="https://github.com/Executive-Function-OS/JustiTeX" target="_blank">JustiTeX</a></li>
-            <li><a href="https://github.com/Precedent-Systems/FormGuide" target="_blank">FormGuide</a></li>
-            <li><a href="https://github.com/Precedent-Systems/DocSplit" target="_blank">DocSplit</a></li>
+            <li><a href="https://demo.executivefunctionos.com" target="_blank" rel="noopener noreferrer">demo.efos (Dynamics Demo)</a></li>
+            <li><a href="https://github.com/Executive-Function-OS/JustiTeX" target="_blank" rel="noopener noreferrer">JustiTeX Pleading Engine</a></li>
+            <li><a href="https://github.com/Executive-Function-OS/Filing-pipeline" target="_blank" rel="noopener noreferrer">Court Filing Pipeline</a></li>
+            <li><a href="https://github.com/Executive-Function-OS/percolation-import" target="_blank" rel="noopener noreferrer">Percolation Engine</a></li>
+            <li><a href="https://github.com/Precedent-Systems/FormGuide" target="_blank" rel="noopener noreferrer">FormGuide White-Label</a></li>
+            <li><a href="https://github.com/Precedent-Systems/DocSplit" target="_blank" rel="noopener noreferrer">DocSplit Parser</a></li>
+            <li><a href="https://github.com/Precedent-Systems/den-silicon-lab" target="_blank" rel="noopener noreferrer">Den Silicon Lab Hub</a></li>
+            <li><a href="https://github.com/erikssonaicloud-gif/Asset-Linker" target="_blank" rel="noopener noreferrer">Asset-Linker Workspace</a></li>
+            <li><a href="https://github.com/erikssonaicloud-gif/Nestris-3D" target="_blank" rel="noopener noreferrer">Nestris 3D Engine</a></li>
           </ul>
         </div>
 
         <div>
           <div class="footer-col-title">Organizations</div>
           <ul class="footer-list">
-            <li><a href="https://github.com/Executive-Function-OS" target="_blank">Executive-Function-OS</a></li>
-            <li><a href="https://github.com/Precedent-Systems" target="_blank">Precedent Systems</a></li>
-            <li><a href="https://github.com/erikssonaicloud-gif" target="_blank">Studio / Labs</a></li>
+            <li><a href="https://github.com/Executive-Function-OS" target="_blank" rel="noopener noreferrer">github.com/Executive-Function-OS</a></li>
+            <li><a href="https://github.com/Precedent-Systems" target="_blank" rel="noopener noreferrer">github.com/Precedent-Systems</a></li>
+            <li><a href="https://github.com/erikssonaicloud-gif" target="_blank" rel="noopener noreferrer">github.com/erikssonaicloud-gif</a></li>
+            <li><a href="https://github.com/erikssonaicloud-gif/eriksson-v-oregon-city-records" target="_blank" rel="noopener noreferrer">Public Case Records Repository</a></li>
           </ul>
         </div>
 
         <div>
-          <div class="footer-col-title">Architecture</div>
+          <div class="footer-col-title">Navigation &amp; Products</div>
           <ul class="footer-list">
-            <li><a href="#method">HybridRAG</a></li>
-            <li><a href="#proof">Provenance Audit</a></li>
-            <li><a href="#research">Percolation Hypothesis</a></li>
-            <li><a href="#">Design System Tokens</a></li>
+            <li><a href="#top">Overview &amp; Telemetry</a></li>
+            <li><a href="#branches">Ecosystem Architecture</a></li>
+            <li><a href="#method">HybridRAG Engine</a></li>
+            <li><a href="#proof">Adversarial Case Study</a></li>
+            <li><a href="#research">Open Science &amp; Research</a></li>
+            <li><a href="store.html">Structural Clarity UI Kit</a></li>
+            <li><a href="store.html#pricing">Commercial Licensing &amp; SLAs</a></li>
           </ul>
         </div>
       </div>
 
-      <div style="border-top: 1px solid var(--color-border-hairline); padding-top: 1.5rem; display: flex; justify-content: space-between; font-family: var(--font-technical); font-size: 0.75rem;">
+      <div style="border-top: 1px solid var(--color-border-hairline); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items:center; flex-wrap:wrap; gap:1rem; font-family: var(--font-technical); font-size: 0.75rem;">
         <div>&copy; 2026 Annika Eriksson. All rights reserved. Built with Canva AI Visual Identity System.</div>
-        <div>UTILITY OVER ORNAMENT // ZERO SERVER EXFILTRATION</div>
+        <div style="display:flex; gap:1.5rem; align-items:center;">
+          <span>UTILITY OVER ORNAMENT // ZERO SERVER EXFILTRATION</span>
+          <a href="#top" class="back-to-top" style="font-weight:600; color:var(--color-accent-action);">&uarr; Top</a>
+        </div>
       </div>
     </div>
   </footer>
