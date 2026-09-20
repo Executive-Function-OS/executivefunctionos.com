@@ -433,6 +433,85 @@
       gap: 1rem;
     }
 
+    .manifesto-subpanel {
+      background: #FFFDF9;
+      border: 1px solid var(--paladin-rule);
+      border-left: 4px solid var(--paladin-terracotta);
+      padding: 2rem 2.25rem;
+      box-shadow: 0 2px 8px rgba(28, 23, 16, 0.03);
+      margin-bottom: 1.75rem;
+    }
+
+    .manifesto-subpanel-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--paladin-ink);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .manifesto-scholarship {
+      background: var(--paladin-paper-subtle);
+      border: 1px solid var(--paladin-rule);
+      border-left: 3px solid var(--paladin-teal);
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .scholar-attribution {
+      font-family: var(--font-technical);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--paladin-teal);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.6rem;
+      display: block;
+    }
+
+    .authorities-block {
+      background: #FFFDF9;
+      border: 1px solid var(--paladin-rule);
+      padding: 2rem 2.25rem;
+      margin-top: 2rem;
+      border-radius: 2px;
+    }
+
+    .authorities-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--paladin-ink);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--paladin-rule);
+      padding-bottom: 0.5rem;
+    }
+
+    .authorities-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .authorities-list li {
+      font-family: var(--font-technical);
+      font-size: 0.78rem;
+      color: var(--paladin-ink-muted);
+      line-height: 1.5;
+    }
+
+    .authorities-list li strong {
+      color: var(--paladin-ink);
+    }
+
     /* The Comparison Matrix Table */
     .matrix-wrapper {
       background: #FFFDF9;
@@ -883,8 +962,8 @@
             </div>
             <div class="caption-divider">
               Case No. 17CV38591<br>
-              <strong>DEFENDANT'S OBJECTIONS TO VOID ORDER; DEMAND FOR WET-INK NOTE</strong><br>
-              (UCC § 3-301 / ORS 73.0301)
+              <strong>DEFENDANT'S OBJECTIONS TO VOID ORDER; DEMAND FOR ADMISSIBLE PROOF OF HOLDER STATUS</strong><br>
+              (UCC § 3-301 / ORS 73.0301; ORS 73.0309)
             </div>
           </div>
         </div>
@@ -893,7 +972,7 @@
           <strong>COME NOW</strong> the self-represented occupants, defending their hearth and parcel against an absentee financial trust possessing zero personal knowledge of the real property.
         </p>
         <p style="text-indent: 2rem; margin-bottom: 0.75rem;">
-          Plaintiff operates as a remote derivative pool, having bypassed the Clackamas County deed registry via private MERS ledgers. Under centuries-old real property law, an electronic notation cannot alienate physical soil. The negotiable instrument must be physically produced in open court.
+          Plaintiff operates as a remote derivative pool, having bypassed the Clackamas County deed registry via unrecorded private MERS ledgers (<em>County of Ramsey v. MERSCORP</em>, 776 F.3d 947). Under Oregon real property law and UCC § 3-301 (ORS 73.0301), an unrecorded private database entry cannot substitute for a public chain of title or excuse plaintiff's failure to establish lawful standing as a Person Entitled to Enforce the negotiable instrument.
         </p>
 
         <!-- Terracotta Knight Calling Card -->
@@ -915,39 +994,167 @@
     <!-- Section 1: The Manifesto -->
     <section id="manifesto">
       <div class="section-header">
-        <div class="section-eyebrow">01 — Structural Inevitability</div>
+        <div class="section-eyebrow">01 — Structural Inevitability &amp; Real Property Law</div>
         <h2 class="section-heading">The Rules Were Never Repealed</h2>
         <p class="section-desc">
-          The parallel between the 19th-century frontier range wars and modern mortgage securitization is not poetic. It is structural.
+          The parallel between the 19th-century frontier range wars and 21st-century mortgage securitization is not poetic. It is structural.
         </p>
       </div>
 
+      <!-- Main Panel: The Contradiction of Absentee Ownership -->
       <div class="manifesto-panel">
-        <div class="manifesto-quote">
-          &ldquo;Physical, immovable land and human possession versus absentee, frictionless capital that treats the land as an algorithmic line-item. Everything else follows from that single contradiction.&rdquo;
-        </div>
         <div class="manifesto-body">
-          <p>
-            For thirty years, modern financial architecture operated on a single core assumption: that physical real property could be abstracted into frictionless, high-frequency digital securities that trade across global clearinghouses in nanoseconds without county recording fees, without physical deed books, and without human accountability.
+          <p style="font-size:1.18rem; color:var(--paladin-ink); font-weight:600; line-height:1.6;">
+            For thirty years, modern financial architecture operated on a single core assumption: that physical real property could be converted into frictionless, high-frequency digital securities traded across global clearinghouses in nanoseconds without local recording fees, without physical deed books, and without human accountability.
           </p>
-          <p>
-            <strong>Real property refused.</strong>
+
+          <p style="font-size:1.3rem; font-family:var(--font-display); font-weight:800; color:var(--paladin-teal); margin: 0.5rem 0;">
+            Real property refused.
           </p>
+
           <p>
-            The physical soil, the immobility of the ground, the GPS coordinates, the wet-ink promissory note, and the public county recording acts still impose an inescapable friction that pure financial capital cannot fully erase. When the debt goes bad and the foreclosure machine scrambles back into a local county courthouse to seize the home, it must step out of the frictionless digital ether and enter the ancient domain of real property law.
+            The physical soil, the immobility of the ground, the GPS coordinates, the negotiable instrument under UCC Article 3, and the public county recording acts still impose an inescapable friction that pure financial capital cannot erase. When the debt goes bad and the foreclosure machine scrambles back into a local county courthouse to seize the home, it must step out of the frictionless digital ether and enter the ancient, rigid domain of real property law.
           </p>
+
+          <!-- Attributed Scholarship Block: Veblen & Shoemaker -->
+          <div class="manifesto-scholarship">
+            <p style="font-style:italic; color:var(--paladin-ink);">
+              &ldquo;The absentee owner of natural resources is enabled to make them a source of free income, that is to say make them assets, by the power legally conferred on him to withhold them from use until his charge for their use is allowed him.&rdquo;
+            </p>
+            <span class="scholar-attribution">
+              &bull; Thorstein Veblen, <em>Absentee Ownership and Business Enterprise in Recent Times</em> (1923)
+            </span>
+
+            <p style="font-style:italic; color:var(--paladin-ink); margin-top:0.85rem;">
+              &ldquo;Modern property rules increasingly turn land into an asset class for monetization, capitalization, and exploitation—encompassing absenteeism, concentration, commodification, financialization, and even dispossession.&rdquo;
+            </p>
+            <span class="scholar-attribution">
+              &bull; Prof. Jessica A. Shoemaker, <em>Papering Over Place: When Land Becomes Asset Class</em>, 74 Fla. L. Rev. 1081 (2022)
+            </span>
+          </div>
+
           <p>
             <strong>The ancient rules were never repealed. The industry simply tried to route around them.</strong>
           </p>
           <p>
-            They invented MERS to bypass the county clerk. They invented Lost Note Affidavits to paper over lost negotiable instruments. They automated robosigning to fabricate chains of title that never existed. But the moment a self-represented homeowner stands before a judge and demands proof of standing, production of the original instrument under UCC Article 3, and an unbroken chain of assignments under the state recording acts, the ancient common-law formalities reassert their full legal authority.
-          </p>
-          <p>
-            That is the breach in the fortress. That is the opening the pro se litigant can walk through.
+            They established MERS to bypass the county deed recorder. They executed Lost Note Affidavits to paper over missing negotiable instruments. They automated robosigning to fabricate chains of title that were never recorded. But the moment a self-represented homeowner stands before a judge and demands strict proof of standing, production of the original negotiable instrument under UCC Article 3, and an unbroken recorded chain of assignments under the state recording acts, the ancient common-law formalities reassert their full legal authority.
           </p>
         </div>
       </div>
+
+      <!-- Subpanel 1: Securitization Without Compensation -->
+      <div class="manifesto-subpanel">
+        <div class="manifesto-subpanel-title">
+          <span>Securitization Without Compensation</span>
+          <span class="p-badge p-badge-terracotta">THE SYSTEMIC WIND-FALL</span>
+        </div>
+        <div class="manifesto-body">
+          <p>
+            Securitization without compensation is not a theoretical abstraction—it is an uncompensated transfer of sovereign risk. When a mortgage loan is originated, the homeowner signs a promissory note and deed of trust. The originator and sponsor immediately bundle, slice, and sell those future cash flows into secondary market trusts, capturing immediate upfront liquidity, secondary trading premiums, and underwriting windfalls.
+          </p>
+
+          <div class="manifesto-scholarship">
+            <p style="font-style:italic; color:var(--paladin-ink);">
+              &ldquo;Property law rules now completely fail to furnish aggrieved homeowners with meaningful relief when faced with wrongs that stem from the complexities of the securitization of mortgage loans and the acts of intermediaries... once a loan is securitized, its expectancy was realized by the sale of the securitized loan leaving some successor or servicer to benefit from windfall fees and profits largely in excess of or established outside the original contract.&rdquo;
+            </p>
+            <span class="scholar-attribution">
+              &bull; Prof. Christopher K. Odinet, <em>Modernizing Mortgage Law</em>, 100 N.C. L. Rev. 89 (2021)
+            </span>
+          </div>
+
+          <p>
+            The borrower’s payment stream is fully capitalized and monetized on global markets, yet the borrower receives zero compensation, zero share of the secondary market liquidity, and zero equity participation in the structured product created from their promise. Instead, the homeowner bears 100% of the downside risk: predatory servicing fees, clouded title chains, and the catastrophic loss of their domestic hearth.
+          </p>
+          <p>
+            Furthermore, as documented by Adam J. Levitin and Tara Twomey in <em>Mortgage Servicing</em> (28 Yale J. on Reg. 1, 2011), servicer compensation models create a severe principal-agent conflict: servicers have no equity stake in the underlying property and do not share the investors’ or homeowners’ interest in maximizing loan preservation. Because servicers generate substantial revenue from late charges, inspection fees, and foreclosure fees, their operational incentives are systematically skewed toward dispossession rather than loan modification or restitution.
+          </p>
+        </div>
+      </div>
+
+      <!-- Subpanel 2: The Student Loan Contrast -->
+      <div class="manifesto-subpanel" style="border-left-color: var(--paladin-teal);">
+        <div class="manifesto-subpanel-title">
+          <span>Intangible Human Potential vs. The Physical Hearth</span>
+          <span class="p-badge p-badge-teal">THE COLLATERAL CONTRAST</span>
+        </div>
+        <div class="manifesto-body">
+          <p>
+            The profound difference between securitized debt structures becomes glaring when contrasting student loan asset-backed securities (SLABS) with residential mortgage-backed securities (RMBS):
+          </p>
+          <p style="font-style:italic; font-size:1.12rem; color:var(--paladin-ink); padding-left:1rem; border-left:3px solid var(--paladin-terracotta);">
+            When a student loan is securitized, the creditor can garnish wages and leverage statutory collection remedies—but they cannot repossess your education. They cannot erase your degree, repossess your intellect, or evict you from your mind. The debt is unsecured; the underlying &ldquo;asset&rdquo; is intangible human potential.
+          </p>
+          <p>
+            In mortgage securitization, however, the financial machinery treats physical real property as a sacrificial, liquidatable buffer. Yet how do RMBS certificateholders actually get paid?
+          </p>
+          <p>
+            In an RMBS trust, cash flows are distributed through a structured waterfall protected by credit enhancements—overcollateralization, subordination tranches, and <strong>servicer advances</strong>. Under standard Pooling and Servicing Agreements (PSAs), the servicer is contractually obligated to advance delinquent principal and interest payments to the trust for 120 to 180 days out of its own operating funds. Senior certificateholders continue receiving scheduled distributions regardless of whether a specific borrower is in default.
+          </p>
+          <p>
+            Displacing a family from their home is not required to pay senior certificateholders on day one. Foreclosure is the servicer&rsquo;s mechanism to liquidate physical land to reimburse its own corporate advances and extract administrative penalties. Dispossession is treated as an operational settlement mechanism of an absentee corporate machine.
+          </p>
+        </div>
+      </div>
+
+      <!-- Subpanel 3: Integrity Over Friction -->
+      <div class="manifesto-subpanel" style="border-left-color: var(--paladin-ink);">
+        <div class="manifesto-subpanel-title">
+          <span>Integrity Over Friction: Technology Must Serve Truth</span>
+          <span class="p-badge p-badge-ink">PROCEDURAL ACCOUNTABILITY</span>
+        </div>
+        <div class="manifesto-body">
+          <p>
+            PALADIN is not a reactionary plea for horse-and-buggy paperwork, nor do we oppose modern technological conventions such as Remote Online Notarization (RON), digital filing systems, or the Uniform Real Property Electronic Recording Act (URPERA). Technological modernization is vital. But efficiency cannot be purchased by abandoning evidentiary integrity.
+          </p>
+          <p>
+            A legislative review of remote notarization found that RON <em>&ldquo;creates new vulnerabilities for document fraud if electronic seals and authentication processes are not properly validated at the point of recording.&rdquo;</em> When electronic seals lack cryptographic validation, illegitimate documents acquire the veneer of authentic public recordation, making subsequent judicial challenge extraordinarily difficult.
+          </p>
+          <div class="manifesto-scholarship">
+            <p style="font-style:italic; color:var(--paladin-ink);">
+              &ldquo;Thousands of borrowers lost their homes when employees of mortgage servicers notarized affidavits supporting scores of foreclosures without the signers present.&rdquo;
+            </p>
+            <span class="scholar-attribution">
+              &bull; National Notary Association, Forensic Review of the Foreclosure Crisis &amp; Consent Judgments
+            </span>
+          </div>
+          <p>
+            The lesson of the $25 Billion National Mortgage Settlement is unassailable: when financial institutions use technology as an excuse to eliminate human review and automate perjury, the legal system loses its legitimacy. PALADIN demands strict adherence to MISMO RON standards, multi-factor credential analysis, and tamper-evident cryptographic seals. Technology must be used to prove the truth, not to paper over the absence of personal knowledge.
+          </p>
+        </div>
+      </div>
+
+      <!-- Selected Authorities & References Block -->
+      <div class="authorities-block">
+        <div class="authorities-title">Selected Legal &amp; Academic Authorities</div>
+        <ul class="authorities-list">
+          <li>
+            <strong>Thorstein Veblen</strong>, <em>Absentee Ownership and Business Enterprise in Recent Times: The Case of America</em> (B.W. Huebsch, 1923) (foundational analysis of the economic leverage of absentee resource ownership).
+          </li>
+          <li>
+            <strong>Christopher K. Odinet</strong>, <em>Modernizing Mortgage Law</em>, 100 N.C. L. Rev. 89 (2021) (documenting how modern securitization leaves homeowners impoverished without contractual or restitutionary remedies).
+          </li>
+          <li>
+            <strong>Jessica A. Shoemaker</strong>, <em>Papering Over Place: When Land Becomes Asset Class</em>, 74 Fla. L. Rev. 1081 (2022) (examining the legal commodification, financialization, and dispossession of real property).
+          </li>
+          <li>
+            <strong>Adam J. Levitin &amp; Tara Twomey</strong>, <em>Mortgage Servicing</em>, 28 Yale J. on Reg. 1 (2011) (empirically analyzing servicer fee structures and the institutional principal-agent conflict driving foreclosures).
+          </li>
+          <li>
+            <strong>County of Ramsey v. MERSCORP Holdings, Inc.</strong>, 776 F.3d 947 (8th Cir. 2014) (addressing allegations that lenders bypassed county public recordation and statutory recording fees via private MERS databases).
+          </li>
+          <li>
+            <strong>Uniform Commercial Code §§ 3-301 &amp; 3-309 / ORS 73.0301 &amp; 73.0309</strong> (statutory standards governing person entitled to enforce negotiable instruments and evidentiary requirements for lost note affidavits).
+          </li>
+          <li>
+            <strong>United States v. Bank of America Corp.</strong>, No. 12-cv-00361 (D.D.C. Apr. 4, 2012) ($25 Billion National Mortgage Settlement Consent Judgment sanctioning robo-signing and deceptive affidavit practices).
+          </li>
+          <li>
+            <strong>Mortgage Industry Standards Maintenance Organization (MISMO)</strong>, <em>Remote Online Notarization Standards &amp; Certification Program</em> (governing cryptographic credential analysis, tamper-evident seals, and audio-visual audit archives).
+          </li>
+        </ul>
+      </div>
     </section>
+
 
     <!-- Section 2: Frontier vs. Modern Machine Comparison Matrix -->
     <section id="matrix">
@@ -1011,10 +1218,10 @@
               </td>
               <td>
                 <span class="principle-tag">Public Recording Acts Endure</span>
-                State recording acts were never repealed. A private electronic ledger entry does not confer lawful recorded ownership over physical land without a public deed record.
+                State recording acts were never repealed. While statutes like URPERA permit electronic public recording, an unrecorded private internal ledger entry (such as MERS) is not a public deed record and cannot defeat the recorded chain of title or excuse lack of personal standing (<em>County of Ramsey v. MERSCORP</em>, 776 F.3d 947).
               </td>
               <td>
-                <strong>Chain of Title Verification:</strong> Cross-references county public deed records against unrecorded electronic transfers to establish fatal breaks in the title chain.
+                <strong>Chain of Title Verification:</strong> Cross-references county public deed records against unrecorded internal ledger transfers to expose breaks in the title chain and challenge unrecorded assignments.
               </td>
             </tr>
 
@@ -1027,18 +1234,18 @@
                 </p>
               </td>
               <td>
-                <div class="pattern-title">Robosigning & Lost Notes</div>
+                <div class="pattern-title">Robosigning &amp; Lost Notes</div>
                 <div class="pattern-sub">Assembly-line affidavits, missing indorsements</div>
                 <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
-                  Document mills mass-signing mortgage assignments, backdating transfers, and swearing "Lost Note Affidavits" when original notes are lost.
+                  Document mills mass-signing mortgage assignments, backdating transfers, and swearing boilerplate "Lost Note Affidavits" when original notes are lost.
                 </p>
               </td>
               <td>
-                <span class="principle-tag">UCC Article 3 Negotiable Instruments</span>
-                A mortgage note is a negotiable instrument. Enforcing it requires physical possession of the original instrument (the wet-ink note) or strict statutory proof of loss.
+                <span class="principle-tag">UCC Article 3 &amp; Person Entitled to Enforce</span>
+                Enforcing a negotiable promissory note requires proving status as a Person Entitled to Enforce (PETE) under UCC § 3-301 (ORS 73.0301). Any claim under a lost note must strictly satisfy UCC § 3-309 (ORS 73.0309) with competent, admissible evidence—not hearsay declarations from automated sub-servicers.
               </td>
               <td>
-                <strong>Demand for Wet-Ink Production:</strong> Compels formal in-camera inspection of the original negotiable promissory note under UCC § 3-301 / ORS 73.0301.
+                <strong>Evidentiary PETE &amp; Standing Audit:</strong> Compels strict evidentiary foundation of plaintiff's enforcement standing under UCC § 3-301 and strikes unauthenticated lost note affidavits lacking Evidence Rule 803(6) personal knowledge.
               </td>
             </tr>
 
