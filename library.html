@@ -733,13 +733,19 @@
     // Load data from library_data.json
     async function initLibrary() {
       try {
-        deckStatusText.textContent = "Loading 1,600+ cryptographic records...";
+        deckStatusText.textContent = "Loading cryptographic records...";
         const resp = await fetch('library_data.json');
         if (!resp.ok) throw new Error("Could not load library data.");
         allDocuments = await resp.json();
         
         deckStatusText.textContent = `Repository ready &bull; ${allDocuments.length.toLocaleString()} verified documents loaded`;
         
+        // Update hero lead text dynamically
+        const heroLead = document.querySelector('.repo-lead');
+        if (heroLead) {
+          heroLead.textContent = `A searchable public repository of ${allDocuments.length.toLocaleString()} curated legal authorities, appellate opinions, law review scholarship, PACER bankruptcy dockets, county deeds, and mortgage securitization forensics.`;
+        }
+
         // Parse URL query parameters if present
         const urlParams = new URLSearchParams(window.location.search);
         const qParam = urlParams.get('q');
@@ -751,14 +757,10 @@
         }
         if (catParam) {
           activeCategory = catParam;
-          document.querySelectorAll('.filter-chip').forEach(c => {
-            if (c.getAttribute('data-category') === catParam) {
-              c.classList.add('active');
-            } else {
-              c.classList.remove('active');
-            }
-          });
         }
+
+        // Build dynamic category counts and populate filter chips
+        buildDynamicFilterChips();
 
         applyFilters();
       } catch (err) {
@@ -767,16 +769,39 @@
       }
     }
 
+    // Build dynamic filter chips based on all loaded documents
+    function buildDynamicFilterChips() {
+      const counts = { 'ALL': allDocuments.length };
+      allDocuments.forEach(doc => {
+        const cat = doc.category || 'Archive Document';
+        counts[cat] = (counts[cat] || 0) + 1;
+      });
+
+      const sortedCats = Object.keys(counts).filter(c => c !== 'ALL').sort((a, b) => counts[b] - counts[a]);
+
+      let html = `<div class="filter-chip ${activeCategory === 'ALL' ? 'active' : ''}" data-category="ALL">All Documents (${counts['ALL'].toLocaleString()})</div>`;
+      sortedCats.forEach(cat => {
+        const isAct = activeCategory === cat ? 'active' : '';
+        html += `<div class="filter-chip ${isAct}" data-category="${cat}">${cat} (${counts[cat].toLocaleString()})</div>`;
+      });
+
+      filterChips.innerHTML = html;
+    }
+
     // Category styling helper
     function getCategoryClass(cat) {
       if (!cat) return 'cat-misc';
       const c = cat.toLowerCase();
       if (c.includes('bankruptcy') || c.includes('pacer')) return 'cat-bankruptcy';
-      if (c.includes('scholarship') || c.includes('law review')) return 'cat-scholarship';
+      if (c.includes('scholarship') || c.includes('law review') || c.includes('treatise')) return 'cat-scholarship';
       if (c.includes('case law') || c.includes('opinion')) return 'cat-caselaw';
-      if (c.includes('forensic') || c.includes('affidavit')) return 'cat-forensic';
+      if (c.includes('court') || c.includes('pleading') || c.includes('motion')) return 'cat-caselaw';
+      if (c.includes('forensic') || c.includes('affidavit') || c.includes('audit')) return 'cat-forensic';
+      if (c.includes('discovery') || c.includes('evidence')) return 'cat-forensic';
       if (c.includes('securitization') || c.includes('servicing')) return 'cat-securitization';
-      if (c.includes('deeds') || c.includes('real property')) return 'cat-deeds';
+      if (c.includes('deeds') || c.includes('real property') || c.includes('title')) return 'cat-deeds';
+      if (c.includes('correspondence') || c.includes('notice')) return 'cat-forensic';
+      if (c.includes('financial') || c.includes('accounting')) return 'cat-securitization';
       return 'cat-misc';
     }
 
