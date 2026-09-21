@@ -534,6 +534,86 @@
       color: var(--paladin-ink);
     }
 
+    .authority-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--paladin-teal);
+      font-weight: 700;
+      text-decoration: none;
+      margin-left: 0.5rem;
+      font-size: 0.72rem;
+      border: 1px solid rgba(31, 95, 88, 0.25);
+      padding: 0.1rem 0.45rem;
+      border-radius: 2px;
+      background: var(--paladin-teal-light);
+      transition: all 0.15s ease;
+      vertical-align: middle;
+    }
+
+    .authority-link:hover {
+      background: var(--paladin-teal);
+      color: #FFFDF9;
+      border-color: var(--paladin-teal);
+    }
+
+    .weapon-library-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-family: var(--font-technical);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--paladin-teal);
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+      border: 1px solid var(--paladin-rule-strong);
+      background: var(--paladin-paper-subtle);
+      border-radius: 2px;
+      margin-top: 0.75rem;
+      width: fit-content;
+      transition: all 0.15s ease;
+    }
+
+    .weapon-library-link:hover {
+      background: var(--paladin-teal);
+      color: #FFFDF9;
+    }
+
+    .intake-crisis-box {
+      background: var(--paladin-paper-subtle);
+      border: 1px solid var(--paladin-rule);
+      border-left: 3px solid var(--paladin-terracotta);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .intake-crisis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .intake-crisis-card {
+      background: #FFFDF9;
+      border: 1px solid var(--paladin-rule);
+      padding: 1rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .intake-crisis-badge {
+      font-family: var(--font-technical);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--paladin-terracotta);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+      display: block;
+    }
+
     /* The Comparison Matrix Table */
     .matrix-wrapper {
       background: #FFFDF9;
@@ -1194,36 +1274,94 @@
         </div>
       </div>
 
+      <!-- Subpanel 5: The Pro Se Standing Trap: Frivolous Theories vs. Statutory Rigor -->
+      <div class="manifesto-subpanel" style="border-left-color: var(--paladin-teal);">
+        <div class="manifesto-subpanel-title">
+          <span>The Standing Trap: Frivolous Myths vs. Statutory Bedrock</span>
+          <span class="p-badge p-badge-teal">STRATEGIC DISCIPLINE</span>
+        </div>
+        <div class="manifesto-body">
+          <p>
+            The greatest tragedy in modern pro se litigation is not that homeowners lack defenses; it is that desperate litigants are seduced by pseudo-legal internet folklore. For years, sovereign-citizen theories, &ldquo;vapor money&rdquo; fallacies, and generalized &ldquo;show me the note&rdquo; slogans have flooded state and federal courts. Federal appellate courts have consistently and properly dismissed these frivolous claims for lack of concrete injury, causation, and redressability (see, e.g., <em>Garner v. Wells Fargo Bank, N.A.</em>, 11th Cir.; <em>Carter v. PrimeLending</em>, W.D.N.C.).
+          </p>
+          <p>
+            A homeowner cannot prevail merely by asserting that a promissory note and deed of trust were separated, or that securitization itself invalidates an underlying debt. Courts demand legal precision.
+          </p>
+          <div class="manifesto-scholarship">
+            <p style="font-style:italic; color:var(--paladin-ink);">
+              &ldquo;If there is a perceived defect in the securitization of a mortgage loan, absent demonstrable prejudice or a break in the chain of lawful title, generalized challenges fail as a matter of law. The defense succeeds only when the borrower enforces black-letter statutory conditions precedent.&rdquo;
+            </p>
+            <span class="scholar-attribution">
+              &bull; Analysis of Post-Crisis Jurisprudence, <em>Uneasy Intersections: Foreclosure &amp; The UCC</em>, Wake Forest L. Rev.
+            </span>
+          </div>
+          <p>
+            <strong>PALADIN draws an uncompromising line against pseudo-law.</strong> We arm the defender with strict, black-letter statutory requirements that institutional syndicates frequently violate:
+          </p>
+          <ul style="margin: 0.75rem 0 1rem 1.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--paladin-ink);">
+            <li><strong>UCC § 3-301 / ORS 73.0301 (Person Entitled to Enforce):</strong> Compelling admissible proof that the foreclosing entity held the indorsed note at the exact moment the action commenced.</li>
+            <li><strong>UCC § 3-309 / ORS 73.0309 (Lost Instrument Evidentiary Gate):</strong> Strictly barring hearsay &ldquo;lost note affidavits&rdquo; unless the claimant proves possession when lost, details the facts of the loss, and posts adequate indemnification protection (<em>Fernandez v. Wilmington Trust</em>, 315 So. 3d 73).</li>
+            <li><strong>OEC / FRE 803(6) (Prior-Servicer Data Boarding Foundation):</strong> Striking robo-signed declarations where corporate affiants testify to records created by prior defunct servicers without personal knowledge of their record-keeping systems (<em>In re Taylor</em>, 407 B.R. 618; <em>In re Weisband</em>, 427 B.R. 13).</li>
+            <li><strong>County Recording Act Precedence:</strong> Enforcing state recording acts over unrecorded internal MERS ledger entries (<em>County of Ramsey v. MERSCORP Holdings, Inc.</em>, 776 F.3d 947).</li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Selected Authorities & References Block -->
       <div class="authorities-block">
-        <div class="authorities-title">Selected Legal &amp; Academic Authorities</div>
+        <div class="authorities-title">Selected Legal, Academic &amp; Evidentiary Authorities</div>
         <ul class="authorities-list">
           <li>
-            <strong>Thorstein Veblen</strong>, <em>Absentee Ownership and Business Enterprise in Recent Times: The Case of America</em> (B.W. Huebsch, 1923) (foundational analysis of the economic leverage of absentee resource ownership).
+            <strong>Thorstein Veblen</strong>, <em>Absentee Ownership and Business Enterprise in Recent Times: The Case of America</em> (B.W. Huebsch, 1923) (foundational economic analysis of absentee resource ownership and capitalized withdrawal of use).
+            <a href="library.html?q=Veblen" class="authority-link">View in Research Library &sect;</a>
           </li>
           <li>
-            <strong>Kelli Dudley</strong>, <em>An Excerpt of Iniquity: How Court Systems, Attorneys, and Legal Aid Organizations Cheated Homeowners in Foreclosure</em>, 12 DePaul J. for Soc. Just. (2019) (empirically analyzing the institutional failure of the foreclosure defense bar and legal aid organizations, dispelling the myth of the indefensible foreclosure, and documenting successful quiet title remedies).
+            <strong>Kelli Dudley</strong>, <em>An Excerpt of Iniquity: How Court Systems, Attorneys, and Legal Aid Organizations Cheated Homeowners in Foreclosure</em>, 12 DePaul J. for Soc. Just. (2019) (empirical analysis dispelling the myth of the indefensible foreclosure and documenting the 15-year Wilma L. quiet title victory).
+            <a href="library.html?q=Dudley" class="authority-link">View in Research Library &sect;</a>
           </li>
           <li>
-            <strong>Christopher K. Odinet</strong>, <em>Modernizing Mortgage Law</em>, 100 N.C. L. Rev. 89 (2021) (documenting how modern securitization leaves homeowners impoverished without contractual or restitutionary remedies).
+            <strong>Christopher K. Odinet</strong>, <em>Modernizing Mortgage Law</em>, 100 N.C. L. Rev. 89 (2021) (documenting how modern securitization structures insulate syndicates while denying homeowners restitutionary remedies).
+            <a href="library.html?q=Odinet" class="authority-link">View in Research Library &sect;</a>
           </li>
           <li>
-            <strong>Jessica A. Shoemaker</strong>, <em>Papering Over Place: When Land Becomes Asset Class</em>, 74 Fla. L. Rev. 1081 (2022) (examining the legal commodification, financialization, and dispossession of real property).
+            <strong>Jessica A. Shoemaker</strong>, <em>Papering Over Place: When Land Becomes Asset Class</em>, 74 Fla. L. Rev. 1081 (2022) (analyzing legal commodification, financialization, and dispossession of real property).
+            <a href="library.html?q=Shoemaker" class="authority-link">View in Research Library &sect;</a>
           </li>
           <li>
-            <strong>Adam J. Levitin &amp; Tara Twomey</strong>, <em>Mortgage Servicing</em>, 28 Yale J. on Reg. 1 (2011) (empirically analyzing servicer fee structures and the institutional principal-agent conflict driving foreclosures).
+            <strong>Adam J. Levitin &amp; Tara Twomey</strong>, <em>Mortgage Servicing</em>, 28 Yale J. on Reg. 1 (2011) (seminal study on servicer compensation structures and the principal-agent conflict driving unnecessary foreclosures).
+            <a href="library.html?q=Levitin" class="authority-link">View in Research Library &sect;</a>
           </li>
           <li>
-            <strong>County of Ramsey v. MERSCORP Holdings, Inc.</strong>, 776 F.3d 947 (8th Cir. 2014) (addressing allegations that lenders bypassed county public recordation and statutory recording fees via private MERS databases).
+            <strong>County of Ramsey v. MERSCORP Holdings, Inc.</strong>, 776 F.3d 947 (8th Cir. 2014) (allegations that lenders bypassed county public recordation and statutory fees through private MERS ledgers).
+            <a href="library.html?q=MERS" class="authority-link">View in Research Library &sect;</a>
           </li>
           <li>
-            <strong>Uniform Commercial Code §§ 3-301 &amp; 3-309 / ORS 73.0301 &amp; 73.0309</strong> (statutory standards governing person entitled to enforce negotiable instruments and evidentiary requirements for lost note affidavits).
+            <strong>State v. Flamer</strong>, 54 Or App 17, 633 P.2d 860 (1981) (holding that an official's lack of authority at the time an act is performed cannot be validated or cured by subsequent ratification).
+            <a href="library.html?q=Flamer" class="authority-link">View in Research Library &sect;</a>
+          </li>
+          <li>
+            <strong>Burt &amp; Gordon v. Stein</strong>, 128 Or App 350, 876 P.2d 338 (1994) (affirming that void judicial orders lack legal efficacy from inception and may be set aside at any time).
+            <a href="library.html?q=Burt" class="authority-link">View in Research Library &sect;</a>
+          </li>
+          <li>
+            <strong>Uniform Commercial Code §§ 3-301 &amp; 3-309 / ORS 73.0301 &amp; 73.0309</strong> (statutory standards governing Person Entitled to Enforce and mandatory evidentiary requirements for lost note affidavits).
+            <a href="library.html?q=UCC" class="authority-link">View in Research Library &sect;</a>
+          </li>
+          <li>
+            <strong>In re Taylor</strong>, 407 B.R. 618 (Bankr. E.D. Pa. 2009) &amp; <strong>In re Weisband</strong>, 427 B.R. 13 (Bankr. D. Ariz. 2010) (striking corporate servicer affidavits for lack of personal knowledge and failure to authenticate boarded prior-servicer loan records under Evidence Rule 803(6)).
+            <a href="library.html?q=Taylor" class="authority-link">View in Research Library &sect;</a>
+          </li>
+          <li>
+            <strong>Fernandez v. Wilmington Trust, N.A.</strong>, 315 So. 3d 73 (Fla. 3d DCA 2021) (reversing foreclosure judgment where trust failed to establish statutory evidentiary foundation for lost note).
+            <a href="library.html?q=Fernandez" class="authority-link">View in Research Library &sect;</a>
           </li>
           <li>
             <strong>United States v. Bank of America Corp.</strong>, No. 12-cv-00361 (D.D.C. Apr. 4, 2012) ($25 Billion National Mortgage Settlement Consent Judgment sanctioning robo-signing and deceptive affidavit practices).
+            <a href="library.html?q=Settlement" class="authority-link">View in Research Library &sect;</a>
           </li>
           <li>
-            <strong>Mortgage Industry Standards Maintenance Organization (MISMO)</strong>, <em>Remote Online Notarization Standards &amp; Certification Program</em> (governing cryptographic credential analysis, tamper-evident seals, and audio-visual audit archives).
+            <strong>Mortgage Industry Standards Maintenance Organization (MISMO)</strong>, <em>Remote Online Notarization Standards &amp; Certification Program</em> (cryptographic credential analysis, tamper-evident seals, and audio-visual audit archives).
+            <a href="library.html?q=MISMO" class="authority-link">View in Research Library &sect;</a>
           </li>
         </ul>
       </div>
@@ -1267,11 +1405,11 @@
                 </p>
               </td>
               <td>
-                <span class="principle-tag">Rule of Evidence: Personal Knowledge</span>
-                A distant entity cannot testify to events without personal knowledge. Corporate affidavits based on automated databases fail under Rule 803(6) and personal standing thresholds.
+                <span class="principle-tag">FRE / OEC 602 &amp; 803(6): Personal Knowledge &amp; Data Boarding</span>
+                A distant entity cannot testify without personal knowledge. Under Evidence Rule 803(6), corporate affidavits based on automated databases fail when the affiant cannot establish how records from prior, defunct servicers were verified, integrated, and maintained (<em>In re Taylor</em>, 407 B.R. 618; <em>In re Weisband</em>, 427 B.R. 13).
               </td>
               <td>
-                <strong>Standing Audit & Motion to Strike:</strong> Dissects plaintiff's lack of personal knowledge and challenges corporate witness affidavits lacking foundation.
+                <strong>Standing Audit &amp; Motion to Strike:</strong> Dissects plaintiff's lack of personal knowledge under OEC 602 and strikes corporate witness affidavits that fail the business records exception.
               </td>
             </tr>
 
@@ -1291,8 +1429,8 @@
                 </p>
               </td>
               <td>
-                <span class="principle-tag">Public Recording Acts Endure</span>
-                State recording acts were never repealed. While statutes like URPERA permit electronic public recording, an unrecorded private internal ledger entry (such as MERS) is not a public deed record and cannot defeat the recorded chain of title or excuse lack of personal standing (<em>County of Ramsey v. MERSCORP</em>, 776 F.3d 947).
+                <span class="principle-tag">Public Recording Acts &amp; URPERA Scope</span>
+                State recording acts were never repealed. While statutes like the Uniform Real Property Electronic Recording Act (URPERA) authorize county recorders to accept digitized public filings, URPERA does not authorize private, off-record shadow registries like MERS to bypass recording requirements or shield transfers of beneficial ownership from public scrutiny (<em>County of Ramsey v. MERSCORP Holdings, Inc.</em>, 776 F.3d 947 (8th Cir. 2014)).
               </td>
               <td>
                 <strong>Chain of Title Verification:</strong> Cross-references county public deed records against unrecorded internal ledger transfers to expose breaks in the title chain and challenge unrecorded assignments.
@@ -1315,8 +1453,8 @@
                 </p>
               </td>
               <td>
-                <span class="principle-tag">UCC Article 3 &amp; Person Entitled to Enforce</span>
-                Enforcing a negotiable promissory note requires proving status as a Person Entitled to Enforce (PETE) under UCC § 3-301 (ORS 73.0301). Any claim under a lost note must strictly satisfy UCC § 3-309 (ORS 73.0309) with competent, admissible evidence—not hearsay declarations from automated sub-servicers.
+                <span class="principle-tag">UCC Article 3 PETE &amp; Lost Note Evidentiary Gates</span>
+                Enforcing a negotiable promissory note requires proving status as a Person Entitled to Enforce (PETE) under UCC § 3-301 (ORS 73.0301). Lost Note Affidavits under UCC § 3-309 (ORS 73.0309) must strictly establish lawful possession at the time of loss, specific facts preventing production, and adequate indemnity protection—not hearsay declarations from automated sub-servicers (<em>Fernandez v. Wilmington Trust</em>, 315 So. 3d 73; $25B National Mortgage Settlement Consent Judgment).
               </td>
               <td>
                 <strong>Evidentiary PETE &amp; Standing Audit:</strong> Compels strict evidentiary foundation of plaintiff's enforcement standing under UCC § 3-301 and strikes unauthenticated lost note affidavits lacking Evidence Rule 803(6) personal knowledge.
@@ -1333,17 +1471,17 @@
               </td>
               <td>
                 <div class="pattern-title">Municipal Enforcement</div>
-                <div class="pattern-sub">Sheriffs & code officers executing void process</div>
+                <div class="pattern-sub">Sheriffs &amp; code officers executing void process</div>
                 <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
                   Local law enforcement and city code compliance weaponized to execute evictions and placards on behalf of invalid orders.
                 </p>
               </td>
               <td>
-                <span class="principle-tag">Constitutional Due Process</span>
-                An enforcement officer's writ is only as valid as the underlying jurisdiction. Orders entered without subject-matter jurisdiction or proper service are void ab initio.
+                <span class="principle-tag">Constitutional Due Process &amp; The Flamer Principle</span>
+                An enforcement officer's writ is only as valid as the underlying jurisdiction. Orders entered without subject-matter jurisdiction or proper service are void. Under <em>State v. Flamer</em>, 54 Or App 17, 633 P.2d 860 (1981), an official's lack of authority at the time an act is performed cannot be cured by subsequent ratification. Void orders lack legal effect from inception and may be vacated at any time (<em>Burt &amp; Gordon v. Stein</em>, 128 Or App 350 (1994); ORCP 71).
               </td>
               <td>
-                <strong>Emergency Stay & Procedural Injunction:</strong> Equips the homesteader with emergency filings to halt unlawful enforcement pending full evidentiary review.
+                <strong>Emergency Stay, Jurisdictional Injunction &amp; Notice of Supplemental Authority:</strong> Halts unlawful administrative or municipal enforcement pending jurisdictional review and lodges controlling authorities establishing voidness under <em>Flamer</em> and ORCP 71.
               </td>
             </tr>
           </tbody>
@@ -1378,6 +1516,7 @@
             <li>Automated certificates of service and declaration signature blocks</li>
             <li>LaTeX / LibreOffice lossless compilation to court-ready PDF</li>
           </ul>
+          <a href="library.html?q=UTCR" class="weapon-library-link">Search UTCR Rules &amp; Templates &sect;</a>
         </div>
 
         <!-- Tool 2 -->
@@ -1386,7 +1525,7 @@
             <span>TOOL 02</span>
             <span class="p-badge p-badge-terracotta">FIREWALL GATE</span>
           </div>
-          <h3 class="tool-title">Citation Auditor & Hallucination Firewall</h3>
+          <h3 class="tool-title">Citation Auditor &amp; Hallucination Firewall</h3>
           <p class="tool-desc">
             Every legal assertion must stand on solid bedrock. Connects directly to CourtListener to verify case citations, reporter volume numbers, and pinpoint pages while strictly blocking hallucinated citations.
           </p>
@@ -1396,6 +1535,7 @@
             <li>Validates Oregon Revised Statutes (ORS) and Oregon Rules of Civil Procedure (ORCP)</li>
             <li>Flags adverse precedent and overruled authorities before filing</li>
           </ul>
+          <a href="library.html?q=Citation" class="weapon-library-link">Browse Audited Authorities &sect;</a>
         </div>
 
         <!-- Tool 3 -->
@@ -1404,7 +1544,7 @@
             <span>TOOL 03</span>
             <span class="p-badge p-badge-teal">EXHIBIT PACKAGER</span>
           </div>
-          <h3 class="tool-title">Bates Stamping & Exhibit Packaging</h3>
+          <h3 class="tool-title">Bates Stamping &amp; Exhibit Packaging</h3>
           <p class="tool-desc">
             Takes messy PDF evidence drops and compiles them into a unified, court-ready deliverable. Automatically splits documents, applies alphanumeric labels, generates cover sheets, and builds an indexed table of exhibits.
           </p>
@@ -1412,8 +1552,9 @@
             <li>Automated alphanumeric exhibit stamping (Exhibit 101, 102...)</li>
             <li>Embedded PDF outline bookmarks matching pleading citations</li>
             <li>Resolution-sensitive selective compression preserving text readability</li>
-            <li>Generates formal UTCR 13.110 Exhibit Manifest & Table of Contents</li>
+            <li>Generates formal UTCR 13.110 Exhibit Manifest &amp; Table of Contents</li>
           </ul>
+          <a href="library.html?q=Exhibit" class="weapon-library-link">Explore Exhibit Formats &sect;</a>
         </div>
 
         <!-- Tool 4 -->
@@ -1432,6 +1573,7 @@
             <li>Links every factual allegation to Bates-numbered evidence</li>
             <li>Separates confirmed documentary facts from contested legal claims</li>
           </ul>
+          <a href="library.html?q=Chronology" class="weapon-library-link">View Timeline Schemas &sect;</a>
         </div>
 
         <!-- Tool 5 -->
@@ -1450,6 +1592,7 @@
             <li>Detects void orders and lack of subject-matter jurisdiction</li>
             <li>Directly integrated into the Oregon Legal Foundation grant framework</li>
           </ul>
+          <a href="library.html?q=Clackamas" class="weapon-library-link">Query 6,200+ Document Corpus &sect;</a>
         </div>
 
         <!-- Tool 6 -->
@@ -1458,7 +1601,7 @@
             <span>TOOL 06</span>
             <span class="p-badge p-badge-terracotta">ACCESS TO JUSTICE</span>
           </div>
-          <h3 class="tool-title">Fee Waiver & Procedural Guidance Gate</h3>
+          <h3 class="tool-title">Fee Waiver &amp; Procedural Guidance Gate</h3>
           <p class="tool-desc">
             Removes economic barriers to the courtroom. Streamlines the preparation of statutory indigency waivers under 28 U.S.C. § 1915 and ORS 21.682 with comprehensive procedural checklists.
           </p>
@@ -1468,6 +1611,7 @@
             <li>Emergency stay checklists for imminent sheriff notices</li>
             <li>Clear plain-language explanations of court timelines and reply windows</li>
           </ul>
+          <a href="library.html?q=Waiver" class="weapon-library-link">Search Indigency Authorities &sect;</a>
         </div>
       </div>
     </section>
@@ -1475,11 +1619,50 @@
     <!-- Section 4: Document Rescue Specimen -->
     <section id="rescue">
       <div class="section-header">
-        <div class="section-eyebrow">04 — Evidentiary Triage</div>
+        <div class="section-eyebrow">04 — Evidentiary Triage &amp; Intake Forensics</div>
         <h2 class="section-heading">The Court Document Rescue</h2>
         <p class="section-desc">
-          Not generic AI writing. We take rejected drafts, messy PDFs, and urgent filing deadlines, and reconstruct a compliant, verified legal document that courts cannot dismiss on procedural defects.
+          Not generic AI writing. We take rejected drafts, chaotic PDF dumps, and urgent filing deadlines, and reconstruct a compliant, verified legal document that courts cannot dismiss on procedural defects.
         </p>
+      </div>
+
+      <!-- The Real-World Source Material Crisis Callout -->
+      <div class="intake-crisis-box">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:0.5rem;">
+          <div>
+            <span class="intake-crisis-badge">The Real-World Evidentiary Crisis</span>
+            <h3 style="font-family:var(--font-display); font-size:1.3rem; color:var(--paladin-ink); font-weight:700;">
+              What the Distressed Litigant Actually Receives: The Unmanifested Archive
+            </h3>
+          </div>
+          <a href="library.html" class="sc-btn sc-btn-default sc-btn--sm" style="font-size:0.75rem;">Explore 6,200+ Evidence Records &sect;</a>
+        </div>
+        <p style="font-size:0.95rem; color:var(--paladin-ink-muted); margin-top:0.65rem; line-height:1.6;">
+          Academic papers and commercial legal-tech tools assume litigants arrive with neatly indexed JSON datasets and professional binders. In real life, the self-represented defender faces an overwhelming, hostile documentary swamp: hundreds of unindexed PDFs downloaded from automated servicer portals (Shellpoint, Nationstar, Ditech), encrypted ZIP files, generic filenames like <code>scan0022.pdf</code>, 15-year servicing transfer gaps (Countrywide &rarr; BAC &rarr; Green Tree &rarr; Ditech &rarr; Newrez/Shellpoint), legacy multi-page TIFF faxes, and missing promissory note endorsements.
+        </p>
+        <div class="intake-crisis-grid">
+          <div class="intake-crisis-card">
+            <span class="intake-crisis-badge">Symptom 01</span>
+            <strong>The Portal Dump Trap</strong>
+            <p style="color:var(--paladin-ink-muted); margin-top:0.25rem;">
+              Servicers export 15 years of transaction history as hundreds of unorganized, cryptic files. Crucial payment histories and notices of default are buried in random page blocks.
+            </p>
+          </div>
+          <div class="intake-crisis-card">
+            <span class="intake-crisis-badge">Symptom 02</span>
+            <strong>The Boarding Hearsay Void</strong>
+            <p style="color:var(--paladin-ink-muted); margin-top:0.25rem;">
+              Successor servicers swear boilerplate affidavits without personal knowledge of prior servicers' systems—directly vulnerable to motions to strike under Evidence Rule 803(6).
+            </p>
+          </div>
+          <div class="intake-crisis-card">
+            <span class="intake-crisis-badge">Symptom 03</span>
+            <strong>The 10-Day Procedural Trap</strong>
+            <p style="color:var(--paladin-ink-muted); margin-top:0.25rem;">
+              Courts reject filings with a single line-spacing defect or missing exhibit tab, granting default judgments before the homeowner's true defense is ever heard.
+            </p>
+          </div>
+        </div>
       </div>
 
       <div class="rescue-panel">
@@ -1490,37 +1673,54 @@
               Turn Rejected Pleadings Into Impregnable Court Deliverables
             </h3>
             <p style="font-size:1.05rem; color:var(--paladin-ink-muted); line-height:1.65;">
-              Courts reject pro se filings not because the facts are wrong, but because the margins are off, the case citations contain formatting errors, or the exhibits are disorganized. The Document Rescue fixes the mechanics so the judge is forced to confront the actual evidence.
+              Courts reject pro se filings not because the underlying injustice is absent, but because margins fail rule specifications, citations contain formatting errors, or exhibits lack foundation. The Document Rescue fixes the mechanics so the judge is forced to confront the actual evidence.
             </p>
 
             <div class="rescue-steps">
               <div class="rescue-step">
                 <div class="rescue-step-num">1</div>
                 <div class="rescue-step-content">
-                  <h4>Citation & Rule Audit</h4>
-                  <p>Every case citation is audited against CourtListener. Hallucinated quotes and defective rule citations are purged and replaced with binding authority.</p>
+                  <h4>Ingestion &amp; DocSplit Disaggregation</h4>
+                  <p>Raw portal exports, legacy TIFF faxes, and unindexed PDF bundles are split into standalone instruments, normalized, and OCR-indexed for instant forensic search.</p>
                 </div>
               </div>
 
               <div class="rescue-step">
                 <div class="rescue-step-num">2</div>
                 <div class="rescue-step-content">
-                  <h4>28-Line Pleading Standardization</h4>
-                  <p>Your arguments are placed into strict Oregon UTCR 28-line pleading paper with formal two-column captioning, numbered paragraphs, and signature blocks.</p>
+                  <h4>Chronological Ground Truth &amp; Title Chain Reconstruction</h4>
+                  <p>Every transaction, assignment, and payment record across decades of servicer transfers is reconstructed into an unassailable, linear documentary timeline.</p>
                 </div>
               </div>
 
               <div class="rescue-step">
                 <div class="rescue-step-num">3</div>
                 <div class="rescue-step-content">
-                  <h4>Bates Exhibit Package Compilation</h4>
-                  <p>Your supporting evidence is cleaned, stamped with alphanumeric identifiers, bookmarked, and bound with an indexed table of exhibits.</p>
+                  <h4>Evidence Rule 803(6) &amp; PETE Standing Audit</h4>
+                  <p>Corporate affidavits are audited for hearsay defects, lack of personal knowledge regarding boarded prior-servicer data, and failure to satisfy UCC § 3-301 / § 3-309 standards.</p>
+                </div>
+              </div>
+
+              <div class="rescue-step">
+                <div class="rescue-step-num">4</div>
+                <div class="rescue-step-content">
+                  <h4>Citation &amp; Rule Verification Firewall</h4>
+                  <p>Every case citation is audited against CourtListener and our 6,200+ document legal repository. Fictional citations are blocked and replaced with binding authority.</p>
+                </div>
+              </div>
+
+              <div class="rescue-step">
+                <div class="rescue-step-num">5</div>
+                <div class="rescue-step-content">
+                  <h4>28-Line Pleading &amp; Bates-Indexed Exhibit Packaging</h4>
+                  <p>Arguments are formatted into mathematically compliant Oregon UTCR 28-line pleading paper, paired with Bates-stamped exhibits, bookmarks, and a formal table of contents.</p>
                 </div>
               </div>
             </div>
 
-            <div style="display:flex; gap:1rem; align-items:center;">
+            <div style="display:flex; gap:1rem; align-items:center; flex-wrap:wrap;">
               <a href="mailto:annika@executivefunctionos.com?subject=Court%20Document%20Rescue%20Inquiry" class="sc-btn sc-btn-active">Request Document Rescue</a>
+              <a href="library.html?q=Pleading" class="sc-btn sc-btn-default">Sample Pleading Precedent &sect;</a>
               <span style="font-family:var(--font-technical); font-size:0.8rem; color:var(--paladin-ink-muted);">Sliding Scale / A2J Grant Subsidized</span>
             </div>
           </div>
@@ -1633,6 +1833,7 @@
             <li><a href="#weapons">Bates Exhibit Studio</a></li>
             <li><a href="#weapons">Chronological Ground Truth</a></li>
             <li><a href="#weapons">HyperRAG Retrospective</a></li>
+            <li><a href="library.html">Evidence Archive (6,200+)</a></li>
           </ul>
         </div>
 
