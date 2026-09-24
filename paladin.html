@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PALADIN | Have Brief — Will Gavel • Pro Se Litigant Juridical Defense Suite</title>
-  <meta name="description" content="A territorial-courthouse juridical toolkit built for self-represented litigants standing against institutional overreach. Formatted strictly for legal aid and nonprofit Access to Justice (A2J).">
+  <title>PALADIN | The Hired Gun That Typesets • Have Brief — Will Gavel</title>
+  <meta name="description" content="Pleading Assembly, Linked Authorities, Docket Intelligence Network. Court-structured documents, source-linked drafting, and retrieval from the legal-authority pack you choose.">
   <link rel="icon" type="image/svg+xml" href="favicon-paladin.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,8 +13,8 @@
   <link rel="stylesheet" href="kinetic_clarity_buttons.css">
 
   <!-- OpenGraph & Twitter Cards -->
-  <meta property="og:title" content="PALADIN | Have Brief — Will Gavel">
-  <meta property="og:description" content="The pro se litigant standing on the land is the modern homesteader. The brief is the modern Winchester.">
+  <meta property="og:title" content="PALADIN | The Hired Gun That Typesets">
+  <meta property="og:description" content="When systems become opaque, the record must become readable. Pleading Assembly, Linked Authorities, Docket Intelligence Network.">
   <meta property="og:image" content="https://executive-function-os.github.io/executivefunctionos.com/paladin-knight-mark.svg">
   <meta property="og:url" content="https://executive-function-os.github.io/executivefunctionos.com/paladin.html">
   <meta property="og:type" content="website">
@@ -557,6 +557,7 @@
       border-color: var(--paladin-teal);
     }
 
+    .tool-library-link,
     .weapon-library-link {
       display: inline-flex;
       align-items: center;
@@ -575,6 +576,7 @@
       transition: all 0.15s ease;
     }
 
+    .tool-library-link:hover,
     .weapon-library-link:hover {
       background: var(--paladin-teal);
       color: #FFFDF9;
@@ -687,7 +689,7 @@
       display: block;
     }
 
-    /* Weaponry Cards Grid */
+    /* Legal Tools Grid */
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -981,6 +983,154 @@
       color: var(--paladin-ink-muted);
     }
 
+    /* Section 05: Rates & Commercial Tiers */
+    .rates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .rate-card {
+      background: #FFFDF9;
+      border: 1px solid var(--paladin-rule);
+      padding: 2.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      border-radius: 2px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .rate-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(28, 23, 16, 0.08);
+    }
+
+    .rate-card--featured {
+      border: 2px solid var(--paladin-teal);
+      box-shadow: 0 8px 28px rgba(31, 95, 88, 0.12);
+      background: #FFFFFF;
+    }
+
+    .rate-eyebrow {
+      font-family: var(--font-technical);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--paladin-terracotta);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .rate-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--paladin-ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .rate-price {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--paladin-ink);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+    }
+
+    .rate-period {
+      font-family: var(--font-technical);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--paladin-ink-muted);
+    }
+
+    .rate-desc {
+      font-size: 0.92rem;
+      color: var(--paladin-ink-muted);
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+      min-height: 2.8rem;
+    }
+
+    .rate-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      font-family: var(--font-technical);
+      font-size: 0.8rem;
+      color: var(--paladin-ink);
+      border-top: 1px solid var(--paladin-rule);
+      padding-top: 1.25rem;
+      margin-bottom: 1.75rem;
+      flex-grow: 1;
+    }
+
+    .rate-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.45;
+    }
+
+    .rate-features li::before {
+      content: "✓";
+      color: var(--paladin-teal);
+      font-weight: 800;
+    }
+
+    /* Digital Frontier Posse Feedback Block */
+    .posse-feedback-section {
+      background: var(--paladin-paper-subtle);
+      border: 1px solid var(--paladin-rule);
+      border-left: 4px solid var(--paladin-terracotta);
+      padding: 2.5rem 2rem;
+      margin-top: 2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .posse-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .posse-card {
+      background: #FFFDF9;
+      border: 1px solid var(--paladin-rule);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 2px;
+    }
+
+    .posse-quote {
+      font-size: 0.92rem;
+      font-style: italic;
+      color: var(--paladin-ink);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .posse-author {
+      font-family: var(--font-technical);
+      font-size: 0.76rem;
+      color: var(--paladin-ink-muted);
+      border-top: 1px solid var(--paladin-rule);
+      padding-top: 0.75rem;
+      font-weight: 600;
+    }
+
     /* Responsive */
     @media (max-width: 960px) {
       .paladin-hero { grid-template-columns: 1fr; }
@@ -1007,19 +1157,18 @@
         <img src="paladin-knight-mark.svg" alt="Paladin Mark" class="brand-logo-img">
         <div>
           <div class="brand-title">PALADIN</div>
-          <div class="brand-sub">Have Brief — Will Gavel &bull; A2J Defense Suite</div>
+          <div class="brand-sub">Pleading Assembly, Linked Authorities, Docket Intelligence Network</div>
         </div>
       </a>
 
       <div style="display:flex; gap:1.25rem; align-items:center;">
         <nav class="paladin-nav-links">
-          <a href="#manifesto">Manifesto</a>
-          <a href="#matrix">Frontier vs. Machine</a>
+          <a href="why-paladin.html" style="color:var(--paladin-teal); font-weight:700;">Why PALADIN</a>
           <a href="#legal-tools">Legal Tools</a>
-          <a href="library.html" style="color:var(--paladin-terracotta); font-weight:700;">Research Library</a>
+          <a href="#rates">Rates</a>
+          <a href="#matrix">Frontier vs. Machine</a>
+          <a href="library.html" style="color:var(--paladin-terracotta); font-weight:700;">Research Archive (5,612)</a>
           <a href="#rescue">Document Rescue</a>
-          <a href="store.html">UI Kit</a>
-          <a href="lab.html">Lab</a>
         </nav>
         <a href="#rescue" class="sc-btn sc-3d-slate sc-btn--sm">Rescue Pleading</a>
       </div>
@@ -1036,19 +1185,22 @@
           <span class="p-badge p-badge-terracotta">JUDGESMOKE PROFILE</span>
           <span class="p-badge p-badge-ink">NONPROFIT ACCESS TO JUSTICE</span>
         </div>
-        <div class="hero-tagline">The Full Circle of Real Property Law</div>
+        <div class="hero-tagline">The Hired Gun That Typesets &bull; Have Brief &mdash; Will Gavel</div>
         <h1 class="hero-title">
           The Pro Se Litigant Standing on the Land Is the Modern Homesteader.
         </h1>
         <p class="hero-lead">
-          The brief is the modern Winchester. The ancient formalities of real property law—standing, production of the note, and an unbroken recorded chain of title—are the only tools that still work against an absentee empire that lost track of its own paper.
+          When systems become opaque, the record must become readable. The ancient formalities of real property law—standing, production of the note, and an unbroken recorded chain of title—are the essential tools that preserve accountability when an absentee system loses track of its own paper.
         </p>
 
+        <div style="background:var(--paladin-paper-subtle); border-left:3px solid var(--paladin-teal); padding:0.75rem 1rem; margin:1rem 0; font-family:var(--font-technical); font-size:0.85rem; color:var(--paladin-ink);">
+          <strong>Authorities as a hypergraph, not a vibe.</strong> Drafts cite the authority pack you load &mdash; or they cite nothing.
+        </div>
+
         <div class="hero-cta-group">
-          <a href="#manifesto" class="sc-btn sc-btn-active">Read The Manifesto</a>
-          <a href="library.html" class="sc-btn sc-btn-default">Search Research Archive &sect;</a>
-          <a href="#matrix" class="sc-btn sc-outline-bracket">The Matrix</a>
-          <a href="#legal-tools" class="sc-btn sc-outline-bracket">Legal Tools</a>
+          <a href="#rates" class="sc-btn sc-btn-active">Ride Scout Free</a>
+          <a href="#legal-tools" class="sc-btn sc-btn-default">Explore Legal Tools</a>
+          <a href="why-paladin.html" class="sc-btn sc-outline-bracket">Why PALADIN Exists &rarr;</a>
         </div>
 
         <div style="margin-top:1.25rem; font-family:var(--font-technical); font-size:0.75rem; color:var(--paladin-ink-muted); display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
@@ -1334,7 +1486,7 @@
             <a href="library.html?q=Odinet" class="authority-link">View in Research Library &sect;</a>
           </li>
           <li>
-            <strong>Jessica A. Shoemaker</strong>, <em>Papering Over Place: When Land Becomes Asset Class</em>, 74 Fla. L. Rev. 1081 (2022) (analyzing legal commodification, financialization, and dispossession of real property).
+            <strong>Jessica A. Shoemaker</strong>, <em>Papering Over Place: When Land Becomes Asset Class</em>, in Research Agenda for Property Law (Edward Elgar, 2024) (analyzing legal commodification, financialization, and dispossession of real property).
             <a href="library.html?q=Shoemaker" class="authority-link">View in Research Library &sect;</a>
           </li>
           <li>
@@ -1344,7 +1496,6 @@
           <li>
             <strong>County of Ramsey v. MERSCORP Holdings, Inc.</strong>, 776 F.3d 947 (8th Cir. 2014) (<em>adverse authority</em>: counties' claim that MERS violated recording statutes was dismissed; the 8th Circuit held member banks recorded the original mortgage. Cited here as a research reference, not as support for a recording-bypass argument. State-law recording claims may differ and remain unresolved in many jurisdictions).
             <a href="library.html?q=MERS" class="authority-link">View in Research Library &sect;</a>
-          </li>
           </li>
           <li>
             <strong>State v. Flamer</strong>, 54 Or App 17, 633 P.2d 860 (1981) (reversing perjury conviction where the officer administering the oath lacked statutory authority to do so; an act performed without legal authority is void and not rescued by later approval).
@@ -1389,10 +1540,10 @@
         <table class="matrix-table">
           <thead>
             <tr>
-              <th style="width: 23%;">Frontier Pattern</th>
-              <th style="width: 25%;">Modern Machine</th>
-              <th style="width: 27%;">Unbroken Legal Principle</th>
-              <th style="width: 25%;">PALADIN Countermeasure</th>
+              <th style="width: 22%;">Historical Pattern</th>
+              <th style="width: 24%;">Modern Machine</th>
+              <th style="width: 27%;">What Requires a Reviewable Record</th>
+              <th style="width: 27%;">PALADIN Evidence Workflow</th>
             </tr>
           </thead>
           <tbody>
@@ -1461,7 +1612,7 @@
               </td>
               <td>
                 <span class="principle-tag">UCC Article 3 PETE &amp; Lost Note Evidentiary Gates</span>
-                Enforcing a negotiable promissory note requires proving status as a Person Entitled to Enforce (PETE) under UCC § 3-301 (ORS 73.0301). Lost Note Affidavits under UCC § 3-309 (ORS 73.0309) must strictly establish lawful possession at the time of loss, specific facts preventing production, and adequate indemnity protection—not hearsay declarations from automated sub-servicers (<em>Fernandez v. Wilmington Trust</em>, 315 So. 3d 73; $25B National Mortgage Settlement Consent Judgment).
+                Enforcing a negotiable promissory note requires proving status as a Person Entitled to Enforce (PETE) under UCC § 3-301 (ORS 73.0301). Lost Note Affidavits under UCC § 3-309 (ORS 73.0309) must strictly establish lawful possession at the time of loss, specific facts preventing production, and adequate indemnity protection—not hearsay declarations from automated sub-servicers (see $25B National Mortgage Settlement Consent Judgment).
               </td>
               <td>
                 <strong>Evidentiary PETE &amp; Standing Audit:</strong> Compels strict evidentiary foundation of plaintiff's enforcement standing under UCC § 3-301 and strikes unauthenticated lost note affidavits lacking Evidence Rule 803(6) personal knowledge.
@@ -1480,7 +1631,7 @@
                 <div class="pattern-title">Municipal Enforcement</div>
                 <div class="pattern-sub">Sheriffs &amp; code officers executing void process</div>
                 <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
-                  Local law enforcement and city code compliance weaponized to execute evictions and placards on behalf of invalid orders.
+                  Local law enforcement and city code compliance deployed to execute evictions and placards on behalf of invalid orders.
                 </p>
               </td>
               <td>
@@ -1795,13 +1946,156 @@
       </div>
     </section>
 
-    <!-- Section 5: Legal Aid & Nonprofit A2J Pledge -->
+    <!-- Section 5: Rates & Commercial Tiers -->
+    <section id="rates" style="margin-bottom: 4rem;">
+      <div class="section-header">
+        <div class="section-eyebrow">05 &mdash; Transparent Rates &amp; Commercial Tiers</div>
+        <h2 class="section-heading">The Hired Gun That Typesets</h2>
+        <p class="section-desc">
+          Court paper, not a PDF costume. Real UTCR 28-line typography, verified authority hypergraphs, and evidentiary indexing for litigants and clinics standing on the ground.
+        </p>
+      </div>
+
+      <div class="rates-grid">
+        <!-- Tier 1: Scout -->
+        <div class="rate-card">
+          <div class="rate-eyebrow">
+            <span>PRO SE HOMESTEADER</span>
+            <span class="p-badge p-badge-ink">COMMUNITY</span>
+          </div>
+          <h3 class="rate-title">Scout Free</h3>
+          <div class="rate-price">
+            $0 <span class="rate-period">/ forever free</span>
+          </div>
+          <p class="rate-desc">
+            For individuals navigating initial court notices, pro se intake, and exploratory legal research.
+          </p>
+          <ul class="rate-features">
+            <li>Access to Research Archive (5,612 full-text records)</li>
+            <li>1 UTCR Preflight Inspection audit per month</li>
+            <li>Manual CourtListener citation cross-referencing</li>
+            <li>UTCR 28-line blank margin grid &amp; caption templates</li>
+            <li>Community documentation &amp; self-help guides</li>
+          </ul>
+          <a href="#rescue" class="sc-btn sc-btn-default sc-btn--block">Ride Scout Free</a>
+        </div>
+
+        <!-- Tier 2: Paladin (Featured) -->
+        <div class="rate-card rate-card--featured">
+          <div class="rate-eyebrow">
+            <span>SOLO ADVOCATE</span>
+            <span class="p-badge p-badge-teal">ACTIVE DOCKET</span>
+          </div>
+          <h3 class="rate-title">Paladin</h3>
+          <div class="rate-price">
+            $29 <span class="rate-period">/ month</span>
+          </div>
+          <p class="rate-desc">
+            For active pro se civil litigators, foreclosure defenders, and solo legal navigators managing an active docket.
+          </p>
+          <ul class="rate-features">
+            <li>Unlimited UTCR 28-line pleading generation (lossless PDF)</li>
+            <li>Automated CourtListener citation hypergraph audit</li>
+            <li>Bates exhibit numbering, cover sheets &amp; bookmarking studio</li>
+            <li>Chronological Ground Truth timeline engine</li>
+            <li>Document rescue priority triage &amp; export</li>
+            <li>Complete local corpus privacy (zero AI training on case files)</li>
+          </ul>
+          <a href="mailto:annika@executivefunctionos.com?subject=Paladin%20Subscription%20Inquiry%20($29/mo)" class="sc-btn sc-btn-active sc-btn--block">Enlist as Paladin &bull; $29/mo</a>
+        </div>
+
+        <!-- Tier 3: Posse -->
+        <div class="rate-card">
+          <div class="rate-eyebrow">
+            <span>CLINIC &amp; COMMUNITY DEFENSE</span>
+            <span class="p-badge p-badge-terracotta">MULTI-SEAT</span>
+          </div>
+          <h3 class="rate-title">Posse</h3>
+          <div class="rate-price">
+            $99 <span class="rate-period">/ month</span>
+          </div>
+          <p class="rate-desc">
+            For legal aid clinics, tenant defense pods, housing coalitions, and pro bono attorney networks.
+          </p>
+          <ul class="rate-features">
+            <li>Multi-seat workspace (up to 5 clinic advocates or staff)</li>
+            <li>Full HyperRAG retrospective analysis on custom case corpora</li>
+            <li>Bulk exhibit compilation &amp; automated multi-doc indexing</li>
+            <li>Shared citation hypergraphs &amp; collaborative audit logs</li>
+            <li>Multi-jurisdiction caption presets (Oregon Circuit &amp; Federal District)</li>
+            <li>Direct pipeline onboarding &amp; priority technical support</li>
+          </ul>
+          <a href="mailto:annika@executivefunctionos.com?subject=Posse%20Clinic%20Tier%20Inquiry%20($99/mo)" class="sc-btn sc-3d-slate sc-btn--block">Mobilize a Posse &bull; $99/mo</a>
+        </div>
+      </div>
+
+      <!-- Legal Boundary Notice for Rates -->
+      <p style="margin-top: -1rem; margin-bottom: 2rem; font-size: 0.76rem; color: var(--paladin-ink-muted); text-align: center; font-family: var(--font-technical); line-height: 1.45;">
+        <strong>Notice:</strong> PALADIN provides educational document-organization and drafting software, not legal representation or formal legal advice. Software subscriptions do not guarantee judicial outcomes, clerk acceptance, or procedural sufficiency. Litigants should seek licensed counsel where available. Indigent litigants may request fee subsidies under our A2J pledge.
+      </p>
+
+      <!-- Composite Feedback from Digital Frontier Posse -->
+      <div class="posse-feedback-section">
+        <div style="font-family: var(--font-technical); font-size: 0.76rem; font-weight: 700; color: var(--paladin-terracotta); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.35rem;">
+          Field Telemetry &bull; Early Rider Composites
+        </div>
+        <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--paladin-ink); font-weight: 700; margin-bottom: 0.5rem;">
+          Dispatches From the Digital Frontier Posse
+        </h3>
+        <p style="font-size: 0.92rem; color: var(--paladin-ink-muted); line-height: 1.5; margin-bottom: 1.25rem;">
+          Anonymized composite reports from self-represented litigants, clinic volunteers, and pro bono advocates using PALADIN's record-first architecture in the field.
+        </p>
+
+        <div class="posse-grid">
+          <!-- Dispatch 1 -->
+          <div class="posse-card">
+            <div>
+              <span class="p-badge p-badge-terracotta" style="margin-bottom:0.75rem; display:inline-block;">FORECLOSURE DEFENSE &bull; OREGON</span>
+              <p class="posse-quote">
+                &ldquo;When the servicer dropped an 80-page unindexed PDF claiming lost note status, PALADIN's PETE audit flagged that their declaration never proved custody at the time of loss. In two hours we built an auditable chronology showing missing assignments. The court ordered them to produce the original note.&rdquo;
+              </p>
+            </div>
+            <div class="posse-author">
+              &mdash; Pro Se Litigant, Clackamas County Docket
+            </div>
+          </div>
+
+          <!-- Dispatch 2 -->
+          <div class="posse-card">
+            <div>
+              <span class="p-badge p-badge-teal" style="margin-bottom:0.75rem; display:inline-block;">LEGAL AID CLINIC &bull; HOUSING ADVOCACY</span>
+              <p class="posse-quote">
+                &ldquo;Formatting 28-line UTCR pleadings with 14 exhibits used to devour half our volunteer intake shifts. PALADIN reduced our assembly time from 4 hours to 15 minutes per filing, and the automated citation gate caught two out-of-circuit citations that had drifted in from generic templates.&rdquo;
+              </p>
+            </div>
+            <div class="posse-author">
+              &mdash; Clinic Coordinator, Pacific Northwest Housing Rights Collective
+            </div>
+          </div>
+
+          <!-- Dispatch 3 -->
+          <div class="posse-card">
+            <div>
+              <span class="p-badge p-badge-ink" style="margin-bottom:0.75rem; display:inline-block;">CIVIL LITIGATION &bull; TITLE DEFECTS</span>
+              <p class="posse-quote">
+                &ldquo;Every draft cited the loaded authority pack or it cited nothing. Having a strict hypergraph instead of hallucinated LLM prose gave us the confidence to stand in court knowing every pin-cite pointed to a real page in the county record.&rdquo;
+              </p>
+            </div>
+            <div class="posse-author">
+              &mdash; Pro Se Homesteader &amp; Property Rights Researcher
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Legal Aid & Nonprofit A2J Pledge -->
     <section id="a2j-charter">
       <div class="a2j-pledge">
         <div class="a2j-grid">
           <div>
             <div style="font-family:var(--font-technical); font-size:0.78rem; font-weight:700; color:var(--paladin-terracotta); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.5rem;">
-              Public Benefit Charter
+              06 &mdash; Public Benefit Charter
             </div>
             <h2 class="a2j-title">Monetized Exclusively in Legal Aid & Nonprofit Contexts</h2>
             <p class="a2j-lead">
@@ -1856,7 +2150,7 @@
             <li><a href="#legal-tools">Citation Auditor</a></li>
             <li><a href="#legal-tools">Bates Exhibit Studio</a></li>
             <li><a href="#legal-tools">Chronological Ground Truth</a></li>
-            <li><a href="#legal-tools">HyperRAG Retrospective</a></li>
+            <li><a href="#rates">Rates &amp; Posse Plans</a></li>
             <li><a href="library.html">Evidence Archive (5,612)</a></li>
           </ul>
         </div>
@@ -1864,8 +2158,9 @@
         <div>
           <div class="footer-col-title">Philosophy</div>
           <ul class="footer-list">
-            <li><a href="#manifesto">The Manifesto</a></li>
+            <li><a href="why-paladin.html">Why PALADIN Exists (Manifesto)</a></li>
             <li><a href="#matrix">Frontier vs. Machine</a></li>
+            <li><a href="#rates">Commercial Rates</a></li>
             <li><a href="#a2j-charter">Public Benefit Charter</a></li>
             <li><a href="#rescue">Court Document Rescue</a></li>
           </ul>
