@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PALADIN | Record-First Legal-Information Workflow • Oregon-Focused</title>
-  <meta name="description" content="Make the Court Record Readable Before You Make an Argument. PALADIN helps self-represented litigants organize complicated court and property records into source-linked timelines, reviewable exhibit packages, citation-checked drafts, and filing-ready document structures.">
+  <title>P.A.L.A.D.I.N. | Pro Se Document &amp; Record-Organization Tools</title>
+  <meta name="description" content="Make the record readable before you make an argument. PALADIN helps people organize complex court records into source-linked timelines, citation-checked drafts, exhibit packages, and filing-ready document structures.">
   <link rel="icon" type="image/svg+xml" href="favicon-paladin.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,8 +13,8 @@
   <link rel="stylesheet" href="kinetic_clarity_buttons.css">
 
   <!-- OpenGraph & Twitter Cards -->
-  <meta property="og:title" content="PALADIN | Record-First Legal-Information Workflow">
-  <meta property="og:description" content="Make the Court Record Readable Before You Make an Argument. Source-linked timelines, reviewable exhibit packages, citation-checked drafts, and filing-ready document structures.">
+  <meta property="og:title" content="P.A.L.A.D.I.N. | Pro Se Document &amp; Record-Organization Tools">
+  <meta property="og:description" content="Make the record readable before you make an argument. PALADIN helps people organize complex court records into source-linked timelines, citation-checked drafts, exhibit packages, and filing-ready document structures.">
   <meta property="og:image" content="https://executive-function-os.github.io/executivefunctionos.com/paladin-knight-mark.svg">
   <meta property="og:url" content="https://executive-function-os.github.io/executivefunctionos.com/paladin.html">
   <meta property="og:type" content="website">
@@ -687,6 +687,36 @@
       display: block;
     }
 
+    /* Suite Summary Table */
+    .suite-summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0 2.5rem;
+      background: #FFFFFF;
+      border: 1px solid var(--paladin-rule);
+      border-radius: 2px;
+      font-size: 0.92rem;
+    }
+    .suite-summary-table th {
+      background: var(--paladin-teal);
+      color: #FFFDF9;
+      font-family: var(--font-technical);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.15rem;
+      text-align: left;
+    }
+    .suite-summary-table td {
+      padding: 1rem 1.15rem;
+      border-bottom: 1px solid var(--paladin-rule);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .suite-summary-table tr:last-child td { border-bottom: none; }
+    .suite-summary-table tr:nth-child(even) td { background: var(--paladin-paper-subtle); }
+
     /* Legal Tools Grid */
     .tools-grid {
       display: grid;
@@ -1154,22 +1184,22 @@
       <a href="index.html" class="brand-link" title="Return to EFOS Hub">
         <img src="paladin-knight-mark.svg" alt="Paladin Mark" class="brand-logo-img">
         <div>
-          <div class="brand-title">PALADIN</div>
-          <div class="brand-sub">Pleading Assembly, Linked Authorities, Docket Intelligence Network</div>
+          <div class="brand-title">P.A.L.A.D.I.N.</div>
+          <div class="brand-sub">Pro se document and record-organization tools</div>
         </div>
       </a>
 
       <div style="display:flex; gap:1.25rem; align-items:center;">
         <nav class="paladin-nav-links">
-          <a href="why-paladin.html" style="color:var(--paladin-teal); font-weight:700;">Why PALADIN</a>
-          <a href="#method">Method</a>
-          <a href="#legal-tools">Legal Tools</a>
-          <a href="#rates">Rates</a>
-          <a href="#matrix">Frontier vs. Machine</a>
-          <a href="library.html" style="color:var(--paladin-terracotta); font-weight:700;">Research Archive (5,612)</a>
+          <a href="#the-suite" style="color:var(--paladin-teal); font-weight:700;">The Suite</a>
+          <a href="#method">Operating Principles</a>
+          <a href="#evidence-gate">Evidence Gate</a>
           <a href="#rescue">Document Rescue</a>
+          <a href="#rates">Pricing</a>
+          <a href="#a2j-charter">Public Charter</a>
+          <a href="why-paladin.html">Why PALADIN</a>
         </nav>
-        <a href="#rescue" class="sc-btn sc-3d-slate sc-btn--sm">Rescue Pleading</a>
+        <a href="#rescue" class="sc-btn sc-3d-slate sc-btn--sm">Start Document Rescue</a>
       </div>
     </div>
   </header>
@@ -1179,41 +1209,41 @@
     <!-- Hero Section -->
     <div class="paladin-hero">
       <div>
-        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem;">
-          <span class="p-badge p-badge-teal">RECORD-FIRST LEGAL-INFORMATION WORKFLOW</span>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.75rem;">
+          <span class="p-badge p-badge-ink" style="letter-spacing:0.1em;">P.A.L.A.D.I.N.</span>
+          <span class="p-badge p-badge-teal">RECORD-FIRST WORKFLOW</span>
           <span class="p-badge p-badge-terracotta">OREGON-FOCUSED</span>
-          <span class="p-badge p-badge-ink">EDUCATIONAL TOOL</span>
         </div>
-        <div class="hero-tagline">Pleading Assembly, Linked Authorities, Docket Intelligence Network</div>
+        <div style="font-family:var(--font-technical); font-size:0.88rem; font-weight:600; color:var(--paladin-teal); margin-bottom:1rem; letter-spacing:0.02em;">
+          Pro se document and record-organization tools<br>
+          <span style="font-size:0.8rem; color:var(--paladin-ink-muted);">For self-represented litigants, legal-aid clinics, and community advocates.</span>
+        </div>
         <h1 class="hero-title">
-          Make the Court Record Readable Before You Make an Argument.
+          Make the record readable before you make an argument.
         </h1>
         <p class="hero-lead">
-          PALADIN helps self-represented litigants organize complicated court and property records into source-linked timelines, reviewable exhibit packages, citation-checked drafts, and filing-ready document structures. It does not promise a defense, determine legal merit, or replace legal counsel.
+          PALADIN helps people organize complex court records into source-linked timelines, citation-checked drafts, exhibit packages, and filing-ready document structures.
+        </p>
+        <p style="font-size:0.98rem; color:var(--paladin-ink-muted); line-height:1.6; margin-bottom:1rem;">
+          It is built for the difficult work that comes before legal argument: locating documents, tracing dates, checking citations, assembling exhibits, and identifying questions that require qualified legal review.
+        </p>
+        <p style="font-size:0.95rem; font-weight:600; color:var(--paladin-ink); margin-bottom:1.5rem;">
+          PALADIN does not provide legal advice, predict case outcomes, or replace a lawyer.
         </p>
 
-        <!-- Proof Band -->
-        <div style="background:var(--paladin-paper-subtle); border-left:3px solid var(--paladin-teal); padding:1rem 1.25rem; margin:1.25rem 0; font-family:var(--font-technical); font-size:0.86rem; color:var(--paladin-ink); line-height:1.55;">
-          <div style="color:var(--paladin-teal); font-weight:700; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.35rem;">
-            Record-specific analysis, not foreclosure folklore.
-          </div>
-          A missing assignment, MERS involvement, securitization, or a generalized &ldquo;show me the note&rdquo; demand is not automatically a legal defense. PALADIN helps users distinguish unsupported theories from questions grounded in the actual documents, governing procedure, admissible evidence, and controlling authority.
-        </div>
-
         <div class="hero-cta-group">
-          <a href="#legal-tools" class="sc-btn sc-btn-active">Explore the Record-First Workflow</a>
-          <a href="#rescue" class="sc-btn sc-btn-default">See a Document Rescue Example</a>
-          <a href="#method" class="sc-btn sc-outline-bracket">Review Scope and Limitations &rarr;</a>
+          <a href="#the-suite" class="sc-btn sc-btn-active">Explore the suite</a>
+          <a href="#rescue" class="sc-btn sc-btn-default">Start a document rescue</a>
         </div>
 
-        <div style="margin-top:1.25rem; font-family:var(--font-technical); font-size:0.75rem; color:var(--paladin-ink-muted); display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
-          <span style="color:var(--paladin-teal); font-weight:700;">Educational Tool</span>
+        <div style="margin-top:1.25rem; font-family:var(--font-technical); font-size:0.78rem; color:var(--paladin-ink-muted); display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; background:rgba(31,95,88,0.06); padding:0.6rem 0.85rem; border-radius:3px; border:1px solid var(--paladin-rule);">
+          <span style="color:var(--paladin-teal); font-weight:700;">Educational tool.</span>
           <span>&bull;</span>
-          <span>Not Legal Advice</span>
+          <span>Not legal advice.</span>
           <span>&bull;</span>
-          <span>User Review Required</span>
+          <span>Oregon-focused.</span>
           <span>&bull;</span>
-          <span>Source-Linked Evidence</span>
+          <span>User review required.</span>
         </div>
       </div>
 
@@ -1247,68 +1277,344 @@
         <!-- Terracotta Knight Calling Card -->
         <div class="calling-card">
           <div class="card-title">
-            <span>PALADIN</span>
-            <span style="font-size:0.75rem; letter-spacing:0.04em;">A2J DEFENSE</span>
+            <span>P.A.L.A.D.I.N.</span>
+            <span style="font-size:0.75rem; letter-spacing:0.04em;">RECORD-FIRST WORKFLOW</span>
           </div>
-          <div class="card-subtitle">Have Brief — Will Gavel</div>
+          <div class="card-subtitle">Have brief. Will gavel.</div>
           <div class="card-rule"></div>
           <div class="card-body">
-            RECORD-FIRST INTEGRITY &bull; STRICT EVIDENTIARY AUDITING<br>
+            A DISCIPLINED RECORD COMES FIRST<br>
             OREGON UTCR 28-LINE COMPLIANCE &bull; SOURCE-LINKED CITATION AUDIT
           </div>
         </div>
       </div>
     </div>
 
-    <!-- The PALADIN Method & Scope Anchor -->
+    <!-- A Record-First Legal-Information Workflow -->
+    <section id="workflow" style="margin: 2rem 0 3.5rem; padding: 2.25rem 2.5rem; background:#FFFFFF; border:1px solid var(--paladin-rule); border-left:4px solid var(--paladin-teal); border-radius:2px; box-shadow:0 4px 16px rgba(28,23,16,0.04);">
+      <div style="font-family:var(--font-technical); font-size:0.78rem; font-weight:700; color:var(--paladin-terracotta); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.35rem;">
+        Core Operational Foundation
+      </div>
+      <h2 style="font-family:var(--font-display); font-size:1.85rem; font-weight:800; color:var(--paladin-ink); margin-bottom:0.75rem;">
+        A record-first legal-information workflow
+      </h2>
+      <p style="font-size:1.05rem; color:var(--paladin-ink); line-height:1.65; margin-bottom:1.25rem; max-width:840px;">
+        Courts decide matters through records, procedure, and admissible evidence—not slogans, assumptions, or generic internet theories.
+      </p>
+      <p style="font-size:0.95rem; font-weight:600; color:var(--paladin-ink-muted); margin-bottom:1rem;">
+        PALADIN is designed to help users make the underlying record more legible and reviewable:
+      </p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; margin-bottom:1.75rem; font-size:0.95rem; color:var(--paladin-ink);">
+        <li style="display:flex; align-items:flex-start; gap:0.6rem;">
+          <span style="color:var(--paladin-teal); font-weight:800; line-height:1.4;">✓</span>
+          <span><strong>Build chronologies</strong> tied to source documents, pages, and dates.</span>
+        </li>
+        <li style="display:flex; align-items:flex-start; gap:0.6rem;">
+          <span style="color:var(--paladin-teal); font-weight:800; line-height:1.4;">✓</span>
+          <span><strong>Separate document contents</strong> from inferences, disputes, and unresolved questions.</span>
+        </li>
+        <li style="display:flex; align-items:flex-start; gap:0.6rem;">
+          <span style="color:var(--paladin-teal); font-weight:800; line-height:1.4;">✓</span>
+          <span><strong>Check citations</strong> for completeness, jurisdiction, and basic technical accuracy.</span>
+        </li>
+        <li style="display:flex; align-items:flex-start; gap:0.6rem;">
+          <span style="color:var(--paladin-teal); font-weight:800; line-height:1.4;">✓</span>
+          <span><strong>Assemble organized, readable filings</strong> and exhibit packages.</span>
+        </li>
+        <li style="display:flex; align-items:flex-start; gap:0.6rem;">
+          <span style="color:var(--paladin-teal); font-weight:800; line-height:1.4;">✓</span>
+          <span><strong>Prepare work</strong> for attorney, clinic, or court self-help review.</span>
+        </li>
+      </ul>
+
+      <div style="background:var(--paladin-paper-subtle); border-top:1px solid var(--paladin-rule); padding:1rem 1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <span style="font-family:var(--font-display); font-size:1.15rem; font-weight:800; color:var(--paladin-ink);">Have brief. Will gavel.</span>
+          <span style="font-family:var(--font-technical); font-size:0.85rem; color:var(--paladin-terracotta); font-weight:600; margin-left:0.75rem;">A disciplined record comes first.</span>
+        </div>
+        <a href="#the-suite" class="sc-btn sc-btn-default sc-btn--sm">Explore The Six Tools &rarr;</a>
+      </div>
+    </section>
+
+    <!-- The Suite: Six Tools for Record-First Preparation -->
+    <section id="the-suite" style="margin-bottom: 4rem;">
+      <span id="legal-tools" style="display:block; position:relative; top:-80px; visibility:hidden;"></span>
+      <div class="section-header">
+        <div class="section-eyebrow">The Suite</div>
+        <h2 class="section-heading">Six tools for record-first preparation</h2>
+        <p class="section-desc">
+          PALADIN is a suite, not a generic legal chatbot. Each component supports a distinct part of the document workflow. None determines what a court will decide.
+        </p>
+      </div>
+
+      <!-- Suite Summary Table -->
+      <div style="overflow-x:auto;">
+        <table class="suite-summary-table">
+          <thead>
+            <tr>
+              <th style="width: 22%;">Tool</th>
+              <th style="width: 32%;">Function</th>
+              <th style="width: 46%;">What it helps produce</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>The Briefman</strong></td>
+              <td>Pleading and document assembly</td>
+              <td>Oregon-oriented captioning, numbered-line layouts, service-certificate blocks, and export-ready drafts</td>
+            </tr>
+            <tr>
+              <td><strong>Tonto</strong></td>
+              <td>Citation audit</td>
+              <td>Citation completeness checks, reporter and court matching, pincite prompts, and jurisdictional flags</td>
+            </tr>
+            <tr>
+              <td><strong>P.A.L.A.D.I.N.</strong></td>
+              <td>Exhibit packaging</td>
+              <td>Bates labels, exhibit indexes, cover sheets, bookmarks, and document inventories</td>
+            </tr>
+            <tr>
+              <td><strong>The Lone Filer</strong></td>
+              <td>Record workspace</td>
+              <td>Source-linked chronology, issue tracking, missing-record flags, and document-to-fact tracing</td>
+            </tr>
+            <tr>
+              <td><strong>Bot Masterson</strong></td>
+              <td>hyperRAG retrieval</td>
+              <td>Search and comparison across uploaded documents and selected legal sources, with passage-level context</td>
+            </tr>
+            <tr>
+              <td><strong>Scout’s Gate</strong></td>
+              <td>Access-to-justice support</td>
+              <td>Procedural checklists, document-organization prompts, and referrals to relevant self-help resources</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Detailed Tool Cards -->
+      <div class="tools-grid">
+        <!-- Tool 1: The Briefman -->
+        <div class="tool-card">
+          <div class="tool-num">
+            <span>TOOL 01</span>
+            <span class="p-badge p-badge-teal">PLEADING ASSEMBLY</span>
+          </div>
+          <h3 class="tool-title">The Briefman</h3>
+          <div style="font-family:var(--font-technical); font-size:0.8rem; font-weight:700; color:var(--paladin-teal); margin-bottom:0.5rem;">
+            Pleading and document assembly
+          </div>
+          <p class="tool-desc">
+            Create structured, editable filing drafts with Oregon-oriented formatting support. The Briefman helps users produce documents that are easier to review, revise, and adapt to the applicable court’s requirements.
+          </p>
+          <ul class="tool-features">
+            <li>Numbered-line pleading layouts and caption templates.</li>
+            <li>Draft declaration, signature, and certificate-of-service blocks.</li>
+            <li>Export-oriented document assembly.</li>
+            <li>Mechanical checks for common formatting problems.</li>
+            <li>Clear prompts where local rules or court-specific requirements may apply.</li>
+          </ul>
+          <div style="background:var(--paladin-paper-subtle); border:1px solid var(--paladin-rule); padding:0.75rem 0.85rem; margin-top:1rem; font-size:0.76rem; color:var(--paladin-ink-muted); line-height:1.45; font-family:var(--font-technical);">
+            <strong>UTCR Rule Note:</strong> Oregon’s statewide UTCR rules require pleadings, motions, and requested instructions to be double-spaced and prepared with numbered lines; the first page also requires a two-inch top blank area. PALADIN can help prepare to those mechanical requirements, but users remain responsible for checking the current rules, local supplemental rules, and clerk instructions.
+          </div>
+          <div style="margin-top:0.75rem; font-size:0.74rem; color:var(--paladin-terracotta); font-family:var(--font-technical); font-weight:600;">
+            Important: PALADIN does not guarantee clerk acceptance, compliance, timeliness, or procedural sufficiency.
+          </div>
+        </div>
+
+        <!-- Tool 2: Tonto -->
+        <div class="tool-card">
+          <div class="tool-num">
+            <span>TOOL 02</span>
+            <span class="p-badge p-badge-terracotta">CITATION INTEGRITY</span>
+          </div>
+          <h3 class="tool-title">Tonto</h3>
+          <div style="font-family:var(--font-technical); font-size:0.8rem; font-weight:700; color:var(--paladin-terracotta); margin-bottom:0.5rem;">
+            Citation audit and source integrity
+          </div>
+          <p class="tool-desc">
+            Tonto checks whether a citation is complete, internally consistent, and traceable to an available authority. It is designed to find technical problems before a citation becomes part of a filing.
+          </p>
+          <ul class="tool-features">
+            <li>Flags missing reporters, courts, dates, and pincites.</li>
+            <li>Identifies mismatches among citation elements.</li>
+            <li>Prompts users to review jurisdiction and authority dates.</li>
+            <li>Helps surface potentially adverse or limited authority.</li>
+            <li>Preserves a review trail for each citation check.</li>
+          </ul>
+          <div style="margin-top:auto; padding-top:1rem; font-size:0.74rem; color:var(--paladin-ink-muted); font-family:var(--font-technical); line-height:1.45; border-top:1px solid var(--paladin-rule);">
+            <strong>Notice:</strong> Verified citation metadata is not the same as legal relevance, controlling authority, or a winning argument. Users and qualified counsel must make those judgments.
+          </div>
+        </div>
+
+        <!-- Tool 3: P.A.L.A.D.I.N. -->
+        <div class="tool-card">
+          <div class="tool-num">
+            <span>TOOL 03</span>
+            <span class="p-badge p-badge-teal">EXHIBIT PACKAGING</span>
+          </div>
+          <h3 class="tool-title">P.A.L.A.D.I.N.</h3>
+          <div style="font-family:var(--font-technical); font-size:0.8rem; font-weight:700; color:var(--paladin-teal); margin-bottom:0.5rem;">
+            Exhibit packaging and record assembly
+          </div>
+          <p class="tool-desc">
+            Build a coherent exhibit package from disordered PDFs, correspondence, docket materials, and public records.
+          </p>
+          <ul class="tool-features">
+            <li>Bates numbering and configurable exhibit labels.</li>
+            <li>Cover sheets, exhibit lists, and document inventories.</li>
+            <li>Bookmark and navigation support for reviewable PDFs.</li>
+            <li>Source, page, and date references attached to each item.</li>
+            <li>Export controls intended to preserve readability.</li>
+          </ul>
+          <div style="margin-top:auto; padding-top:1rem; font-size:0.74rem; color:var(--paladin-ink-muted); font-family:var(--font-technical); line-height:1.45; border-top:1px solid var(--paladin-rule);">
+            <strong>Notice:</strong> Users remain responsible for completeness, confidentiality review, redaction, admissibility, and court-specific exhibit rules.
+          </div>
+        </div>
+
+        <!-- Tool 4: The Lone Filer -->
+        <div class="tool-card">
+          <div class="tool-num">
+            <span>TOOL 04</span>
+            <span class="p-badge p-badge-ink">RECORD WORKSPACE</span>
+          </div>
+          <h3 class="tool-title">The Lone Filer</h3>
+          <div style="font-family:var(--font-technical); font-size:0.8rem; font-weight:700; color:var(--paladin-ink); margin-bottom:0.5rem;">
+            Ground-truth record workspace
+          </div>
+          <p class="tool-desc">
+            A chronology is only useful if a reviewer can trace it back to the source. The Lone Filer connects timeline entries to the document, page, date, and status from which they arise.
+          </p>
+          <ul class="tool-features">
+            <li>Links factual entries to specific underlying records.</li>
+            <li>Separates direct document content from inference and dispute.</li>
+            <li>Tracks contradictory sources and missing time periods.</li>
+            <li>Produces chronology and issue-list views for revision.</li>
+            <li>Preserves questions that require attorney or human review.</li>
+          </ul>
+          <div style="margin-top:auto; padding-top:1rem; font-size:0.74rem; color:var(--paladin-ink-muted); font-family:var(--font-technical); line-height:1.45; border-top:1px solid var(--paladin-rule);">
+            <strong>Notice:</strong> PALADIN does not decide which version of a disputed fact is true.
+          </div>
+        </div>
+
+        <!-- Tool 5: Bot Masterson -->
+        <div class="tool-card">
+          <div class="tool-num">
+            <span>TOOL 05</span>
+            <span class="p-badge p-badge-teal">DOCUMENT RETRIEVAL</span>
+          </div>
+          <h3 class="tool-title">Bot Masterson</h3>
+          <div style="font-family:var(--font-technical); font-size:0.8rem; font-weight:700; color:var(--paladin-teal); margin-bottom:0.5rem;">
+            Forensic memory and document retrieval
+          </div>
+          <p class="tool-desc">
+            Bot Masterson helps users find relevant passages across uploaded records and selected legal sources. It is designed for retrieval, comparison, and issue spotting—not autonomous legal analysis.
+          </p>
+          <ul class="tool-features">
+            <li>Hybrid search across uploaded records and curated sources.</li>
+            <li>Entity linking for people, servicers, instruments, dates, and docket entries.</li>
+            <li>Passage-level results with source context.</li>
+            <li>Terminology comparison across records.</li>
+            <li>Prompts that identify areas for further factual or legal review.</li>
+          </ul>
+          <div style="margin-top:auto; padding-top:1rem; font-size:0.74rem; color:var(--paladin-ink-muted); font-family:var(--font-technical); line-height:1.45; border-top:1px solid var(--paladin-rule);">
+            <strong>Notice:</strong> No outcome prediction. No autonomous filing. No legal conclusions presented as legal advice.
+          </div>
+        </div>
+
+        <!-- Tool 6: Scout’s Gate -->
+        <div class="tool-card">
+          <div class="tool-num">
+            <span>TOOL 06</span>
+            <span class="p-badge p-badge-terracotta">ACCESS TO JUSTICE</span>
+          </div>
+          <h3 class="tool-title">Scout’s Gate</h3>
+          <div style="font-family:var(--font-technical); font-size:0.8rem; font-weight:700; color:var(--paladin-terracotta); margin-bottom:0.5rem;">
+            Access-to-justice workflow support
+          </div>
+          <p class="tool-desc">
+            Scout’s Gate provides plain-language organizational support for people navigating civil-court paperwork, fee-waiver materials, and procedural information.
+          </p>
+          <ul class="tool-features">
+            <li>Filing-preparation and document-collection checklists.</li>
+            <li>Plain-language explanations of common process steps.</li>
+            <li>Deadline-tracking prompts and calendar reminders.</li>
+            <li>Referral pathways to court self-help, legal aid, and emergency resources.</li>
+            <li>Support for organizing—not deciding—fee-waiver or indigency materials.</li>
+          </ul>
+          <div style="margin-top:auto; padding-top:1rem; font-size:0.74rem; color:var(--paladin-ink-muted); font-family:var(--font-technical); line-height:1.45; border-top:1px solid var(--paladin-rule);">
+            <strong>Notice:</strong> Eligibility determinations, deadline calculations, and legal sufficiency remain matters for the court and qualified counsel.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Operating Principles: Six Rules for Responsible Record Work -->
     <section id="method" style="margin: 2rem 0 3.5rem; padding: 0; border-bottom: none;">
       <div style="background:#FFFFFF; border:2px solid var(--paladin-teal); border-radius:2px; padding:2.25rem 2.5rem; box-shadow:0 8px 24px rgba(31,95,88,0.08);">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem; margin-bottom:1rem; border-bottom:1px solid var(--paladin-rule); padding-bottom:1rem;">
           <div>
             <div style="font-family:var(--font-technical); font-size:0.78rem; font-weight:700; color:var(--paladin-terracotta); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.25rem;">
-              Core Operational Framework
+              Operating Principles
             </div>
             <h2 style="font-family:var(--font-display); font-size:1.75rem; color:var(--paladin-ink); font-weight:800; margin:0;">
-              The PALADIN Method
+              Six rules for responsible record work
             </h2>
           </div>
           <span class="p-badge p-badge-teal" style="font-size:0.75rem;">RECORD-FIRST DISCIPLINE</span>
         </div>
 
         <p style="font-size:1.05rem; color:var(--paladin-ink); line-height:1.6; margin-bottom:1.5rem; font-weight:600;">
-          PALADIN is not a machine for manufacturing foreclosure defenses; it is a record-first system for helping people identify, organize, test, and present the questions their actual documents may support.
+          PALADIN is not a system for manufacturing defenses. It is a system for organizing, testing, and presenting questions that the actual record may support.
         </p>
 
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.25rem; margin-bottom:1.5rem;">
           <div style="background:var(--paladin-paper-subtle); border-left:3px solid var(--paladin-teal); padding:1rem 1.15rem;">
-            <div style="font-family:var(--font-technical); font-weight:700; color:var(--paladin-teal); font-size:0.8rem; margin-bottom:0.35rem;">RULE 1</div>
-            <div style="font-weight:700; font-size:0.95rem; color:var(--paladin-ink); margin-bottom:0.25rem;">Start with the actual record—not a theory.</div>
-            <div style="font-size:0.85rem; color:var(--paladin-ink-muted); line-height:1.45;">Ground all inquiry in physical instruments, recorded deeds, notices, and filed dockets.</div>
+            <div style="font-family:var(--font-technical); font-weight:700; color:var(--paladin-teal); font-size:0.8rem; margin-bottom:0.35rem;">01</div>
+            <div style="font-weight:700; font-size:0.95rem; color:var(--paladin-ink); margin-bottom:0.25rem;">Start with the record</div>
+            <div style="font-size:0.85rem; color:var(--paladin-ink-muted); line-height:1.45;">
+              Begin with the instruments, recorded documents, notices, docket entries, correspondence, and filed evidence—not a theory found online. If a proposition is not supported by a document, testimony, rule, or authority, it is not yet ready to be asserted.
+            </div>
           </div>
+
           <div style="background:var(--paladin-paper-subtle); border-left:3px solid var(--paladin-terracotta); padding:1rem 1.15rem;">
-            <div style="font-family:var(--font-technical); font-weight:700; color:var(--paladin-terracotta); font-size:0.8rem; margin-bottom:0.35rem;">RULE 2</div>
-            <div style="font-weight:700; font-size:0.95rem; color:var(--paladin-ink); margin-bottom:0.25rem;">Identify controlling procedure &amp; adverse authority early.</div>
-            <div style="font-size:0.85rem; color:var(--paladin-ink-muted); line-height:1.45;">Do not hide from binding appellate decisions; map jurisdictional boundaries immediately.</div>
+            <div style="font-family:var(--font-technical); font-weight:700; color:var(--paladin-terracotta); font-size:0.8rem; margin-bottom:0.35rem;">02</div>
+            <div style="font-weight:700; font-size:0.95rem; color:var(--paladin-ink); margin-bottom:0.25rem;">Identify the procedural path</div>
+            <div style="font-size:0.85rem; color:var(--paladin-ink-muted); line-height:1.45;">
+              Determine the court, case posture, deadlines, governing statutes, rules, and binding authority before drafting a theory. In Oregon foreclosure matters, for example, the distinction between judicial and nonjudicial foreclosure matters. <em>Brandrup</em> and <em>Niday</em> address Oregon Trust Deed Act issues involving MERS and nonjudicial foreclosure, while <em>Nationstar Mortgage, LLC v. Peper</em> addresses standing in a judicial foreclosure setting. A tool should help users identify that distinction—not erase it.
+            </div>
           </div>
+
           <div style="background:var(--paladin-paper-subtle); border-left:3px solid var(--paladin-teal); padding:1rem 1.15rem;">
-            <div style="font-family:var(--font-technical); font-weight:700; color:var(--paladin-teal); font-size:0.8rem; margin-bottom:0.35rem;">RULE 3</div>
-            <div style="font-weight:700; font-size:0.95rem; color:var(--paladin-ink); margin-bottom:0.25rem;">Link every factual statement to a source, page, and date.</div>
-            <div style="font-size:0.85rem; color:var(--paladin-ink-muted); line-height:1.45;">Every assertion must have an exact pin-cite or exhibit anchor, or it must be removed.</div>
+            <div style="font-family:var(--font-technical); font-weight:700; color:var(--paladin-teal); font-size:0.8rem; margin-bottom:0.35rem;">03</div>
+            <div style="font-weight:700; font-size:0.95rem; color:var(--paladin-ink); margin-bottom:0.25rem;">Tie every factual statement to a source</div>
+            <div style="font-size:0.85rem; color:var(--paladin-ink-muted); line-height:1.45;">
+              Each material factual statement should lead a reviewer to a document, page, date, and, where relevant, docket location. No source link, no reliable record trail.
+            </div>
           </div>
+
           <div style="background:var(--paladin-paper-subtle); border-left:3px solid var(--paladin-ink); padding:1rem 1.15rem;">
-            <div style="font-family:var(--font-technical); font-weight:700; color:var(--paladin-ink); font-size:0.8rem; margin-bottom:0.35rem;">RULE 4</div>
-            <div style="font-weight:700; font-size:0.95rem; color:var(--paladin-ink); margin-bottom:0.25rem;">Separate evidence from inference &amp; legal argument.</div>
-            <div style="font-size:0.85rem; color:var(--paladin-ink-muted); line-height:1.45;">Clearly isolate what documents prove on their face from interpretations or contested claims.</div>
+            <div style="font-family:var(--font-technical); font-weight:700; color:var(--paladin-ink); font-size:0.8rem; margin-bottom:0.35rem;">04</div>
+            <div style="font-weight:700; font-size:0.95rem; color:var(--paladin-ink); margin-bottom:0.25rem;">Separate evidence from inference</div>
+            <div style="font-size:0.85rem; color:var(--paladin-ink-muted); line-height:1.45;">
+              A document may establish what it says. It may support an inference. It may also leave a gap. Those are different things. PALADIN keeps direct document content, user interpretation, disputes, and unresolved questions distinct.
+            </div>
           </div>
+
           <div style="background:var(--paladin-paper-subtle); border-left:3px solid var(--paladin-terracotta); padding:1rem 1.15rem;">
-            <div style="font-family:var(--font-technical); font-weight:700; color:var(--paladin-terracotta); font-size:0.8rem; margin-bottom:0.35rem;">RULE 5</div>
-            <div style="font-weight:700; font-size:0.95rem; color:var(--paladin-ink); margin-bottom:0.25rem;">Treat missing records as questions to investigate.</div>
-            <div style="font-size:0.85rem; color:var(--paladin-ink-muted); line-height:1.45;">An incomplete archive is a factual inquiry for the court, not automatic proof of fraud.</div>
+            <div style="font-family:var(--font-technical); font-weight:700; color:var(--paladin-terracotta); font-size:0.8rem; margin-bottom:0.35rem;">05</div>
+            <div style="font-weight:700; font-size:0.95rem; color:var(--paladin-ink); margin-bottom:0.25rem;">Treat missing records as questions</div>
+            <div style="font-size:0.85rem; color:var(--paladin-ink-muted); line-height:1.45;">
+              A missing assignment, incomplete archive, or unclear possession history may warrant investigation. It is not automatic proof of fraud, invalidity, or entitlement to relief. The relevant question is whether the gap is legally material, timely raised, and supportable through admissible evidence.
+            </div>
           </div>
+
           <div style="background:var(--paladin-paper-subtle); border-left:3px solid var(--paladin-teal); padding:1rem 1.15rem;">
-            <div style="font-family:var(--font-technical); font-weight:700; color:var(--paladin-teal); font-size:0.8rem; margin-bottom:0.35rem;">RULE 6</div>
-            <div style="font-weight:700; font-size:0.95rem; color:var(--paladin-ink); margin-bottom:0.25rem;">Prepare clear, reviewable documents; seek counsel.</div>
-            <div style="font-size:0.85rem; color:var(--paladin-ink-muted); line-height:1.45;">Meet formal rules, preserve deadlines, and consult qualified legal assistance whenever available.</div>
+            <div style="font-family:var(--font-technical); font-weight:700; color:var(--paladin-teal); font-size:0.8rem; margin-bottom:0.35rem;">06</div>
+            <div style="font-weight:700; font-size:0.95rem; color:var(--paladin-ink); margin-bottom:0.25rem;">File cleanly; seek counsel when possible</div>
+            <div style="font-size:0.85rem; color:var(--paladin-ink-muted); line-height:1.45;">
+              Meet deadlines. Check the current rules. Protect confidential information. Obtain qualified legal advice whenever it is available. PALADIN helps organize the work. It does not represent a party, sign a filing, or appear in court.
+            </div>
           </div>
         </div>
 
@@ -1318,195 +1624,75 @@
       </div>
     </section>
 
-    <!-- Section 1: The Governing Rules & Evidentiary Discipline -->
-    <section id="manifesto">
+    <!-- Evidence Gate: Record-Specific Analysis, Not Foreclosure Folklore -->
+    <section id="evidence-gate" style="margin-bottom: 4rem;">
       <div class="section-header">
-        <div class="section-eyebrow">01 — Evidentiary Foundations &amp; Procedural Governance</div>
-        <h2 class="section-heading">The Governing Rules Still Matter—But So Does the Procedure</h2>
+        <div class="section-eyebrow">Evidence Gate</div>
+        <h2 class="section-heading">Record-specific analysis, not foreclosure folklore</h2>
         <p class="section-desc">
-          Property and commercial-law disputes are not decided by slogans. They are decided through specific statutes, procedural rules, evidentiary foundations, burdens of proof, and binding precedent.
+          A missing assignment, MERS involvement, securitization, or a generalized demand to &ldquo;show the note&rdquo; does not automatically create a defense. PALADIN helps users distinguish broad theories from record-specific questions tied to governing procedure, admissible evidence, and controlling authority.
         </p>
       </div>
 
-      <!-- Main Panel: Procedural Foundations -->
-      <div class="manifesto-panel">
-        <div class="manifesto-body">
-          <p style="font-size:1.15rem; color:var(--paladin-ink); font-weight:600; line-height:1.6;">
-            The relevant question is rarely whether a modern financial system is opaque in the abstract. The question is whether a party can prove the elements required in the case before the court, at the time and in the manner the law requires—and whether the opposing party has preserved a concrete, legally material objection.
-          </p>
-
-          <p>
-            When debt transfers move across secondary markets, the underlying property remains in a real jurisdiction. When a claim seeks to alter possession of a home, the law demands legible proof: authenticated instruments, competent witness testimony under evidence rules, valid authority at the time of action, and compliance with governing statutory frameworks.
-          </p>
-
-          <p>
-            PALADIN helps users organize the documents needed to examine those questions without promising that any particular theory will succeed.
-          </p>
-
-          <!-- Attributed Scholarship Block: Veblen & Shoemaker -->
-          <div class="manifesto-scholarship">
-            <p style="font-style:italic; color:var(--paladin-ink);">
-              &ldquo;The absentee owner of natural resources is enabled to make them a source of free income, that is to say make them assets, by the power legally conferred on him to withhold them from use until his charge for their use is allowed him.&rdquo;
-            </p>
-            <span class="scholar-attribution">
-              &bull; Thorstein Veblen, <em>Absentee Ownership and Business Enterprise in Recent Times</em> (1923)
-            </span>
-
-            <p style="font-style:italic; color:var(--paladin-ink); margin-top:0.85rem;">
-              &ldquo;Modern property rules increasingly turn land into an asset class for monetization, capitalization, and exploitation—encompassing absenteeism, concentration, commodification, financialization, and even dispossession.&rdquo;
-            </p>
-            <span class="scholar-attribution">
-              &bull; Prof. Jessica A. Shoemaker, <em>Papering Over Place: When Land Becomes Asset Class</em>, in Research Agenda for Property Law (Edward Elgar, 2024)
-            </span>
-          </div>
-
-          <p>
-            A useful legal-information platform disciplines inquiry: it identifies what documents exist, who created them, what governing rules require, and whether proposed assertions are grounded in admissible evidence rather than assumption.
-          </p>
-        </div>
-      </div>
-
-      <!-- Subpanel 1: Complexity Does Not Eliminate Accountability -->
-      <div class="manifesto-subpanel">
-        <div class="manifesto-subpanel-title">
-          <span>Complexity Does Not Eliminate Accountability</span>
-          <span class="p-badge p-badge-terracotta">DOCUMENTATION INTEGRITY</span>
-        </div>
-        <div class="manifesto-body">
-          <p>
-            Mortgage servicing and securitization can distribute responsibilities among originators, investors, trustees, servicers, document custodians, and counsel. That complexity can make it difficult for a homeowner or other self-represented litigant to identify what happened, which records control, and which entity can testify competently about a particular event.
-          </p>
-
-          <div class="manifesto-scholarship">
-            <p style="font-style:italic; color:var(--paladin-ink);">
-              &ldquo;Property law rules that once balanced the rights of mortgagors and mortgagees now completely fail to furnish aggrieved homeowners with meaningful relief when faced with wrongs that stem from the complexities of the securitization of mortgage loans and the acts of intermediaries... once a loan is securitized, its expectancy was realized by the sale of the securitized loan leaving some successor or servicer to benefit from windfall fees and profits largely in excess of or established outside the original contract.&rdquo;
-            </p>
-            <span class="scholar-attribution">
-              &bull; Prof. Christopher K. Odinet, <em>Modernizing Mortgage Law</em>, 100 N.C. L. Rev. 89 (2021)
-            </span>
-          </div>
-
-          <p>
-            Complexity alone is not a defense. But it can create documentation, chronology, authority, and evidentiary questions that must be analyzed carefully and tied to the governing legal standard. Furthermore, as documented by Adam J. Levitin and Tara Twomey in <em>Mortgage Servicing</em> (28 Yale J. on Reg. 1, 2011), servicer compensation models can generate documentation conflicts and servicing errors across successive transfers. PALADIN helps users sort the record so those questions can be reviewed responsibly.
-          </p>
-        </div>
-      </div>
-
-      <!-- Subpanel 2: Integrity Over Friction -->
-      <div class="manifesto-subpanel" style="border-left-color: var(--paladin-ink);">
-        <div class="manifesto-subpanel-title">
-          <span>Integrity Over Friction: Technology Must Serve Truth</span>
-          <span class="p-badge p-badge-ink">PROCEDURAL ACCOUNTABILITY</span>
-        </div>
-        <div class="manifesto-body">
-          <p>
-            PALADIN is not a plea for horse-and-buggy paperwork, nor do we oppose modern technological conventions such as Remote Online Notarization (RON), digital filing systems, or the Uniform Real Property Electronic Recording Act (URPERA). Technological modernization is vital. But efficiency cannot be purchased by abandoning evidentiary integrity.
-          </p>
-          <div class="manifesto-scholarship">
-            <p style="font-style:italic; color:var(--paladin-ink);">
-              &ldquo;Thousands of borrowers lost their homes when employees of mortgage servicers notarized affidavits supporting scores of foreclosures without the signers present.&rdquo;
-            </p>
-            <span class="scholar-attribution">
-              &bull; National Notary Association, Forensic Review of the Foreclosure Crisis &amp; Consent Judgments
-            </span>
-          </div>
-          <p>
-            The lesson of the $25 Billion National Mortgage Settlement is clear: when institutions use automation as an excuse to eliminate human review, the integrity of the record is compromised. PALADIN emphasizes verifiable standards, multi-factor credential analysis, and tamper-evident audit trails. Technology must be used to prove the truth, not to paper over the absence of personal knowledge.
-          </p>
-        </div>
-      </div>
-
-      <!-- Subpanel 3: No Case Is "Indefensible" by Slogan -->
-      <div class="manifesto-subpanel" style="border-left-color: var(--paladin-terracotta);">
-        <div class="manifesto-subpanel-title">
-          <span>No Case Is &ldquo;Indefensible&rdquo; by Slogan</span>
-          <span class="p-badge p-badge-terracotta">RECORD-BASED EVALUATION</span>
-        </div>
-        <div class="manifesto-body">
-          <p>
-            Neither capitulation nor overconfidence is a sound method. Some foreclosure cases may have no viable merits defense; others may contain procedural, evidentiary, timing, servicing, notice, accounting, or enforceability issues that warrant closer review.
-          </p>
-
-          <div class="manifesto-scholarship">
-            <p style="font-style:italic; color:var(--paladin-ink);">
-              &ldquo;Most lawyers believe foreclosures are not defensible. Rather than working to save a home, most lawyers acting in good faith advise clients to sell their homes... Even when given in good faith, this is poor advice. Many foreclosures can be defended... Inherent in lawyers&rsquo; refusal to try to defend foreclosure cases are deep-seated prejudices against homeowners who fall into foreclosure... The difference between losing and saving her home was a competent, determined foreclosure defense.&rdquo;
-            </p>
-            <span class="scholar-attribution">
-              &bull; Kelli Dudley, <em>An Excerpt of Iniquity: How Court Systems, Attorneys, and Legal Aid Organizations Cheated Homeowners in Foreclosure</em>, 12 DePaul J. for Soc. Just. (2019)
-            </span>
-          </div>
-
-          <p>
-            A responsible system does not tell a user that their case is unwinnable, and it does not promise that technical defects will erase an obligation. It helps the user make an organized, source-linked record so they can understand the case, meet deadlines, identify questions for legal assistance, and present supported information clearly.
-          </p>
-        </div>
-      </div>
-
-      <!-- Subpanel 4: The Evidence Gate: From Slogan to Record -->
-      <div class="manifesto-subpanel" style="border-left-color: var(--paladin-teal);">
-        <div class="manifesto-subpanel-title">
-          <span>The Evidence Gate: From Slogan to Record</span>
-          <span class="p-badge p-badge-teal">STRATEGIC DISCIPLINE</span>
-        </div>
-        <div class="manifesto-body">
-          <p>
-            A litigant should not treat the phrase &ldquo;standing&rdquo; as a magic word. Whether a plaintiff may pursue a claim depends on the procedural posture, the law governing the claim, the evidence offered, and the timing of relevant events.
-          </p>
-          <p>
-            For Oregon judicial foreclosure, the inquiry may include whether the plaintiff was entitled to enforce the note at the time it initiated the action. Under Oregon precedent, a party that possesses an instrument indorsed in blank may qualify as its holder under the Uniform Commercial Code, and a subsequent transfer does not automatically defeat the action (see <em>Nationstar Mortgage LLC v. Peper</em>, 278 Or App 594 (2016); <em>Nationstar Mortgage LLC v. Clackamas Federal Credit Union</em>, 285 Or App 204 (2017)).
-          </p>
-          <p>
-            Likewise, Oregon's landmark MERS decisions (<em>Brandrup v. ReconTrust Co.</em>, 353 Or 668 (2013); <em>Niday v. GMAC Mortgage, LLC</em>, 353 Or 648 (2013)) arose in the specific statutory context of the Oregon Trust Deed Act (ORS 86.735) and nonjudicial foreclosure. They do not establish a universal rule that any unrecorded transfer or MERS reference invalidates a foreclosure action.
-          </p>
-          <p>
-            For a claim involving a lost instrument, the statutory requirements of ORS 73.0309 matter; the workflow should therefore capture the asserted possession history, the explanation for nonproduction, the documents offered to establish the claim, and any indemnity or evidentiary issues—not simply label every lost-note declaration invalid.
-          </p>
-
-          <p style="font-weight:700; color:var(--paladin-ink); margin-top:1.25rem; margin-bottom:0.5rem;">
-            PALADIN's audit prompts users to distinguish unsupported shortcuts from record-first questions:
-          </p>
-
-          <div style="overflow-x:auto; margin:1rem 0 1.5rem;">
-            <table style="width:100%; border-collapse:collapse; font-size:0.88rem; background:#FFF; border:1px solid var(--paladin-rule);">
-              <thead>
-                <tr style="background:var(--paladin-teal); color:#FFF; font-family:var(--font-technical); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em;">
-                  <th style="padding:0.75rem 1rem; width:40%; text-align:left;">Unsupported Shortcut</th>
-                  <th style="padding:0.75rem 1rem; width:60%; text-align:left;">Record-First Question</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom:1px solid var(--paladin-rule);">
-                  <td style="padding:0.85rem 1rem; color:var(--paladin-terracotta); font-weight:600;">&ldquo;The loan was securitized, so the debt is invalid.&rdquo;</td>
-                  <td style="padding:0.85rem 1rem; color:var(--paladin-ink);">What governing law connects the alleged transaction to a legally material consequence in this case?</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--paladin-rule); background:var(--paladin-paper-subtle);">
-                  <td style="padding:0.85rem 1rem; color:var(--paladin-terracotta); font-weight:600;">&ldquo;MERS was involved, so the foreclosure is void.&rdquo;</td>
-                  <td style="padding:0.85rem 1rem; color:var(--paladin-ink);">Is this a judicial or nonjudicial proceeding, what statute governs, and what did the relevant instrument and recorded documents show?</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--paladin-rule);">
-                  <td style="padding:0.85rem 1rem; color:var(--paladin-terracotta); font-weight:600;">&ldquo;They must show me the original note.&rdquo;</td>
-                  <td style="padding:0.85rem 1rem; color:var(--paladin-ink);">What does the applicable law require, what evidence has been filed, and what specific deficiency is supported by the record?</td>
-                </tr>
-                <tr style="border-bottom:1px solid var(--paladin-rule); background:var(--paladin-paper-subtle);">
-                  <td style="padding:0.85rem 1rem; color:var(--paladin-terracotta); font-weight:600;">&ldquo;The servicer is a stranger to the loan.&rdquo;</td>
-                  <td style="padding:0.85rem 1rem; color:var(--paladin-ink);">What role is asserted, what records are relied on, who can authenticate them, and does the issue affect an element, remedy, or admissibility?</td>
-                </tr>
-                <tr>
-                  <td style="padding:0.85rem 1rem; color:var(--paladin-terracotta); font-weight:600;">&ldquo;A chain-of-title gap wins the case.&rdquo;</td>
-                  <td style="padding:0.85rem 1rem; color:var(--paladin-ink);">Is there a legally recognized defect, was it timely raised, is it material, and can it be established with admissible evidence?</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <div style="overflow-x:auto; margin:1.5rem 0 2rem;">
+        <table class="suite-summary-table" style="font-size:0.92rem;">
+          <thead>
+            <tr>
+              <th style="width: 40%;">Common shortcut</th>
+              <th style="width: 60%;">Record-first question</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color:var(--paladin-terracotta); font-weight:600;">
+                &ldquo;The loan was securitized, so the debt is invalid.&rdquo;
+              </td>
+              <td>
+                What governing law connects the transaction to a legally material consequence in this specific matter?
+              </td>
+            </tr>
+            <tr>
+              <td style="color:var(--paladin-terracotta); font-weight:600;">
+                &ldquo;MERS was involved, so the foreclosure is void.&rdquo;
+              </td>
+              <td>
+                Is the matter judicial or nonjudicial? Which statutes govern? What do the instrument and recorded documents show?
+              </td>
+            </tr>
+            <tr>
+              <td style="color:var(--paladin-terracotta); font-weight:600;">
+                &ldquo;They have to produce the original note.&rdquo;
+              </td>
+              <td>
+                What does the applicable law require, what evidence has been filed, and what specific deficiency appears in the record?
+              </td>
+            </tr>
+            <tr>
+              <td style="color:var(--paladin-terracotta); font-weight:600;">
+                &ldquo;The servicer is a stranger to the loan.&rdquo;
+              </td>
+              <td>
+                What role does the party claim, what records support that role, who can authenticate those records, and why does it matter procedurally?
+              </td>
+            </tr>
+            <tr>
+              <td style="color:var(--paladin-terracotta); font-weight:600;">
+                &ldquo;A chain-of-title gap wins the case.&rdquo;
+              </td>
+              <td>
+                Is there a legally recognized defect? Is it material, timely raised, and capable of proof through admissible evidence?
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <!-- Selected Authorities & References Block -->
       <div class="authorities-block">
-        <div class="authorities-title">Selected Legal, Academic &amp; Evidentiary Authorities</div>
+        <div class="authorities-title">Selected Controlling Authority &amp; Statutory References</div>
         <ul class="authorities-list">
           <li>
-            <strong>Brandrup v. ReconTrust Co.</strong>, 353 Or 668, 303 P.3d 301 (2013) (clarifying MERS's status under the Oregon Trust Deed Act; holding MERS is not a "beneficiary" unless it is the lender or lender's successor, and addressing recording requirements in nonjudicial foreclosure).
+            <strong>Brandrup v. ReconTrust Co.</strong>, 353 Or 668, 303 P.3d 301 (2013) (clarifying MERS's status under the Oregon Trust Deed Act; holding MERS is not a statutory beneficiary and addressing recording requirements in nonjudicial foreclosure).
             <a href="library.html?q=Brandrup" class="authority-link">View in Research Library &sect;</a>
           </li>
           <li>
@@ -1522,303 +1708,10 @@
             <a href="library.html?q=Clackamas" class="authority-link">View in Research Library &sect;</a>
           </li>
           <li>
-            <strong>Jessica A. Shoemaker</strong>, <em>Papering Over Place: When Land Becomes Asset Class</em>, in Research Agenda for Property Law (Edward Elgar, 2024) (analyzing legal commodification, financialization, and dispossession of real property).
-            <a href="library.html?q=Shoemaker" class="authority-link">View in Research Library &sect;</a>
-          </li>
-          <li>
-            <strong>Christopher K. Odinet</strong>, <em>Modernizing Mortgage Law</em>, 100 N.C. L. Rev. 89 (2021) (critique of securitization structures, intermediary fees, and remedies in modern mortgage practice).
-            <a href="library.html?q=Odinet" class="authority-link">View in Research Library &sect;</a>
-          </li>
-          <li>
-            <strong>Adam J. Levitin &amp; Tara Twomey</strong>, <em>Mortgage Servicing</em>, 28 Yale J. on Reg. 1 (2011) (empirical analysis of servicer compensation structures, incentives, and operational conflicts).
-            <a href="library.html?q=Levitin" class="authority-link">View in Research Library &sect;</a>
-          </li>
-          <li>
-            <strong>County of Ramsey v. MERSCORP Holdings, Inc.</strong>, 776 F.3d 947 (8th Cir. 2014) (<em>adverse authority</em>: counties' claim that MERS violated recording statutes dismissed; cited as research reference regarding limits of recording-bypass claims).
-            <a href="library.html?q=MERS" class="authority-link">View in Research Library &sect;</a>
-          </li>
-          <li>
-            <strong>State v. Flamer</strong>, 54 Or App 17, 633 P.2d 860 (1981) (reversing conviction where administering official lacked statutory authority; action without authority is void and not cured by subsequent approval).
-            <a href="library.html?q=Flamer" class="authority-link">View in Research Library &sect;</a>
-          </li>
-          <li>
-            <strong>Burt &amp; Gordon v. Stein</strong>, 128 Or App 350, 876 P.2d 338 (1994) (affirming that void judicial orders lack legal efficacy from inception and may be set aside at any time under ORCP 71).
-            <a href="library.html?q=Burt" class="authority-link">View in Research Library &sect;</a>
-          </li>
-          <li>
             <strong>Uniform Commercial Code §§ 3-301 &amp; 3-309 / ORS 73.0301 &amp; 73.0309</strong> (statutory criteria for Person Entitled to Enforce and mandatory proof requirements for lost instruments).
             <a href="library.html?q=UCC" class="authority-link">View in Research Library &sect;</a>
           </li>
-          <li>
-            <strong>In re Taylor</strong>, 407 B.R. 618 (Bankr. E.D. Pa. 2009) &amp; <strong>In re Weisband</strong>, 427 B.R. 13 (Bankr. D. Ariz. 2010) (evidentiary foundations for boarded prior-servicer records under Evidence Rule 803(6)).
-            <a href="library.html?q=Taylor" class="authority-link">View in Research Library &sect;</a>
-          </li>
         </ul>
-      </div>
-    </section>
-
-
-    <!-- Section 2: Frontier vs. Modern Machine Comparison Matrix -->
-    <section id="matrix">
-      <div class="section-header">
-        <div class="section-eyebrow">02 — The Clean Architecture of the Parallel</div>
-        <h2 class="section-heading">Frontier Pattern vs. Modern Machine</h2>
-        <p class="section-desc">
-          How the 19th-century range war playbook re-emerged in high-finance securitization—and the enduring legal friction that stops it.
-        </p>
-      </div>
-
-      <div class="matrix-wrapper">
-        <table class="matrix-table">
-          <thead>
-            <tr>
-              <th style="width: 22%;">Historical Pattern</th>
-              <th style="width: 24%;">Modern Machine</th>
-              <th style="width: 27%;">What Requires a Reviewable Record</th>
-              <th style="width: 27%;">PALADIN Evidence Workflow</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="pattern-title">Distant Syndicate</div>
-                <div class="pattern-sub">Boston/Scottish capital, railroad land grants</div>
-                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
-                  Absentee cartels claiming vast territorial acreage without setting foot on the soil or knowing its occupants.
-                </p>
-              </td>
-              <td>
-                <div class="pattern-title">RMBS Trusts + Servicers</div>
-                <div class="pattern-sub">Wall Street pools, automated sub-servicers</div>
-                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
-                  Corporate trustees in Delaware with automated sub-servicers treating human dispossessions as algorithmic spreadsheet entries.
-                </p>
-              </td>
-              <td>
-                <span class="principle-tag">FRE / OEC 602 &amp; 803(6): Personal Knowledge &amp; Data Boarding</span>
-                A distant entity cannot testify without personal knowledge. Under Evidence Rule 803(6), corporate affidavits based on automated databases fail when the affiant cannot establish how records from prior, defunct servicers were verified, integrated, and maintained (<em>In re Taylor</em>, 407 B.R. 618; <em>In re Weisband</em>, 427 B.R. 13).
-              </td>
-              <td>
-                <strong>Audit Prior-Servicer Foundations:</strong> Compiles chain-of-custody gaps and flags unauthenticated hearsay in corporate affidavits for human review.
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="pattern-title">Circumventing Land Offices</div>
-                <div class="pattern-sub">Dummy filers, fraudulent preemption corridors</div>
-                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
-                  Speculator cartels bypassing local territorial land registries to evade scrutiny and monopolize title.
-                </p>
-              </td>
-              <td>
-                <div class="pattern-title">MERS Electronic Database</div>
-                <div class="pattern-sub">Private ledger tracking transfers internally</div>
-                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
-                  Private electronic registry used by member institutions to track loan servicing transfers internally outside county deed records.
-                </p>
-              </td>
-              <td>
-                <span class="principle-tag">Public Recording Acts &amp; Statutory Scope</span>
-                State recording acts establish public record boundaries. In Oregon, the Supreme Court clarified that MERS is not a statutory &ldquo;beneficiary&rdquo; under the Oregon Trust Deed Act unless it holds the note, and nonjudicial foreclosures require recorded assignments (<em>Brandrup v. ReconTrust Co.</em>, 353 Or 668 (2013); <em>Niday v. GMAC Mortgage, LLC</em>, 353 Or 648 (2013)). However, MERS's role does not automatically defeat a judicial foreclosure where the plaintiff possesses an indorsed note (<em>Nationstar Mortgage LLC v. Peper</em>, 278 Or App 594 (2016)).
-              </td>
-              <td>
-                <strong>Chain of Title Verification:</strong> Cross-references public county deed records against asserted transfer history to identify unrecorded documents or gaps for review.
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="pattern-title">Manufactured Paper</div>
-                <div class="pattern-sub">Backdated warrants, forged land scrip</div>
-                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
-                  Territorial land rings manufacturing paper claims to dispossess established homesteaders under color of law.
-                </p>
-              </td>
-              <td>
-                <div class="pattern-title">Robosigning &amp; Lost Notes</div>
-                <div class="pattern-sub">Assembly-line affidavits, missing indorsements</div>
-                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
-                  Document mills mass-signing mortgage assignments, backdating transfers, and swearing boilerplate "Lost Note Affidavits" when original notes are lost.
-                </p>
-              </td>
-              <td>
-                <span class="principle-tag">UCC Article 3 PETE &amp; Lost Note Evidentiary Gates</span>
-                Enforcing a negotiable promissory note requires proving status as a Person Entitled to Enforce (PETE) under UCC § 3-301 (ORS 73.0301). Lost Note Affidavits under UCC § 3-309 (ORS 73.0309) must strictly establish lawful possession at the time of loss, specific facts preventing production, and adequate indemnity protection—not hearsay declarations from automated sub-servicers (see $25B National Mortgage Settlement Consent Judgment).
-              </td>
-              <td>
-                <strong>Evidentiary PETE &amp; Standing Audit:</strong> Organizes evidence regarding plaintiff's enforcement standing under UCC § 3-301 and audits asserted possession history, explanations of nonproduction, and indemnity criteria under ORS 73.0309.
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="pattern-title">Captured Marshal</div>
-                <div class="pattern-sub">Enforcing writs for the cattle syndicate</div>
-                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
-                  Using territorial lawmen to serve eviction writs on behalf of cattle barons against small homesteaders.
-                </p>
-              </td>
-              <td>
-                <div class="pattern-title">Municipal Enforcement</div>
-                <div class="pattern-sub">Sheriffs &amp; code officers executing void process</div>
-                <p style="font-size:0.88rem; color:var(--paladin-ink-muted); margin-top:0.35rem;">
-                  Local law enforcement and city code compliance deployed to execute evictions and placards on behalf of invalid orders.
-                </p>
-              </td>
-              <td>
-                <span class="principle-tag">Constitutional Due Process &amp; The Flamer Principle</span>
-                An enforcement officer's writ is only as valid as the underlying jurisdiction. Orders entered without subject-matter jurisdiction or proper service are void. Under <em>State v. Flamer</em>, 54 Or App 17, 633 P.2d 860 (1981), an official's lack of authority at the time an act is performed cannot be cured by subsequent ratification. Void orders lack legal effect from inception and may be vacated at any time (<em>Burt &amp; Gordon v. Stein</em>, 128 Or App 350 (1994); ORCP 71).
-              </td>
-              <td>
-                <strong>Emergency Stay &amp; Jurisdictional Review:</strong> Checklists to help users identify time-sensitive filing questions and prepare reviewable submissions on jurisdictional issues and controlling authorities under <em>Flamer</em> and ORCP 71.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- Section 3: Legal Tools (Record-First Procedural Tools) -->
-    <section id="legal-tools">
-      <div class="section-header">
-        <div class="section-eyebrow">03 — Record-First Procedural Tools</div>
-        <h2 class="section-heading">Legal Tools for Record Integrity &amp; Procedural Readiness</h2>
-        <p class="section-desc">
-          Engineered to help self-represented litigants organize complex dockets, check citation integrity, package exhibits, and prepare verifiable filings for court review.
-        </p>
-      </div>
-
-      <!-- Visible System Boundary Callout -->
-      <div style="background:#FFFFFF; border:1px solid var(--paladin-border); border-left:4px solid var(--paladin-teal); border-radius:var(--radius-sm); padding:1.5rem 1.75rem; margin-bottom:2.5rem;">
-        <h3 style="font-family:var(--font-display); font-size:1.15rem; color:var(--paladin-ink); margin-bottom:0.5rem; font-weight:700;">
-          Built for Verifiable Work
-        </h3>
-        <p style="font-size:0.92rem; color:var(--paladin-ink-muted); line-height:1.6; margin:0;">
-          PALADIN organizes user-provided records into reviewable drafts and filing packages. Each factual statement can be linked to its source document and page. Citation checks identify items requiring review; they do not determine legal relevance, validity, or the outcome of a case. Users remain responsible for confirming court rules, deadlines, and final submissions.
-        </p>
-      </div>
-
-      <div class="tools-grid">
-        <!-- Tool 1 -->
-        <div class="tool-card">
-          <div class="tool-num">
-            <span>TOOL 01</span>
-            <span class="p-badge p-badge-teal">PLEADING ENGINE</span>
-          </div>
-          <h3 class="tool-title">UTCR 28-Line Pleading Engine</h3>
-          <p class="tool-desc">
-            Assists with Oregon-oriented pleading layout, line numbering, captions, signature blocks, and service-certificate structure. Users must confirm the current local rules, court-specific requirements, filing method, and final document before submission.
-          </p>
-          <ul class="tool-features">
-            <li>Configurable numbered pleading layout and caption templates</li>
-            <li>Draft service-certificate and declaration-block components for user review</li>
-            <li>Export-oriented document assembly</li>
-            <li>Mechanical preflight prompts for common formatting items</li>
-            <li>Does not guarantee clerk acceptance or rule compliance</li>
-          </ul>
-          <a href="library.html?q=UTCR" class="tool-library-link">Search UTCR Rules &amp; Templates &sect;</a>
-        </div>
-
-        <!-- Tool 2 -->
-        <div class="tool-card">
-          <div class="tool-num">
-            <span>TOOL 02</span>
-            <span class="p-badge p-badge-terracotta">CITATION AUDIT</span>
-          </div>
-          <h3 class="tool-title">Citation Auditor</h3>
-          <p class="tool-desc">
-            Citation-integrity checks designed to identify citations that may be incomplete, mismatched, outdated, unverified, or outside the selected jurisdiction.
-          </p>
-          <ul class="tool-features">
-            <li>Checks citation form against available legal-source records</li>
-            <li>Flags missing reporters, pincites, dates, or mismatched court information</li>
-            <li>Surfaces potentially adverse or jurisdictionally limited authority for review</li>
-            <li>Distinguishes verified citation metadata from legal relevance</li>
-            <li>Does not decide whether a cited authority controls or supports an argument</li>
-          </ul>
-          <a href="library.html?q=Citation" class="tool-library-link">Browse Audited Authorities &sect;</a>
-        </div>
-
-        <!-- Tool 3 -->
-        <div class="tool-card">
-          <div class="tool-num">
-            <span>TOOL 03</span>
-            <span class="p-badge p-badge-teal">EXHIBIT PACKAGER</span>
-          </div>
-          <h3 class="tool-title">Exhibit Packager</h3>
-          <p class="tool-desc">
-            A structured exhibit package designed for human review and adaptation to applicable court requirements.
-          </p>
-          <ul class="tool-features">
-            <li>Bates labels and configurable exhibit naming</li>
-            <li>Cover-sheet, index, and bookmark generation</li>
-            <li>Document inventory with source and page references</li>
-            <li>Export controls intended to preserve readability</li>
-            <li>User review required for filing rules, confidential information, and completeness</li>
-          </ul>
-          <a href="library.html?q=Exhibit" class="tool-library-link">Explore Exhibit Formats &sect;</a>
-        </div>
-
-        <!-- Tool 4 -->
-        <div class="tool-card">
-          <div class="tool-num">
-            <span>TOOL 04</span>
-            <span class="p-badge p-badge-ink">RECORD WORKSPACE</span>
-          </div>
-          <h3 class="tool-title">Chronological Ground Truth Matrix</h3>
-          <p class="tool-desc">
-            A record-linking workspace that asks the user to trace factual statements to a source document, date, page, and status.
-          </p>
-          <ul class="tool-features">
-            <li>Links facts to underlying records and document locations</li>
-            <li>Separates confirmed document contents from inferences, assertions, and disputed facts</li>
-            <li>Tracks source conflicts and missing record intervals</li>
-            <li>Produces chronology views for review and revision</li>
-            <li>Does not decide which version of a disputed fact is true</li>
-          </ul>
-          <a href="library.html?q=Chronology" class="tool-library-link">View Timeline Schemas &sect;</a>
-        </div>
-
-        <!-- Tool 5 -->
-        <div class="tool-card">
-          <div class="tool-num">
-            <span>TOOL 05</span>
-            <span class="p-badge p-badge-teal">HYPERRAG CORE</span>
-          </div>
-          <h3 class="tool-title">HyperRAG Case Assistant</h3>
-          <p class="tool-desc">
-            Retrieves related passages across user-provided records and selected authority collections to help users locate documents, compare terminology, and identify questions for qualified review.
-          </p>
-          <ul class="tool-features">
-            <li>Hybrid search across uploaded records and selected resources</li>
-            <li>Entity and event linking for people, servicers, instruments, dates, and docket entries</li>
-            <li>Retrieval of potentially relevant passages with source context</li>
-            <li>Issue-spotting prompts, not legal conclusions</li>
-            <li>No legal representation, outcome prediction, or autonomous filing recommendation</li>
-          </ul>
-          <a href="library.html?q=Clackamas" class="tool-library-link">Query 5,612 Curated Research Entries &sect;</a>
-        </div>
-
-        <!-- Tool 6 -->
-        <div class="tool-card">
-          <div class="tool-num">
-            <span>TOOL 06</span>
-            <span class="p-badge p-badge-terracotta">ACCESS TO JUSTICE</span>
-          </div>
-          <h3 class="tool-title">Access to Justice &amp; Fee Waiver Gate</h3>
-          <p class="tool-desc">
-            Provides structured checklists and document-organization support for fee-waiver and procedural-information requests. Eligibility, required forms, deadlines, and filing procedures must be confirmed with the relevant court or qualified legal assistance.
-          </p>
-          <ul class="tool-features">
-            <li>Plain-language explanations of common procedural steps</li>
-            <li>Document checklists for fee-waiver or indigency applications</li>
-            <li>Filing-calendar and deadline-tracking prompts</li>
-            <li>Emergency-resource and referral pathways</li>
-            <li>Not a determination of eligibility or legal sufficiency</li>
-          </ul>
-          <a href="library.html?q=Waiver" class="tool-library-link">Search Indigency Authorities &sect;</a>
-        </div>
       </div>
     </section>
 
@@ -1826,9 +1719,9 @@
     <section id="rescue">
       <div class="section-header">
         <div class="section-eyebrow">04 — Evidentiary Triage &amp; Intake Forensics</div>
-        <h2 class="section-heading">The Court Record Rescue</h2>
+        <h2 class="section-heading">The work before the argument</h2>
         <p class="section-desc">
-          Not generic AI writing. We take disorganized filings, dense servicer records, and tight deadlines, and reconstruct an organized, formatted review package designed to reduce common procedural defects. Court acceptance is never guaranteed.
+          High-volume civil litigation often produces poorly indexed PDFs, incomplete service records, transfers among servicers, and documents that are difficult to compare across time. PALADIN helps turn that material into a reviewable working record.
         </p>
       </div>
 
@@ -1874,19 +1767,19 @@
       <div class="rescue-panel">
         <div class="rescue-grid">
           <div>
-            <span class="p-badge p-badge-terracotta" style="margin-bottom:0.75rem;">RAPID RESCUE WORKFLOW</span>
+            <span class="p-badge p-badge-terracotta" style="margin-bottom:0.75rem;">RECORD RESCUE WORKFLOW</span>
             <h3 style="font-family:var(--font-display); font-size:1.85rem; font-weight:800; color:var(--paladin-ink); margin-bottom:0.75rem;">
               Turn Disorganized Records Into Organized, Court-Formatted Deliverables
             </h3>
             <p style="font-size:1.05rem; color:var(--paladin-ink-muted); line-height:1.65;">
-              Courts often reject pro se filings because margins fail rule specifications, citations contain formatting errors, or exhibits lack organization. The Court Record Rescue addresses formatting mechanics so the user's evidence and arguments can be clearly presented for the court's review.
+              Courts decide matters through records, procedure, and admissible evidence. PALADIN helps users turn disorganized paper trails into organized chronologies, verified citations, and formatted pleading structures ready for review.
             </p>
 
             <div class="rescue-steps">
               <div class="rescue-step">
                 <div class="rescue-step-num">1</div>
                 <div class="rescue-step-content">
-                  <h4>Ingest and inventory</h4>
+                  <h4>1. Ingest</h4>
                   <p>Disaggregate PDF bundles, run OCR, extract attachments, and build an inventory of every document in the record.</p>
                 </div>
               </div>
@@ -1894,7 +1787,7 @@
               <div class="rescue-step">
                 <div class="rescue-step-num">2</div>
                 <div class="rescue-step-content">
-                  <h4>Construct a reviewable chronology</h4>
+                  <h4>2. Chronology</h4>
                   <p>Assemble transactions, notices, transfers, and docket events into a date-sorted ground-truth timeline linked to specific page numbers.</p>
                 </div>
               </div>
@@ -1902,7 +1795,7 @@
               <div class="rescue-step">
                 <div class="rescue-step-num">3</div>
                 <div class="rescue-step-content">
-                  <h4>Trace factual assertions to sources</h4>
+                  <h4>3. Trace</h4>
                   <p>Match every factual statement to an underlying document. Identify unsupported claims, conflicting dates, and evidentiary gaps.</p>
                 </div>
               </div>
@@ -1910,7 +1803,7 @@
               <div class="rescue-step">
                 <div class="rescue-step-num">4</div>
                 <div class="rescue-step-content">
-                  <h4>Check authority and procedural references</h4>
+                  <h4>4. Audit citations</h4>
                   <p>Verify citations against CourtListener and controlling Oregon precedent; audit references to UCC provisions, court rules, and statutes.</p>
                 </div>
               </div>
@@ -1918,7 +1811,7 @@
               <div class="rescue-step">
                 <div class="rescue-step-num">5</div>
                 <div class="rescue-step-content">
-                  <h4>Prepare an organized review package</h4>
+                  <h4>5. Package</h4>
                   <p>Format pleadings to UTCR 28-line standards, pair with Bates-stamped exhibits and an exhibit list, and output a clean file ready for attorney or court review.</p>
                 </div>
               </div>
@@ -1927,18 +1820,17 @@
             <div style="display:flex; gap:1rem; align-items:center; flex-wrap:wrap;">
               <a href="mailto:annika@executivefunctionos.com?subject=Court%20Record%20Rescue%20Inquiry" class="sc-btn sc-btn-active">Request Document Rescue</a>
               <a href="library.html?q=Pleading" class="sc-btn sc-btn-default">Sample Pleading Precedent &sect;</a>
-              <span style="font-family:var(--font-technical); font-size:0.8rem; color:var(--paladin-ink-muted);">Sliding Scale / A2J Grant Subsidized</span>
             </div>
 
             <p style="margin-top:0.85rem; font-size:0.78rem; color:var(--paladin-ink-muted); line-height:1.5; font-family:var(--font-technical);">
-              <strong>Notice:</strong> The product does not decide the case, provide legal advice, or replace qualified counsel. It organizes the record, checks procedural mechanics, and highlights evidentiary questions for review.
+              <strong>Notice:</strong> PALADIN does not decide the case, provide legal advice, or replace qualified counsel. It organizes the record, checks procedural mechanics, and highlights evidentiary questions for qualified review.
             </p>
           </div>
 
           <!-- Interactive Mock Intake Card -->
           <div class="rescue-intake-card">
-            <div class="intake-title">Document Rescue Simulator</div>
-            <div class="intake-sub">ESTIMATE PROCEDURAL INTEGRITY & REJECTION RISK</div>
+            <div class="intake-title">Document Rescue Preflight</div>
+            <div class="intake-sub">ESTIMATE PROCEDURAL INTEGRITY &amp; REJECTION RISK</div>
 
             <div class="intake-row">
               <label class="intake-label">Court Jurisdiction</label>
@@ -1969,11 +1861,11 @@
             <div style="background:#FFFDF9; border:1px solid var(--paladin-rule); padding:1rem; margin:1.25rem 0; font-family:var(--font-technical); font-size:0.75rem;">
               <div style="color:var(--paladin-teal); font-weight:700; margin-bottom:0.25rem;">PREFLIGHT DIAGNOSTIC:</div>
               <div>&bull; UTCR 28-Line Pleading Paper: <span style="color:var(--paladin-terracotta); font-weight:700;">REQUIRED</span></div>
-              <div>&bull; CourtListener Citation Audit: <span style="color:var(--paladin-teal); font-weight:700;">ENABLED</span></div>
-              <div>&bull; Exhibit Stamping & Bookmarking: <span style="color:var(--paladin-teal); font-weight:700;">READY</span></div>
+              <div>&bull; Citation Audit: <span style="color:var(--paladin-teal); font-weight:700;">ENABLED</span></div>
+              <div>&bull; Exhibit Stamping &amp; Bookmarking: <span style="color:var(--paladin-teal); font-weight:700;">READY</span></div>
             </div>
 
-            <button type="button" class="sc-btn sc-3d-amber sc-btn--block" onclick="alert('Document Rescue Simulator: Input registered. For live rescue triage, email contact@executivefunctionos.com with your draft document.')">
+            <button type="button" class="sc-btn sc-3d-amber sc-btn--block" onclick="alert('Document Rescue Preflight: Input registered. For live rescue triage, email annika@executivefunctionos.com with your draft document.')">
               Run Preflight Rescue Audit
             </button>
             <p style="margin-top:0.75rem; font-size:0.72rem; color:var(--paladin-ink-muted); text-align:center; font-family:var(--font-technical); line-height:1.4;">
@@ -1988,9 +1880,9 @@
     <section id="rates" style="margin-bottom: 4rem;">
       <div class="section-header">
         <div class="section-eyebrow">05 &mdash; Transparent Rates &amp; Commercial Tiers</div>
-        <h2 class="section-heading">Document Infrastructure for People Without Document Departments</h2>
+        <h2 class="section-heading">Practical document infrastructure</h2>
         <p class="section-desc">
-          Court-formatted pleading paper, verified citations, and organized exhibit packages for litigants, legal aid clinics, and community advocates managing complex dockets.
+          Court-formatted document structures, citation checks, source-linked record organization, and exhibit packaging for individuals and organizations working without a dedicated document-production team.
         </p>
       </div>
 
@@ -2001,7 +1893,7 @@
             <span>SELF-REPRESENTED LITIGANT</span>
             <span class="p-badge p-badge-ink">COMMUNITY</span>
           </div>
-          <h3 class="rate-title">Scout Free</h3>
+          <h3 class="rate-title">Scout</h3>
           <div class="rate-price">
             $0 <span class="rate-period">/ forever free</span>
           </div>
@@ -2039,7 +1931,7 @@
             <li>Document rescue priority triage &amp; export</li>
             <li>Complete local corpus privacy (zero AI training on case files)</li>
           </ul>
-          <a href="mailto:annika@executivefunctionos.com?subject=Paladin%20Subscription%20Inquiry%20($29/mo)" class="sc-btn sc-btn-active sc-btn--block">Enlist as Paladin &bull; $29/mo</a>
+          <a href="mailto:annika@executivefunctionos.com?subject=Paladin%20Subscription%20Inquiry%20($29/mo)" class="sc-btn sc-btn-active sc-btn--block">Subscribe to Paladin &bull; $29/mo</a>
         </div>
 
         <!-- Tier 3: Posse -->
@@ -2063,13 +1955,13 @@
             <li>Multi-jurisdiction caption presets (Oregon Circuit &amp; Federal District)</li>
             <li>Direct pipeline onboarding &amp; priority technical support</li>
           </ul>
-          <a href="mailto:annika@executivefunctionos.com?subject=Posse%20Clinic%20Tier%20Inquiry%20($99/mo)" class="sc-btn sc-3d-slate sc-btn--block">Mobilize a Posse &bull; $99/mo</a>
+          <a href="mailto:annika@executivefunctionos.com?subject=Posse%20Clinic%20Tier%20Inquiry%20($99/mo)" class="sc-btn sc-3d-slate sc-btn--block">Start Posse Workspace &bull; $99/mo</a>
         </div>
       </div>
 
       <!-- Legal Boundary Notice for Rates -->
       <p style="margin-top: -1rem; margin-bottom: 2rem; font-size: 0.76rem; color: var(--paladin-ink-muted); text-align: center; font-family: var(--font-technical); line-height: 1.45;">
-        <strong>Notice:</strong> PALADIN provides educational document-organization and drafting software, not legal representation or formal legal advice. Software subscriptions do not guarantee judicial outcomes, clerk acceptance, or procedural sufficiency. Litigants should seek licensed counsel where available. Indigent litigants may request fee subsidies under our A2J pledge.
+        <strong>Important notice:</strong> PALADIN provides educational document-organization and drafting tools, not legal representation or formal legal advice. Software subscriptions do not guarantee judicial outcomes, clerk acceptance, or procedural sufficiency. Litigants should seek licensed counsel where available.
       </p>
 
       <!-- Illustrative Workflow Scenarios -->
@@ -2135,27 +2027,27 @@
             <div style="font-family:var(--font-technical); font-size:0.78rem; font-weight:700; color:var(--paladin-terracotta); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.5rem;">
               06 &mdash; Public Benefit Charter
             </div>
-            <h2 class="a2j-title">Monetized Exclusively in Legal Aid & Nonprofit Contexts</h2>
+            <h2 class="a2j-title">Built for access to justice</h2>
             <p class="a2j-lead">
-              PALADIN exists to level the playing field for self-represented citizens, community advocates, and resource-constrained clinics, ensuring procedural and documentary friction does not prevent a case from being fairly evaluated on its merits.
+              PALADIN is intended to reduce avoidable document friction for self-represented litigants, community advocates, and under-resourced legal-service organizations, helping ensure procedural defects do not prevent cases from being heard on the merits.
             </p>
             <div style="display:flex; gap:1rem; flex-wrap:wrap;">
               <span class="p-badge p-badge-teal" style="background:rgba(31,95,88,0.3); border-color:#2a8278; color:#7ddcd1;">BUILT FOR NONPROFIT &amp; LEGAL AID WORKFLOWS</span>
-              <span class="p-badge p-badge-terracotta" style="background:rgba(196,92,62,0.3); border-color:#e07759; color:#f6b19e;">OREGON LAW FOUNDATION</span>
-              <span class="p-badge p-badge-ink" style="background:rgba(255,253,249,0.1); border-color:rgba(255,253,249,0.3); color:#FFFDF9;">ZERO COST TO INDIGENT FILERS</span>
+              <span class="p-badge p-badge-terracotta" style="background:rgba(196,92,62,0.3); border-color:#e07759; color:#f6b19e;">INDEPENDENT OPEN WORKFLOW</span>
+              <span class="p-badge p-badge-ink" style="background:rgba(255,253,249,0.1); border-color:rgba(255,253,249,0.3); color:#FFFDF9;">PRO BONO &amp; CLINIC SUPPORT</span>
             </div>
           </div>
 
           <div class="a2j-specs">
-            <h4 style="font-family:var(--font-display); font-size:1.1rem; color:#FFFDF9; margin-bottom:0.75rem;">Potential Grant &amp; Clinic Alignment</h4>
+            <h4 style="font-family:var(--font-display); font-size:1.1rem; color:#FFFDF9; margin-bottom:0.75rem;">Independent Development &amp; Legal-Aid Alignment</h4>
             <p style="margin-bottom:0.75rem;">
-              <strong>Legal Services Corporation (LSC) Alignment:</strong> Designed to support Technology Initiative Grant (TIG) objectives for automated pleading assembly and court self-help kiosks (independently developed; not affiliated with or endorsed by LSC).
+              <strong>Legal Services Corporation (LSC) Alignment:</strong> PALADIN is independently developed and is not affiliated with, funded by, or endorsed by the Legal Services Corporation, the Oregon Law Foundation, the Oregon Judicial Department, or any court unless expressly stated. Prospective legal-aid partners evaluating LSC Technology Initiative Grants (TIG) should note that LSC eligibility rules generally require applications to come from current LSC Basic Field grantees, with non-LSC entities participating as project partners or technical contractors.
             </p>
             <p style="margin-bottom:0.75rem;">
-              <strong>Oregon Law Foundation (OLF):</strong> Category B Access to Justice project grants supporting legal aid clinics and foreclosure defense networks.
+              <strong>Oregon Law Foundation (OLF):</strong> Designed to align with Category B Access to Justice project grant objectives, supporting legal aid clinics, housing coalitions, and civil pro se assistance.
             </p>
             <p>
-              <strong>Pro Bono Clinic Multi-Tenancy:</strong> Permitting legal aid staff attorneys to oversee more self-represented clients without drowning in administrative formatting.
+              <strong>Pro Bono Clinic Multi-Tenancy:</strong> Permits legal aid staff attorneys and clinical supervisors to oversee self-represented filers without administrative document assembly overhead.
             </p>
           </div>
         </div>
@@ -2171,10 +2063,10 @@
         <div>
           <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
             <img src="paladin-knight-mark.svg" alt="Paladin Mark" style="width:28px; height:28px; border-radius:4px;">
-            <div class="footer-brand">PALADIN</div>
+            <div class="footer-brand">P.A.L.A.D.I.N.</div>
           </div>
           <p style="line-height:1.6; margin-bottom:1rem; font-size:0.85rem;">
-            A record-first legal-information and document-organization workflow built for self-represented litigants, legal aid clinics, and community access to justice.
+            A record-first legal-information workflow for self-represented litigants, legal-aid teams, and community advocates.
           </p>
           <div style="font-family:var(--font-technical); font-size:0.75rem; color:var(--paladin-teal); margin-bottom:0.75rem;">
             JUDGESMOKE JURIDICAL SUB-THEME &bull; EXECUTIVE FUNCTION OS
@@ -2187,23 +2079,23 @@
         <div>
           <div class="footer-col-title">The Suite</div>
           <ul class="footer-list">
-            <li><a href="#legal-tools">UTCR Pleading Engine</a></li>
-            <li><a href="#legal-tools">Citation Auditor</a></li>
-            <li><a href="#legal-tools">Bates Exhibit Studio</a></li>
-            <li><a href="#legal-tools">Chronological Ground Truth</a></li>
-            <li><a href="#rates">Rates &amp; Posse Plans</a></li>
-            <li><a href="library.html">Evidence Archive (5,612)</a></li>
+            <li><a href="#the-suite">Pleading and document assembly</a></li>
+            <li><a href="#the-suite">Citation audit</a></li>
+            <li><a href="#the-suite">Exhibit packaging</a></li>
+            <li><a href="#the-suite">Record workspace</a></li>
+            <li><a href="#the-suite">Document retrieval</a></li>
+            <li><a href="#the-suite">Procedural organization</a></li>
           </ul>
         </div>
 
         <div>
-          <div class="footer-col-title">Philosophy</div>
+          <div class="footer-col-title">Principles</div>
           <ul class="footer-list">
-            <li><a href="why-paladin.html">Why PALADIN Exists (Manifesto)</a></li>
-            <li><a href="#matrix">Frontier vs. Machine</a></li>
-            <li><a href="#rates">Commercial Rates</a></li>
-            <li><a href="#a2j-charter">Public Benefit Charter</a></li>
-            <li><a href="#rescue">Court Document Rescue</a></li>
+            <li><a href="why-paladin.html">Why PALADIN exists</a></li>
+            <li><a href="#method">The six rules</a></li>
+            <li><a href="#evidence-gate">Record-first analysis</a></li>
+            <li><a href="#a2j-charter">Public-benefit charter</a></li>
+            <li><a href="#rescue">Document rescue</a></li>
           </ul>
         </div>
 
@@ -2228,8 +2120,8 @@
       <p style="margin-top:1.5rem; font-size:0.82rem; color:rgba(255,253,249,0.7); text-align:center; font-family:var(--font-technical); letter-spacing:0.02em; max-width:780px; margin-left:auto; margin-right:auto; line-height:1.5;">
         PALADIN is not a machine for manufacturing foreclosure defenses; it is a record-first system for helping people identify, organize, test, and present the questions their actual documents may support.
       </p>
-      <p style="margin-top:0.5rem; font-size:0.78rem; color:rgba(255,253,249,0.5); text-align:center; font-family:var(--font-technical); letter-spacing:0.02em;">
-        PALADIN is an educational tool and does not constitute legal advice or formal representation.
+      <p style="margin-top:0.5rem; font-size:0.78rem; color:rgba(255,253,249,0.5); text-align:center; font-family:var(--font-technical); letter-spacing:0.02em; max-width:780px; margin-left:auto; margin-right:auto; line-height:1.4;">
+        Important notice: PALADIN provides educational information and document-organization tools. It is not a law firm, does not provide legal advice, does not create an attorney-client relationship, and does not guarantee court acceptance or any case outcome. Users remain responsible for deadlines, filing requirements, current law, and the accuracy of all submitted materials.
       </p>
     </div>
   </footer>
