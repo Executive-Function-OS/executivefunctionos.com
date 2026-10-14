@@ -616,6 +616,95 @@
         padding: 14px;
       }
     }
+  
+    /* Voice Narration Controller Widget */
+    #narrator-panel {
+      position: fixed;
+      bottom: 52px;
+      right: 20px;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #F8FAFC;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      touch-action: manipulation;
+    }
+    #toggle-narration-btn {
+      background: var(--teal-base);
+      border: 1px solid var(--teal-bright);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      transition: all 0.15s ease;
+      touch-action: manipulation;
+    }
+    #toggle-narration-btn:hover {
+      background: var(--teal-bright);
+    }
+    #read-current-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      transition: all 0.15s ease;
+      touch-action: manipulation;
+    }
+    #read-current-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    #voice-select-label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: #94A3B8;
+    }
+    #voice-select {
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid #334155;
+      border-radius: 4px;
+      padding: 4px 6px;
+      max-width: 140px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+    }
+
+    @media (max-width: 768px) {
+      #narrator-panel {
+        bottom: 48px;
+        right: 6px;
+        left: 6px;
+        padding: 6px 8px;
+        gap: 6px;
+        justify-content: space-between;
+      }
+      #voice-select {
+        max-width: 105px;
+        font-size: 9px;
+      }
+      #toggle-narration-btn, #read-current-btn {
+        padding: 5px 8px;
+        font-size: 10px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1426,6 +1515,229 @@
     });
 
     updateDeck();
+  
+  class PresentationNarrator {
+    constructor() {
+      this.synth = window.speechSynthesis;
+      this.voices = [];
+      this.selectedVoice = null;
+      this.isAutoPlaying = false;
+      this.currentUtterance = null;
+      this.keepAliveTimer = null;
+
+      this.initVoices();
+      this.bindEvents();
+    }
+
+    // 1. Voice Detection & Prioritization
+    initVoices() {
+      const populate = () => {
+        if (!this.synth) return;
+        this.voices = this.synth.getVoices().filter(v => v.lang && v.lang.startsWith('en'));
+        
+        const select = document.getElementById('voice-select');
+        if (!select) return;
+        select.innerHTML = '';
+
+        // Prioritize neural / natural / high-clarity OS voices
+        const naturalKeywords = ['natural', 'neural', 'google', 'samantha', 'karen', 'daniel', 'serena', 'oliver', 'ava', 'zoe', 'jenny', 'guy', 'aria'];
+
+        this.voices.sort((a, b) => {
+          const aNat = naturalKeywords.some(kw => a.name.toLowerCase().includes(kw));
+          const bNat = naturalKeywords.some(kw => b.name.toLowerCase().includes(kw));
+          return bNat - aNat;
+        });
+
+        this.voices.forEach((voice, index) => {
+          const option = document.createElement('option');
+          option.value = index;
+          // Shorten long voice names for mobile display
+          const cleanName = voice.name.replace(/Microsoft |Google /g, '').replace(/ Online \(Natural\)/g, ' Natural');
+          option.textContent = `${cleanName} (${voice.lang})`;
+          select.appendChild(option);
+        });
+
+        if (this.voices.length > 0) {
+          this.selectedVoice = this.voices[0];
+          select.selectedIndex = 0;
+        }
+      };
+
+      populate();
+      if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+        speechSynthesis.onvoiceschanged = populate;
+      }
+    }
+
+    // 2. Extract Speaker Notes for Current Slide
+    getCurrentNotesText() {
+      const activeSlide = document.querySelector('.slide.active');
+      if (!activeSlide) return '';
+      let text = activeSlide.getAttribute('data-notes') || '';
+      // Clean up UI artifact labels
+      text = text.replace(/^Slide\s*\d+:\s*/i, '').trim();
+      return text;
+    }
+
+    // 3. Navigation Hook
+    advanceSlide() {
+      if (typeof nextSlide === 'function') {
+        nextSlide();
+      }
+    }
+
+    // 4. Speak & Progress with Keep-Alive workaround for Chrome
+    speakCurrentSlide(onComplete = null) {
+      if (!this.synth) return;
+      this.synth.cancel();
+      if (this.keepAliveTimer) {
+        clearInterval(this.keepAliveTimer);
+        this.keepAliveTimer = null;
+      }
+
+      const text = this.getCurrentNotesText();
+      if (!text) {
+        if (onComplete) onComplete();
+        return;
+      }
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      if (this.selectedVoice) utterance.voice = this.selectedVoice;
+
+      utterance.rate = 1.02; // natural pace
+      utterance.pitch = 1.0;
+
+      utterance.onend = () => {
+        if (this.keepAliveTimer) {
+          clearInterval(this.keepAliveTimer);
+          this.keepAliveTimer = null;
+        }
+        this.currentUtterance = null;
+        if (onComplete) onComplete();
+      };
+
+      utterance.onerror = (e) => {
+        console.warn('Speech error:', e);
+        if (this.keepAliveTimer) {
+          clearInterval(this.keepAliveTimer);
+          this.keepAliveTimer = null;
+        }
+        this.currentUtterance = null;
+      };
+
+      this.currentUtterance = utterance;
+      
+      // Chrome long-utterance keep-alive hack
+      this.keepAliveTimer = setInterval(() => {
+        if (this.synth.speaking) {
+          this.synth.pause();
+          this.synth.resume();
+        }
+      }, 10000);
+
+      this.synth.speak(utterance);
+    }
+
+    // 5. Autoplay Loop
+    startAutoPlay() {
+      this.isAutoPlaying = true;
+      const playBtn = document.getElementById('toggle-narration-btn');
+      if (playBtn) {
+        playBtn.textContent = '⏸ Pause';
+        playBtn.style.background = '#e11d48';
+      }
+
+      const step = () => {
+        if (!this.isAutoPlaying) return;
+
+        this.speakCurrentSlide(() => {
+          if (!this.isAutoPlaying) return;
+
+          // Check if we reached the final slide
+          if (currentSlide >= totalSlides - 1) {
+            this.stopAutoPlay();
+            return;
+          }
+
+          // 1.2-second pause before transitioning to the next slide
+          setTimeout(() => {
+            if (!this.isAutoPlaying) return;
+            this.advanceSlide();
+
+            // Wait 600ms for slide transition DOM update, then read next slide
+            setTimeout(step, 600);
+          }, 1200);
+        });
+      };
+
+      step();
+    }
+
+    stopAutoPlay() {
+      this.isAutoPlaying = false;
+      if (this.synth) this.synth.cancel();
+      if (this.keepAliveTimer) {
+        clearInterval(this.keepAliveTimer);
+        this.keepAliveTimer = null;
+      }
+      const playBtn = document.getElementById('toggle-narration-btn');
+      if (playBtn) {
+        playBtn.textContent = '▶ Auto-Present';
+        playBtn.style.background = 'var(--teal-base)';
+      }
+    }
+
+    bindEvents() {
+      const playBtn = document.getElementById('toggle-narration-btn');
+      const readBtn = document.getElementById('read-current-btn');
+      const select = document.getElementById('voice-select');
+
+      if (playBtn) {
+        playBtn.addEventListener('click', () => {
+          if (this.isAutoPlaying) {
+            this.stopAutoPlay();
+          } else {
+            this.startAutoPlay();
+          }
+        });
+      }
+
+      if (readBtn) {
+        readBtn.addEventListener('click', () => {
+          this.stopAutoPlay();
+          this.speakCurrentSlide();
+        });
+      }
+
+      if (select) {
+        select.addEventListener('change', (e) => {
+          this.selectedVoice = this.voices[e.target.value];
+        });
+      }
+
+      // Stop speech if presenter manually navigates via keyboard
+      window.addEventListener('keydown', (e) => {
+        if (['ArrowLeft', 'ArrowRight', 'Space'].includes(e.code) && !this.isAutoPlaying) {
+          if (this.synth) this.synth.cancel();
+        }
+      });
+    }
+  }
+
+  // Initialize narrator
+  window.narrator = new PresentationNarrator();
+
   </script>
+
+  <!-- Voice Narration Controller -->
+  <div id="narrator-panel">
+    <button id="toggle-narration-btn">▶ Auto-Present</button>
+    <button id="read-current-btn">🔊 Read Slide</button>
+    <label id="voice-select-label">
+      Voice:
+      <select id="voice-select"></select>
+    </label>
+  </div>
+
 </body>
 </html>
