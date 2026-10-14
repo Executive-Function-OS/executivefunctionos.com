@@ -8,16 +8,18 @@
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      padding: 24px;
+      padding: clamp(12px, 3vw, 24px);
       background: #0D1117;
       color: #E8E0D0;
       font-family: 'Georgia', 'Times New Roman', serif;
       min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
     }
     .cite-tag {
       display: inline-block;
       font-size: 9px;
-      padding: 1px 6px;
+      padding: 2px 6px;
       border-radius: 3px;
       background: #D4B89614;
       border: 1px solid #D4B89640;
@@ -28,6 +30,7 @@
       vertical-align: middle;
       white-space: nowrap;
       transition: all 0.15s;
+      touch-action: manipulation;
     }
     .cite-tag.active {
       background: #D4B89633;
@@ -42,6 +45,7 @@
       padding: 14px;
       cursor: pointer;
       transition: all 0.2s;
+      touch-action: manipulation;
     }
     .phase-card:hover {
       filter: brightness(1.15);
@@ -49,9 +53,10 @@
     .pillar-card {
       flex: 1;
       border-radius: 6px;
-      padding: 10px;
+      padding: 12px;
       cursor: pointer;
       transition: all 0.2s;
+      touch-action: manipulation;
     }
     .pillar-card:hover {
       filter: brightness(1.1);
@@ -61,9 +66,94 @@
       padding: 12px;
       cursor: pointer;
       transition: all 0.2s;
+      touch-action: manipulation;
     }
     .trap-card:hover {
       filter: brightness(1.1);
+    }
+
+    /* Responsive Layout Classes */
+    .identity-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .identity-box {
+      border-radius: 6px;
+      padding: 10px 16px;
+      max-width: 280px;
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .phases-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .pillars-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .traps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .floating-cite {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 100;
+      background: #1A1208;
+      border: 1px solid #D4B896;
+      border-left: 4px solid #D4B896;
+      border-radius: 8px;
+      padding: 14px 16px;
+      max-width: 320px;
+      box-shadow: 0 4px 24px #00000099;
+    }
+
+    @media (max-width: 840px) {
+      .phases-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+      .pillars-row {
+        flex-direction: column;
+      }
+      .traps-grid {
+        grid-template-columns: 1fr;
+      }
+      .floating-cite {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .phases-grid {
+        grid-template-columns: 1fr;
+      }
+      .identity-box {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -276,7 +366,7 @@ const pillars = [
       if (state.activeCite && authorities[state.activeCite]) {
         const auth = authorities[state.activeCite];
         html += `
-          <div style="position: fixed; top: 16px; right: 16px; z-index: 100; background: #1A1208; border: 1px solid #D4B896; border-left: 4px solid #D4B896; border-radius: 8px; padding: 14px 16px; max-width: 320px; box-shadow: 0 4px 24px #00000099;">
+          <div class="floating-cite">
             <div style="font-size: 10px; letter-spacing: 2px; color: #8A7A6A; margin-bottom: 4px;">AUTHORITY</div>
             <div style="font-size: 13px; color: #D4B896; font-weight: bold; margin-bottom: 2px;">${auth.cite}</div>
             <div style="font-size: 10px; color: #8A7A6A; margin-bottom: 8px;">${auth.ref}</div>
@@ -300,12 +390,12 @@ const pillars = [
 
       // Identity Key
       html += `
-        <div style="display: flex; gap: 12px; margin-bottom: 24px; justify-content: center;">
-          <div style="border: 1px solid #4A7C9E55; border-left: 3px solid #4A7C9E; background: #4A7C9E11; border-radius: 6px; padding: 10px 16px; max-width: 280px;">
+        <div class="identity-row">
+          <div class="identity-box" style="border: 1px solid #4A7C9E55; border-left: 3px solid #4A7C9E; background: #4A7C9E11;">
             <div style="font-size: 12px; font-weight: bold; color: #4A7C9E; letter-spacing: 0.5px;">TLH Successor in Interest</div>
             <div style="font-size: 11px; color: #8A7A6A; margin-top: 3px;">Inherits preserved defenses — not manufactured waivers</div>
           </div>
-          <div style="border: 1px solid #3A7A4A55; border-left: 3px solid #3A7A4A; background: #3A7A4A11; border-radius: 6px; padding: 10px 16px; max-width: 280px;">
+          <div class="identity-box" style="border: 1px solid #3A7A4A55; border-left: 3px solid #3A7A4A; background: #3A7A4A11;">
             <div style="font-size: 12px; font-weight: bold; color: #3A7A4A; letter-spacing: 0.5px;">Independent Third Party</div>
             <div style="font-size: 11px; color: #8A7A6A; margin-top: 3px;">Never a party — complete immunity from preclusion</div>
           </div>
@@ -316,7 +406,7 @@ const pillars = [
       html += `
         <div style="margin-bottom: 20px;">
           <div style="font-size: 10px; letter-spacing: 3px; color: #6A6050; text-transform: uppercase; margin-bottom: 10px;">▸ Click a phase to explore</div>
-          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+          <div class="phases-grid">
       `;
 
       phases.forEach(p => {
@@ -359,7 +449,7 @@ const pillars = [
                 ${phase.events.map(e => `<div style="font-size: 11px; background: ${phase.color}18; border: 1px solid ${phase.color}33; border-radius: 4px; padding: 3px 8px; color: #C8C0B0;">${e}</div>`).join('')}
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px;">
+            <div class="detail-grid">
               <div style="background: ${phase.successor.active ? '#4A7C9E15' : '#1A1A1A'}; border: 1px solid ${phase.successor.active ? '#4A7C9E44' : '#2A2520'}; border-radius: 6px; padding: 12px; opacity: ${phase.successor.active ? 1 : 0.4};">
                 <div style="font-size: 10px; color: ${phase.successor.active ? '#4A7C9E' : '#555'}; letter-spacing: 0.5px; margin-bottom: 6px; font-weight: bold;">${phase.successor.label}</div>
                 <div style="font-size: 12px; color: #B0A898; line-height: 1.55; margin-bottom: 8px;">${phase.successor.text}</div>
@@ -377,7 +467,7 @@ const pillars = [
             </div>
             <div>
               <div style="font-size: 10px; letter-spacing: 2px; color: #6A6050; margin-bottom: 8px;">STRATEGIC APPLICATION — click pillar to select</div>
-              <div style="display: flex; gap: 8px;">
+              <div class="pillars-row">
                 ${pillars.map(pillar => `
                   <div class="pillar-card" onclick="setPillar('${pillar.key}')" style="
                     background: ${state.activePillar === pillar.key ? pillar.color + '22' : '#1A1A1A'};
@@ -400,7 +490,7 @@ const pillars = [
       html += `
         <div style="margin-bottom: 24px;">
           <div style="font-size: 10px; letter-spacing: 3px; color: #6A6050; text-transform: uppercase; margin-bottom: 10px;">▸ Preclusion Trap Immunity Grid</div>
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
+          <div class="traps-grid">
       `;
 
       traps.forEach((trap, i) => {
