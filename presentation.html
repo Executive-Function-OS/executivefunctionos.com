@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Making Complexity Legible — EFOS & PALADIN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-canvas: #090D14;
+      --bg-slide: #0F172A;
+      --bg-card: #162036;
+      --bg-card-subtle: #1E293B;
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --border-hairline: #1E293B;
+      --border-focus: #334155;
+      
+      /* EFOS Accent: Resonant Amber / Solar Ochre */
+      --amber-base: #D97706;
+      --amber-bright: #F59E0B;
+      --amber-bg: rgba(217, 119, 6, 0.12);
+      --amber-border: rgba(217, 119, 6, 0.35);
+
+      /* PALADIN Accent: Signal Teal / Verdigris */
+      --teal-base: #0D9488;
+      --teal-bright: #14B8A6;
+      --teal-bg: rgba(13, 148, 136, 0.12);
+      --teal-border: rgba(13, 148, 136, 0.35);
+
+      /* Status / Claim Tags */
+      --tag-concept: #818CF8;
+      --tag-proto: #F59E0B;
+      --tag-pipeline: #14B8A6;
+      --tag-reported: #38BDF8;
+      --tag-caveat: #F43F5E;
+
+      --font-display: 'Space Grotesk', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'Fira Code', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      user-select: none;
+    }
+
+    /* Deck Container */
+    #deck-wrapper {
+      width: 100vw;
+      height: 100vh;
+      max-width: 1366px;
+      max-height: 768px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background: var(--bg-slide);
+      border: 1px solid var(--border-hairline);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+    }
+
+    /* Top Progress Bar */
+    #progress-bar {
+      height: 3px;
+      width: 100%;
+      background: #1E293B;
+      position: relative;
+    }
+    #progress-fill {
+      height: 100%;
+      width: 10%;
+      background: linear-gradient(90deg, var(--amber-bright), var(--teal-bright));
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Header Bar */
+    .deck-header {
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-hairline);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      letter-spacing: 0.05em;
+      z-index: 10;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .badge-thesis {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: var(--text-secondary);
+    }
+
+    .slide-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Slide Stage */
+    #slide-viewport {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 40px 48px;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Typography & Hierarchy */
+    .slide-category {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .slide-title {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .slide-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      max-width: 900px;
+    }
+
+    /* Slide Content Bodies */
+    .slide-body {
+      flex: 1;
+      margin-top: 24px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 24px;
+      align-items: stretch;
+      min-height: 0;
+    }
+
+    /* Claim Tag Pills */
+    .claim-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .claim-tag--concept { background: rgba(129, 140, 248, 0.15); color: #A5B4FC; border: 1px solid rgba(129, 140, 248, 0.4); }
+    .claim-tag--proto { background: rgba(245, 158, 11, 0.15); color: #FCD34D; border: 1px solid rgba(245, 158, 11, 0.4); }
+    .claim-tag--pipeline { background: rgba(20, 184, 166, 0.15); color: #5EEAD4; border: 1px solid rgba(20, 184, 166, 0.4); }
+    .claim-tag--reported { background: rgba(56, 189, 248, 0.15); color: #7DD3FC; border: 1px solid rgba(56, 189, 248, 0.4); }
+    .claim-tag--caveat { background: rgba(244, 63, 94, 0.15); color: #FDA4AF; border: 1px solid rgba(244, 63, 94, 0.4); }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-hairline);
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .card--efos {
+      border-left: 3px solid var(--amber-bright);
+      background: linear-gradient(180deg, rgba(217, 119, 6, 0.05) 0%, var(--bg-card) 100%);
+    }
+    .card--paladin {
+      border-left: 3px solid var(--teal-bright);
+      background: linear-gradient(180deg, rgba(13, 148, 136, 0.05) 0%, var(--bg-card) 100%);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .card-body {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    /* 5-Step Pipeline Grid */
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      width: 100%;
+    }
+    .pipeline-step {
+      background: #131D31;
+      border: 1px solid #1E293B;
+      border-top: 3px solid var(--teal-bright);
+      border-radius: 6px;
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+    }
+    .pipeline-num {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--teal-bright);
+      font-weight: 700;
+    }
+    .pipeline-name {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.25;
+    }
+    .pipeline-desc {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+    .pipeline-tag {
+      margin-top: auto;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: #64748B;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 3px 6px;
+      border-radius: 3px;
+    }
+
+    /* Comparison Table / Matrix */
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .matrix-table th, .matrix-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .matrix-table th {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: #111A2E;
+    }
+    .matrix-table td:first-child {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--text-primary);
+      width: 18%;
+    }
+    .matrix-table td:nth-child(2) {
+      width: 41%;
+      color: #E2E8F0;
+      border-left: 2px solid var(--amber-border);
+      background: rgba(217, 119, 6, 0.02);
+    }
+    .matrix-table td:nth-child(3) {
+      width: 41%;
+      color: #E2E8F0;
+      border-left: 2px solid var(--teal-border);
+      background: rgba(13, 148, 136, 0.02);
+    }
+
+    /* Bottom Control Bar */
+    .deck-footer {
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-hairline);
+      background: rgba(15, 23, 42, 0.95);
+      z-index: 10;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-nav {
+      background: #1E293B;
+      border: 1px solid #334155;
+      color: var(--text-primary);
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .btn-nav:hover {
+      background: #334155;
+      border-color: #64748B;
+    }
+    .btn-nav:active {
+      transform: scale(0.98);
+    }
+
+    .slide-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #334155;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .dot.active {
+      background: var(--teal-bright);
+      width: 22px;
+      border-radius: 4px;
+    }
+
+    .view-modes {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-tool {
+      background: transparent;
+      border: 1px solid #334155;
+      color: var(--text-secondary);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .btn-tool:hover {
+      background: #1E293B;
+      color: var(--text-primary);
+    }
+    .btn-tool.active {
+      background: rgba(20, 184, 166, 0.15);
+      border-color: var(--teal-bright);
+      color: var(--teal-bright);
+    }
+
+    /* Speaker Notes Drawer */
+    #speaker-notes-panel {
+      position: absolute;
+      bottom: 45px;
+      left: 0;
+      right: 0;
+      background: #090E17;
+      border-top: 1px solid var(--border-hairline);
+      padding: 16px 24px;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #CBD5E1;
+      display: none;
+      z-index: 20;
+      box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.7);
+      max-height: 180px;
+      overflow-y: auto;
+    }
+    #speaker-notes-panel.open {
+      display: block;
+    }
+    .notes-title {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--amber-bright);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Keyboard Help Tooltip */
+    .kbd {
+      background: #1E293B;
+      padding: 2px 5px;
+      border-radius: 3px;
+      border: 1px solid #334155;
+      font-size: 0.7rem;
+      color: #CBD5E1;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="deck-wrapper">
+    <!-- Top Progress Bar -->
+    <div id="progress-bar">
+      <div id="progress-fill"></div>
+    </div>
+
+    <!-- Header Bar -->
+    <div class="deck-header">
+      <div class="brand-group">
+        <span class="brand-mark">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          EFOS + PALADIN
+        </span>
+        <span class="badge-thesis">MAKING COMPLEXITY LEGIBLE</span>
+      </div>
+      <div class="slide-meta">
+        <span id="slide-claim-badge" class="claim-tag claim-tag--concept">[FOUNDATIONAL THESIS]</span>
+        <span id="slide-counter">SLIDE 01 / 10</span>
+      </div>
+    </div>
+
+    <!-- Slide Viewport -->
+    <div id="slide-viewport">
+
+      <!-- SLIDE 1: Title -->
+      <div class="slide active" data-claim="[FOUNDATIONAL THESIS]" data-notes="Opening framing: Welcome everyone. Today we are presenting two projects—Executive Function OS (EFOS) and PALADIN. They address very different domains—internal cognitive regulation versus external documentary litigation records—but they are unified by one core design philosophy: making complex situations legible enough to support human understanding and deliberate action. Neither system is an autonomous black box. Both are built to turn fragmented, overwhelming input into an inspectable structure where a human retains decision-making agency.">
+        <div class="slide-header">
+          <div class="slide-category" style="color: var(--amber-bright);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+            ARCHITECTURAL THESIS & DESIGN INQUIRY
+          </div>
+          <h1 class="slide-title">Making Complexity Legible</h1>
+          <p class="slide-subtitle">From cognitive overload to actionable structure: two distinct applications of a single legibility principle.</p>
+        </div>
+
+        <div class="slide-body" style="align-items: center; gap: 32px;">
+          <div class="card card--efos" style="flex: 1; padding: 24px;">
+            <div class="card-header">
+              <span class="card-title" style="color: var(--amber-bright);">Executive Function OS</span>
+              <span class="claim-tag claim-tag--concept">Inner Cognitive Terrain</span>
+            </div>
+            <p class="card-body">
+              A conceptual framework and interactive design language modeling how attention, task demands, and cognitive strain fragment personal agency—and how external structures can restore executive functioning.
+            </p>
+            <div style="margin-top: 16px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">
+              Focus: Working memory · Task switching · Sensory & stress bottlenecks
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
+            <div style="height: 48px; width: 1px; background: #334155;"></div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); background: #1E293B; padding: 4px 10px; border-radius: 9999px;">
+              SHARED AXIOM
+            </div>
+            <div style="font-size: 0.78rem; text-align: center; color: var(--text-secondary); max-width: 140px; line-height: 1.3;">
+              Structure restores agency
+            </div>
+            <div style="height: 48px; width: 1px; background: #334155;"></div>
+          </div>
+
+          <div class="card card--paladin" style="flex: 1; padding: 24px;">
+            <div class="card-header">
+              <span class="card-title" style="color: var(--teal-bright);">PALADIN</span>
+              <span class="claim-tag claim-tag--pipeline">External Documentary Record</span>
+            </div>
+            <p class="card-body">
+              A record-first legal informatics pipeline designed to disaggregate disordered institutional filings, enforce cryptographic provenance, and expose documentary gaps before any legal argument is drafted.
+            </p>
+            <div style="margin-top: 16px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">
+              Focus: 100% Bates provenance · Chronological pin-cites · Procedural audit
+            </div>
+          </div>
+        </div>
+
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); display: flex; justify-content: space-between;">
+          <span>Annika Eriksson · Founder & Lead Architect</span>
+          <span>Portland, Oregon · 2026</span>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: The Shared Problem -->
+      <div class="slide" data-claim="[SHARED PROBLEM ARCHITECTURE]" data-notes="Slide 2: The shared problem. Look at how modern crises arrive. They never arrive in an indexed binder or a tidy checklist. They arrive fragmented—disordered emails, 800 pages of contradictory bank notices, conflicting deadlines, and sensory saturation. In both domains, human attention collapses not because the person lacks intelligence or determination, but because the relationships between elements are invisible. When the relationships are invisible, you cannot calculate the next useful step.">
+        <div class="slide-header">
+          <div class="slide-category" style="color: var(--tag-caveat);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            THE STRUCTURAL COLLAPSE
+          </div>
+          <h2 class="slide-title">The Shared Problem: Attention Fragmentation & Systemic Opacity</h2>
+          <p class="slide-subtitle">Complex demands arrive fragmented, consume working memory, and obscure the next viable action.</p>
+        </div>
+
+        <div class="slide-body" style="gap: 20px;">
+          <div class="card" style="flex: 1;">
+            <div class="card-header">
+              <span class="card-title" style="color: var(--amber-bright); font-size: 1rem;">Internal Cognitive Load</span>
+              <span class="claim-tag claim-tag--concept">Sensory / Executive Overload</span>
+            </div>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 12px; margin-top: 4px;">
+              <li style="display: flex; gap: 8px;">
+                <span style="color: var(--amber-bright);">▸</span>
+                <div><strong>Fragmented inputs:</strong> Multiple competing sensory stimuli and administrative notifications overwhelm working memory buffers.</div>
+              </li>
+              <li style="display: flex; gap: 8px;">
+                <span style="color: var(--amber-bright);">▸</span>
+                <div><strong>Loss of temporal order:</strong> Urgent crises cause chronological distortion; priorities become blurred under acute survival strain.</div>
+              </li>
+              <li style="display: flex; gap: 8px;">
+                <span style="color: var(--amber-bright);">▸</span>
+                <div><strong>Executive paralysis:</strong> When internal state connections break, choosing the single next practical step becomes impossible.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card" style="flex: 1;">
+            <div class="card-header">
+              <span class="card-title" style="color: var(--teal-bright); font-size: 1rem;">External Documentary Load</span>
+              <span class="claim-tag claim-tag--pipeline">Procedural / Institutional Chaos</span>
+            </div>
+            <ul style="list-style: none; font-size: 0.85rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 12px; margin-top: 4px;">
+              <li style="display: flex; gap: 8px;">
+                <span style="color: var(--teal-bright);">▸</span>
+                <div><strong>Disordered institutional records:</strong> Incomplete court dockets, unpaginated PDF scans, contradictory servicer correspondence.</div>
+              </li>
+              <li style="display: flex; gap: 8px;">
+                <span style="color: var(--teal-bright);">▸</span>
+                <div><strong>Concealed procedural gaps:</strong> Critical defects—such as trust mismatches or service failures—remain buried under voluminous paper piles.</div>
+              </li>
+              <li style="display: flex; gap: 8px;">
+                <span style="color: var(--teal-bright);">▸</span>
+                <div><strong>Preclusion traps:</strong> A litigant or advocate is pressured into premature argument before verifying what the factual record actually proves.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-hairline); border-radius: 6px; padding: 10px 16px; font-size: 0.82rem; color: #CBD5E1; display: flex; align-items: center; justify-content: space-between;">
+          <span><strong>The Common Diagnostic:</strong> The breakdown is caused by <em>unstructured opacity</em>, not lack of effort or willpower.</span>
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">DIAGNOSTIC PATTERN: IDENTIFIED</span>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: One Thesis, Two Scales -->
+      <div class="slide" data-claim="[FRAMEWORK & SCOPE]" data-notes="Slide 3: One thesis, two scales. To solve this, we apply a four-stage legibility arc: Notice, Organize, Make Relationships Visible, and Support a Next Step. But notice the crucial boundary: EFOS operates on the internal, personal scale—helping individuals scaffold their own attention and executive tasks. PALADIN operates on the external, public record—imposing strict cryptographic provenance and legal audit trails. They are not bundled into a single piece of software; they are complementary explorations of the same four-step transformation.">
+        <div class="slide-header">
+          <div class="slide-category" style="color: var(--tag-concept);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            THE LEGIBILITY ARC
+          </div>
+          <h2 class="slide-title">One Thesis, Two Scales: The Legibility Arc</h2>
+          <p class="slide-subtitle">A universal four-stage progression from raw input to human agency, deployed across distinct domains.</p>
+        </div>
+
+        <div class="slide-body" style="flex-direction: column; gap: 16px;">
+          <!-- 4-Stage Arc -->
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+            <div style="background: #111A2E; border: 1px solid #1E293B; border-top: 3px solid #64748B; border-radius: 6px; padding: 12px;">
+              <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #94A3B8;">01 · NOTICE</div>
+              <div style="font-size: 0.95rem; font-weight: 600; margin: 4px 0; color: #F8FAFC;">Capture Signals</div>
+              <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4;">Acknowledge all raw, messy signals without premature panic or filtering.</div>
+            </div>
+
+            <div style="background: #111A2E; border: 1px solid #1E293B; border-top: 3px solid var(--amber-bright); border-radius: 6px; padding: 12px;">
+              <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--amber-bright);">02 · ORGANIZE</div>
+              <div style="font-size: 0.95rem; font-weight: 600; margin: 4px 0; color: #F8FAFC;">Disaggregate & Anchor</div>
+              <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4;">Break tangled blobs into atomic, dated elements with verified provenance.</div>
+            </div>
+
+            <div style="background: #111A2E; border: 1px solid #1E293B; border-top: 3px solid var(--teal-bright); border-radius: 6px; padding: 12px;">
+              <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--teal-bright);">03 · VISUALIZE</div>
+              <div style="font-size: 0.95rem; font-weight: 600; margin: 4px 0; color: #F8FAFC;">Expose Relationships</div>
+              <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4;">Map dependencies, chronological gaps, and contradictions explicitly.</div>
+            </div>
+
+            <div style="background: #111A2E; border: 1px solid #1E293B; border-top: 3px solid #38BDF8; border-radius: 6px; padding: 12px;">
+              <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #38BDF8;">04 · ACT</div>
+              <div style="font-size: 0.95rem; font-weight: 600; margin: 4px 0; color: #F8FAFC;">Support Next Action</div>
+              <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4;">Empower human choice: decide the singular high-leverage step forward.</div>
+            </div>
+          </div>
+
+          <!-- Domain Boundary Grid -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1;">
+            <div style="background: rgba(217, 119, 6, 0.04); border: 1px solid var(--amber-border); border-radius: 6px; padding: 14px 18px;">
+              <div style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--amber-bright); font-weight: 600;">MICRO SCALE: EXECUTIVE FUNCTION OS</div>
+              <div style="font-size: 0.85rem; color: #E2E8F0; margin-top: 4px;">
+                Operates on the <strong>inner cognitive landscape</strong>. Provides low-friction scaffolding to help individuals navigate sensory overload, maintain continuity across interruptions, and prioritize daily executive demands without shame.
+              </div>
+            </div>
+
+            <div style="background: rgba(13, 148, 136, 0.04); border: 1px solid var(--teal-border); border-radius: 6px; padding: 14px 18px;">
+              <div style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--teal-bright); font-weight: 600;">MACRO SCALE: PALADIN</div>
+              <div style="font-size: 0.85rem; color: #E2E8F0; margin-top: 4px;">
+                Operates on the <strong>external legal & evidentiary record</strong>. Enforces cryptographic document hashes, Bates stamping, and strict pin-cite citation verification so an advocate can defend every assertion before filing.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">
+          IMPORTANT BOUNDARY: Distinct tools addressing different stakes — united by design methodology, not integrated as a commercial product.
+        </div>
+      </div>
+
+      <!-- SLIDE 4: EFOS — Internal Terrain -->
+      <div class="slide" data-claim="[CONCEPTUAL MODEL]" data-notes="Slide 4: EFOS—making internal terrain visible. Drawing directly from Annika's academic background in imaging genetics and complex systems, EFOS reframes executive dysfunction. Rather than treating missed tasks as personal moral failures, it borrows models from percolation theory, clustering, and network resilience. Under high load, human cognitive networks undergo phase transitions: connectivity fragments, and working memory buffers overflow. EFOS provides external scaffolding—offloading internal coordination onto transparent, scannable structures.">
+        <div class="slide-header">
+          <div class="slide-category" style="color: var(--amber-bright);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            INNER COGNITIVE TERRAIN
+          </div>
+          <h2 class="slide-title">Executive Function OS: Making Internal Terrain Visible</h2>
+          <p class="slide-subtitle">Translating complex cognitive strain into an inspectable, non-judgmental structural model.</p>
+        </div>
+
+        <div class="slide-body" style="gap: 20px;">
+          <div class="card card--efos" style="flex: 1.2;">
+            <div class="card-header">
+              <span class="card-title" style="color: var(--amber-bright); font-size: 1.05rem;">Core Conceptual Architecture</span>
+              <span class="claim-tag claim-tag--concept">Conceptual Framing</span>
+            </div>
+            <div class="card-body" style="display: flex; flex-direction: column; gap: 12px;">
+              <div>
+                <strong style="color: #F8FAFC;">1. Network Fragmentation Heuristic:</strong>
+                Cognitive strain is modeled as a phase transition on interaction graphs—when task and sensory loads exceed threshold capacity, functional connectivity fractures.
+              </div>
+              <div>
+                <strong style="color: #F8FAFC;">2. Scaffolding Over Willpower:</strong>
+                Replaces conventional advice to "try harder" with externalized anchors. Working memory is offloaded onto visual state machines and persistent logs.
+              </div>
+              <div>
+                <strong style="color: #F8FAFC;">3. Non-Clinical Orientation:</strong>
+                Designed as pragmatic self-orientation for navigating high-stakes environments without triggering executive overwhelm or shutdown.
+              </div>
+            </div>
+            <div style="margin-top: 14px; background: rgba(0, 0, 0, 0.25); border-radius: 4px; padding: 10px; font-family: var(--font-mono); font-size: 0.75rem; color: #CBD5E1;">
+              "Structured Thought. Functional Action." — Master Axiom
+            </div>
+          </div>
+
+          <div class="card" style="flex: 0.8; justify-content: space-between;">
+            <div>
+              <div class="card-header">
+                <span class="card-title" style="font-size: 1rem;">Model vs. Claim Distinction</span>
+                <span class="claim-tag claim-tag--caveat">Epistemic Scope</span>
+              </div>
+              <ul style="list-style: none; font-size: 0.82rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 10px;">
+                <li style="display: flex; gap: 6px;">
+                  <span style="color: #10B981;">✓</span>
+                  <span><strong>Supported:</strong> Architectural framework, design system tokens, interactive prototypes.</span>
+                </li>
+                <li style="display: flex; gap: 6px;">
+                  <span style="color: #EF4444;">✗</span>
+                  <span><strong>Not Claimed:</strong> Not clinical diagnosis, medical therapy, or FDA-cleared healthcare device.</span>
+                </li>
+                <li style="display: flex; gap: 6px;">
+                  <span style="color: #EF4444;">✗</span>
+                  <span><strong>Not Claimed:</strong> Not proven universal cure for ADHD or cognitive impairment.</span>
+                </li>
+              </ul>
+            </div>
+            <div style="font-size: 0.74rem; color: var(--text-muted); border-top: 1px solid var(--border-hairline); padding-top: 8px;">
+              Source: Public EFOS architecture documentation (executivefunctionos.com).
+            </div>
+          </div>
+        </div>
+
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">
+          Grounded in systems theory: making cognitive strain visible removes the shame cycle and restores practical focus.
+        </div>
+      </div>
+
+      <!-- SLIDE 5: EFOS Demos -->
+      <div class="slide" data-claim="[PROTOTYPE / DEMO]" data-notes="Slide 5: EFOS demos—from model to interaction. To demonstrate how this framework moves from theory into code, Annika built a suite of live web prototypes on executivefunctionos.com. These include interactive timeline visualizers that rebuild chronological orientation, an accessible Structural Clarity UI kit validated for AAA contrast, and a plain-text evidence corpus library. These are interactive proof-of-concept demos showing how design tokens reduce cognitive friction—they are not presented as completed consumer software or clinical tools.">
+        <div class="slide-header">
+          <div class="slide-category" style="color: var(--tag-proto);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            INTERFACE EXPLORATIONS
+          </div>
+          <h2 class="slide-title">EFOS Demos: From Model to Interaction</h2>
+          <p class="slide-subtitle">Exploring cognitive scaffolding principles through inspectable, accessible web interfaces.</p>
+        </div>
+
+        <div class="slide-body" style="gap: 16px;">
+          <div class="card" style="flex: 1; border-top: 3px solid var(--amber-bright);">
+            <div class="card-header">
+              <span class="card-title" style="font-size: 0.95rem;">Interactive Timeline</span>
+              <span class="claim-tag claim-tag--proto">Demo Page</span>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px;">
+              Reconstructs non-linear events across an explicit, chronological spatial axis. Anchors temporal orientation when acute stress causes sequence confusion.
+            </p>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--amber-bright); background: var(--amber-bg); padding: 4px 8px; border-radius: 4px;">
+              Artifact: timeline.html · Multi-scale event zoom
+            </div>
+          </div>
+
+          <div class="card" style="flex: 1; border-top: 3px solid #818CF8;">
+            <div class="card-header">
+              <span class="card-title" style="font-size: 0.95rem;">Structural Clarity UI Kit</span>
+              <span class="claim-tag claim-tag--proto">Design System</span>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px;">
+              Restrained, high-contrast visual tokens (AAA Pass 21:1). Employs monospaced metadata, subtle hairline grid matrices, and zero visual clutter to preserve attention.
+            </p>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #A5B4FC; background: rgba(129, 140, 248, 0.1); padding: 4px 8px; border-radius: 4px;">
+              Artifact: tokens.css · kinetic_clarity_buttons.css
+            </div>
+          </div>
+
+          <div class="card" style="flex: 1; border-top: 3px solid var(--teal-bright);">
+            <div class="card-header">
+              <span class="card-title" style="font-size: 0.95rem;">Corpus Library Navigator</span>
+              <span class="claim-tag claim-tag--proto">Data Explorer</span>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px;">
+              Searchable document catalog pairing clean plain-text extracts with instant citation snippets and cryptographic document digests.
+            </p>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--teal-bright); background: var(--teal-bg); padding: 4px 8px; border-radius: 4px;">
+              Artifact: library.html · library_data.json
+            </div>
+          </div>
+        </div>
+
+        <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid var(--amber-border); border-radius: 6px; padding: 10px 16px; font-size: 0.8rem; color: #FDE68A;">
+          <strong>Labeling Note:</strong> These demos illustrate interface behavior and information design patterns. They are ongoing prototypes, not independently validated commercial or medical products.
+        </div>
+      </div>
+
+      <!-- SLIDE 6: PALADIN — 5-Step Workflow -->
+      <div class="slide" data-claim="[IMPLEMENTED PIPELINE]" data-notes="Slide 6: PALADIN—making a record inspectable. In litigation, people are routinely advised to craft arguments first. PALADIN reverses this entirely: 'Make the court record readable before you make an argument.' Here we see PALADIN's five-stage pipeline: First, ingest and disaggregate PDFs with dual-layer OCR and cryptographic hashing. Second, build a source-linked chronology tied to Bates stamps. Third, trace facts and treat missing records as open questions. Fourth, audit citation integrity to eliminate hallucinated authorities. Fifth, package court-ready pleadings. Human review is mandatory at every stage.">
+        <div class="slide-header">
+          <div class="slide-category" style="color: var(--teal-bright);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            LEGAL RECORD INFORMATICS
+          </div>
+          <h2 class="slide-title">PALADIN: Making a Record Inspectable</h2>
+          <p class="slide-subtitle">A record-first legal workflow: <em>“Make the court record readable before you make an argument.”</em></p>
+        </div>
+
+        <div class="slide-body" style="flex-direction: column; justify-content: center; gap: 16px;">
+          <!-- 5 Steps Horizontal -->
+          <div class="pipeline-grid">
+            <div class="pipeline-step">
+              <span class="pipeline-num">STAGE 01</span>
+              <div class="pipeline-name">Ingest & Disaggregate</div>
+              <p class="pipeline-desc">Lossless dual-layer OCR, SHA-256 hashes, 300 DPI page images, atomic plain-text chunking.</p>
+              <span class="pipeline-tag">paladin_intake_engine.py</span>
+            </div>
+
+            <div class="pipeline-step">
+              <span class="pipeline-num">STAGE 02</span>
+              <div class="pipeline-name">Source-Linked Chronology</div>
+              <p class="pipeline-desc">Every event anchored to Bates-numbered document exhibits. Absolute chronological ordering.</p>
+              <span class="pipeline-tag">corpus_catalog.tsv</span>
+            </div>
+
+            <div class="pipeline-step">
+              <span class="pipeline-num">STAGE 03</span>
+              <div class="pipeline-name">Trace Facts & Gaps</div>
+              <p class="pipeline-desc">Matches assertions directly to sources. Crucial rule: treats missing records as questions, not speculation.</p>
+              <span class="pipeline-tag">PrivityParadox matrix</span>
+            </div>
+
+            <div class="pipeline-step">
+              <span class="pipeline-num">STAGE 04</span>
+              <div class="pipeline-name">Audit Citation Integrity</div>
+              <p class="pipeline-desc">Automated check against Table of Authorities and state procedural rules (ORCP 71 / Duvall).</p>
+              <span class="pipeline-tag">check_citations_inventory</span>
+            </div>
+
+            <div class="pipeline-step">
+              <span class="pipeline-num">STAGE 05</span>
+              <div class="pipeline-name">Package Pleadings</div>
+              <p class="pipeline-desc">Compiles frozen 28-line Oregon pleadings and bookmarked exhibit compendiums for court filing.</p>
+              <span class="pipeline-tag">compile_pleading.py</span>
+            </div>
+          </div>
+
+          <div style="background: rgba(13, 148, 136, 0.08); border: 1px solid var(--teal-border); border-radius: 6px; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between;">
+            <div style="font-size: 0.82rem; color: #CCFBF1;">
+              <strong>Foundational Standard:</strong> Software organizes provenance and audits citations; human counsel / pro se litigant retains exclusive judgment over legal claims.
+            </div>
+            <span class="claim-tag claim-tag--pipeline">ZERO HALLUCINATION GATE</span>
+          </div>
+        </div>
+
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">
+          Reference: PALADIN N-of-1 Computational Informatics Protocol & Case 17CV38591 dogfooding architecture.
+        </div>
+      </div>
+
+      <!-- SLIDE 7: A Shared Design Pattern -->
+      <div class="slide" data-claim="[TAXONOMY & COMPARISON]" data-notes="Slide 7: A shared design pattern. When we compare EFOS and PALADIN side by side in this matrix, the common legibility pattern becomes undeniable. In both systems, messy inputs undergo structural transformation into an inspectable visible output that supports a human-chosen next action. Yet they operate under drastically different risk profiles. EFOS deals with personal executive functioning and cognitive fatigue, where failure means missed personal goals. PALADIN deals with real property title, foreclosure judgments, and procedural preclusion, where failure means forfeiture of property rights.">
+        <div class="slide-header">
+          <div class="slide-category" style="color: var(--tag-concept);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            CROSS-DOMAIN COMPARISON
+          </div>
+          <h2 class="slide-title">A Shared Design Pattern: Internal vs. External Legibility</h2>
+          <p class="slide-subtitle">Comparing inputs, transformations, visible outputs, and risks across both architectures.</p>
+        </div>
+
+        <div class="slide-body" style="align-items: center;">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>DIMENSION</th>
+                <th style="color: var(--amber-bright);">EXECUTIVE FUNCTION OS (INNER)</th>
+                <th style="color: var(--teal-bright);">PALADIN (EXTERNAL RECORD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>RAW INPUT</td>
+                <td>Sensory saturation, competing tasks, fragmented attention, emotional/stress strain.</td>
+                <td>Disordered PDFs, conflicting servicer correspondence, missing dockets, complex title chains.</td>
+              </tr>
+              <tr>
+                <td>TRANSFORMATION</td>
+                <td>Cognitive offloading, phase-transition mapping, external task state machines.</td>
+                <td>Lossless dual-layer OCR, SHA-256 hashing, Bates stamping, chronological event anchoring.</td>
+              </tr>
+              <tr>
+                <td>VISIBLE OUTPUT</td>
+                <td>Low-friction timelines, AAA-contrast UI components, scannable priority cards.</td>
+                <td>Verified exhibit catalog, dynamic standing matrix, inspectable Table of Authorities.</td>
+              </tr>
+              <tr>
+                <td>HUMAN NEXT STEP</td>
+                <td>Selecting a single manageable task without panic or executive paralysis.</td>
+                <td>Drafting a legally sound pleading grounded 100% in verified record evidence.</td>
+              </tr>
+              <tr>
+                <td>RISK & STAKES</td>
+                <td>Cognitive exhaustion, personal disorganization, task avoidance.</td>
+                <td>Loss of real property, default judgments, res judicata preclusion, court sanctions.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); display: flex; justify-content: space-between;">
+          <span>Shared essence: Turning invisible connections into inspectable structures</span>
+          <span>Scope: Parallel design lineages, not a monolithic platform</span>
+        </div>
+      </div>
+
+      <!-- SLIDE 8: A Concrete Journey -->
+      <div class="slide" data-claim="[ILLUSTRATIVE SCENARIO]" data-notes="Slide 8: A concrete journey. Let's look at an illustrative scenario based on real-world conditions: an advocate or pro se litigant facing a high-stakes 500-page bank document dump with an impending 14-day court response deadline. Look at the progression: First, chaotic influx creates acute cognitive panic. Second, EFOS principles scaffold attention—calming the nervous system, decomposing the emergency into discrete phases. Third, PALADIN processes the documents, exposing a hidden 27-month gap where no transfer deed was recorded. Fourth, the litigant exercises clear human agency, drafting an unassailable motion to vacate.">
+        <div class="slide-header">
+          <div class="slide-category" style="color: var(--tag-reported);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="12 8 8 12 12 16 12 8"/></svg>
+            ILLUSTRATIVE SCENARIO
+          </div>
+          <h2 class="slide-title">A Concrete Journey: From Chaos to Agency</h2>
+          <p class="slide-subtitle">Tracing how fragmented demands become structured orientation in a high-stakes environment.</p>
+        </div>
+
+        <div class="slide-body" style="gap: 16px;">
+          <!-- 4 Journey Steps -->
+          <div class="card" style="flex: 1; border-top: 3px solid #EF4444;">
+            <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #EF4444;">STEP 01</div>
+            <div style="font-size: 0.95rem; font-weight: 700; margin: 4px 0;">Acute Crisis Influx</div>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.45;">
+              500 pages of conflicting loan records arrive. Impending 14-day court filing deadline. Severe executive overload and panic.
+            </p>
+            <div style="margin-top: auto; font-family: var(--font-mono); font-size: 0.68rem; color: #94A3B8;">
+              Status: Overwhelmed
+            </div>
+          </div>
+
+          <div class="card" style="flex: 1; border-top: 3px solid var(--amber-bright);">
+            <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--amber-bright);">STEP 02</div>
+            <div style="font-size: 0.95rem; font-weight: 700; margin: 4px 0;">Internal Scaffolding</div>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.45;">
+              <strong>EFOS Lens:</strong> Offloads mental checklist. Decomposes the emergency into sequential tasks; eliminates shame and stabilizes focus.
+            </p>
+            <div style="margin-top: auto; font-family: var(--font-mono); font-size: 0.68rem; color: var(--amber-bright);">
+              Status: Oriented
+            </div>
+          </div>
+
+          <div class="card" style="flex: 1; border-top: 3px solid var(--teal-bright);">
+            <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--teal-bright);">STEP 03</div>
+            <div style="font-size: 0.95rem; font-weight: 700; margin: 4px 0;">Evidentiary Ingestion</div>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.45;">
+              <strong>PALADIN Lens:</strong> Scans & hashes corpus. Uncovers 27-month gap without recorded transfer; matches trust mismatch (OC10 vs. OC11).
+            </p>
+            <div style="margin-top: auto; font-family: var(--font-mono); font-size: 0.68rem; color: var(--teal-bright);">
+              Status: Provenance Locked
+            </div>
+          </div>
+
+          <div class="card" style="flex: 1; border-top: 3px solid #10B981;">
+            <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #10B981;">STEP 04</div>
+            <div style="font-size: 0.95rem; font-weight: 700; margin: 4px 0;">Actionable Judgment</div>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.45;">
+              Litigant files a precise, double-spaced 28-line motion with verified pin-cites. Evidentiary clarity empowers decisive advocacy.
+            </p>
+            <div style="margin-top: auto; font-family: var(--font-mono); font-size: 0.68rem; color: #10B981;">
+              Status: Agency Restored
+            </div>
+          </div>
+        </div>
+
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">
+          Note: Illustrative workflow scenario demonstrating the progression from cognitive overload to structured procedural action.
+        </div>
+      </div>
+
+      <!-- SLIDE 9: What is Demonstrated vs. What Remains -->
+      <div class="slide" data-claim="[EVALUATION & QUALIFICATIONS]" data-notes="Slide 9: What is demonstrated—and what remains to prove. Academic and professional rigor requires that we never overstate our claims. In this slide, we strictly partition what has actually been implemented from single-case reported metrics and what still requires future independent verification. PALADIN's core ingestion scripts, Bates stamping, and Oregon pleading compiler are real, working code. But its reported speedups in pro se litigation represent an N=1 single-case implementation, not a randomized benchmark. Broad legal efficacy and clinical utility require transparent methods, open source artifacts, and independent peer evaluation.">
+        <div class="slide-header">
+          <div class="slide-category" style="color: var(--tag-caveat);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+            EPISTEMIC DEMARCATION
+          </div>
+          <h2 class="slide-title">What Is Demonstrated — and What Remains to Prove</h2>
+          <p class="slide-subtitle">Distinguishing implemented engineering, reported single-case experience, and future evaluation needs.</p>
+        </div>
+
+        <div class="slide-body" style="gap: 16px;">
+          <div class="card" style="flex: 1; border-top: 3px solid #10B981;">
+            <div class="card-header">
+              <span class="card-title" style="font-size: 0.95rem; color: #10B981;">Implemented Capabilities</span>
+              <span class="claim-tag claim-tag--pipeline">Engineering Fact</span>
+            </div>
+            <ul style="list-style: none; font-size: 0.8rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
+              <li>✔ Functional dual-layer OCR & SHA-256 intake pipeline</li>
+              <li>✔ Headless LibreOffice 28-line legal pleading compiler</li>
+              <li>✔ Interactive standing & privity matrix (PrivityParadox)</li>
+              <li>✔ Accessible UI token library (AAA Pass 21:1 contrast)</li>
+              <li>✔ Plain-text corpus cataloging & Bates stamping engine</li>
+            </ul>
+          </div>
+
+          <div class="card" style="flex: 1; border-top: 3px solid var(--amber-bright);">
+            <div class="card-header">
+              <span class="card-title" style="font-size: 0.95rem; color: var(--amber-bright);">Reported N=1 Case Experience</span>
+              <span class="claim-tag claim-tag--proto">Single-Case Dogfooding</span>
+            </div>
+            <ul style="list-style: none; font-size: 0.8rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
+              <li>▸ Hands-on pro se defense in Clackamas County (17CV38591)</li>
+              <li>▸ Successful appellate filings in Oregon Court of Appeals</li>
+              <li>▸ Documented speedups in complex record indexing</li>
+              <li>▸ <em>Caveat:</em> Represents individual user dogfooding under crisis, not an independent comparative study</li>
+            </ul>
+          </div>
+
+          <div class="card" style="flex: 1; border-top: 3px solid #F43F5E;">
+            <div class="card-header">
+              <span class="card-title" style="font-size: 0.95rem; color: #F43F5E;">What Remains to Prove</span>
+              <span class="claim-tag claim-tag--caveat">Future Evaluation</span>
+            </div>
+            <ul style="list-style: none; font-size: 0.8rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
+              <li>⚠ Multi-case generalization across disparate legal jurisdictions</li>
+              <li>⚠ Formal clinical study of EFOS cognitive scaffolding impact</li>
+              <li>⚠ Independent evaluation of zero-hallucination citation claims</li>
+              <li>⚠ Peer-reviewed reproducibility metrics in legal informatics</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="background: rgba(244, 63, 94, 0.08); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 6px; padding: 10px 16px; font-size: 0.78rem; color: #FECDD3;">
+          <strong>Rigorous Standard:</strong> We state claims with measured scientific qualification. Engineering tools are documented; statistical generalizability requires independent multi-case evaluation.
+        </div>
+      </div>
+
+      <!-- SLIDE 10: Closing -->
+      <div class="slide" data-claim="[SYNTHESIS & COLLABORATION]" data-notes="Slide 10: Closing—from overload to orientation. To conclude: legibility is the essential prerequisite of human autonomy. When an internal cognitive state or an external legal record is opaque, individuals lose agency. By insisting on explicit structure, cryptographic provenance, and inspectable reasoning, EFOS and PALADIN seek to put human judgment back at the center. We invite you to explore the demo interfaces, inspect the open-source pipeline scripts, and discuss collaborative evaluation opportunities. Thank you.">
+        <div class="slide-header">
+          <div class="slide-category" style="color: var(--teal-bright);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8l4 4-4 4"/></svg>
+            CONCLUSION & SYNTHESIS
+          </div>
+          <h2 class="slide-title">From Overload to Orientation: Reclaiming Human Agency</h2>
+          <p class="slide-subtitle">Legibility is the prerequisite of autonomy—in internal cognition and in institutional records.</p>
+        </div>
+
+        <div class="slide-body" style="gap: 20px;">
+          <div class="card" style="flex: 1.2; justify-content: center; padding: 28px;">
+            <div style="font-size: 1.15rem; font-style: italic; color: #F8FAFC; line-height: 1.6; margin-bottom: 20px;">
+              "When systems become opaque, human agency requires that the structure become inspectable. Tools must show their sources, trace their logic, and leave the human responsible for final judgment."
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--teal-bright);">
+              The Core Takeaway: Traceability over automation · Inspectability over opacity.
+            </div>
+          </div>
+
+          <div class="card" style="flex: 0.8; justify-content: center; gap: 14px; padding: 24px;">
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase;">
+              COLLABORATIVE HORIZONS
+            </div>
+            <div style="font-size: 0.85rem; color: #CBD5E1; display: flex; flex-direction: column; gap: 10px;">
+              <div style="display: flex; gap: 8px;">
+                <span style="color: var(--amber-bright);">▸</span>
+                <span><strong>Explore EFOS Web Demos:</strong> Inspect visual timelines, accessible tokens, and corpus browser at executivefunctionos.com</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <span style="color: var(--teal-bright);">▸</span>
+                <span><strong>Inspect PALADIN Workflows:</strong> Review 5-stage document intake engine and reproducible Bates stamping pipeline</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <span style="color: #38BDF8;">▸</span>
+                <span><strong>Independent Evaluation:</strong> Open to research partnerships in legal informatics, cognitive scaffolding, and decision support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="border-top: 1px solid var(--border-hairline); padding-top: 12px; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-muted);">
+          <span style="font-family: var(--font-mono);">Executive Function OS & PALADIN · Annika Eriksson</span>
+          <span style="font-family: var(--font-mono);">Contact: executivefunctionos.com · github.com/Executive-Function-OS/paladin</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Speaker Notes Panel -->
+    <div id="speaker-notes-panel">
+      <div class="notes-title">
+        <span>SPEAKER NOTES</span>
+        <span style="cursor: pointer; color: #94A3B8;" onclick="toggleNotes()">✕ CLOSE (N)</span>
+      </div>
+      <div id="notes-content"></div>
+    </div>
+
+    <!-- Footer Navigation Bar -->
+    <div class="deck-footer">
+      <div class="nav-controls">
+        <button class="btn-nav" onclick="prevSlide()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          PREV
+        </button>
+        <button class="btn-nav" onclick="nextSlide()">
+          NEXT
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <div class="slide-dots" id="dots-container"></div>
+
+      <div class="view-modes">
+        <button class="btn-tool" id="btn-notes" onclick="toggleNotes()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          NOTES (<span class="kbd">N</span>)
+        </button>
+        <button class="btn-tool" onclick="toggleFullscreen()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          FULL (<span class="kbd">F</span>)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const progressFill = document.getElementById('progress-fill');
+    const slideCounter = document.getElementById('slide-counter');
+    const claimBadge = document.getElementById('slide-claim-badge');
+    const dotsContainer = document.getElementById('dots-container');
+    const notesPanel = document.getElementById('speaker-notes-panel');
+    const notesContent = document.getElementById('notes-content');
+    const btnNotes = document.getElementById('btn-notes');
+
+    // Build Dots
+    slides.forEach((_, idx) => {
+      const dot = document.createElement('div');
+      dot.className = `dot ${idx === 0 ? 'active' : ''}`;
+      dot.onclick = () => goToSlide(idx);
+      dotsContainer.appendChild(dot);
+    });
+
+    function updateDeck() {
+      slides.forEach((s, idx) => {
+        s.classList.toggle('active', idx === currentSlide);
+      });
+
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((d, idx) => {
+        d.classList.toggle('active', idx === currentSlide);
+      });
+
+      // Update progress
+      const pct = ((currentSlide + 1) / totalSlides) * 100;
+      progressFill.style.width = pct + '%';
+
+      // Update counter
+      slideCounter.textContent = `SLIDE ${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
+
+      // Update claim badge
+      const activeSlide = slides[currentSlide];
+      const claim = activeSlide.getAttribute('data-claim') || '[ARCHITECTURAL SLIDE]';
+      claimBadge.textContent = claim;
+
+      // Update badge style
+      claimBadge.className = 'claim-tag';
+      if (claim.includes('CONCEPT')) claimBadge.classList.add('claim-tag--concept');
+      else if (claim.includes('PROTO') || claim.includes('DEMO')) claimBadge.classList.add('claim-tag--proto');
+      else if (claim.includes('PIPELINE') || claim.includes('FACT')) claimBadge.classList.add('claim-tag--pipeline');
+      else if (claim.includes('REPORTED') || claim.includes('SCENARIO')) claimBadge.classList.add('claim-tag--reported');
+      else if (claim.includes('EVALUATION') || claim.includes('CAVEAT')) claimBadge.classList.add('claim-tag--caveat');
+      else claimBadge.classList.add('claim-tag--concept');
+
+      // Update notes
+      const notes = activeSlide.getAttribute('data-notes') || 'No speaker notes for this slide.';
+      notesContent.textContent = notes;
+    }
+
+    function goToSlide(n) {
+      if (n >= 0 && n < totalSlides) {
+        currentSlide = n;
+        updateDeck();
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateDeck();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateDeck();
+      }
+    }
+
+    function toggleNotes() {
+      notesPanel.classList.toggle('open');
+      btnNotes.classList.toggle('active');
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        goToSlide(0);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        goToSlide(totalSlides - 1);
+      } else if (e.key.toLowerCase() === 'n') {
+        e.preventDefault();
+        toggleNotes();
+      } else if (e.key.toLowerCase() === 'f') {
+        e.preventDefault();
+        toggleFullscreen();
+      }
+    });
+
+    updateDeck();
+  </script>
+</body>
+</html>
