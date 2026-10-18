@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-[#0F172A] text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Function OS | Network Schema & Metadata Canvas</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            900: '#0F172A',
+                            950: '#020617'
+                        },
+                        brand: {
+                            teal: '#0D9488',
+                            tealLight: '#14B8A6',
+                            amber: '#D97706',
+                            chalk: '#F8FAFC'
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0F172A; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        canvas { touch-action: none; }
+    </style>
+</head>
+<body class="bg-[#020617] text-slate-100 h-full flex flex-col overflow-hidden font-sans selection:bg-teal-500/30 selection:text-teal-200">
+
+    <!-- Top Navigation Header -->
+    <header class="bg-[#0F172A] border-b border-slate-800/80 px-6 py-3 flex items-center justify-between z-20 shrink-0">
+        <div class="flex items-center space-x-4">
+            <a href="index.html" class="flex items-center gap-2.5 group">
+                <div class="bg-teal-500/10 border border-teal-500/30 p-2 rounded-xl text-[#0D9488] group-hover:border-teal-500/60 transition">
+                    <i class="fa-solid fa-brain text-lg"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-sm tracking-tight text-white group-hover:text-teal-300 transition">Executive Function OS</span>
+                        <span class="text-[9px] px-2 py-0.5 rounded-full bg-teal-500/10 text-teal-300 font-mono border border-teal-500/30">Schema Studio</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400">Metadata Network Architecture & Cognitive Ontology Canvas</p>
+                </div>
+            </a>
+            <div class="hidden md:flex items-center space-x-1 pl-4 border-l border-slate-800">
+                <a href="index.html" class="px-2.5 py-1 text-xs text-slate-400 hover:text-slate-200 rounded-lg transition">Main Hub</a>
+                <a href="cognitive_fragmentation_lab.html" class="px-2.5 py-1 text-xs text-slate-400 hover:text-slate-200 rounded-lg transition">N=1 Diagnostic Lab</a>
+                <span class="px-2.5 py-1 text-xs font-semibold text-teal-300 bg-teal-500/10 border border-teal-500/20 rounded-lg">Schema Canvas</span>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2.5">
+            <button onclick="app.exportSchema()" class="px-3 py-1.5 bg-[#0F172A] hover:bg-slate-800 text-slate-200 text-xs font-medium rounded-lg border border-slate-700 transition flex items-center gap-1.5 shadow-sm">
+                <i class="fa-solid fa-code text-[#0D9488]"></i> Export JSON Schema
+            </button>
+            <button onclick="app.resetWorkspace()" class="px-3 py-1.5 bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 text-xs font-medium rounded-lg border border-rose-500/30 transition flex items-center gap-1.5">
+                <i class="fa-solid fa-rotate-right"></i> Reset Canvas
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace Layout -->
+    <div class="flex-1 flex overflow-hidden">
+
+        <!-- Left Sidebar: Controls & Entity Library -->
+        <aside class="w-80 bg-[#0F172A] border-r border-slate-800/80 flex flex-col z-10 shrink-0">
+            <!-- Tabs Header -->
+            <div class="flex border-b border-slate-800 bg-[#0F172A]/70">
+                <button onclick="app.switchTab('nodes')" id="tab-nodes" class="flex-1 py-3 text-xs font-semibold text-teal-400 border-b-2 border-[#0D9488] transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-nodes"></i> Node Types
+                </button>
+                <button onclick="app.switchTab('edges')" id="tab-edges" class="flex-1 py-3 text-xs font-semibold text-slate-400 hover:text-slate-200 border-b-2 border-transparent transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-arrow-trend-up"></i> Edge Properties
+                </button>
+                <button onclick="app.switchTab('schema')" id="tab-schema" class="flex-1 py-3 text-xs font-semibold text-slate-400 hover:text-slate-200 border-b-2 border-transparent transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-file-contract"></i> Schema
+                </button>
+            </div>
+
+            <!-- Tab Content Container -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-4">
+                
+                <!-- NODES TAB -->
+                <div id="panel-nodes" class="space-y-4">
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 shadow-md">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center justify-between">
+                            <span>Add Node Definition</span>
+                            <i class="fa-solid fa-plus text-[#0D9488]"></i>
+                        </h2>
+                        <form id="nodeForm" onsubmit="app.addNodeTemplate(event)" class="space-y-3">
+                            <div>
+                                <label class="block text-[11px] font-medium text-slate-300 mb-1">Node Label / Functional Role</label>
+                                <input type="text" id="newNodeName" required placeholder="e.g. Attentional Filter" class="w-full bg-[#020617] border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-[#0D9488]">
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block text-[11px] font-medium text-slate-300 mb-1">Executive Domain</label>
+                                    <select id="newNodeCategory" class="w-full bg-[#020617] border border-slate-800 rounded-lg px-2 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-[#0D9488]">
+                                        <option value="Cognitive Control">Cognitive Control</option>
+                                        <option value="Memory & State">Memory & State</option>
+                                        <option value="Inhibition">Inhibition</option>
+                                        <option value="Task Switching">Task Switching</option>
+                                        <option value="Meta-Monitoring">Meta-Monitoring</option>
+                                        <option value="Action Execution">Action Execution</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-medium text-slate-300 mb-1">Color Theme</label>
+                                    <input type="color" id="newNodeColor" value="#0D9488" class="w-full h-8 bg-[#020617] border border-slate-800 rounded-lg px-1 cursor-pointer">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-medium text-slate-300 mb-1">Metadata Properties (JSON)</label>
+                                <textarea id="newNodeMeta" rows="2" placeholder='{"capacity": 7, "decay_rate": 0.05}' class="w-full bg-[#020617] border border-slate-800 rounded-lg px-3 py-1.5 text-xs font-mono text-slate-300 focus:outline-none focus:border-[#0D9488]"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-2 bg-[#0D9488] hover:bg-teal-600 text-white font-medium rounded-lg text-xs transition shadow-sm flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-circle-plus"></i> Spawn Node on Canvas
+                            </button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Active Node Instances (<span id="nodeCount">0</span>)</h3>
+                        <div id="nodeList" class="space-y-2">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDGES TAB -->
+                <div id="panel-edges" class="space-y-4 hidden">
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 shadow-md">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center justify-between">
+                            <span>Connect Nodes (Edge)</span>
+                            <i class="fa-solid fa-link text-[#0D9488]"></i>
+                        </h2>
+                        <form id="edgeForm" onsubmit="app.addEdge(event)" class="space-y-3">
+                            <div>
+                                <label class="block text-[11px] font-medium text-slate-300 mb-1">Source Node</label>
+                                <select id="edgeSource" class="w-full bg-[#020617] border border-slate-800 rounded-lg px-2 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-[#0D9488]">
+                                    <option value="">Select source...</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-medium text-slate-300 mb-1">Target Node</label>
+                                <select id="edgeTarget" class="w-full bg-[#020617] border border-slate-800 rounded-lg px-2 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-[#0D9488]">
+                                    <option value="">Select target...</option>
+                                </select>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block text-[11px] font-medium text-slate-300 mb-1">Relation Type</label>
+                                    <select id="edgeType" class="w-full bg-[#020617] border border-slate-800 rounded-lg px-2 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-[#0D9488]">
+                                        <option value="inhibits">Inhibits (-)</option>
+                                        <option value="activates">Activates (+)</option>
+                                        <option value="modulates">Modulates (~)</option>
+                                        <option value="feeds">Feeds (Data)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-medium text-slate-300 mb-1">Bond Weight (0.1 - 1.0)</label>
+                                    <input type="number" id="edgeWeight" min="0.1" max="1.0" step="0.1" value="0.8" class="w-full bg-[#020617] border border-slate-800 rounded-lg px-2 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-[#0D9488]">
+                                </div>
+                            </div>
+                            <button type="submit" class="w-full py-2 bg-[#0D9488] hover:bg-teal-600 text-white font-medium rounded-lg text-xs transition shadow-sm flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-code-merge"></i> Establish Edge Connection
+                            </button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Network Edges (<span id="edgeCount">0</span>)</h3>
+                        <div id="edgeList" class="space-y-2">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCHEMA TAB -->
+                <div id="panel-schema" class="space-y-4 hidden">
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 shadow-md">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Graph Ontology Settings</h2>
+                        <div class="space-y-3 text-xs">
+                            <div>
+                                <label class="block font-medium text-slate-300 mb-1">Schema Name</label>
+                                <input type="text" id="schemaName" value="ExecutiveFunctionOS_Ontology" class="w-full bg-[#020617] border border-slate-800 rounded-lg px-3 py-1.5 text-slate-100 focus:outline-none focus:border-[#0D9488]">
+                            </div>
+                            <div>
+                                <label class="block font-medium text-slate-300 mb-1">Network Directedness</label>
+                                <select id="schemaDirected" class="w-full bg-[#020617] border border-slate-800 rounded-lg px-2 py-1.5 text-slate-100 focus:outline-none focus:border-[#0D9488]">
+                                    <option value="true">Directed Graph (DiGraph)</option>
+                                    <option value="false">Undirected Graph</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-medium text-slate-300 mb-1">Critical Percolation Threshold ($p_c$)</label>
+                                <input type="number" id="schemaDecay" min="0" max="1" step="0.01" value="0.42" class="w-full bg-[#020617] border border-slate-800 rounded-lg px-3 py-1.5 text-slate-100 focus:outline-none focus:border-[#0D9488]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 shadow-md">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Live JSON Schema Preview</h3>
+                        <pre id="schemaPreview" class="text-[10px] font-mono text-teal-300 bg-[#020617] p-3 rounded-lg overflow-x-auto max-h-60 border border-slate-800/80"></pre>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- Center Canvas Area -->
+        <main class="flex-1 relative bg-[#020617] overflow-hidden flex flex-col">
+            <!-- Canvas Toolbar overlay -->
+            <div class="absolute top-4 left-4 z-10 flex items-center gap-2 bg-[#0F172A]/90 backdrop-blur-md border border-slate-800 rounded-xl p-1.5 shadow-lg">
+                <button onclick="app.zoomIn()" class="p-2 hover:bg-slate-800 text-slate-300 rounded-lg transition text-xs" title="Zoom In"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                <button onclick="app.zoomOut()" class="p-2 hover:bg-slate-800 text-slate-300 rounded-lg transition text-xs" title="Zoom Out"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                <button onclick="app.resetZoom()" class="p-2 hover:bg-slate-800 text-slate-300 rounded-lg transition text-xs" title="Reset View"><i class="fa-solid fa-compress"></i></button>
+                <div class="w-px h-4 bg-slate-800"></div>
+                <button onclick="app.togglePhysics()" id="physicsBtn" class="px-3 py-1.5 bg-teal-500/20 text-teal-300 border border-teal-500/30 rounded-lg transition text-xs font-medium flex items-center gap-1.5">
+                    <i class="fa-solid fa-atom"></i> <span id="physicsStatus">Physics: ON</span>
+                </button>
+            </div>
+
+            <!-- Canvas Instructions Overlay -->
+            <div class="absolute bottom-4 left-4 z-10 bg-[#0F172A]/80 backdrop-blur-md border border-slate-800/80 rounded-xl px-3.5 py-2.5 text-[11px] text-slate-400 pointer-events-none shadow-lg">
+                <p><span class="text-teal-400 font-medium">Drag nodes</span> to reposition • <span class="text-teal-400 font-medium">Click node/edge</span> to inspect • <span class="text-teal-400 font-medium">Scroll</span> to zoom</p>
+            </div>
+
+            <!-- HTML5 Canvas -->
+            <canvas id="networkCanvas" class="w-full h-full cursor-grab active:cursor-grabbing"></canvas>
+        </main>
+
+        <!-- Right Inspector Sidebar -->
+        <aside class="w-72 bg-[#0F172A] border-l border-slate-800/80 flex flex-col z-10 shrink-0">
+            <div class="px-4 py-3 border-b border-slate-800 bg-[#0F172A]/50 flex items-center justify-between">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-[#0D9488]"></i> Inspector
+                </h2>
+                <span id="selectedIndicator" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700">Nothing selected</span>
+            </div>
+            <div id="inspectorContent" class="flex-1 p-4 overflow-y-auto text-xs space-y-4">
+                <div class="text-center py-12 text-slate-500">
+                    <i class="fa-solid fa-mouse-pointer text-2xl mb-2 block opacity-40"></i>
+                    Select any node or edge on the canvas to inspect and configure its metadata properties.
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Modal for JSON Export -->
+    <div id="exportModal" class="fixed inset-0 bg-[#020617]/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-[#0F172A] border border-slate-800 rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[85vh]">
+            <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+                <h3 class="font-bold text-sm text-white flex items-center gap-2">
+                    <i class="fa-solid fa-file-code text-[#0D9488]"></i> Executive Function OS - Schema Export
+                </h3>
+                <button onclick="app.closeExportModal()" class="text-slate-400 hover:text-white transition text-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto flex-1">
+                <pre id="fullExportJSON" class="text-xs font-mono text-teal-300 bg-[#020617] p-4 rounded-xl border border-slate-800 overflow-x-auto"></pre>
+            </div>
+            <div class="px-6 py-3 border-t border-slate-800 bg-[#0F172A]/50 flex justify-end gap-3">
+                <button onclick="app.copyExportJSON()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium rounded-lg text-xs transition border border-slate-700 flex items-center gap-2">
+                    <i class="fa-regular fa-copy text-[#0D9488]"></i> Copy to Clipboard
+                </button>
+                <button onclick="app.closeExportModal()" class="px-4 py-2 bg-[#0D9488] hover:bg-teal-600 text-white font-medium rounded-lg text-xs transition shadow-sm">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Logic -->
+    <script>
+        class ExecutiveFunctionOSApp {
+            constructor() {
+                this.nodes = [
+                    { id: 'node_1', label: 'Inhibitory Gating', category: 'Inhibition', color: '#0D9488', x: -140, y: -80, vx: 0, vy: 0, meta: { priority: 'high', threshold: 0.85, circuit: 'DLPFC-Striatum' } },
+                    { id: 'node_2', label: 'Working Memory Buffer', category: 'Memory & State', color: '#14B8A6', x: 80, y: -120, vx: 0, vy: 0, meta: { capacity: 7, latency_ms: 12, decay: 'exponential' } },
+                    { id: 'node_3', label: 'Task Shifting Engine', category: 'Task Switching', color: '#D97706', x: -40, y: 110, vx: 0, vy: 0, meta: { switch_cost_ms: 150, flexible: true } },
+                    { id: 'node_4', label: 'Meta-Cognitive Monitor', category: 'Meta-Monitoring', color: '#6366F1', x: 180, y: 70, vx: 0, vy: 0, meta: { accuracy: 0.94, observer_operator_lag_sec: 4.2 } },
+                    { id: 'node_5', label: 'Action Gate (Filing Draft)', category: 'Action Execution', color: '#10B981', x: 260, y: -40, vx: 0, vy: 0, meta: { deadline_hours: 36, court_ready: true } }
+                ];
+
+                this.edges = [
+                    { id: 'edge_1', source: 'node_1', target: 'node_2', type: 'modulates', weight: 0.9 },
+                    { id: 'edge_2', source: 'node_2', target: 'node_3', type: 'feeds', weight: 0.75 },
+                    { id: 'edge_3', source: 'node_3', target: 'node_4', type: 'activates', weight: 0.8 },
+                    { id: 'edge_4', source: 'node_1', target: 'node_3', type: 'inhibits', weight: 0.6 },
+                    { id: 'edge_5', source: 'node_4', target: 'node_5', type: 'feeds', weight: 0.85 }
+                ];
+
+                this.schema = {
+                    name: 'ExecutiveFunctionOS_Ontology',
+                    directed: true,
+                    decayFactor: 0.42
+                };
+
+                this.selectedItem = null;
+                this.selectedType = null;
+                this.physicsEnabled = true;
+                this.panX = 0;
+                this.panY = 0;
+                this.zoom = 1;
+                this.isDraggingCanvas = false;
+                this.draggedNode = null;
+                this.startX = 0;
+                this.startY = 0;
+
+                this.initCanvas();
+                this.initEventListeners();
+                this.updateUI();
+                this.loop();
+            }
+
+            initCanvas() {
+                this.canvas = document.getElementById('networkCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.resizeCanvas();
+                window.addEventListener('resize', () => this.resizeCanvas());
+            }
+
+            resizeCanvas() {
+                const rect = this.canvas.parentElement.getBoundingClientRect();
+                this.canvas.width = rect.width;
+                this.canvas.height = rect.height;
+            }
+
+            initEventListeners() {
+                this.canvas.addEventListener('mousedown', (e) => this.onMouseDown(e));
+                window.addEventListener('mousemove', (e) => this.onMouseMove(e));
+                window.addEventListener('mouseup', () => this.onMouseUp());
+                this.canvas.addEventListener('wheel', (e) => this.onWheel(e), { passive: false });
+            }
+
+            worldToScreen(x, y) {
+                return {
+                    x: x * this.zoom + this.panX + this.canvas.width / 2,
+                    y: y * this.zoom + this.panY + this.canvas.height / 2
+                };
+            }
+
+            screenToWorld(sx, sy) {
+                return {
+                    x: (sx - this.panX - this.canvas.width / 2) / this.zoom,
+                    y: (sy - this.panY - this.canvas.height / 2) / this.zoom
+                };
+            }
+
+            onMouseDown(e) {
+                const rect = this.canvas.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+                const world = this.screenToWorld(mouseX, mouseY);
+
+                let clickedNode = null;
+                for (let i = this.nodes.length - 1; i >= 0; i--) {
+                    const node = this.nodes[i];
+                    const dx = world.x - node.x;
+                    const dy = world.y - node.y;
+                    if (Math.sqrt(dx * dx + dy * dy) <= 28) {
+                        clickedNode = node;
+                        break;
+                    }
+                }
+
+                if (clickedNode) {
+                    this.selectedItem = clickedNode;
+                    this.selectedType = 'node';
+                    this.draggedNode = clickedNode;
+                    this.updateInspector();
+                } else {
+                    let clickedEdge = null;
+                    for (let edge of this.edges) {
+                        const s = this.nodes.find(n => n.id === edge.source);
+                        const t = this.nodes.find(n => n.id === edge.target);
+                        if (!s || !t) continue;
+                        
+                        const dist = this.distToSegment(world, s, t);
+                        if (dist < 8) {
+                            clickedEdge = edge;
+                            break;
+                        }
+                    }
+
+                    if (clickedEdge) {
+                        this.selectedItem = clickedEdge;
+                        this.selectedType = 'edge';
+                        this.updateInspector();
+                    } else {
+                        this.isDraggingCanvas = true;
+                        this.startX = mouseX - this.panX;
+                        this.startY = mouseY - this.panY;
+                    }
+                }
+            }
+
+            onMouseMove(e) {
+                const rect = this.canvas.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+                const world = this.screenToWorld(mouseX, mouseY);
+
+                if (this.draggedNode) {
+                    this.draggedNode.x = world.x;
+                    this.draggedNode.y = world.y;
+                    this.draggedNode.vx = 0;
+                    this.draggedNode.vy = 0;
+                } else if (this.isDraggingCanvas) {
+                    this.panX = mouseX - this.startX;
+                    this.panY = mouseY - this.startY;
+                }
+            }
+
+            onMouseUp() {
+                this.draggedNode = null;
+                this.isDraggingCanvas = false;
+            }
+
+            onWheel(e) {
+                e.preventDefault();
+                const zoomFactor = 1.1;
+                if (e.deltaY < 0) {
+                    this.zoom = Math.min(this.zoom * zoomFactor, 3.0);
+                } else {
+                    this.zoom = Math.max(this.zoom / zoomFactor, 0.3);
+                }
+            }
+
+            distToSegment(p, a, b) {
+                const l2 = (b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y);
+                if (l2 === 0) return Math.hypot(p.x - a.x, p.y - a.y);
+                let t = ((p.x - a.x) * (b.x - a.x) + (p.y - a.y) * (b.y - a.y)) / l2;
+                t = Math.max(0, Math.min(1, t));
+                return Math.hypot(p.x - (a.x + t * (b.x - a.x)), p.y - (a.y + t * (b.y - a.y)));
+            }
+
+            loop() {
+                this.updatePhysics();
+                this.draw();
+                requestAnimationFrame(() => this.loop());
+            }
+
+            updatePhysics() {
+                if (!this.physicsEnabled) return;
+
+                for (let i = 0; i < this.nodes.length; i++) {
+                    for (let j = i + 1; j < this.nodes.length; j++) {
+                        let n1 = this.nodes[i];
+                        let n2 = this.nodes[j];
+                        if (n1 === this.draggedNode || n2 === this.draggedNode) continue;
+
+                        let dx = n2.x - n1.x;
+                        let dy = n2.y - n1.y;
+                        let dist = Math.hypot(dx, dy) || 1;
+                        if (dist < 220) {
+                            let force = (220 - dist) / dist * 0.05;
+                            n1.vx -= dx * force;
+                            n1.vy -= dy * force;
+                            n2.vx += dx * force;
+                            n2.vy += dy * force;
+                        }
+                    }
+                }
+
+                for (let edge of this.edges) {
+                    let s = this.nodes.find(n => n.id === edge.source);
+                    let t = this.nodes.find(n => n.id === edge.target);
+                    if (!s || !t) continue;
+
+                    let dx = t.x - s.x;
+                    let dy = t.y - s.y;
+                    let dist = Math.hypot(dx, dy) || 1;
+                    let targetDist = 150;
+                    let force = (dist - targetDist) * 0.02 * edge.weight;
+
+                    if (s !== this.draggedNode) {
+                        s.vx += dx / dist * force;
+                        s.vy += dy / dist * force;
+                    }
+                    if (t !== this.draggedNode) {
+                        t.vx -= dx / dist * force;
+                        t.vy -= dy / dist * force;
+                    }
+                }
+
+                for (let node of this.nodes) {
+                    if (node === this.draggedNode) continue;
+                    node.vx *= 0.85;
+                    node.vy *= 0.85;
+                    node.x += node.vx;
+                    node.y += node.vy;
+                }
+            }
+
+            draw() {
+                const width = this.canvas.width;
+                const height = this.canvas.height;
+
+                this.ctx.clearRect(0, 0, width, height);
+
+                this.drawGrid();
+
+                for (let edge of this.edges) {
+                    const s = this.nodes.find(n => n.id === edge.source);
+                    const t = this.nodes.find(n => n.id === edge.target);
+                    if (!s || !t) continue;
+
+                    const sc = this.worldToScreen(s.x, s.y);
+                    const tc = this.worldToScreen(t.x, t.y);
+                    const isSelected = this.selectedItem === edge;
+
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(sc.x, sc.y);
+                    this.ctx.lineTo(tc.x, tc.y);
+                    this.ctx.strokeStyle = isSelected ? '#14B8A6' : '#1e293b';
+                    this.ctx.lineWidth = (isSelected ? 3 : 1.5) * this.zoom;
+                    this.ctx.stroke();
+
+                    const midX = (sc.x + tc.x) / 2;
+                    const midY = (sc.y + tc.y) / 2;
+                    this.ctx.fillStyle = '#94a3b8';
+                    this.ctx.font = `${Math.max(10, 11 * this.zoom)}px sans-serif`;
+                    this.ctx.textAlign = 'center';
+                    this.ctx.fillText(`${edge.type} (${edge.weight})`, midX, midY - 8);
+
+                    if (this.schema.directed === 'true' || this.schema.directed === true) {
+                        const angle = Math.atan2(tc.y - sc.y, tc.x - sc.x);
+                        const arrowDist = 28 * this.zoom;
+                        const ax = tc.x - Math.cos(angle) * arrowDist;
+                        const ay = tc.y - Math.sin(angle) * arrowDist;
+
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(ax, ay);
+                        this.ctx.lineTo(ax - 10 * this.zoom * Math.cos(angle - Math.PI / 6), ay - 10 * this.zoom * Math.sin(angle - Math.PI / 6));
+                        this.ctx.lineTo(ax - 10 * this.zoom * Math.cos(angle + Math.PI / 6), ay - 10 * this.zoom * Math.sin(angle + Math.PI / 6));
+                        this.ctx.fillStyle = isSelected ? '#14B8A6' : '#475569';
+                        this.ctx.fill();
+                    }
+                }
+
+                for (let node of this.nodes) {
+                    const nc = this.worldToScreen(node.x, node.y);
+                    const radius = 26 * this.zoom;
+                    const isSelected = this.selectedItem === node;
+
+                    if (isSelected) {
+                        this.ctx.beginPath();
+                        this.ctx.arc(nc.x, nc.y, radius + 6, 0, Math.PI * 2);
+                        this.ctx.fillStyle = 'rgba(13, 148, 136, 0.3)';
+                        this.ctx.fill();
+                    }
+
+                    this.ctx.beginPath();
+                    this.ctx.arc(nc.x, nc.y, radius, 0, Math.PI * 2);
+                    this.ctx.fillStyle = node.color || '#0D9488';
+                    this.ctx.fill();
+                    this.ctx.lineWidth = isSelected ? 3 : 2;
+                    this.ctx.strokeStyle = isSelected ? '#F8FAFC' : '#0F172A';
+                    this.ctx.stroke();
+
+                    this.ctx.fillStyle = '#ffffff';
+                    this.ctx.font = `bold ${Math.max(11, 12 * this.zoom)}px sans-serif`;
+                    this.ctx.textAlign = 'center';
+                    this.ctx.textBaseline = 'middle';
+                    
+                    let label = node.label;
+                    if (label.length > 18) label = label.substring(0, 16) + '...';
+                    this.ctx.fillText(label, nc.x, nc.y + radius + 14);
+
+                    this.ctx.fillStyle = '#64748b';
+                    this.ctx.font = `${Math.max(9, 10 * this.zoom)}px sans-serif`;
+                    this.ctx.fillText(`[${node.category}]`, nc.x, nc.y + radius + 28);
+                }
+            }
+
+            drawGrid() {
+                const step = 60 * this.zoom;
+                const offsetX = (this.panX + this.canvas.width / 2) % step;
+                const offsetY = (this.panY + this.canvas.height / 2) % step;
+
+                this.ctx.strokeStyle = '#0F172A';
+                this.ctx.lineWidth = 1;
+
+                this.ctx.beginPath();
+                for (let x = offsetX; x < this.canvas.width; x += step) {
+                    this.ctx.moveTo(x, 0);
+                    this.ctx.lineTo(x, this.canvas.height);
+                }
+                for (let y = offsetY; y < this.canvas.height; y += step) {
+                    this.ctx.moveTo(0, y);
+                    this.ctx.lineTo(this.canvas.width, y);
+                }
+                this.ctx.stroke();
+            }
+
+            switchTab(tab) {
+                ['nodes', 'edges', 'schema'].forEach(t => {
+                    document.getElementById(`panel-${t}`).classList.add('hidden');
+                    document.getElementById(`tab-${t}`).className = "flex-1 py-3 text-xs font-semibold text-slate-400 hover:text-slate-200 border-b-2 border-transparent transition flex items-center justify-center gap-2";
+                });
+                document.getElementById(`panel-${tab}`).classList.remove('hidden');
+                document.getElementById(`tab-${tab}`).className = "flex-1 py-3 text-xs font-semibold text-teal-400 border-b-2 border-[#0D9488] transition flex items-center justify-center gap-2";
+
+                if (tab === 'schema') {
+                    this.updateSchemaPreview();
+                }
+            }
+
+            addNodeTemplate(e) {
+                e.preventDefault();
+                const name = document.getElementById('newNodeName').value;
+                const category = document.getElementById('newNodeCategory').value;
+                const color = document.getElementById('newNodeColor').value;
+                const metaRaw = document.getElementById('newNodeMeta').value;
+
+                let meta = {};
+                try {
+                    if (metaRaw.trim()) meta = JSON.parse(metaRaw);
+                } catch (err) {
+                    alert('Invalid JSON in metadata properties.');
+                    return;
+                }
+
+                const newNode = {
+                    id: 'node_' + Date.now(),
+                    label: name,
+                    category: category,
+                    color: color,
+                    x: (Math.random() - 0.5) * 200,
+                    y: (Math.random() - 0.5) * 200,
+                    vx: 0,
+                    vy: 0,
+                    meta: meta
+                };
+
+                this.nodes.push(newNode);
+                document.getElementById('newNodeName').value = '';
+                document.getElementById('newNodeMeta').value = '';
+                this.updateUI();
+            }
+
+            addEdge(e) {
+                e.preventDefault();
+                const source = document.getElementById('edgeSource').value;
+                const target = document.getElementById('edgeTarget').value;
+                const type = document.getElementById('edgeType').value;
+                const weight = parseFloat(document.getElementById('edgeWeight').value);
+
+                if (!source || !target) {
+                    alert('Please select both source and target nodes.');
+                    return;
+                }
+                if (source === target) {
+                    alert('Source and target nodes cannot be identical.');
+                    return;
+                }
+
+                const newEdge = {
+                    id: 'edge_' + Date.now(),
+                    source: source,
+                    target: target,
+                    type: type,
+                    weight: weight
+                };
+
+                this.edges.push(newEdge);
+                this.updateUI();
+            }
+
+            deleteNode(id) {
+                this.nodes = this.nodes.filter(n => n.id !== id);
+                this.edges = this.edges.filter(e => e.source !== id && e.target !== id);
+                if (this.selectedItem && this.selectedItem.id === id) {
+                    this.selectedItem = null;
+                    this.selectedType = null;
+                }
+                this.updateUI();
+            }
+
+            deleteEdge(id) {
+                this.edges = this.edges.filter(e => e.id !== id);
+                if (this.selectedItem && this.selectedItem.id === id) {
+                    this.selectedItem = null;
+                    this.selectedType = null;
+                }
+                this.updateUI();
+            }
+
+            updateUI() {
+                const nodeList = document.getElementById('nodeList');
+                nodeList.innerHTML = this.nodes.map(n => `
+                    <div class="bg-[#020617] border border-slate-800 rounded-lg p-2.5 flex items-center justify-between text-xs">
+                        <div class="flex items-center gap-2 overflow-hidden">
+                            <span class="w-3 h-3 rounded-full shrink-0" style="background-color: ${n.color}"></span>
+                            <span class="font-medium text-slate-200 truncate">${n.label}</span>
+                        </div>
+                        <button onclick="app.deleteNode('${n.id}')" class="text-slate-500 hover:text-rose-400 transition p-1"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `).join('');
+                document.getElementById('nodeCount').innerText = this.nodes.length;
+
+                const sourceSelect = document.getElementById('edgeSource');
+                const targetSelect = document.getElementById('edgeTarget');
+                const optionsHTML = '<option value="">Select node...</option>' + this.nodes.map(n => `<option value="${n.id}">${n.label}</option>`).join('');
+                sourceSelect.innerHTML = optionsHTML;
+                targetSelect.innerHTML = optionsHTML;
+
+                const edgeList = document.getElementById('edgeList');
+                edgeList.innerHTML = this.edges.map(e => {
+                    const s = this.nodes.find(n => n.id === e.source);
+                    const t = this.nodes.find(n => n.id === e.target);
+                    return `
+                        <div class="bg-[#020617] border border-slate-800 rounded-lg p-2.5 flex items-center justify-between text-xs">
+                            <div class="truncate text-slate-300">
+                                <span class="text-teal-400 font-medium">${s ? s.label : 'Unknown'}</span> 
+                                <i class="fa-solid fa-arrow-right text-[10px] text-slate-500 mx-1"></i> 
+                                <span class="text-teal-400 font-medium">${t ? t.label : 'Unknown'}</span>
+                            </div>
+                            <button onclick="app.deleteEdge('${e.id}')" class="text-slate-500 hover:text-rose-400 transition p-1 shrink-0"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    `;
+                }).join('');
+                document.getElementById('edgeCount').innerText = this.edges.length;
+
+                this.updateInspector();
+                this.updateSchemaPreview();
+            }
+
+            updateInspector() {
+                const indicator = document.getElementById('selectedIndicator');
+                const content = document.getElementById('inspectorContent');
+
+                if (!this.selectedItem) {
+                    indicator.innerText = 'Nothing selected';
+                    indicator.className = 'text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 border border-slate-700';
+                    content.innerHTML = `
+                        <div class="text-center py-12 text-slate-500">
+                            <i class="fa-solid fa-mouse-pointer text-2xl mb-2 block opacity-40"></i>
+                            Select any node or edge on the canvas to inspect and configure its metadata properties.
+                        </div>
+                    `;
+                    return;
+                }
+
+                if (this.selectedType === 'node') {
+                    indicator.innerText = 'Node Selected';
+                    indicator.className = 'text-[10px] px-2 py-0.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30';
+                    const n = this.selectedItem;
+                    content.innerHTML = `
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block font-medium text-slate-300 mb-1">Node Label</label>
+                                <input type="text" id="editNodeLabel" value="${n.label}" oninput="app.updateSelectedNodeProperty('label', this.value)" class="w-full bg-[#020617] border border-slate-800 rounded-lg px-3 py-1.5 text-slate-100 focus:outline-none focus:border-[#0D9488]">
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block font-medium text-slate-300 mb-1">Category</label>
+                                    <input type="text" id="editNodeCat" value="${n.category}" oninput="app.updateSelectedNodeProperty('category', this.value)" class="w-full bg-[#020617] border border-slate-800 rounded-lg px-3 py-1.5 text-slate-100 focus:outline-none focus:border-[#0D9488]">
+                                </div>
+                                <div>
+                                    <label class="block font-medium text-slate-300 mb-1">Color</label>
+                                    <input type="color" value="${n.color}" oninput="app.updateSelectedNodeProperty('color', this.value)" class="w-full h-8 bg-[#020617] border border-slate-800 rounded-lg px-1 cursor-pointer">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block font-medium text-slate-300 mb-1">Metadata Properties (JSON)</label>
+                                <textarea id="editNodeMeta" rows="4" oninput="app.updateSelectedNodeMeta(this.value)" class="w-full bg-[#020617] border border-slate-800 rounded-lg p-2 font-mono text-[11px] text-teal-300 focus:outline-none focus:border-[#0D9488]">${JSON.stringify(n.meta, null, 2)}</textarea>
+                            </div>
+                            <button onclick="app.deleteNode('${n.id}')" class="w-full py-2 bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 font-medium rounded-lg border border-rose-500/30 transition flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-trash"></i> Delete Node
+                            </button>
+                        </div>
+                    `;
+                } else if (this.selectedType === 'edge') {
+                    indicator.innerText = 'Edge Selected';
+                    indicator.className = 'text-[10px] px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30';
+                    const e = this.selectedItem;
+                    content.innerHTML = `
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block font-medium text-slate-300 mb-1">Relation Type</label>
+                                <select onchange="app.updateSelectedEdgeProperty('type', this.value)" class="w-full bg-[#020617] border border-slate-800 rounded-lg px-3 py-1.5 text-slate-100 focus:outline-none focus:border-[#0D9488]">
+                                    <option value="inhibits" ${e.type === 'inhibits' ? 'selected' : ''}>Inhibits (-)</option>
+                                    <option value="activates" ${e.type === 'activates' ? 'selected' : ''}>Activates (+)</option>
+                                    <option value="modulates" ${e.type === 'modulates' ? 'selected' : ''}>Modulates (~)</option>
+                                    <option value="feeds" ${e.type === 'feeds' ? 'selected' : ''}>Feeds (Data)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-medium text-slate-300 mb-1">Edge Weight</label>
+                                <input type="number" min="0.1" max="1.0" step="0.1" value="${e.weight}" oninput="app.updateSelectedEdgeProperty('weight', parseFloat(this.value))" class="w-full bg-[#020617] border border-slate-800 rounded-lg px-3 py-1.5 text-slate-100 focus:outline-none focus:border-[#0D9488]">
+                            </div>
+                            <button onclick="app.deleteEdge('${e.id}')" class="w-full py-2 bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 font-medium rounded-lg border border-rose-500/30 transition flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-trash"></i> Delete Edge
+                            </button>
+                        </div>
+                    `;
+                }
+            }
+
+            updateSelectedNodeProperty(prop, val) {
+                if (this.selectedItem && this.selectedType === 'node') {
+                    this.selectedItem[prop] = val;
+                }
+            }
+
+            updateSelectedNodeMeta(val) {
+                if (this.selectedItem && this.selectedType === 'node') {
+                    try {
+                        this.selectedItem.meta = JSON.parse(val);
+                    } catch (err) {
+                    }
+                }
+            }
+
+            updateSelectedEdgeProperty(prop, val) {
+                if (this.selectedItem && this.selectedType === 'edge') {
+                    this.selectedItem[prop] = val;
+                }
+            }
+
+            updateSchemaPreview() {
+                const schemaObj = this.getSchemaJSON();
+                document.getElementById('schemaPreview').innerText = JSON.stringify(schemaObj, null, 2);
+            }
+
+            getSchemaJSON() {
+                const schemaName = document.getElementById('schemaName').value;
+                const directed = document.getElementById('schemaDirected').value === 'true';
+                const decay = parseFloat(document.getElementById('schemaDecay').value);
+
+                return {
+                    schema_name: schemaName,
+                    version: "1.0.0",
+                    graph_properties: {
+                        directed: directed,
+                        critical_percolation_threshold: decay
+                    },
+                    node_schemas: this.nodes.map(n => ({
+                        id: n.id,
+                        label: n.label,
+                        executive_domain: n.category,
+                        metadata_attributes: n.meta
+                    })),
+                    edge_schemas: this.edges.map(e => ({
+                        source: e.source,
+                        target: e.target,
+                        relation: e.type,
+                        weight: e.weight
+                    }))
+                };
+            }
+
+            exportSchema() {
+                const fullJSON = JSON.stringify(this.getSchemaJSON(), null, 2);
+                document.getElementById('fullExportJSON').innerText = fullJSON;
+                document.getElementById('exportModal').classList.remove('hidden');
+            }
+
+            closeExportModal() {
+                document.getElementById('exportModal').classList.add('hidden');
+            }
+
+            copyExportJSON() {
+                const fullJSON = JSON.stringify(this.getSchemaJSON(), null, 2);
+                navigator.clipboard.writeText(fullJSON).then(() => {
+                    alert('Schema JSON copied to clipboard!');
+                });
+            }
+
+            togglePhysics() {
+                this.physicsEnabled = !this.physicsEnabled;
+                const btn = document.getElementById('physicsBtn');
+                const status = document.getElementById('physicsStatus');
+                if (this.physicsEnabled) {
+                    btn.className = "px-3 py-1.5 bg-teal-500/20 text-teal-300 border border-teal-500/30 rounded-lg transition text-xs font-medium flex items-center gap-1.5";
+                    status.innerText = "Physics: ON";
+                } else {
+                    btn.className = "px-3 py-1.5 bg-slate-800 text-slate-400 border border-slate-700 rounded-lg transition text-xs font-medium flex items-center gap-1.5";
+                    status.innerText = "Physics: OFF";
+                }
+            }
+
+            zoomIn() {
+                this.zoom = Math.min(this.zoom * 1.2, 3.0);
+            }
+
+            zoomOut() {
+                this.zoom = Math.max(this.zoom / 1.2, 0.3);
+            }
+
+            resetZoom() {
+                this.zoom = 1;
+                this.panX = 0;
+                this.panY = 0;
+            }
+
+            resetWorkspace() {
+                if (confirm('Are you sure you want to reset the canvas workspace?')) {
+                    this.nodes = [];
+                    this.edges = [];
+                    this.selectedItem = null;
+                    this.selectedType = null;
+                    this.updateUI();
+                }
+            }
+        }
+
+        const app = new ExecutiveFunctionOSApp();
+    </script>
+</body>
+</html>

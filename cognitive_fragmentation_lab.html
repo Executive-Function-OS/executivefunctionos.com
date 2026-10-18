@@ -62,17 +62,27 @@
                 </div>
             </div>
 
-            <!-- Tab Buttons -->
-            <div class="flex items-center bg-slate-900 border border-slate-800 rounded-lg p-1 text-xs">
-                <button onclick="switchTab('dashboard')" id="btn-tab-dashboard" class="px-3 py-1.5 rounded-md font-medium bg-[#0D9488] text-white transition">
-                    <i class="fa-solid fa-chart-line mr-1"></i> Diagnostic Lab
-                </button>
-                <button onclick="switchTab('science')" id="btn-tab-science" class="px-3 py-1.5 rounded-md font-medium text-slate-400 hover:text-slate-200 transition">
-                    <i class="fa-solid fa-atom mr-1"></i> Scientific Proofs & LaTeX
-                </button>
-                <button onclick="switchTab('ingest')" id="btn-tab-ingest" class="px-3 py-1.5 rounded-md font-medium text-slate-400 hover:text-slate-200 transition">
-                    <i class="fa-solid fa-database mr-1"></i> Takeout Ingest
-                </button>
+            <!-- Tab Buttons & Navigation -->
+            <div class="flex items-center gap-3">
+                <div class="flex items-center bg-slate-900 border border-slate-800 rounded-lg p-1 text-xs">
+                    <button onclick="switchTab('dashboard')" id="btn-tab-dashboard" class="px-3 py-1.5 rounded-md font-medium bg-[#0D9488] text-white transition">
+                        <i class="fa-solid fa-chart-line mr-1"></i> Diagnostic Lab
+                    </button>
+                    <button onclick="switchTab('science')" id="btn-tab-science" class="px-3 py-1.5 rounded-md font-medium text-slate-400 hover:text-slate-200 transition">
+                        <i class="fa-solid fa-atom mr-1"></i> Scientific Proofs & LaTeX
+                    </button>
+                    <button onclick="switchTab('ingest')" id="btn-tab-ingest" class="px-3 py-1.5 rounded-md font-medium text-slate-400 hover:text-slate-200 transition">
+                        <i class="fa-solid fa-database mr-1"></i> Takeout Ingest
+                    </button>
+                </div>
+                <div class="hidden sm:flex items-center gap-2">
+                    <a href="schema_canvas.html" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-teal-300 border border-teal-500/30 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-nodes text-teal-400"></i> Schema Canvas
+                    </a>
+                    <a href="index.html" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrow-left text-slate-400"></i> Hub
+                    </a>
+                </div>
             </div>
         </div>
     </header>
