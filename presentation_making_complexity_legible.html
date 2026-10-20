@@ -703,6 +703,78 @@
         padding: 5px 8px;
         font-size: 10px;
       }
+    /* Choose-Your-Own-Adventure Fork Styles */
+    .fork-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      flex: 1;
+    }
+    .fork-card {
+      background: #111A2E;
+      border: 1px solid var(--border-hairline);
+      border-radius: 8px;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      position: relative;
+      cursor: pointer;
+    }
+    .fork-card:hover {
+      border-color: #475569;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .fork-card--efos {
+      border-top: 3px solid var(--amber-bright);
+      background: linear-gradient(180deg, rgba(217, 119, 6, 0.08) 0%, #111A2E 100%);
+    }
+    .fork-card--efos:hover {
+      border-color: var(--amber-border);
+      border-top-color: var(--amber-bright);
+    }
+    .fork-card--paladin {
+      border-top: 3px solid var(--teal-bright);
+      background: linear-gradient(180deg, rgba(13, 148, 136, 0.08) 0%, #111A2E 100%);
+    }
+    .fork-card--paladin:hover {
+      border-color: var(--teal-border);
+      border-top-color: var(--teal-bright);
+    }
+    .fork-action-btn {
+      margin-top: 14px;
+      padding: 9px 16px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .fork-action-btn--efos {
+      background: rgba(217, 119, 6, 0.15);
+      border-color: var(--amber-border);
+      color: var(--amber-bright);
+    }
+    .fork-action-btn--efos:hover {
+      background: var(--amber-bright);
+      color: #0F172A;
+    }
+    .fork-action-btn--paladin {
+      background: rgba(13, 148, 136, 0.15);
+      border-color: var(--teal-border);
+      color: var(--teal-bright);
+    }
+    .fork-action-btn--paladin:hover {
+      background: var(--teal-bright);
+      color: #0F172A;
     }
 
   </style>
@@ -844,71 +916,121 @@
           </div>
         </div>
 
-        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-hairline); border-radius: 6px; padding: 10px 16px; font-size: 0.82rem; color: #CBD5E1; display: flex; align-items: center; justify-content: space-between;">
-          <span><strong>The Common Diagnostic:</strong> The breakdown is caused by <em>unstructured opacity</em>, not lack of effort or willpower.</span>
-          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">DIAGNOSTIC PATTERN: IDENTIFIED</span>
+        <div class="diagnostic-revelation" style="background: linear-gradient(135deg, rgba(217, 119, 6, 0.18) 0%, rgba(15, 23, 42, 0.95) 50%, rgba(13, 148, 136, 0.18) 100%); border: 1px solid rgba(245, 158, 11, 0.5); border-left: 5px solid var(--amber-bright); border-right: 5px solid var(--teal-bright); border-radius: 8px; padding: 14px 20px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+          <div style="display: flex; align-items: flex-start; gap: 14px;">
+            <div style="background: rgba(245, 158, 11, 0.25); border: 1px solid var(--amber-border); border-radius: 6px; padding: 8px; color: var(--amber-bright); display: flex; align-items: center; justify-content: center; margin-top: 2px;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            </div>
+            <div>
+              <div style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber-bright); margin-bottom: 3px;">
+                THE COMMON DIAGNOSTIC REVELATION
+              </div>
+              <div style="font-size: 0.95rem; font-weight: 500; color: #F8FAFC; line-height: 1.45;">
+                The collapse is caused by <strong>unstructured opacity</strong>, not a deficit of effort or willpower. When connective relationships are concealed—internally in working memory or externally in institutional record dumps—human agency is systematically paralyzed.
+              </div>
+            </div>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--teal-bright); background: rgba(13, 148, 136, 0.18); border: 1px solid var(--teal-border); padding: 8px 14px; border-radius: 6px; white-space: nowrap; text-align: right; line-height: 1.4;">
+            <strong>STRUCTURAL ISOMORPHISM</strong><br><span style="color: var(--text-muted); font-size: 0.65rem;">CORE EVIDENTIARY THESIS</span>
+          </div>
         </div>
       </div>
 
       <!-- SLIDE 3: One Thesis, Two Scales -->
-      <div class="slide" data-claim="[FRAMEWORK & SCOPE]" data-notes="Slide 3: One thesis, two scales. To solve this, we apply a four-stage legibility arc: Notice, Organize, Make Relationships Visible, and Support a Next Step. But notice the crucial boundary: EFOS operates on the internal, personal scale—helping individuals scaffold their own attention and executive tasks. PALADIN operates on the external, public record—imposing strict cryptographic provenance and legal audit trails. They are not bundled into a single piece of software; they are complementary explorations of the same four-step transformation.">
+      <div class="slide" data-claim="[FRAMEWORK & SCOPE]" data-notes="Slide 3: One synchronous engine, two observational scales. The four-stage legibility arc—Notice, Organize, Make Relationships Visible, and Support a Next Step—is a unified modular pattern shared across both domains. Rather than an artificial boundary, there is a deep presumption of synchronicity. From this shared foundation, the narrative forks: you can choose to explore the micro path into internal cognitive scaffolding with EFOS, or the macro path into external documentary informatics with PALADIN.">
         <div class="slide-header">
           <div class="slide-category" style="color: var(--tag-concept);">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            THE LEGIBILITY ARC
+            SHARED ARCHITECTURAL ENGINE
           </div>
-          <h2 class="slide-title">One Thesis, Two Scales: The Legibility Arc</h2>
-          <p class="slide-subtitle">A universal four-stage progression from raw input to human agency, deployed across distinct domains.</p>
+          <h2 class="slide-title">One Synchronous Engine, Two Observational Scales</h2>
+          <p class="slide-subtitle">A modular four-stage legibility pipeline powering parallel investigations: select your narrative path.</p>
         </div>
 
-        <div class="slide-body" style="flex-direction: column; gap: 16px;">
-          <!-- 4-Stage Arc -->
-          <div class="arc-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
-            <div style="background: #111A2E; border: 1px solid #1E293B; border-top: 3px solid #64748B; border-radius: 6px; padding: 12px;">
-              <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #94A3B8;">01 · NOTICE</div>
-              <div style="font-size: 0.95rem; font-weight: 600; margin: 4px 0; color: #F8FAFC;">Capture Signals</div>
-              <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4;">Acknowledge all raw, messy signals without premature panic or filtering.</div>
+        <div class="slide-body" style="flex-direction: column; gap: 14px;">
+          
+          <!-- Unified Single-Panel Legibility Arc -->
+          <div style="background: #111A2E; border: 1px solid var(--border-hairline); border-radius: 8px; padding: 12px 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">
+                UNIFIED TRANSFORMATION PATTERN (MODULAR SHAPE)
+              </span>
+              <span style="font-family: var(--font-mono); font-size: 0.7rem; color: #38BDF8;">
+                SHARED CONCEPTUAL WORKFLOW
+              </span>
             </div>
-
-            <div style="background: #111A2E; border: 1px solid #1E293B; border-top: 3px solid var(--amber-bright); border-radius: 6px; padding: 12px;">
-              <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--amber-bright);">02 · ORGANIZE</div>
-              <div style="font-size: 0.95rem; font-weight: 600; margin: 4px 0; color: #F8FAFC;">Disaggregate & Anchor</div>
-              <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4;">Break tangled blobs into atomic, dated elements with verified provenance.</div>
-            </div>
-
-            <div style="background: #111A2E; border: 1px solid #1E293B; border-top: 3px solid var(--teal-bright); border-radius: 6px; padding: 12px;">
-              <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--teal-bright);">03 · VISUALIZE</div>
-              <div style="font-size: 0.95rem; font-weight: 600; margin: 4px 0; color: #F8FAFC;">Expose Relationships</div>
-              <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4;">Map dependencies, chronological gaps, and contradictions explicitly.</div>
-            </div>
-
-            <div style="background: #111A2E; border: 1px solid #1E293B; border-top: 3px solid #38BDF8; border-radius: 6px; padding: 12px;">
-              <div style="font-family: var(--font-mono); font-size: 0.68rem; color: #38BDF8;">04 · ACT</div>
-              <div style="font-size: 0.95rem; font-weight: 600; margin: 4px 0; color: #F8FAFC;">Support Next Action</div>
-              <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4;">Empower human choice: decide the singular high-leverage step forward.</div>
-            </div>
-          </div>
-
-          <!-- Domain Boundary Grid -->
-          <div class="boundary-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1;">
-            <div style="background: rgba(217, 119, 6, 0.04); border: 1px solid var(--amber-border); border-radius: 6px; padding: 14px 18px;">
-              <div style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--amber-bright); font-weight: 600;">MICRO SCALE: EXECUTIVE FUNCTION OS</div>
-              <div style="font-size: 0.85rem; color: #E2E8F0; margin-top: 4px;">
-                Operates on the <strong>inner cognitive landscape</strong>. Provides low-friction scaffolding to help individuals navigate sensory overload, maintain continuity across interruptions, and prioritize daily executive demands without shame.
+            
+            <div class="arc-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+              <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid #1E293B; border-top: 3px solid #64748B; border-radius: 6px; padding: 10px 12px;">
+                <div style="font-family: var(--font-mono); font-size: 0.65rem; color: #94A3B8;">01 · NOTICE</div>
+                <div style="font-size: 0.88rem; font-weight: 600; margin: 2px 0; color: #F8FAFC;">Capture Signals</div>
+                <div style="font-size: 0.74rem; color: var(--text-secondary); line-height: 1.35;">Register raw incoming signals without premature filtering or panic.</div>
               </div>
-            </div>
 
-            <div style="background: rgba(13, 148, 136, 0.04); border: 1px solid var(--teal-border); border-radius: 6px; padding: 14px 18px;">
-              <div style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--teal-bright); font-weight: 600;">MACRO SCALE: PALADIN</div>
-              <div style="font-size: 0.85rem; color: #E2E8F0; margin-top: 4px;">
-                Operates on the <strong>external legal & evidentiary record</strong>. Enforces cryptographic document hashes, Bates stamping, and strict pin-cite citation verification so an advocate can defend every assertion before filing.
+              <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid #1E293B; border-top: 3px solid var(--amber-bright); border-radius: 6px; padding: 10px 12px;">
+                <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--amber-bright);">02 · ORGANIZE</div>
+                <div style="font-size: 0.88rem; font-weight: 600; margin: 2px 0; color: #F8FAFC;">Disaggregate & Anchor</div>
+                <div style="font-size: 0.74rem; color: var(--text-secondary); line-height: 1.35;">Decompose monolithic strain into discrete, anchored, dated units.</div>
+              </div>
+
+              <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid #1E293B; border-top: 3px solid var(--teal-bright); border-radius: 6px; padding: 10px 12px;">
+                <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--teal-bright);">03 · VISUALIZE</div>
+                <div style="font-size: 0.88rem; font-weight: 600; margin: 2px 0; color: #F8FAFC;">Expose Relationships</div>
+                <div style="font-size: 0.74rem; color: var(--text-secondary); line-height: 1.35;">Render dependencies, missing causal links, and latent gaps inspectable.</div>
+              </div>
+
+              <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid #1E293B; border-top: 3px solid #38BDF8; border-radius: 6px; padding: 10px 12px;">
+                <div style="font-family: var(--font-mono); font-size: 0.65rem; color: #38BDF8;">04 · ACT</div>
+                <div style="font-size: 0.88rem; font-weight: 600; margin: 2px 0; color: #F8FAFC;">Support Next Step</div>
+                <div style="font-size: 0.74rem; color: var(--text-secondary); line-height: 1.35;">Restore human agency: calculate and execute the single viable next action.</div>
               </div>
             </div>
           </div>
+
+          <!-- Choose-Your-Own-Adventure Narrative Fork -->
+          <div class="fork-container">
+            <!-- Path A: Micro -->
+            <div class="fork-card fork-card--efos" onclick="goToSlide(3)">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <span style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--amber-bright); font-weight: 700; letter-spacing: 0.05em;">PATHWAY A · MICRO SCALE</span>
+                  <span class="claim-tag claim-tag--concept" style="font-size: 0.68rem;">Inner Terrain</span>
+                </div>
+                <h3 style="font-size: 1.05rem; font-weight: 700; color: #F8FAFC; margin-bottom: 6px;">Executive Function OS</h3>
+                <p style="font-size: 0.82rem; color: #CBD5E1; line-height: 1.45;">
+                  Focuses on the <strong>inner cognitive landscape</strong>: sensory overload, working memory exhaustion, and task switching. Externalizes internal state machines to remove the shame cycle and restore self-direction.
+                </p>
+              </div>
+              <button class="fork-action-btn fork-action-btn--efos" onclick="event.stopPropagation(); goToSlide(3);">
+                <span>Explore Micro Path (EFOS)</span>
+                <span>&rarr;</span>
+              </button>
+            </div>
+
+            <!-- Path B: Macro -->
+            <div class="fork-card fork-card--paladin" onclick="goToSlide(5)">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <span style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--teal-bright); font-weight: 700; letter-spacing: 0.05em;">PATHWAY B · MACRO SCALE</span>
+                  <span class="claim-tag claim-tag--pipeline" style="font-size: 0.68rem;">Forensic Record</span>
+                </div>
+                <h3 style="font-size: 1.05rem; font-weight: 700; color: #F8FAFC; margin-bottom: 6px;">PALADIN Informatics</h3>
+                <p style="font-size: 0.82rem; color: #CBD5E1; line-height: 1.45;">
+                  Focuses on the <strong>external evidentiary record</strong>: disordered dockets, voluminous loan files, and institutional filings. Enforces cryptographic document provenance to expose defects before arguments are formed.
+                </p>
+              </div>
+              <button class="fork-action-btn fork-action-btn--paladin" onclick="event.stopPropagation(); goToSlide(5);">
+                <span>Explore Macro Path (PALADIN)</span>
+                <span>&rarr;</span>
+              </button>
+            </div>
+          </div>
+
         </div>
 
-        <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">
-          IMPORTANT BOUNDARY: Distinct tools addressing different stakes — united by design methodology, not integrated as a commercial product.
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-hairline); padding-top: 8px;">
+          <span>PRESUMPTION OF SYNCHRONICITY: Two complementary focal lengths of one unified structural legibility engine.</span>
+          <span style="color: var(--text-secondary);">Click a branch above to fork, or NEXT to proceed linearly.</span>
         </div>
       </div>
 
@@ -998,10 +1120,10 @@
               <span class="claim-tag claim-tag--proto">Demo Page</span>
             </div>
             <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px;">
-              Reconstructs non-linear events across an explicit, chronological spatial axis. Anchors temporal orientation when acute stress causes sequence confusion.
+              Reconstructs non-linear events across an explicit, chronological spatial axis. Anchors temporal orientation by interleaving lived sensory events with forensic research tracks (foreclosure patterns, municipal code, civic intelligence, and microclimate canopy loss).
             </p>
             <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--amber-bright); background: var(--amber-bg); padding: 4px 8px; border-radius: 4px;">
-              Artifact: <a href="timeline.html" style="color:var(--amber-bright); text-decoration:underline; font-weight:600;">timeline.html &rarr;</a> · Multi-scale event zoom
+              Artifact: <a href="timeline.html" style="color:var(--amber-bright); text-decoration:underline; font-weight:600;">timeline.html &rarr;</a> · 130 Multi-Track Records
             </div>
           </div>
 

@@ -1,6 +1,6 @@
 /**
- * Structural Clarity & Dynamic Resonance - Tailwind CSS Preset
- * Extracted from Canva AI Visual Identity System
+ * Looking-Glass Theme & Structural Clarity - Tailwind CSS Preset
+ * Utility over ornament. Carroll's wit in structure, naming and typography.
  */
 
 module.exports = {
@@ -8,32 +8,38 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          slate: '#0F172A',      // Primary Base / Deep Slate
-          teal: '#0D9488',       // Accent / Action / Signal Teal
-          amber: '#D97706',      // Warm Accent / Resonant Amber
-          chalk: '#F8FAFC',      // Neutral Canvas / Chalk White
+          slate: '#0F172A',            // Looking-Glass Slate (Canvas)
+          boardSlate: '#1B2540',       // Board Slate (Checkerboard square alt)
+          teal: '#2DD4BF',             // Cheshire Teal (Accent / action: 9.59:1 AAA)
+          gold: '#F59E0B',             // White Rabbit Gold (Warm accent / nexus: 8.31:1 AAA)
+          amber: '#F59E0B',            // Legacy alias
+          redQueen: '#FDA4AF',         // Red Queen (Caution / threshold: 9.44:1 AAA)
+          vellum: '#F5EFE0',           // Vellum (Body type: 15.56:1 AAA)
+          chalk: '#F5EFE0',            // Legacy alias
+          brass: '#B08D3C',            // Brass Hairline (Decorative rules only: 5.71:1)
         },
         surface: {
-          light: '#FFFFFF',
-          dark: '#1E293B',
-          subtleLight: '#F1F5F9',
-          subtleDark: '#162032',
+          canvas: '#0F172A',
+          board: '#1B2540',
+          card: '#141D30',
+          subtle: '#1B2540',
         },
         border: {
-          hairline: '#E2E8F0',
-          darkHairline: '#334155',
-          teal: '#0D9488',
-          amber: '#D97706',
+          brass: '#B08D3C',
+          doubleBrass: '#B08D3C',
+          teal: '#2DD4BF',
+          gold: '#F59E0B',
+          redQueen: '#FDA4AF',
         },
       },
       fontFamily: {
-        display: ['Space Grotesk', 'Inter', 'sans-serif'],
-        technical: ['JetBrains Mono', 'Fira Code', 'monospace'],
-        editorial: ['Charter', 'Inter', 'serif'],
+        display: ['EB Garamond', 'Cormorant Garamond', 'Garamond', 'Georgia', 'Times New Roman', 'serif'],
+        body: ['Space Grotesk', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        technical: ['JetBrains Mono', 'Fira Code', 'ui-monospace', 'monospace'],
       },
       letterSpacing: {
         technical: '0.05em',
-        wide: '0.1em',
+        wide: '0.08em',
       },
       borderRadius: {
         xs: '2px',
@@ -41,9 +47,9 @@ module.exports = {
         md: '6px',
       },
       boxShadow: {
-        technical: '0 1px 3px 0 rgba(15, 23, 42, 0.08), 0 1px 2px -1px rgba(15, 23, 42, 0.08)',
-        tealGlow: '0 0 15px rgba(13, 148, 136, 0.25)',
-        amberGlow: '0 0 15px rgba(217, 119, 6, 0.25)',
+        technical: '0 1px 3px 0 rgba(15, 23, 42, 0.08)',
+        tealGlow: '0 0 15px rgba(45, 212, 191, 0.25)',
+        goldGlow: '0 0 15px rgba(245, 158, 11, 0.25)',
       },
     },
   },

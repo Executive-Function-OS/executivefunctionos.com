@@ -1,221 +1,332 @@
 /**
- * Structural Clarity & Dynamic Resonance - Design Tokens
+ * Looking-Glass Theme & Structural Clarity - Design Tokens
  * Master CSS Variables for Annika Eriksson Web Presence & Tools
- * Extracted from Canva AI Visual Identity System (May 2025 / 2026)
+ * 
+ * Principle: Utility over ornament. Carroll's wit lives in structure, naming and typography,
+ * never in decoration that competes with data.
+ *
+ * System: Looking-Glass (Structural Clarity 2.0)
  */
 
 @import url('./kinetic_clarity_buttons.css');
 
 :root {
   /* ==========================================================================
-     Color Architecture (Tokens)
+     1. Color Architecture (Looking-Glass Tokens)
+     Computed WCAG AAA contrast ratios on canvas (#0F172A)
      ========================================================================== */
 
-  /* Core Palette */
-  --color-primary-base: #0F172A;      /* Deep Slate: Grounding, typography, dark canvas */
-  --color-accent-action: #0D9488;     /* Signal Teal: Active components, buttons, focus */
-  --color-warm-accent: #D97706;       /* Resonant Amber: Energy, focal nodes, alerts */
-  --color-neutral-canvas: #F8FAFC;    /* Chalk White: Light canvas, legibility */
+  /* Canvas Grounding */
+  --color-canvas: #0F172A;                /* Looking-Glass Slate: Stable dark canvas */
+  --color-board-slate: #1B2540;           /* Board Slate: Alternating checkerboard square */
 
-  /* Juridical Profile (JudgeSmoke / PALADIN A2J) */
-  --color-juridical-paper: #F3EADC;        /* Pleading Cream / 24lb legal paper */
-  --color-juridical-ink: #1C1710;          /* Deep Pleading Ink */
-  --color-juridical-stamp: #1F5F58;        /* Courthouse Stamp Teal */
-  --color-juridical-terracotta: #C45C3E;   /* Calling Card Terracotta */
-  --color-juridical-rule: rgba(28, 23, 16, 0.18); /* Pleading hairline rules */
-  --color-juridical-rule-strong: rgba(31, 95, 88, 0.4);
+  /* Semantic Color Tokens */
+  --color-cheshire-teal: #2DD4BF;         /* Cheshire Teal: 9.59:1 AAA on canvas */
+  --color-white-rabbit-gold: #F59E0B;     /* White Rabbit Gold: 8.31:1 AAA on canvas, 7.06:1 on board */
+  --color-red-queen: #FDA4AF;             /* Red Queen: 9.44:1 AAA on canvas (Caution / Thresholds) */
+  --color-vellum: #F5EFE0;                /* Vellum: 15.56:1 AAA on canvas (Body type & reading) */
+  --color-brass-hairline: #B08D3C;        /* Brass Hairline: 5.71:1 (Decoration/borders only, never text) */
+
+  /* Backwards-Compatible System Aliases */
+  --color-primary-base: var(--color-canvas);
+  --color-accent-action: var(--color-cheshire-teal);
+  --color-warm-accent: var(--color-white-rabbit-gold);
+  --color-threshold-error: var(--color-red-queen);
+  --color-neutral-canvas: var(--color-vellum);
 
   /* Surface & Background Tiers */
-  --color-bg-canvas: #F8FAFC;         /* Light background */
-  --color-bg-canvas-dark: #0F172A;    /* Dark background */
-  --color-surface-card: #FFFFFF;
-  --color-surface-card-dark: #1E293B;
-  --color-surface-subtle: #F1F5F9;
-  --color-surface-subtle-dark: #162032;
+  --color-bg-canvas: var(--color-canvas);
+  --color-bg-canvas-dark: var(--color-canvas);
+  --color-surface-card: #141D30;
+  --color-surface-card-dark: #141D30;
+  --color-surface-subtle: var(--color-board-slate);
+  --color-surface-subtle-dark: var(--color-board-slate);
 
-  /* Borders & Rules */
-  --color-border-hairline: #E2E8F0;
-  --color-border-hairline-dark: #334155;
-  --color-border-grid: rgba(148, 163, 184, 0.2);
-  --color-border-grid-dark: rgba(51, 65, 85, 0.5);
-  --color-crosshair: #0D9488;
+  /* Borders & Double Hairlines */
+  --color-border-hairline: var(--color-brass-hairline);
+  --color-border-hairline-dark: var(--color-brass-hairline);
+  --color-border-grid: rgba(176, 141, 60, 0.25);
+  --color-border-grid-dark: rgba(176, 141, 60, 0.25);
+  --color-crosshair: var(--color-cheshire-teal);
 
   /* Typography Colors */
-  --color-text-primary: #0F172A;
-  --color-text-primary-dark: #F8FAFC;
-  --color-text-secondary: #475569;
+  --color-text-primary: var(--color-vellum);
+  --color-text-primary-dark: var(--color-vellum);
+  --color-text-secondary: #CBD5E1;
   --color-text-secondary-dark: #94A3B8;
   --color-text-muted: #64748B;
   --color-text-muted-dark: #64748B;
 
   /* Interactive States */
-  --color-state-default-border: #0F172A;
-  --color-state-hover-bg: #F0FDFA;
-  --color-state-hover-border: #0D9488;
-  --color-state-active-bg: #0D9488;
-  --color-state-active-text: #F8FAFC;
-  --color-state-disabled-bg: #F1F5F9;
-  --color-state-disabled-border: #CBD5E1;
-  --color-state-disabled-text: #94A3B8;
-  --color-state-alert-border: #D97706;
-  --color-state-alert-bg: #FFFBEB;
+  --color-state-default-border: var(--color-brass-hairline);
+  --color-state-hover-bg: rgba(45, 212, 191, 0.12);
+  --color-state-hover-border: var(--color-cheshire-teal);
+  --color-state-active-bg: var(--color-cheshire-teal);
+  --color-state-active-text: #0F172A;
+  --color-state-disabled-bg: rgba(27, 37, 64, 0.6);
+  --color-state-disabled-border: #334155;
+  --color-state-disabled-text: #64748B;
+  --color-state-alert-border: var(--color-red-queen);
+  --color-state-alert-bg: rgba(253, 164, 175, 0.1);
+  --color-state-alert-text: var(--color-red-queen);
+
+  /* Juridical Profile (JudgeSmoke / PALADIN A2J) */
+  --color-juridical-paper: #F3EADC;
+  --color-juridical-ink: #1C1710;
+  --color-juridical-stamp: #1F5F58;
+  --color-juridical-terracotta: #C45C3E;
+  --color-juridical-rule: rgba(176, 141, 60, 0.3);
+  --color-juridical-rule-strong: rgba(176, 141, 60, 0.6);
 
   /* ==========================================================================
-     Typography Hierarchy
+     2. Typography Hierarchy (Looking-Glass Standards)
      ========================================================================== */
 
-  /* Font Families */
-  --font-display: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-technical: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --font-editorial: 'Charter', 'Inter', Georgia, Cambria, 'Times New Roman', Times, serif;
+  /* Display & Headings: EB Garamond with robust fallbacks */
+  --font-display: 'EB Garamond', 'Cormorant Garamond', Garamond, Georgia, 'Times New Roman', serif;
+  
+  /* Body: Sans for density and legibility */
+  --font-body: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Data, Hashes & Telemetry: Monospace */
+  --font-technical: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+
+  /* Legacy alias */
+  --font-editorial: var(--font-display);
 
   /* Font Weights */
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  --font-weight-black: 900;
 
   /* Letter Spacing */
-  --tracking-tight: -0.02em;
+  --tracking-tight: -0.015em;
   --tracking-technical: 0.05em;
-  --tracking-wide: 0.1em;
+  --tracking-wide: 0.08em;
 
-  /* ==========================================================================
-     Grid & Spacing System
-     ========================================================================== */
-
+  /* Grid & Dimensions */
   --grid-columns: 12;
-  --grid-rows: 12;
-  --grid-margin: 1.5rem;
-  --grid-gap: 1rem;
-
+  --grid-rows: 11;
   --radius-none: 0px;
   --radius-xs: 2px;
   --radius-sm: 4px;
-  --radius-md: 6px;
-
-  /* Shadows (Subtle technical elevation) */
-  --shadow-technical: 0 1px 3px 0 rgba(15, 23, 42, 0.08), 0 1px 2px -1px rgba(15, 23, 42, 0.08);
-  --shadow-active: 0 4px 6px -1px rgba(13, 148, 136, 0.15), 0 2px 4px -2px rgba(13, 148, 136, 0.1);
-  --shadow-alert: 0 4px 6px -1px rgba(217, 119, 6, 0.15), 0 2px 4px -2px rgba(217, 119, 6, 0.1);
 }
 
 /* ==========================================================================
-   Utility Classes & Component Patterns
+   3. Typography Rules & Section Labels
    ========================================================================== */
 
-/* Technical Hairline Grid */
-.grid-system-background {
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, var(--color-border-grid) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--color-border-grid) 1px, transparent 1px);
+h1, h2, h3, h4, .chapter-title, .section-heading {
+  font-family: var(--font-display);
+  color: var(--color-vellum);
+  font-weight: 600;
 }
 
-.grid-system-background-dark {
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, var(--color-border-grid-dark) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--color-border-grid-dark) 1px, transparent 1px);
+/* Small-caps on section labels */
+.section-label,
+.chapter-numeral,
+.sc-section-label,
+.panel-header-title {
+  font-family: var(--font-display);
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
 }
 
-/* Modular Technical Card */
-.sc-card {
+/* Body prose */
+body, p, .body-text {
+  font-family: var(--font-body);
+  color: var(--color-vellum);
+}
+
+/* Old-style figures in deltas and stats */
+.sc-nums-oldstyle,
+.telemetry-delta,
+.telemetry-stat,
+table.telemetry-table td.stat-cell,
+table.sc-table td.stat-cell {
+  font-variant-numeric: oldstyle-nums;
+  font-feature-settings: "onum" 1;
+}
+
+/* Mathematical variables in italic */
+var,
+.math-var,
+i.var,
+em.var {
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   4. Surfaces, Borders & Patterns
+   ========================================================================== */
+
+/* Cards & Tables: Double hairline border in Brass replacing single border */
+.sc-card,
+.sc-card-dark,
+.panel-card,
+.specimen-lattice-card,
+.inspector-card,
+.swatches-section,
+.swatch-card {
   background-color: var(--color-surface-card);
-  border: 1px solid var(--color-border-hairline);
+  border: 3px double var(--color-brass-hairline);
   border-radius: var(--radius-sm);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-technical);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
-.sc-card-dark {
-  background-color: var(--color-surface-card-dark);
-  border: 1px solid var(--color-border-hairline-dark);
-  border-radius: var(--radius-sm);
-  padding: 1.5rem;
-  color: var(--color-text-primary-dark);
+.sc-table-container,
+table.sc-table,
+table.telemetry-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 3px double var(--color-brass-hairline);
+  background-color: var(--color-surface-card);
 }
 
-/* Monochromatic Tabular Data */
-.sc-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: var(--font-technical);
-  font-size: 0.8125rem;
+/* 2-3% subtle checker pattern behind stat grids only, never behind running text */
+.stat-grid-checker {
+  background-color: var(--color-canvas);
+  background-image:
+    linear-gradient(45deg, rgba(245, 239, 224, 0.025) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(245, 239, 224, 0.025) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(245, 239, 224, 0.025) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(245, 239, 224, 0.025) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
 }
 
-.sc-table th {
-  text-align: left;
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--color-border-hairline);
-  color: var(--color-text-muted);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: var(--tracking-technical);
-  text-transform: uppercase;
-  font-size: 0.7rem;
-}
+/* ==========================================================================
+   5. Buttons & Interactive States
+   ========================================================================== */
 
-.sc-table td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--color-border-hairline);
-  color: var(--color-text-primary);
-}
-
-/* Interaction State Buttons */
 .sc-btn {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: var(--font-weight-bold);
+  gap: 0.15rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
   letter-spacing: var(--tracking-technical);
-  text-transform: uppercase;
-  padding: 0.625rem 1.25rem;
+  padding: 0.55rem 1.15rem;
   border-radius: var(--radius-xs);
-  transition: all 0.15s ease-in-out;
   cursor: pointer;
   text-decoration: none;
+  line-height: 1.2;
+  border: 1px solid var(--color-brass-hairline);
+  background: transparent;
+  color: var(--color-vellum);
+  transform: scale(1);
+  transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease, color 150ms ease;
 }
 
-.sc-btn-default {
-  background-color: transparent;
-  border: 1px solid var(--color-state-default-border);
-  color: var(--color-text-primary);
+/* Motion: Hover and focus ±2% scale, 150ms ease */
+.sc-btn:hover,
+.sc-btn:focus-visible {
+  transform: scale(1.02);
+  outline: none;
 }
 
-.sc-btn-default:hover {
-  background-color: var(--color-state-hover-bg);
-  border-color: var(--color-state-hover-border);
-  color: var(--color-accent-action);
+.sc-btn:active {
+  transform: scale(0.98);
 }
 
-.sc-btn-active {
-  background-color: var(--color-state-active-bg);
-  border: 1px solid var(--color-state-active-bg);
-  color: var(--color-state-active-text);
+/* Carroll line subtitle in italic */
+.sc-btn .btn-carroll-tag,
+.btn-carroll-tag {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.68rem;
+  font-weight: 400;
+  opacity: 0.88;
+  letter-spacing: 0.02em;
+  text-transform: none;
 }
 
-.sc-btn-disabled {
-  background-color: var(--color-state-disabled-bg);
-  border: 1px solid var(--color-state-disabled-border);
-  color: var(--color-state-disabled-text);
-  cursor: not-allowed;
+/* Button Variants */
+.sc-btn-primary,
+.sc-gradient-teal {
+  background: rgba(45, 212, 191, 0.14);
+  border: 1px solid var(--color-cheshire-teal);
+  color: var(--color-cheshire-teal);
+}
+.sc-btn-primary:hover,
+.sc-gradient-teal:hover {
+  background: var(--color-cheshire-teal);
+  color: #0F172A;
+}
+.sc-btn-primary:hover .btn-carroll-tag,
+.sc-gradient-teal:hover .btn-carroll-tag {
+  color: #0F172A;
+  opacity: 0.95;
 }
 
-.sc-btn-alert {
-  background-color: transparent;
-  border: 1px solid var(--color-state-alert-border);
-  color: var(--color-warm-accent);
+.sc-btn-focal,
+.sc-3d-amber {
+  background: rgba(245, 158, 11, 0.14);
+  border: 1px solid var(--color-white-rabbit-gold);
+  color: var(--color-white-rabbit-gold);
+}
+.sc-btn-focal:hover,
+.sc-3d-amber:hover {
+  background: var(--color-white-rabbit-gold);
+  color: #0F172A;
 }
 
-.sc-btn-alert:hover {
-  background-color: var(--color-state-alert-bg);
+.sc-btn-alert,
+.sc-btn-red-queen {
+  background: rgba(253, 164, 175, 0.12);
+  border: 1px solid var(--color-red-queen);
+  color: var(--color-red-queen);
+}
+.sc-btn-alert:hover,
+.sc-btn-red-queen:hover {
+  background: var(--color-red-queen);
+  color: #0F172A;
 }
 
-/* State Indicator Badges */
+.sc-btn-disabled,
+.sc-btn[disabled] {
+  background: rgba(27, 37, 64, 0.6) !important;
+  border: 1px solid #334155 !important;
+  color: #64748B !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* ==========================================================================
+   6. Motion Constraints & Accessibility
+   ========================================================================== */
+
+/* All motion disabled under prefers-reduced-motion: reduce */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+/* No animation inside reading areas or data tables */
+.reading-area,
+.reading-area *,
+table.telemetry-table,
+table.telemetry-table *,
+table.sc-table,
+table.sc-table *,
+.panel-desc,
+.panel-desc * {
+  animation: none !important;
+}
+
+/* Badges */
 .sc-badge {
   display: inline-flex;
   align-items: center;
@@ -224,9 +335,9 @@
   font-size: 0.6875rem;
   font-weight: var(--font-weight-medium);
   letter-spacing: var(--tracking-technical);
-  text-transform: uppercase;
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius-xs);
+  text-transform: uppercase;
 }
 
 .sc-badge-dot {
@@ -236,19 +347,32 @@
 }
 
 .sc-badge-active {
-  background-color: rgba(13, 148, 136, 0.1);
-  color: var(--color-accent-action);
-  border: 1px solid rgba(13, 148, 136, 0.25);
+  background-color: rgba(45, 212, 191, 0.12);
+  color: var(--color-cheshire-teal);
+  border: 1px solid rgba(45, 212, 191, 0.35);
 }
 .sc-badge-active .sc-badge-dot {
-  background-color: var(--color-accent-action);
+  background-color: var(--color-cheshire-teal);
 }
 
+/* Caution / Alert badge using Red Queen */
+.sc-badge-caution,
 .sc-badge-alert {
-  background-color: rgba(217, 119, 6, 0.1);
-  color: var(--color-warm-accent);
-  border: 1px solid rgba(217, 119, 6, 0.25);
+  background-color: rgba(253, 164, 175, 0.12);
+  color: var(--color-red-queen);
+  border: 1px solid rgba(253, 164, 175, 0.35);
 }
+.sc-badge-caution .sc-badge-dot,
 .sc-badge-alert .sc-badge-dot {
-  background-color: var(--color-warm-accent);
+  background-color: var(--color-red-queen);
+}
+
+/* Focal badge using White Rabbit Gold (single focal node) */
+.sc-badge-focal {
+  background-color: rgba(245, 158, 11, 0.12);
+  color: var(--color-white-rabbit-gold);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+.sc-badge-focal .sc-badge-dot {
+  background-color: var(--color-white-rabbit-gold);
 }

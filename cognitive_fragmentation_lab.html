@@ -220,6 +220,22 @@
                 </div>
             </details>
 
+            <!-- Protocol 2 -->
+            <details class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden group">
+                <summary class="p-4 font-bold text-white cursor-pointer hover:bg-slate-800/50 flex justify-between items-center text-sm">
+                    <span><i class="fa-solid fa-diagram-project text-teal-400 mr-2"></i> Protocol 2: Tripartite Cognitive Graph Topology & Bond Probability Function</span>
+                    <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition"></i>
+                </summary>
+                <div class="p-5 pt-1 border-t border-slate-800 text-xs sm:text-sm text-slate-300 space-y-3 leading-relaxed">
+                    <p>The cognitive working workspace is mapped onto a tripartite interaction graph <span class="katex-inline" data-math="\mathcal{G} = (\mathcal{V}, \mathcal{E})"></span> partitioned into three functional tiers:</p>
+                    <div class="katex-math" data-math="\mathcal{V} = \mathcal{V}_O \cup \mathcal{V}_{EF} \cup \mathcal{V}_A"></div>
+                    <p>Where <span class="katex-inline" data-math="\mathcal{V}_O"></span> represents the <strong>Observer Subsystem</strong> (dockets, authorities, and evidence intake), <span class="katex-inline" data-math="\mathcal{V}_{EF}"></span> represents <strong>Executive Function Bridges</strong> (scaffolding tokens, checklists, and chronological anchors), and <span class="katex-inline" data-math="\mathcal{V}_A"></span> represents the <strong>Operator / Action Subsystem</strong> (motion drafting and filing execution).</p>
+                    <p>The dynamic edge occupation probability <span class="katex-inline" data-math="p \in [0, 1]"></span> across adjacent layers is parameterized by the interaction feature vector <span class="katex-inline" data-math="\mathbf{x}_k"></span> and deadline compression <span class="katex-inline" data-math="\Delta T"></span>:</p>
+                    <div class="katex-math" data-math="p(\mathbf{x}_k, \Delta T) = \frac{1}{1 + \exp\Big( \gamma_1 H(W_k) + \gamma_2 \beta_k - \gamma_0 \ln\big(\frac{\Delta T}{\Delta T_{\text{crit}}}\big) \Big)}"></div>
+                    <p>As task switching entropy <span class="katex-inline" data-math="H(W_k)"></span> surges and deadline stress compresses (<span class="katex-inline" data-math="\Delta T \to 0"></span>), unassisted direct edges sever, requiring robust transmission across <span class="katex-inline" data-math="\mathcal{V}_{EF}"></span> to maintain command propagation before reaching the percolation breakdown threshold.</p>
+                </div>
+            </details>
+
             <!-- Protocol 3 -->
             <details class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden group" open>
                 <summary class="p-4 font-bold text-white cursor-pointer hover:bg-slate-800/50 flex justify-between items-center text-sm">

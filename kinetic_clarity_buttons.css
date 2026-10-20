@@ -37,23 +37,27 @@
   --sc-btn-ease: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Focus Indicator */
-  --sc-btn-focus: #0D9488;
+  --sc-btn-focus: #2DD4BF;
   --sc-btn-focus-offset: 3px;
 
-  /* Brand Palette Variables */
+  /* Looking-Glass Brand Palette Variables */
   --sc-slate-dark: #0F172A;
-  --sc-slate-panel: #1E293B;
-  --sc-slate-border: #334155;
+  --sc-slate-panel: #1B2540;
+  --sc-slate-border: #B08D3C;
   --sc-slate-muted: #64748B;
-  --sc-teal-primary: #0D9488;
-  --sc-teal-light: #14B8A6;
-  --sc-teal-glow: rgba(13, 148, 136, 0.55);
-  --sc-amber-primary: #D97706;
-  --sc-amber-light: #F59E0B;
-  --sc-amber-glow: rgba(217, 119, 6, 0.55);
-  --sc-chalk-white: #F8FAFC;
-  --sc-glass-bg: rgba(248, 250, 252, 0.06);
-  --sc-glass-border: rgba(248, 250, 252, 0.16);
+  --sc-teal-primary: #2DD4BF;
+  --sc-teal-light: #5EEAD4;
+  --sc-teal-glow: rgba(45, 212, 191, 0.45);
+  --sc-amber-primary: #F59E0B;
+  --sc-amber-light: #FBBF24;
+  --sc-amber-glow: rgba(245, 158, 11, 0.45);
+  --sc-red-queen: #FDA4AF;
+  --sc-red-glow: rgba(253, 164, 175, 0.45);
+  --sc-chalk-white: #F5EFE0;
+  --sc-vellum: #F5EFE0;
+  --sc-brass: #B08D3C;
+  --sc-glass-bg: rgba(245, 239, 224, 0.05);
+  --sc-glass-border: rgba(176, 141, 60, 0.35);
 
   /* Legacy Aliases for Drop-In Kinetic Button Compatibility */
   --kb-font-family: var(--sc-btn-font);

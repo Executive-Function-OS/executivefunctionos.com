@@ -3,29 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>System Performance Studio & Telemetry Lab | Structural Clarity</title>
-  <meta name="description" content="Interactive systems performance laboratory and telemetry specimen for the Structural Clarity Design System. High-density data architecture.">
+  <title>System Performance Telemetry — Looking-Glass Theme | Structural Clarity</title>
+  <meta name="description" content="Interactive systems performance telemetry specimen for the Looking-Glass Theme. Utility over ornament, Carrollian naming, audited WCAG AAA contrast, and 12x11 checkerboard lattice.">
+  
+  <!-- Fallback font stacks & Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Charter:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="kinetic_clarity_buttons.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ==========================================================================
+       Looking-Glass Design System Implementation
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-canvas: #0F172A;
+      --color-board-slate: #1B2540;
+      --color-cheshire-teal: #2DD4BF;
+      --color-white-rabbit-gold: #F59E0B;
+      --color-red-queen: #FDA4AF;
+      --color-vellum: #F5EFE0;
+      --color-brass-hairline: #B08D3C;
+
+      /* Fallback Font Stacks */
+      --font-display: 'EB Garamond', 'Cormorant Garamond', Garamond, Georgia, 'Times New Roman', serif;
+      --font-body: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-technical: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+    }
+
     body {
-      background-color: #0F172A;
-      color: #F8FAFC;
-      font-family: var(--font-display, 'Space Grotesk', sans-serif);
+      background-color: var(--color-canvas);
+      color: var(--color-vellum);
+      font-family: var(--font-body);
       line-height: 1.6;
       overflow-x: hidden;
-      background-image: 
-        linear-gradient(to right, rgba(51, 65, 85, 0.25) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(51, 65, 85, 0.25) 1px, transparent 1px);
-      background-size: 32px 32px;
       min-height: 100vh;
     }
 
+    /* Typography & Hierarchy */
+    h1, h2, h3, h4, .brand-title, .chapter-title {
+      font-family: var(--font-display);
+      color: var(--color-vellum);
+      font-weight: 600;
+    }
+
+    /* Section Labels in Small-Caps */
+    .section-label,
+    .chapter-numeral,
+    .chapter-label,
+    .panel-header-title,
+    .inspector-title,
+    .swatch-role,
+    .lab-meta {
+      font-family: var(--font-display);
+      font-variant: small-caps;
+      letter-spacing: 0.08em;
+    }
+
+    /* Numerals: Old-style figures in deltas and stats */
+    .stat-num,
+    .telemetry-table td:nth-child(3),
+    .telemetry-table td:nth-child(4),
+    .telemetry-table td:nth-child(5),
+    .inspector-item-val {
+      font-variant-numeric: oldstyle-nums;
+      font-feature-settings: "onum" 1;
+    }
+
+    /* Variables in italic */
+    var, .math-var {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--color-cheshire-teal);
+    }
+
+    /* Header Navigation */
     header {
       position: sticky;
       top: 0;
@@ -33,49 +94,64 @@
       background: rgba(15, 23, 42, 0.94);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid #334155;
+      border-bottom: 3px double var(--color-brass-hairline);
     }
+
     .nav-inner {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 1rem 2rem;
+      padding: 0.85rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+
     .brand {
       display: flex;
       align-items: center;
       gap: 0.85rem;
       text-decoration: none;
-      color: #F8FAFC;
+      color: var(--color-vellum);
     }
-    .brand-logo { width: 32px; height: 32px; }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--color-brass-hairline);
+      border-radius: 4px;
+      padding: 2px;
+    }
+
     .brand-title {
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      letter-spacing: -0.01em;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-sub {
+      font-family: var(--font-technical);
+      font-size: 0.68rem;
+      color: var(--color-cheshire-teal);
+      letter-spacing: 0.06em;
       text-transform: uppercase;
     }
-    .brand-sub {
-      font-family: var(--font-technical, 'JetBrains Mono', monospace);
-      font-size: 0.68rem;
-      color: #0D9488;
-      letter-spacing: 0.05em;
-    }
+
     .nav-actions {
       display: flex;
       align-items: center;
       gap: 1.25rem;
     }
+
     .nav-link {
       color: #94A3B8;
       text-decoration: none;
       font-size: 0.88rem;
-      font-weight: 600;
-      transition: color 0.15s ease;
+      font-weight: 500;
+      transition: color 150ms ease;
     }
-    .nav-link:hover { color: #0D9488; }
+    .nav-link:hover {
+      color: var(--color-cheshire-teal);
+    }
 
     .container {
       max-width: 1280px;
@@ -83,22 +159,24 @@
       padding: 2.5rem 2rem 5rem;
     }
 
-    /* Back Link */
     .back-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      font-family: var(--font-technical, monospace);
-      font-size: 0.78rem;
+      font-family: var(--font-display);
+      font-variant: small-caps;
+      font-size: 0.88rem;
       font-weight: 600;
       color: #94A3B8;
       text-decoration: none;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
+      letter-spacing: 0.06em;
       margin-bottom: 1.75rem;
-      transition: color 0.15s;
+      transition: color 150ms ease, transform 150ms ease;
     }
-    .back-btn:hover { color: #14B8A6; }
+    .back-btn:hover {
+      color: var(--color-cheshire-teal);
+      transform: translateX(-2px);
+    }
 
     /* Lab Header */
     .lab-header {
@@ -109,282 +187,572 @@
       gap: 1.5rem;
       margin-bottom: 2.5rem;
     }
-    .lab-title-area h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-top: 0.35rem;
+
+    .chapter-label {
+      font-size: 0.95rem;
+      color: var(--color-white-rabbit-gold);
+      font-weight: 700;
+      margin-bottom: 0.2rem;
     }
+
+    .lab-title-area h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+
     .lab-meta {
-      font-family: var(--font-technical, monospace);
-      font-size: 0.75rem;
-      color: #64748B;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: #94A3B8;
       margin-top: 0.35rem;
     }
 
     /* Layout Grid */
     .lab-grid {
       display: grid;
-      grid-template-columns: 1.4fr 0.85fr;
+      grid-template-columns: 1.35fr 0.95fr;
       gap: 2rem;
       margin-bottom: 3.5rem;
     }
 
-    /* Cards */
-    .panel-card {
-      background: #1E293B;
-      border: 1px solid #334155;
-      border-radius: 6px;
+    /* Double Hairline Brass Borders for Cards and Tables */
+    .panel-card,
+    .specimen-lattice-card,
+    .inspector-card,
+    .swatches-section,
+    .swatch-card {
+      background: var(--color-canvas);
+      border: 3px double var(--color-brass-hairline) !important;
+      border-radius: 4px;
       overflow: hidden;
-      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.45);
     }
+
     .panel-header {
-      padding: 1.25rem 1.75rem;
-      border-bottom: 1px solid #334155;
+      padding: 1.15rem 1.75rem;
+      border-bottom: 1px solid rgba(176, 141, 60, 0.4);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
-    }
-    .panel-header-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: #F8FAFC;
-    }
-    .panel-desc {
-      padding: 1.25rem 1.75rem;
-      font-family: 'Charter', Georgia, serif;
-      font-size: 0.92rem;
-      color: #CBD5E1;
-      line-height: 1.6;
-      border-bottom: 1px solid #334155;
-      background: rgba(15, 23, 42, 0.4);
+      background: rgba(27, 37, 64, 0.45);
     }
 
-    /* Density Switcher */
+    .panel-header-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--color-vellum);
+    }
+
+    .chapter-numeral {
+      color: var(--color-white-rabbit-gold);
+      font-weight: 700;
+      margin-right: 0.35rem;
+    }
+
+    /* Running Text / Reading Area: Prohibited from background patterns or motion */
+    .panel-desc {
+      padding: 1.25rem 1.75rem;
+      font-size: 0.92rem;
+      color: var(--color-vellum);
+      line-height: 1.65;
+      border-bottom: 1px solid rgba(176, 141, 60, 0.3);
+      background: rgba(15, 23, 42, 0.6);
+    }
+
     .density-btn {
-      background: #0F172A;
-      border: 1px solid #334155;
-      color: #94A3B8;
-      font-family: var(--font-technical, monospace);
+      background: var(--color-board-slate);
+      border: 1px solid var(--color-brass-hairline);
+      color: var(--color-vellum);
+      font-family: var(--font-technical);
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       padding: 0.35rem 0.75rem;
-      border-radius: 3px;
+      border-radius: 2px;
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: transform 150ms ease, border-color 150ms ease, color 150ms ease;
     }
     .density-btn:hover {
-      border-color: #0D9488;
-      color: #14B8A6;
+      transform: scale(1.02);
+      border-color: var(--color-cheshire-teal);
+      color: var(--color-cheshire-teal);
     }
 
-    /* Telemetry Table */
+    /* Telemetry Table with Double Hairline Brass Border */
     .table-container {
       overflow-x: auto;
     }
+
     table.telemetry-table {
       width: 100%;
       border-collapse: collapse;
-      font-family: var(--font-technical, monospace);
-      font-size: 0.8rem;
+      font-family: var(--font-technical);
+      font-size: 0.82rem;
       text-align: left;
     }
+
     table.telemetry-table th {
-      padding: 0.85rem 1.75rem;
+      padding: 0.85rem 1.5rem;
       font-weight: 600;
-      color: #64748B;
+      color: #94A3B8;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      border-bottom: 1px solid #334155;
-      background: rgba(15, 23, 42, 0.6);
+      border-bottom: 1px solid rgba(176, 141, 60, 0.35);
+      background: rgba(27, 37, 64, 0.5);
       font-size: 0.72rem;
     }
+
     table.telemetry-table td {
-      padding: 1rem 1.75rem;
-      border-bottom: 1px solid #334155;
-      color: #E2E8F0;
-      transition: background 0.15s ease;
+      padding: 0.95rem 1.5rem;
+      border-bottom: 1px solid rgba(176, 141, 60, 0.2);
+      color: var(--color-vellum);
+      transition: background 150ms ease;
     }
+
     table.telemetry-table tr.data-row {
       cursor: pointer;
     }
     table.telemetry-table tr.data-row:hover td {
-      background: rgba(13, 148, 136, 0.08);
+      background: rgba(45, 212, 191, 0.08);
     }
     table.telemetry-table tr.data-row.selected td {
-      background: rgba(13, 148, 136, 0.18);
+      background: rgba(45, 212, 191, 0.16);
       color: #FFFFFF;
-      border-color: rgba(13, 148, 136, 0.35);
+      border-color: rgba(45, 212, 191, 0.45);
     }
 
-    /* Compact mode styles */
+    .metric-primary {
+      font-family: var(--font-body);
+      font-weight: 600;
+      color: var(--color-vellum);
+    }
+
+    /* Carroll Secondary Subtitle: Italic Subtitle Style */
+    .carroll-subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.75rem;
+      color: #94A3B8;
+      margin-top: 0.15rem;
+    }
+
+    /* Compact Table Mode */
     table.telemetry-table.compact th {
-      padding: 0.5rem 1.25rem;
+      padding: 0.45rem 1.25rem;
       font-size: 0.68rem;
     }
     table.telemetry-table.compact td {
-      padding: 0.55rem 1.25rem;
-      font-size: 0.75rem;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.76rem;
     }
 
-    /* Right Column Cards */
+    /* Interactive Component Controls Bar */
+    .controls-bar {
+      padding: 1.5rem 1.75rem;
+      background: rgba(27, 37, 64, 0.4);
+      border-top: 1px solid rgba(176, 141, 60, 0.35);
+    }
+
+    .controls-bar-title {
+      font-family: var(--font-display);
+      font-variant: small-caps;
+      font-size: 0.82rem;
+      color: #94A3B8;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.06em;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    /* Motion: Hover & Focus ±2% scale, 150ms ease */
+    .sc-btn {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.15rem;
+      border-radius: 2px;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      text-decoration: none;
+      line-height: 1.2;
+      border: 1px solid var(--color-brass-hairline);
+      background: transparent;
+      color: var(--color-vellum);
+      transform: scale(1);
+      transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+    }
+
+    .sc-btn:hover,
+    .sc-btn:focus-visible {
+      transform: scale(1.02);
+      outline: none;
+    }
+
+    .sc-btn:active {
+      transform: scale(0.98);
+    }
+
+    .sc-btn .btn-carroll-tag,
+    .sc-btn .btn-carroll-sub {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.68rem;
+      font-weight: 400;
+      opacity: 0.9;
+      letter-spacing: 0.01em;
+      text-transform: none;
+    }
+
+    /* Buttons Variations */
+    .sc-btn-pipeline {
+      background: rgba(45, 212, 191, 0.12);
+      border: 1px solid var(--color-cheshire-teal);
+      color: var(--color-cheshire-teal);
+    }
+    .sc-btn-pipeline:hover {
+      background: var(--color-cheshire-teal);
+      color: #0F172A;
+    }
+    .sc-btn-pipeline:hover .btn-carroll-tag {
+      color: #0F172A;
+    }
+
+    .sc-btn-inspect {
+      background: transparent;
+      border: 1px solid var(--color-brass-hairline);
+      color: var(--color-vellum);
+    }
+    .sc-btn-inspect:hover {
+      background: rgba(245, 239, 224, 0.08);
+      border-color: var(--color-cheshire-teal);
+      color: var(--color-cheshire-teal);
+    }
+
+    .sc-btn-alert {
+      background: rgba(253, 164, 175, 0.12);
+      border: 1px solid var(--color-red-queen);
+      color: var(--color-red-queen);
+    }
+    .sc-btn-alert:hover {
+      background: var(--color-red-queen);
+      color: #0F172A;
+    }
+    .sc-btn-alert:hover .btn-carroll-sub {
+      color: #0F172A;
+    }
+
+    .sc-btn-disabled,
+    .sc-btn[disabled] {
+      background: rgba(27, 37, 64, 0.5) !important;
+      border: 1px solid #334155 !important;
+      color: #64748B !important;
+      cursor: not-allowed !important;
+      transform: none !important;
+    }
+    .sc-btn-disabled .btn-carroll-sub {
+      color: #64748B !important;
+    }
+
+    /* Specimen Lattice Card */
     .specimen-lattice-card {
-      background: #0F172A;
-      border: 1px solid #334155;
-      border-radius: 6px;
       padding: 1.5rem;
       margin-bottom: 1.75rem;
-      position: relative;
     }
+
     .specimen-header {
       display: flex;
       justify-content: space-between;
-      font-family: var(--font-technical, monospace);
-      font-size: 0.7rem;
-      color: #64748B;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      align-items: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(176, 141, 60, 0.35);
+      padding-bottom: 0.75rem;
+    }
+
+    /* Checkerboard Grid & Focal Queen Piece */
+    .focal-queen-piece {
+      cursor: pointer;
+      transition: transform 150ms ease;
+    }
+    .focal-queen-piece:hover {
+      transform: scale(1.05);
+      transform-origin: 226px 170px;
+    }
+
+    /* Stat Grids Pattern: 2-3% subtle checker pattern behind stat grids only, never running text */
+    .stat-grid-checker {
+      background-color: var(--color-canvas);
+      background-image:
+        linear-gradient(45deg, rgba(245, 239, 224, 0.025) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(245, 239, 224, 0.025) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(245, 239, 224, 0.025) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(245, 239, 224, 0.025) 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+    }
+
+    /* Inspector Card */
+    .inspector-card {
+      padding: 1.5rem 1.75rem;
+    }
+
+    .inspector-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--color-cheshire-teal);
+      margin-bottom: 0.35rem;
+    }
+
+    .inspector-name {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-vellum);
       margin-bottom: 1rem;
     }
 
-    .inspector-card {
-      background: #1E293B;
-      border: 1px solid #334155;
-      border-radius: 6px;
-      padding: 1.5rem 1.75rem;
-    }
-    .inspector-title {
-      font-family: var(--font-technical, monospace);
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: #14B8A6;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-    .inspector-name {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
     .inspector-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
       margin-bottom: 1.25rem;
-      font-family: var(--font-technical, monospace);
-      font-size: 0.8rem;
+      padding: 0.75rem;
+      border: 1px solid rgba(176, 141, 60, 0.3);
+      border-radius: 3px;
     }
+
     .inspector-item {
-      background: #0F172A;
-      border: 1px solid #334155;
+      background: var(--color-canvas);
+      border: 1px solid rgba(176, 141, 60, 0.35);
       padding: 0.75rem 1rem;
-      border-radius: 4px;
+      border-radius: 2px;
     }
+
     .inspector-item-label {
-      font-size: 0.68rem;
-      color: #64748B;
+      font-family: var(--font-display);
+      font-variant: small-caps;
+      font-size: 0.75rem;
+      color: #94A3B8;
       margin-bottom: 0.25rem;
-      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
+
     .inspector-item-val {
-      font-size: 1.05rem;
+      font-family: var(--font-technical);
+      font-size: 1.1rem;
       font-weight: 700;
-      color: #F8FAFC;
+      color: var(--color-vellum);
     }
 
     /* Color Swatches Grid */
     .swatches-section {
-      background: #1E293B;
-      border: 1px solid #334155;
-      border-radius: 6px;
       padding: 2rem 2.5rem;
       margin-top: 3rem;
     }
+
     .swatches-title {
-      font-size: 1.4rem;
-      font-weight: 800;
-      letter-spacing: -0.01em;
+      font-size: 1.75rem;
+      font-weight: 700;
       margin-bottom: 0.35rem;
     }
+
     .swatches-sub {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: #94A3B8;
       margin-bottom: 1.75rem;
     }
+
     .swatches-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.5rem;
     }
+
     .swatch-card {
-      background: #0F172A;
-      border: 1px solid #334155;
-      border-radius: 4px;
+      background: var(--color-canvas);
+      border-radius: 3px;
       overflow: hidden;
-      transition: transform 0.15s ease, border-color 0.15s ease;
+      transition: transform 150ms ease, border-color 150ms ease;
     }
     .swatch-card:hover {
-      border-color: #0D9488;
-      transform: translateY(-2px);
+      transform: scale(1.02);
+      border-color: var(--color-brass-hairline) !important;
     }
+
     .swatch-color-box {
-      height: 90px;
+      height: 95px;
       width: 100%;
       display: flex;
       align-items: flex-end;
-      justify-content: flex-end;
+      justify-content: space-between;
       padding: 0.75rem;
+      border-bottom: 1px solid rgba(176, 141, 60, 0.35);
     }
+
     .swatch-details {
       padding: 1rem 1.25rem;
     }
+
     .swatch-name {
-      font-size: 1rem;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
       font-weight: 700;
+      color: var(--color-vellum);
       margin-bottom: 0.2rem;
     }
+
     .swatch-role {
-      font-family: var(--font-technical, monospace);
-      font-size: 0.7rem;
-      color: #14B8A6;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      font-size: 0.78rem;
+      color: var(--color-cheshire-teal);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+
+    .swatch-rule-note {
+      font-size: 0.72rem;
+      color: #94A3B8;
+      line-height: 1.4;
       margin-bottom: 0.75rem;
     }
+
     .swatch-hex-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-family: var(--font-technical, monospace);
+      font-family: var(--font-technical);
       font-size: 0.78rem;
       color: #94A3B8;
       padding-top: 0.5rem;
-      border-top: 1px solid #334155;
+      border-top: 1px solid rgba(176, 141, 60, 0.25);
     }
+
     .hex-copy-btn {
-      background: transparent;
-      border: 1px solid #334155;
-      color: #CBD5E1;
-      font-family: var(--font-technical, monospace);
+      background: var(--color-board-slate);
+      border: 1px solid var(--color-brass-hairline);
+      color: var(--color-vellum);
+      font-family: var(--font-technical);
       font-size: 0.7rem;
       padding: 0.2rem 0.5rem;
       border-radius: 2px;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: transform 150ms ease, border-color 150ms ease, color 150ms ease;
     }
     .hex-copy-btn:hover {
-      border-color: #0D9488;
-      color: #14B8A6;
+      transform: scale(1.02);
+      border-color: var(--color-cheshire-teal);
+      color: var(--color-cheshire-teal);
+    }
+
+    /* Badges & Accessibility: WCAG AAA >= 7:1 */
+    .sc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-family: var(--font-technical);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.55rem;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+
+    .sc-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .sc-badge-active {
+      background: rgba(45, 212, 191, 0.14);
+      color: var(--color-cheshire-teal);
+      border: 1px solid rgba(45, 212, 191, 0.4);
+    }
+    .sc-badge-active .sc-badge-dot {
+      background: var(--color-cheshire-teal);
+    }
+
+    .sc-badge-focal {
+      background: rgba(245, 158, 11, 0.14);
+      color: var(--color-white-rabbit-gold);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+    .sc-badge-focal .sc-badge-dot {
+      background: var(--color-white-rabbit-gold);
+    }
+
+    /* Red Queen Caution Badge */
+    .sc-badge-caution {
+      background: rgba(253, 164, 175, 0.14);
+      color: var(--color-red-queen);
+      border: 1px solid rgba(253, 164, 175, 0.4);
+    }
+    .sc-badge-caution .sc-badge-dot {
+      background: var(--color-red-queen);
+    }
+
+    .sc-badge-brass {
+      background: rgba(176, 141, 60, 0.14);
+      color: var(--color-brass-hairline);
+      border: 1px solid rgba(176, 141, 60, 0.4);
+    }
+
+    /* Filter Buttons */
+    .filter-btn {
+      padding: 0.4rem 0.85rem;
+      font-size: 0.75rem;
+      border-radius: 2px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-weight: 600;
+      border: 1px solid var(--color-brass-hairline);
+      background: transparent;
+      color: var(--color-vellum);
+      transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease;
+    }
+    .filter-btn:hover {
+      transform: scale(1.02);
+      border-color: var(--color-cheshire-teal);
+      color: var(--color-cheshire-teal);
+    }
+    .filter-btn.active {
+      background: rgba(45, 212, 191, 0.15);
+      border-color: var(--color-cheshire-teal);
+      color: var(--color-cheshire-teal);
+    }
+
+    /* Motion Controls & Reduced Motion Requirements */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transform: none !important;
+        animation: none !important;
+      }
+    }
+
+    /* Prohibit animations inside reading areas or data tables */
+    .reading-area,
+    .reading-area *,
+    .panel-desc,
+    .panel-desc *,
+    table.telemetry-table,
+    table.telemetry-table * {
+      animation: none !important;
     }
 
     /* Toast Notification */
@@ -392,17 +760,18 @@
       position: fixed;
       bottom: 2rem;
       right: 2rem;
-      background: #0D9488;
-      color: #F8FAFC;
-      font-family: var(--font-technical, monospace);
+      background: var(--color-board-slate);
+      border: 3px double var(--color-brass-hairline);
+      color: var(--color-vellum);
+      font-family: var(--font-technical);
       font-size: 0.82rem;
       font-weight: 600;
       padding: 0.75rem 1.25rem;
-      border-radius: 4px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      border-radius: 3px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
       opacity: 0;
       transform: translateY(10px);
-      transition: all 0.2s ease;
+      transition: all 150ms ease;
       pointer-events: none;
       z-index: 100;
     }
@@ -412,7 +781,9 @@
     }
 
     @media (max-width: 960px) {
-      .lab-grid { grid-template-columns: 1fr; }
+      .lab-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -421,28 +792,25 @@
   <header>
     <div class="nav-inner">
       <a href="index.html" class="brand">
-        <svg class="brand-logo" viewBox="0 0 64 64">
-          <rect width="64" height="64" rx="8" fill="#0F172A" />
-          <circle cx="16" cy="16" r="4" fill="#F8FAFC" />
-          <circle cx="48" cy="16" r="4.5" fill="#0D9488" />
-          <circle cx="32" cy="32" r="5" fill="#0D9488" />
-          <circle cx="16" cy="48" r="4" fill="#F8FAFC" />
-          <circle cx="48" cy="48" r="5" fill="#D97706" />
-          <line x1="16" y1="16" x2="48" y2="48" stroke="#334155" stroke-width="2" />
-          <line x1="16" y1="48" x2="48" y2="20" stroke="#334155" stroke-width="2" />
+        <svg class="brand-logo" viewBox="0 0 64 64" fill="none">
+          <rect width="64" height="64" rx="4" fill="#0F172A" />
+          <rect x="8" y="8" width="48" height="48" stroke="#B08D3C" stroke-width="1.5" fill="#1B2540" />
+          <circle cx="24" cy="24" r="4.5" fill="#2DD4BF" />
+          <circle cx="40" cy="24" r="4.5" fill="#2DD4BF" />
+          <circle cx="32" cy="40" r="6" fill="#FDA4AF" stroke="#F59E0B" stroke-width="2" />
+          <text x="32" y="43" text-anchor="middle" font-size="7" fill="#0F172A" font-weight="bold">♕</text>
         </svg>
         <div>
-          <div class="brand-title">Structural Clarity</div>
-          <div class="brand-sub">COMPONENT STUDIO &bull; TELEMETRY LAB</div>
+          <div class="brand-title">Looking-Glass Theme</div>
+          <div class="brand-sub">STRUCTURAL CLARITY &bull; UTILITY OVER ORNAMENT</div>
         </div>
       </a>
       <div class="nav-actions">
-        <a href="paladin.html" class="nav-link" style="color:var(--color-warm-accent); font-weight:700;">PALADIN (A2J)</a>
-        <a href="library.html" class="nav-link" style="color:var(--color-accent-action); font-weight:700;">Source Library (5,612)</a>
+        <a href="paladin.html" class="nav-link" style="color:var(--color-white-rabbit-gold); font-weight:700;">PALADIN (A2J)</a>
+        <a href="library.html" class="nav-link" style="color:var(--color-cheshire-teal); font-weight:700;">Source Library</a>
         <a href="store.html" class="nav-link">Storefront</a>
-        <a href="buttons.html" class="nav-link">Kinetic Buttons (24)</a>
+        <a href="buttons.html" class="nav-link">Kinetic Buttons</a>
         <a href="index.html" class="nav-link">EFOS Hub</a>
-        <a href="store.html#pricing" class="sc-btn sc-gradient-teal sc-btn--sm">Get UI Kit</a>
       </div>
     </div>
   </header>
@@ -454,19 +822,20 @@
     <!-- Lab Header -->
     <div class="lab-header">
       <div class="lab-title-area">
-        <div style="display:flex; gap:0.5rem; align-items:center;">
-          <span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>APPLICATION STUDIO</span>
-          <span class="sc-badge sc-badge-alert"><span class="sc-badge-dot"></span>AAA CONTRAST VALIDATED</span>
+        <div style="display:flex; gap:0.5rem; align-items:center; margin-bottom:0.4rem;">
+          <span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>✓ Application Studio</span>
+          <span class="sc-badge sc-badge-focal"><span class="sc-badge-dot"></span>★ WCAG AAA Audited (≥ 7.0:1)</span>
         </div>
+        <div class="chapter-label">Chapter III</div>
         <h1>System Performance Telemetry</h1>
-        <p class="lab-meta">REPORT ID: SPR-2026-09-19 &bull; UTILITY OVER ORNAMENT &bull; 12&times;11 CARTESIAN MATRIX</p>
+        <p class="lab-meta">SPECIFICATION: LOOKING-GLASS &bull; UTILITY OVER ORNAMENT &bull; 12&times;11 CHECKERBOARD MATRIX</p>
       </div>
 
       <!-- Filter Chips -->
       <div style="display:flex; gap:0.5rem;" id="filterGroup">
-        <button class="sc-btn sc-gradient-teal sc-btn--sm filter-btn" data-filter="all">All Metrics (6)</button>
-        <button class="sc-btn sc-outline-minimal sc-btn--sm filter-btn" data-filter="ok">Nominal (5)</button>
-        <button class="sc-btn sc-outline-minimal sc-btn--sm filter-btn" data-filter="warn">Caution (1)</button>
+        <button class="filter-btn active" data-filter="all">All Metrics (6)</button>
+        <button class="filter-btn" data-filter="ok">✓ Nominal (5)</button>
+        <button class="filter-btn" data-filter="warn">⚠ Caution (1)</button>
       </div>
     </div>
 
@@ -476,21 +845,21 @@
       <!-- Left Column: Table & Controls -->
       <div class="panel-card">
         <div class="panel-header">
-          <span class="panel-header-title">Executive Telemetry Monolith</span>
+          <span class="panel-header-title"><span class="chapter-numeral">Chapter III.I</span> &bull; Executive Telemetry Monolith</span>
           <button type="button" class="density-btn" id="densityBtn" onclick="toggleDensity()">
             Density: <span id="densityLabel">Comfortable</span>
           </button>
         </div>
 
-        <div class="panel-desc">
-          System performance remains within nominal parameters across monitored dimensions. One node sits at the adversarial threshold &mdash; the Amber focal node on the Harmonic Lattice.
+        <div class="panel-desc reading-area">
+          System percolation parameter <var>p</var> = 0.618 remains above the critical cognitive transition threshold <var>p_c</var> = 0.592 across all monitored network axes. A single node sits at the adversarial boundary &mdash; the gold-ringed Red Queen piece at matrix position (8, 6).
         </div>
 
         <div class="table-container">
           <table class="telemetry-table" id="metricsTable">
             <thead>
               <tr>
-                <th>Telemetry Metric</th>
+                <th>Telemetry Metric &amp; Line</th>
                 <th>Status</th>
                 <th>Previous</th>
                 <th>Current</th>
@@ -499,238 +868,306 @@
             </thead>
             <tbody>
               <tr class="data-row selected" data-id="uptime" data-tone="ok" data-label="Lattice Node Stability" data-cur="98.7%" data-prev="97.1%" data-delta="+1.6%" data-node="Matrix (0, 8) &bull; Phase Core">
-                <td>Lattice Node Stability</td>
-                <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>Active</span></td>
+                <td>
+                  <div class="metric-primary">Lattice Node Stability</div>
+                </td>
+                <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>✓ Nominal</span></td>
                 <td>97.1%</td>
-                <td style="font-weight:700; color:#F8FAFC;">98.7%</td>
-                <td style="text-align:right; color:#14B8A6; font-weight:700;">+1.6%</td>
+                <td style="font-weight:700; color:var(--color-vellum);">98.7%</td>
+                <td style="text-align:right; color:var(--color-cheshire-teal); font-weight:700;">+1.6%</td>
               </tr>
               <tr class="data-row" data-id="latency" data-tone="ok" data-label="Average Response Delay" data-cur="128 ms" data-prev="141 ms" data-delta="−13 ms" data-node="Matrix (3, 6) &bull; Transit Node">
-                <td>Average Response Delay</td>
-                <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>Active</span></td>
+                <td>
+                  <div class="metric-primary">Average Response Delay</div>
+                </td>
+                <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>✓ Nominal</span></td>
                 <td>141 ms</td>
-                <td style="font-weight:700; color:#F8FAFC;">128 ms</td>
-                <td style="text-align:right; color:#14B8A6; font-weight:700;">&minus;13 ms</td>
+                <td style="font-weight:700; color:var(--color-vellum);">128 ms</td>
+                <td style="text-align:right; color:var(--color-cheshire-teal); font-weight:700;">&minus;13 ms</td>
               </tr>
               <tr class="data-row" data-id="throughput" data-tone="ok" data-label="Pipeline Throughput" data-cur="2,589 rps" data-prev="2,312 rps" data-delta="+277 rps" data-node="Matrix (6, 2) &bull; Conduit Node">
-                <td>Pipeline Throughput</td>
-                <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>Active</span></td>
+                <td>
+                  <div class="metric-primary">Pipeline Throughput</div>
+                </td>
+                <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>✓ Nominal</span></td>
                 <td>2,312 rps</td>
-                <td style="font-weight:700; color:#F8FAFC;">2,589 rps</td>
-                <td style="text-align:right; color:#14B8A6; font-weight:700;">+277 rps</td>
+                <td style="font-weight:700; color:var(--color-vellum);">2,589 rps</td>
+                <td style="text-align:right; color:var(--color-cheshire-teal); font-weight:700;">+277 rps</td>
               </tr>
               <tr class="data-row" data-id="error" data-tone="ok" data-label="Error Rate Threshold" data-cur="0.04%" data-prev="0.11%" data-delta="−0.07%" data-node="Matrix (8, 4) &bull; Safety Sentry">
-                <td>Error Rate Threshold</td>
-                <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>Active</span></td>
+                <td>
+                  <div class="metric-primary">Error Rate Threshold</div>
+                </td>
+                <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>✓ Nominal</span></td>
                 <td>0.11%</td>
-                <td style="font-weight:700; color:#F8FAFC;">0.04%</td>
-                <td style="text-align:right; color:#14B8A6; font-weight:700;">&minus;0.07%</td>
+                <td style="font-weight:700; color:var(--color-vellum);">0.04%</td>
+                <td style="text-align:right; color:var(--color-cheshire-teal); font-weight:700;">&minus;0.07%</td>
               </tr>
               <tr class="data-row" data-id="phase" data-tone="ok" data-label="Cognitive Phase Delay" data-cur="18 ms" data-prev="36 ms" data-delta="−18 ms" data-node="Matrix (10, 5) &bull; Waveguide">
-                <td>Cognitive Phase Delay</td>
-                <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>Active</span></td>
+                <td>
+                  <div class="metric-primary">Cognitive Phase Delay</div>
+                  <div class="carroll-subtitle">“Running to stay in the same place”</div>
+                </td>
+                <td><span class="sc-badge sc-badge-active"><span class="sc-badge-dot"></span>✓ Nominal</span></td>
                 <td>36 ms</td>
-                <td style="font-weight:700; color:#F8FAFC;">18 ms</td>
-                <td style="text-align:right; color:#14B8A6; font-weight:700;">&minus;18 ms</td>
+                <td style="font-weight:700; color:var(--color-vellum);">18 ms</td>
+                <td style="text-align:right; color:var(--color-cheshire-teal); font-weight:700;">&minus;18 ms</td>
               </tr>
-              <tr class="data-row" data-id="stress" data-tone="warn" data-label="Adversarial Stress State" data-cur="Threshold" data-prev="Nominal" data-delta="Focal" data-node="Matrix (8, 6) &bull; Amber Nexus">
-                <td>Adversarial Stress State</td>
-                <td><span class="sc-badge sc-badge-alert"><span class="sc-badge-dot"></span>Caution</span></td>
+              <tr class="data-row" data-id="stress" data-tone="warn" data-label="Adversarial Stress State" data-cur="Threshold" data-prev="Nominal" data-delta="Focal" data-node="Matrix (8, 6) &bull; Red Queen Focal Nexus">
+                <td>
+                  <div class="metric-primary">Adversarial Stress State</div>
+                  <div class="carroll-subtitle">“The Red Queen's Race”</div>
+                </td>
+                <td><span class="sc-badge sc-badge-caution"><span class="sc-badge-dot"></span>⚠ Caution</span></td>
                 <td>Nominal</td>
-                <td style="font-weight:700; color:#F59E0B;">Threshold</td>
-                <td style="text-align:right; color:#F59E0B; font-weight:700;">Focal</td>
+                <td style="font-weight:700; color:var(--color-red-queen);">Threshold</td>
+                <td style="text-align:right; color:var(--color-white-rabbit-gold); font-weight:700;">★ Focal (8, 6)</td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <!-- Interactive State Controls Bar -->
-        <div style="padding: 1.5rem 1.75rem; background: rgba(15, 23, 42, 0.4); border-top: 1px solid #334155;">
-          <div style="font-family: var(--font-technical, monospace); font-size: 0.72rem; color: #64748B; margin-bottom: 0.75rem; text-transform:uppercase; letter-spacing:0.06em;">
-            Interactive Component Controls
+        <div class="controls-bar">
+          <div class="controls-bar-title">
+            Interactive Component Controls &bull; Functional Primary &bull; Carroll Subtitle
           </div>
-          <div style="display:flex; flex-wrap:wrap; gap:0.75rem;">
-            <button class="sc-btn sc-gradient-teal sc-btn--sm">Execute Pipeline</button>
-            <button class="sc-btn sc-outline-minimal sc-btn--sm">Inspect Node</button>
-            <button class="sc-btn sc-3d-amber sc-btn--sm">Threshold Alert</button>
-            <button class="sc-btn sc-outline-bracket sc-btn--sm">SYS_DIAGNOSTIC</button>
-            <button class="sc-btn sc-btn--sm" disabled style="opacity:0.4; cursor:not-allowed;">Disabled Gate</button>
+          <div class="button-group">
+            <!-- Execute Pipeline button: Primary label + Drink Me tag -->
+            <button class="sc-btn sc-btn-pipeline" id="btnExecute">
+              <span class="btn-primary">Execute Pipeline</span>
+              <span class="btn-carroll-tag">“Drink Me”</span>
+            </button>
+
+            <!-- Inspect Node button: Primary label + Eat Me tag -->
+            <button class="sc-btn sc-btn-inspect" id="btnInspect">
+              <span class="btn-primary">Inspect Node</span>
+              <span class="btn-carroll-tag">“Eat Me”</span>
+            </button>
+
+            <!-- Threshold Alert button: Primary label + Off with their heads? subtitle -->
+            <button class="sc-btn sc-btn-alert" id="btnAlert">
+              <span class="btn-primary">Threshold Alert</span>
+              <span class="btn-carroll-sub">“Off with their heads?”</span>
+            </button>
+
+            <!-- Disabled Gate: Primary label + The Locked Door with keyhole icon -->
+            <button class="sc-btn sc-btn-disabled" disabled style="opacity:0.45; cursor:not-allowed;">
+              <span class="btn-primary">Disabled Gate</span>
+              <span class="btn-carroll-sub">
+                <svg viewBox="0 0 16 16" width="10" height="10" fill="currentColor" style="display:inline-block; vertical-align:middle; margin-right:3px;">
+                  <circle cx="8" cy="5.5" r="3" />
+                  <polygon points="6.5,7 9.5,7 10.5,13.5 5.5,13.5" />
+                </svg>
+                “The Locked Door”
+              </span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Right Column: Mathematical SVG Harmonic Lattice & Inspector -->
+      <!-- Right Column: 12x11 Checkerboard Lattice & Inspector -->
       <div>
         <!-- Mathematical Lattice Viewport -->
         <div class="specimen-lattice-card">
           <div class="specimen-header">
-            <span>Harmonic Lattice Viewport</span>
-            <span style="color:#0D9488;">12&times;11 Matrix</span>
+            <span class="panel-header-title"><span class="chapter-numeral">Chapter III.II</span> &bull; 12&times;11 Matrix Checkerboard</span>
+            <span style="color:var(--color-cheshire-teal); font-family:var(--font-technical); font-size:0.75rem;">Canvas &bull; Board Slate</span>
           </div>
 
-          <!-- Pure Mathematical SVG Generated Lattice -->
-          <div style="aspect-ratio: 380/240; width: 100%;">
-            <svg viewBox="0 0 380 240" width="100%" height="100%" fill="none" style="display:block;">
+          <!-- Pure SVG 12x11 Checkerboard with Gold-Ringed Red Queen Focal Piece at (8,6) -->
+          <div style="aspect-ratio: 396/250; width: 100%;">
+            <svg viewBox="0 0 396 250" width="100%" height="100%" fill="none" style="display:block;">
               <style>
-                .pulse-amber { animation: amberPulse 2.6s ease-in-out infinite; transform-origin: center; }
-                @keyframes amberPulse {
-                  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(217, 119, 6, 0)); }
-                  50% { transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(217, 119, 6, 0.85)); }
+                .lattice-cell:hover {
+                  fill-opacity: 0.85;
+                  stroke: #2DD4BF;
+                  stroke-width: 1px;
                 }
-                @media (prefers-reduced-motion: reduce) { .pulse-amber { animation: none !important; } }
+                .focal-queen-piece:hover {
+                  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.7));
+                }
               </style>
-              <!-- 12x11 Isometric Rhombus Grid -->
-              <g stroke="#334155" stroke-width="0.75" opacity="0.8">
-                <!-- Row 0 -->
-                <polygon points="188,9 204,18 188,27 172,18" />
-                <polygon points="204,18 220,27 204,36 188,27" />
-                <polygon points="220,27 236,36 220,45 204,36" />
-                <polygon points="236,36 252,45 236,54 220,45" />
-                <polygon points="252,45 268,54 252,63 236,54" />
-                <polygon points="268,54 284,63 268,72 252,63" />
-                <polygon points="284,63 300,72 284,81 268,72" />
-                <polygon points="300,72 316,81 300,90 284,81" />
-                <polygon points="316,81 332,90 316,99 300,90" />
-                <polygon points="332,90 348,99 332,108 316,99" />
-                <polygon points="348,99 364,108 348,117 332,108" />
-                <polygon points="364,108 380,117 364,126 348,117" />
-                <!-- Row 1 -->
-                <polygon points="172,18 188,27 172,36 156,27" />
-                <polygon points="188,27 204,36 188,45 172,36" />
-                <polygon points="204,36 220,45 204,54 188,45" />
-                <polygon points="220,45 236,54 220,63 204,54" />
-                <polygon points="236,54 252,63 236,72 220,63" />
-                <polygon points="252,63 268,72 252,81 236,72" />
-                <polygon points="268,72 284,81 268,90 252,81" />
-                <polygon points="284,81 300,90 284,99 268,90" />
-                <polygon points="300,90 316,99 300,108 284,99" />
-                <polygon points="316,99 332,108 316,117 300,108" />
-                <polygon points="332,108 348,117 332,126 316,117" />
-                <polygon points="348,117 364,126 348,135 332,126" />
-                <!-- Row 2 -->
-                <polygon points="156,27 172,36 156,45 140,36" />
-                <polygon points="172,36 188,45 172,54 156,45" />
-                <polygon points="188,45 204,54 188,63 172,54" />
-                <polygon points="204,54 220,63 204,72 188,63" />
-                <polygon points="220,63 236,72 220,81 204,72" />
-                <polygon points="236,72 252,81 236,90 220,81" />
-                <polygon points="252,81 268,90 252,99 236,90" />
-                <polygon points="268,90 284,99 268,108 252,99" />
-                <polygon points="284,99 300,108 284,117 268,108" />
-                <polygon points="300,108 316,117 300,126 284,117" />
-                <polygon points="316,117 332,126 316,135 300,126" />
-                <polygon points="332,126 348,135 332,144 316,135" />
-                <!-- Row 3 -->
-                <polygon points="140,36 156,45 140,54 124,45" />
-                <polygon points="156,45 172,54 156,63 140,54" />
-                <polygon points="172,54 188,63 172,72 156,63" />
-                <polygon points="188,63 204,72 188,81 172,72" />
-                <polygon points="204,72 220,81 204,90 188,81" />
-                <polygon points="220,81 236,90 220,99 204,90" />
-                <polygon points="236,90 252,99 236,108 220,99" />
-                <polygon points="252,99 268,108 252,117 236,108" />
-                <polygon points="268,108 284,117 268,126 252,117" />
-                <polygon points="284,117 300,126 284,135 268,126" />
-                <polygon points="300,126 316,135 300,144 284,135" />
-                <polygon points="316,135 332,144 316,153 300,144" />
-                <!-- Row 4 -->
-                <polygon points="124,45 140,54 124,63 108,54" />
-                <polygon points="140,54 156,63 140,72 124,63" />
-                <polygon points="156,63 172,72 156,81 140,72" />
-                <polygon points="172,72 188,81 172,90 156,81" />
-                <polygon points="188,81 204,90 188,99 172,90" />
-                <polygon points="204,90 220,99 204,108 188,99" />
-                <polygon points="220,99 236,108 220,117 204,108" />
-                <polygon points="236,108 252,117 236,126 220,117" />
-                <polygon points="252,117 268,126 252,135 236,126" />
-                <polygon points="268,126 284,135 268,144 252,135" />
-                <polygon points="284,135 300,144 284,153 268,144" />
-                <polygon points="300,144 316,153 300,162 284,153" />
-                <!-- Row 5 -->
-                <polygon points="108,54 124,63 108,72 92,63" />
-                <polygon points="124,63 140,72 124,81 108,72" />
-                <polygon points="140,72 156,81 140,90 124,81" />
-                <polygon points="156,81 172,90 156,99 140,90" />
-                <polygon points="172,90 188,99 172,108 156,99" />
-                <polygon points="188,99 204,108 188,117 172,108" />
-                <polygon points="204,108 220,117 204,126 188,117" />
-                <polygon points="220,117 236,126 220,135 204,126" />
-                <polygon points="236,126 252,135 236,144 220,135" />
-                <polygon points="252,135 268,144 252,153 236,144" />
-                <polygon points="268,144 284,153 268,162 252,153" />
-                <polygon points="284,153 300,162 284,171 268,162" />
-                <!-- Row 6 -->
-                <polygon points="92,63 108,72 92,81 76,72" />
-                <polygon points="108,72 124,81 108,90 92,81" />
-                <polygon points="124,81 140,90 124,99 108,90" />
-                <polygon points="140,90 156,99 140,108 124,99" />
-                <polygon points="156,99 172,108 156,117 140,108" />
-                <polygon points="172,108 188,117 172,126 156,117" />
-                <polygon points="188,117 204,126 188,135 172,126" />
-                <polygon points="204,126 220,135 204,144 188,135" />
-                <polygon points="220,135 236,144 220,153 204,144" />
-                <polygon points="236,144 252,153 236,162 220,153" />
-                <polygon points="252,153 268,162 252,171 236,162" />
-                <polygon points="268,162 284,171 268,180 252,171" />
-                <!-- Row 7 -->
-                <polygon points="76,72 92,81 76,90 60,81" />
-                <polygon points="92,81 108,90 92,99 76,90" />
-                <polygon points="108,90 124,99 108,108 92,99" />
-                <polygon points="124,99 140,108 124,117 108,108" />
-                <polygon points="140,108 156,117 140,126 124,117" />
-                <polygon points="156,117 172,126 156,135 140,126" />
-                <polygon points="172,126 188,135 172,144 156,135" />
-                <polygon points="188,135 204,144 188,153 172,144" />
-                <polygon points="204,144 220,153 204,162 188,153" />
-                <polygon points="220,153 236,162 220,171 204,162" />
-                <polygon points="236,162 252,171 236,180 220,171" />
-                <polygon points="252,171 268,180 252,189 236,180" />
+
+              <!-- 12x11 Alternating Checkerboard Matrix (Canvas #0F172A & Board Slate #1B2540) -->
+              <polygon id="cell_0_0" data-col="0" data-row="0" class="lattice-cell" points="194,17 210,26 194,35 178,26" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_1_0" data-col="1" data-row="0" class="lattice-cell" points="210,26 226,35 210,44 194,35" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_2_0" data-col="2" data-row="0" class="lattice-cell" points="226,35 242,44 226,53 210,44" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_3_0" data-col="3" data-row="0" class="lattice-cell" points="242,44 258,53 242,62 226,53" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_4_0" data-col="4" data-row="0" class="lattice-cell" points="258,53 274,62 258,71 242,62" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_5_0" data-col="5" data-row="0" class="lattice-cell" points="274,62 290,71 274,80 258,71" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_6_0" data-col="6" data-row="0" class="lattice-cell" points="290,71 306,80 290,89 274,80" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_7_0" data-col="7" data-row="0" class="lattice-cell" points="306,80 322,89 306,98 290,89" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_8_0" data-col="8" data-row="0" class="lattice-cell" points="322,89 338,98 322,107 306,98" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_9_0" data-col="9" data-row="0" class="lattice-cell" points="338,98 354,107 338,116 322,107" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_10_0" data-col="10" data-row="0" class="lattice-cell" points="354,107 370,116 354,125 338,116" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_11_0" data-col="11" data-row="0" class="lattice-cell" points="370,116 386,125 370,134 354,125" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_0_1" data-col="0" data-row="1" class="lattice-cell" points="178,26 194,35 178,44 162,35" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_1_1" data-col="1" data-row="1" class="lattice-cell" points="194,35 210,44 194,53 178,44" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_2_1" data-col="2" data-row="1" class="lattice-cell" points="210,44 226,53 210,62 194,53" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_3_1" data-col="3" data-row="1" class="lattice-cell" points="226,53 242,62 226,71 210,62" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_4_1" data-col="4" data-row="1" class="lattice-cell" points="242,62 258,71 242,80 226,71" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_5_1" data-col="5" data-row="1" class="lattice-cell" points="258,71 274,80 258,89 242,80" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_6_1" data-col="6" data-row="1" class="lattice-cell" points="274,80 290,89 274,98 258,89" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_7_1" data-col="7" data-row="1" class="lattice-cell" points="290,89 306,98 290,107 274,98" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_8_1" data-col="8" data-row="1" class="lattice-cell" points="306,98 322,107 306,116 290,107" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_9_1" data-col="9" data-row="1" class="lattice-cell" points="322,107 338,116 322,125 306,116" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_10_1" data-col="10" data-row="1" class="lattice-cell" points="338,116 354,125 338,134 322,125" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_11_1" data-col="11" data-row="1" class="lattice-cell" points="354,125 370,134 354,143 338,134" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_0_2" data-col="0" data-row="2" class="lattice-cell" points="162,35 178,44 162,53 146,44" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_1_2" data-col="1" data-row="2" class="lattice-cell" points="178,44 194,53 178,62 162,53" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_2_2" data-col="2" data-row="2" class="lattice-cell" points="194,53 210,62 194,71 178,62" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_3_2" data-col="3" data-row="2" class="lattice-cell" points="210,62 226,71 210,80 194,71" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_4_2" data-col="4" data-row="2" class="lattice-cell" points="226,71 242,80 226,89 210,80" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_5_2" data-col="5" data-row="2" class="lattice-cell" points="242,80 258,89 242,98 226,89" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_6_2" data-col="6" data-row="2" class="lattice-cell" points="258,89 274,98 258,107 242,98" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_7_2" data-col="7" data-row="2" class="lattice-cell" points="274,98 290,107 274,116 258,107" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_8_2" data-col="8" data-row="2" class="lattice-cell" points="290,107 306,116 290,125 274,116" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_9_2" data-col="9" data-row="2" class="lattice-cell" points="306,116 322,125 306,134 290,125" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_10_2" data-col="10" data-row="2" class="lattice-cell" points="322,125 338,134 322,143 306,134" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_11_2" data-col="11" data-row="2" class="lattice-cell" points="338,134 354,143 338,152 322,143" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_0_3" data-col="0" data-row="3" class="lattice-cell" points="146,44 162,53 146,62 130,53" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_1_3" data-col="1" data-row="3" class="lattice-cell" points="162,53 178,62 162,71 146,62" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_2_3" data-col="2" data-row="3" class="lattice-cell" points="178,62 194,71 178,80 162,71" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_3_3" data-col="3" data-row="3" class="lattice-cell" points="194,71 210,80 194,89 178,80" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_4_3" data-col="4" data-row="3" class="lattice-cell" points="210,80 226,89 210,98 194,89" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_5_3" data-col="5" data-row="3" class="lattice-cell" points="226,89 242,98 226,107 210,98" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_6_3" data-col="6" data-row="3" class="lattice-cell" points="242,98 258,107 242,116 226,107" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_7_3" data-col="7" data-row="3" class="lattice-cell" points="258,107 274,116 258,125 242,116" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_8_3" data-col="8" data-row="3" class="lattice-cell" points="274,116 290,125 274,134 258,125" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_9_3" data-col="9" data-row="3" class="lattice-cell" points="290,125 306,134 290,143 274,134" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_10_3" data-col="10" data-row="3" class="lattice-cell" points="306,134 322,143 306,152 290,143" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_11_3" data-col="11" data-row="3" class="lattice-cell" points="322,143 338,152 322,161 306,152" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_0_4" data-col="0" data-row="4" class="lattice-cell" points="130,53 146,62 130,71 114,62" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_1_4" data-col="1" data-row="4" class="lattice-cell" points="146,62 162,71 146,80 130,71" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_2_4" data-col="2" data-row="4" class="lattice-cell" points="162,71 178,80 162,89 146,80" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_3_4" data-col="3" data-row="4" class="lattice-cell" points="178,80 194,89 178,98 162,89" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_4_4" data-col="4" data-row="4" class="lattice-cell" points="194,89 210,98 194,107 178,98" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_5_4" data-col="5" data-row="4" class="lattice-cell" points="210,98 226,107 210,116 194,107" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_6_4" data-col="6" data-row="4" class="lattice-cell" points="226,107 242,116 226,125 210,116" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_7_4" data-col="7" data-row="4" class="lattice-cell" points="242,116 258,125 242,134 226,125" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_8_4" data-col="8" data-row="4" class="lattice-cell" points="258,125 274,134 258,143 242,134" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_9_4" data-col="9" data-row="4" class="lattice-cell" points="274,134 290,143 274,152 258,143" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_10_4" data-col="10" data-row="4" class="lattice-cell" points="290,143 306,152 290,161 274,152" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_11_4" data-col="11" data-row="4" class="lattice-cell" points="306,152 322,161 306,170 290,161" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_0_5" data-col="0" data-row="5" class="lattice-cell" points="114,62 130,71 114,80 98,71" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_1_5" data-col="1" data-row="5" class="lattice-cell" points="130,71 146,80 130,89 114,80" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_2_5" data-col="2" data-row="5" class="lattice-cell" points="146,80 162,89 146,98 130,89" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_3_5" data-col="3" data-row="5" class="lattice-cell" points="162,89 178,98 162,107 146,98" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_4_5" data-col="4" data-row="5" class="lattice-cell" points="178,98 194,107 178,116 162,107" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_5_5" data-col="5" data-row="5" class="lattice-cell" points="194,107 210,116 194,125 178,116" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_6_5" data-col="6" data-row="5" class="lattice-cell" points="210,116 226,125 210,134 194,125" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_7_5" data-col="7" data-row="5" class="lattice-cell" points="226,125 242,134 226,143 210,134" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_8_5" data-col="8" data-row="5" class="lattice-cell" points="242,134 258,143 242,152 226,143" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_9_5" data-col="9" data-row="5" class="lattice-cell" points="258,143 274,152 258,161 242,152" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_10_5" data-col="10" data-row="5" class="lattice-cell" points="274,152 290,161 274,170 258,161" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_11_5" data-col="11" data-row="5" class="lattice-cell" points="290,161 306,170 290,179 274,170" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_0_6" data-col="0" data-row="6" class="lattice-cell" points="98,71 114,80 98,89 82,80" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_1_6" data-col="1" data-row="6" class="lattice-cell" points="114,80 130,89 114,98 98,89" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_2_6" data-col="2" data-row="6" class="lattice-cell" points="130,89 146,98 130,107 114,98" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_3_6" data-col="3" data-row="6" class="lattice-cell" points="146,98 162,107 146,116 130,107" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_4_6" data-col="4" data-row="6" class="lattice-cell" points="162,107 178,116 162,125 146,116" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_5_6" data-col="5" data-row="6" class="lattice-cell" points="178,116 194,125 178,134 162,125" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_6_6" data-col="6" data-row="6" class="lattice-cell" points="194,125 210,134 194,143 178,134" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_7_6" data-col="7" data-row="6" class="lattice-cell" points="210,134 226,143 210,152 194,143" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_8_6" data-col="8" data-row="6" class="lattice-cell" points="226,143 242,152 226,161 210,152" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_9_6" data-col="9" data-row="6" class="lattice-cell" points="242,152 258,161 242,170 226,161" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_10_6" data-col="10" data-row="6" class="lattice-cell" points="258,161 274,170 258,179 242,170" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_11_6" data-col="11" data-row="6" class="lattice-cell" points="274,170 290,179 274,188 258,179" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_0_7" data-col="0" data-row="7" class="lattice-cell" points="82,80 98,89 82,98 66,89" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_1_7" data-col="1" data-row="7" class="lattice-cell" points="98,89 114,98 98,107 82,98" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_2_7" data-col="2" data-row="7" class="lattice-cell" points="114,98 130,107 114,116 98,107" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_3_7" data-col="3" data-row="7" class="lattice-cell" points="130,107 146,116 130,125 114,116" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_4_7" data-col="4" data-row="7" class="lattice-cell" points="146,116 162,125 146,134 130,125" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_5_7" data-col="5" data-row="7" class="lattice-cell" points="162,125 178,134 162,143 146,134" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_6_7" data-col="6" data-row="7" class="lattice-cell" points="178,134 194,143 178,152 162,143" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_7_7" data-col="7" data-row="7" class="lattice-cell" points="194,143 210,152 194,161 178,152" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_8_7" data-col="8" data-row="7" class="lattice-cell" points="210,152 226,161 210,170 194,161" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_9_7" data-col="9" data-row="7" class="lattice-cell" points="226,161 242,170 226,179 210,170" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_10_7" data-col="10" data-row="7" class="lattice-cell" points="242,170 258,179 242,188 226,179" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_11_7" data-col="11" data-row="7" class="lattice-cell" points="258,179 274,188 258,197 242,188" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_0_8" data-col="0" data-row="8" class="lattice-cell" points="66,89 82,98 66,107 50,98" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_1_8" data-col="1" data-row="8" class="lattice-cell" points="82,98 98,107 82,116 66,107" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_2_8" data-col="2" data-row="8" class="lattice-cell" points="98,107 114,116 98,125 82,116" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_3_8" data-col="3" data-row="8" class="lattice-cell" points="114,116 130,125 114,134 98,125" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_4_8" data-col="4" data-row="8" class="lattice-cell" points="130,125 146,134 130,143 114,134" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_5_8" data-col="5" data-row="8" class="lattice-cell" points="146,134 162,143 146,152 130,143" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_6_8" data-col="6" data-row="8" class="lattice-cell" points="162,143 178,152 162,161 146,152" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_7_8" data-col="7" data-row="8" class="lattice-cell" points="178,152 194,161 178,170 162,161" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_8_8" data-col="8" data-row="8" class="lattice-cell" points="194,161 210,170 194,179 178,170" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_9_8" data-col="9" data-row="8" class="lattice-cell" points="210,170 226,179 210,188 194,179" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_10_8" data-col="10" data-row="8" class="lattice-cell" points="226,179 242,188 226,197 210,188" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_11_8" data-col="11" data-row="8" class="lattice-cell" points="242,188 258,197 242,206 226,197" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_0_9" data-col="0" data-row="9" class="lattice-cell" points="50,98 66,107 50,116 34,107" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_1_9" data-col="1" data-row="9" class="lattice-cell" points="66,107 82,116 66,125 50,116" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_2_9" data-col="2" data-row="9" class="lattice-cell" points="82,116 98,125 82,134 66,125" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_3_9" data-col="3" data-row="9" class="lattice-cell" points="98,125 114,134 98,143 82,134" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_4_9" data-col="4" data-row="9" class="lattice-cell" points="114,134 130,143 114,152 98,143" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_5_9" data-col="5" data-row="9" class="lattice-cell" points="130,143 146,152 130,161 114,152" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_6_9" data-col="6" data-row="9" class="lattice-cell" points="146,152 162,161 146,170 130,161" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_7_9" data-col="7" data-row="9" class="lattice-cell" points="162,161 178,170 162,179 146,170" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_8_9" data-col="8" data-row="9" class="lattice-cell" points="178,170 194,179 178,188 162,179" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_9_9" data-col="9" data-row="9" class="lattice-cell" points="194,179 210,188 194,197 178,188" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_10_9" data-col="10" data-row="9" class="lattice-cell" points="210,188 226,197 210,206 194,197" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_11_9" data-col="11" data-row="9" class="lattice-cell" points="226,197 242,206 226,215 210,206" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_0_10" data-col="0" data-row="10" class="lattice-cell" points="34,107 50,116 34,125 18,116" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_1_10" data-col="1" data-row="10" class="lattice-cell" points="50,116 66,125 50,134 34,125" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_2_10" data-col="2" data-row="10" class="lattice-cell" points="66,125 82,134 66,143 50,134" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_3_10" data-col="3" data-row="10" class="lattice-cell" points="82,134 98,143 82,152 66,143" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_4_10" data-col="4" data-row="10" class="lattice-cell" points="98,143 114,152 98,161 82,152" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_5_10" data-col="5" data-row="10" class="lattice-cell" points="114,152 130,161 114,170 98,161" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_6_10" data-col="6" data-row="10" class="lattice-cell" points="130,161 146,170 130,179 114,170" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_7_10" data-col="7" data-row="10" class="lattice-cell" points="146,170 162,179 146,188 130,179" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_8_10" data-col="8" data-row="10" class="lattice-cell" points="162,179 178,188 162,197 146,188" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_9_10" data-col="9" data-row="10" class="lattice-cell" points="178,188 194,197 178,206 162,197" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_10_10" data-col="10" data-row="10" class="lattice-cell" points="194,197 210,206 194,215 178,206" fill="#0F172A" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <polygon id="cell_11_10" data-col="11" data-row="10" class="lattice-cell" points="210,206 226,215 210,224 194,215" fill="#1B2540" stroke="#B08D3C" stroke-width="0.5" stroke-opacity="0.35" />
+              <g class="lattice-node" data-node="0,8">
+                <circle cx="66" cy="98" r="4.5" fill="#2DD4BF" stroke="#0F172A" stroke-width="1.5" />
+                <circle cx="66" cy="98" r="8" fill="none" stroke="#2DD4BF" stroke-width="0.75" opacity="0.6" />
               </g>
-
-              <!-- Filled Signal Teal Nodes -->
-              <g fill="#0D9488" opacity="0.95">
-                <polygon points="60,81 76,90 60,99 44,90" />
-                <polygon points="76,90 92,99 76,108 60,99" />
-                <polygon points="92,99 108,108 92,117 76,108" />
-                <polygon points="108,108 124,117 108,126 92,117" />
-                <polygon points="124,117 140,126 124,135 108,126" />
-                <polygon points="140,126 156,135 140,144 124,135" />
-                <polygon points="156,135 172,144 156,153 140,144" />
-                <polygon points="172,144 188,153 172,162 156,153" />
-                <polygon points="188,153 204,162 188,171 172,162" />
-                <polygon points="204,162 220,171 204,180 188,171" />
-                <polygon points="220,171 236,180 220,189 204,180" />
-                <polygon points="236,81 252,90 236,99 220,90" />
-                <polygon points="252,90 268,99 252,108 236,99" />
-                <polygon points="268,99 284,108 268,117 252,108" />
+              <g class="lattice-node" data-node="3,6">
+                <circle cx="146" cy="107" r="4.5" fill="#2DD4BF" stroke="#0F172A" stroke-width="1.5" />
+                <circle cx="146" cy="107" r="8" fill="none" stroke="#2DD4BF" stroke-width="0.75" opacity="0.6" />
               </g>
-
-              <!-- Amber Nexus Node with Real-Time Pulse -->
-              <polygon points="220,135 236,144 220,153 204,144" fill="#D97706" class="pulse-amber" />
-
-              <!-- Harmonic Sine Wave Transition Path -->
-              <path d="M 48 168 C 96 156, 128 138, 164 118 S 228 82, 268 74 S 318 78, 352 96" fill="none" stroke="#F8FAFC" stroke-width="1.8" stroke-linecap="round" opacity="0.92" />
-              <!-- Nexus Coordinates -->
-              <circle cx="164" cy="118" r="2.8" fill="#F8FAFC" />
-              <circle cx="268" cy="74" r="2.8" fill="#F8FAFC" />
-              <circle cx="220" cy="144" r="4.2" fill="#D97706" stroke="#F8FAFC" stroke-width="1" class="pulse-amber" />
+              <g class="lattice-node" data-node="6,2">
+                <circle cx="258" cy="98" r="4.5" fill="#2DD4BF" stroke="#0F172A" stroke-width="1.5" />
+                <circle cx="258" cy="98" r="8" fill="none" stroke="#2DD4BF" stroke-width="0.75" opacity="0.6" />
+              </g>
+              <g class="lattice-node" data-node="8,4">
+                <circle cx="258" cy="134" r="4.5" fill="#2DD4BF" stroke="#0F172A" stroke-width="1.5" />
+                <circle cx="258" cy="134" r="8" fill="none" stroke="#2DD4BF" stroke-width="0.75" opacity="0.6" />
+              </g>
+              <g class="lattice-node" data-node="10,5">
+                <circle cx="274" cy="161" r="4.5" fill="#2DD4BF" stroke="#0F172A" stroke-width="1.5" />
+                <circle cx="274" cy="161" r="8" fill="none" stroke="#2DD4BF" stroke-width="0.75" opacity="0.6" />
+              </g>
+              <!-- Single Focal Node at (8,6): Gold-ringed Red Queen piece -->
+              <g id="focalQueenNode" class="focal-queen-piece" data-node="8,6">
+                <circle cx="226" cy="152" r="14" fill="rgba(245, 158, 11, 0.15)" stroke="none" />
+                <circle cx="226" cy="152" r="10" fill="none" stroke="#F59E0B" stroke-width="2.5" />
+                <circle cx="226" cy="152" r="6.8" fill="#FDA4AF" stroke="#0F172A" stroke-width="0.75" />
+                <text x="226" y="155.5" text-anchor="middle" font-size="8.5" fill="#0F172A" font-weight="bold" font-family="'EB Garamond', serif">♕</text>
+                <text x="226" y="139" text-anchor="middle" font-size="7.5" fill="#F59E0B" font-family="'JetBrains Mono', monospace" font-weight="bold">★ (8,6)</text>
+              </g>
             </svg>
           </div>
 
-          <div style="display:flex; justify-content:space-between; font-family:var(--font-technical); font-size:0.68rem; color:#64748B; margin-top:0.75rem;">
-            <span>Structure &bull; Teal Node</span>
-            <span style="color:#F59E0B;">Resonant Nexus &bull; Amber (8, 6)</span>
+          <div style="display:flex; justify-content:space-between; align-items:center; font-family:var(--font-technical); font-size:0.7rem; color:#94A3B8; margin-top:0.75rem; border-top:1px solid rgba(176,141,60,0.3); padding-top:0.5rem;">
+            <span>■ Canvas (#0F172A) / ■ Board Slate (#1B2540)</span>
+            <span style="color:var(--color-white-rabbit-gold); font-weight:700;">♕ Focal Node: Red Queen at (8, 6)</span>
           </div>
         </div>
 
-        <!-- Metric Inspector Card -->
+        <!-- Metric Inspector Card with subtle 2-3% checker pattern on stat grid only -->
         <div class="inspector-card">
-          <div class="inspector-title">&bull; Real-Time Node Inspector</div>
+          <div class="inspector-title"><span class="chapter-numeral">Chapter III.III</span> &bull; Real-Time Node Inspector</div>
           <div class="inspector-name" id="inspName">Lattice Node Stability</div>
-          <div class="inspector-grid">
+          
+          <div class="inspector-grid stat-grid-checker">
             <div class="inspector-item">
               <div class="inspector-item-label">Current Telemetry</div>
-              <div class="inspector-item-val" id="inspCur" style="color:#14B8A6;">98.7%</div>
+              <div class="inspector-item-val" id="inspCur" style="color:var(--color-cheshire-teal);">98.7%</div>
             </div>
             <div class="inspector-item">
               <div class="inspector-item-label">Previous Window</div>
@@ -738,16 +1175,17 @@
             </div>
             <div class="inspector-item">
               <div class="inspector-item-label">Variance &bull; Delta</div>
-              <div class="inspector-item-val" id="inspDelta" style="color:#14B8A6;">+1.6%</div>
+              <div class="inspector-item-val" id="inspDelta" style="color:var(--color-cheshire-teal);">+1.6%</div>
             </div>
             <div class="inspector-item">
               <div class="inspector-item-label">Status State</div>
-              <div class="inspector-item-val" id="inspStatus" style="font-size:0.85rem; color:#14B8A6;">NOMINAL</div>
+              <div class="inspector-item-val" id="inspStatus" style="font-size:0.85rem; color:var(--color-cheshire-teal);">✓ NOMINAL</div>
             </div>
           </div>
-          <div style="font-family:var(--font-technical); font-size:0.72rem; color:#94A3B8; background:#0F172A; padding:0.75rem 1rem; border:1px solid #334155; border-radius:4px;">
-            <div style="color:#64748B; margin-bottom:0.25rem;">ACTIVE COORDINATE MAPPING</div>
-            <div id="inspNode" style="color:#CBD5E1;">Matrix (0, 8) &bull; Phase Core</div>
+
+          <div style="font-family:var(--font-technical); font-size:0.74rem; color:#CBD5E1; background:var(--color-board-slate); padding:0.75rem 1rem; border:1px solid rgba(176, 141, 60, 0.4); border-radius:3px;">
+            <div style="color:#94A3B8; margin-bottom:0.25rem; font-family:var(--font-display); font-variant:small-caps;">Active Coordinate Mapping</div>
+            <div id="inspNode" style="color:var(--color-vellum); font-weight:600;">Matrix (0, 8) &bull; Phase Core</div>
           </div>
         </div>
       </div>
@@ -756,18 +1194,19 @@
 
     <!-- Color Architecture Swatches Section -->
     <div class="swatches-section">
-      <h2 class="swatches-title">Color Architecture Tokens</h2>
-      <p class="swatches-sub">Validated WCAG AAA contrast pairings extracted directly from the Canva AI visual identity system.</p>
+      <h2 class="swatches-title"><span class="chapter-numeral">Chapter III.IV</span> &bull; Looking-Glass Color Architecture</h2>
+      <p class="swatches-sub">Contrast ratios computed mathematically against the Looking-Glass Slate canvas (#0F172A). WCAG AAA for normal text requires 7.0:1 minimum.</p>
 
       <div class="swatches-grid">
-        <!-- Deep Slate -->
+        <!-- Looking-Glass Slate (Canvas) -->
         <div class="swatch-card">
-          <div class="swatch-color-box" style="background:#0F172A; border-bottom: 1px solid #334155;">
-            <span class="sc-badge" style="background:rgba(248,250,252,0.1); color:#F8FAFC;">AAA 21.0:1</span>
+          <div class="swatch-color-box" style="background:#0F172A;">
+            <span class="sc-badge sc-badge-brass">CANVAS BASE</span>
           </div>
           <div class="swatch-details">
-            <div class="swatch-name">Deep Slate</div>
-            <div class="swatch-role">Primary Base &bull; Canvas</div>
+            <div class="swatch-name">Looking-Glass Slate</div>
+            <div class="swatch-role">Canvas Grounding</div>
+            <div class="swatch-rule-note">Stable dark canvas for typography, telemetry, and 12&times;11 matrix.</div>
             <div class="swatch-hex-row">
               <span>#0F172A</span>
               <button class="hex-copy-btn" onclick="copyHex(this, '#0F172A')">Copy</button>
@@ -775,47 +1214,98 @@
           </div>
         </div>
 
-        <!-- Signal Teal -->
+        <!-- Board Slate -->
         <div class="swatch-card">
-          <div class="swatch-color-box" style="background:#0D9488;">
-            <span class="sc-badge" style="background:rgba(15,23,42,0.3); color:#FFFFFF;">AAA 4.7:1</span>
+          <div class="swatch-color-box" style="background:#1B2540;">
+            <span class="sc-badge sc-badge-brass">BOARD SQUARE</span>
           </div>
           <div class="swatch-details">
-            <div class="swatch-name">Signal Teal</div>
-            <div class="swatch-role">Accent / Action</div>
+            <div class="swatch-name">Board Slate</div>
+            <div class="swatch-role">Alternating Square</div>
+            <div class="swatch-rule-note">Checkerboard alt square. Tightest pairing: Gold on Board Slate measures 7.06:1 (AAA).</div>
             <div class="swatch-hex-row">
-              <span>#0D9488</span>
-              <button class="hex-copy-btn" onclick="copyHex(this, '#0D9488')">Copy</button>
+              <span>#1B2540</span>
+              <button class="hex-copy-btn" onclick="copyHex(this, '#1B2540')">Copy</button>
             </div>
           </div>
         </div>
 
-        <!-- Resonant Amber -->
+        <!-- Cheshire Teal -->
         <div class="swatch-card">
-          <div class="swatch-color-box" style="background:#D97706;">
-            <span class="sc-badge" style="background:rgba(15,23,42,0.3); color:#FFFFFF;">AAA 4.5:1</span>
+          <div class="swatch-color-box" style="background:#2DD4BF;">
+            <span class="sc-badge" style="background:rgba(15,23,42,0.85); color:#2DD4BF; border:1px solid #2DD4BF;">AAA 9.59:1</span>
           </div>
           <div class="swatch-details">
-            <div class="swatch-name">Resonant Amber</div>
-            <div class="swatch-role">Warm Accent &bull; Nexus</div>
+            <div class="swatch-name">Cheshire Teal</div>
+            <div class="swatch-role">Accent / Action Trigger</div>
+            <div class="swatch-rule-note">Primary actions, nominal states, and active data nodes.</div>
             <div class="swatch-hex-row">
-              <span>#D97706</span>
-              <button class="hex-copy-btn" onclick="copyHex(this, '#D97706')">Copy</button>
+              <span>#2DD4BF</span>
+              <button class="hex-copy-btn" onclick="copyHex(this, '#2DD4BF')">Copy</button>
             </div>
           </div>
         </div>
 
-        <!-- Chalk White -->
+        <!-- White Rabbit Gold -->
         <div class="swatch-card">
-          <div class="swatch-color-box" style="background:#F8FAFC;">
-            <span class="sc-badge" style="background:rgba(15,23,42,0.1); color:#0F172A;">AAA 4.6:1</span>
+          <div class="swatch-color-box" style="background:#F59E0B;">
+            <span class="sc-badge" style="background:rgba(15,23,42,0.85); color:#F59E0B; border:1px solid #F59E0B;">AAA 8.31:1</span>
           </div>
           <div class="swatch-details">
-            <div class="swatch-name" style="color:#F8FAFC;">Chalk White</div>
-            <div class="swatch-role">Neutral Canvas &bull; Type</div>
+            <div class="swatch-name">White Rabbit Gold</div>
+            <div class="swatch-role">Warm Accent &bull; Single Focal Node</div>
+            <div class="swatch-rule-note">Marks the single focal node on any screen. Measures 7.06:1 on Board Slate.</div>
             <div class="swatch-hex-row">
-              <span>#F8FAFC</span>
-              <button class="hex-copy-btn" onclick="copyHex(this, '#F8FAFC')">Copy</button>
+              <span>#F59E0B</span>
+              <button class="hex-copy-btn" onclick="copyHex(this, '#F59E0B')">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Red Queen -->
+        <div class="swatch-card">
+          <div class="swatch-color-box" style="background:#FDA4AF;">
+            <span class="sc-badge" style="background:rgba(15,23,42,0.85); color:#FDA4AF; border:1px solid #FDA4AF;">AAA 9.44:1</span>
+          </div>
+          <div class="swatch-details">
+            <div class="swatch-name">Red Queen</div>
+            <div class="swatch-role">Threshold / Caution / Error</div>
+            <div class="swatch-rule-note">Strictly reserved for Caution and threshold states. Paired with explicit label or icon.</div>
+            <div class="swatch-hex-row">
+              <span>#FDA4AF</span>
+              <button class="hex-copy-btn" onclick="copyHex(this, '#FDA4AF')">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vellum -->
+        <div class="swatch-card">
+          <div class="swatch-color-box" style="background:#F5EFE0;">
+            <span class="sc-badge" style="background:rgba(15,23,42,0.85); color:#F5EFE0; border:1px solid #F5EFE0;">AAA 15.56:1</span>
+          </div>
+          <div class="swatch-details">
+            <div class="swatch-name">Vellum</div>
+            <div class="swatch-role">Body Type &bull; High Legibility</div>
+            <div class="swatch-rule-note">Running text, tables, and prose. Maximum legibility on Looking-Glass Slate.</div>
+            <div class="swatch-hex-row">
+              <span>#F5EFE0</span>
+              <button class="hex-copy-btn" onclick="copyHex(this, '#F5EFE0')">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brass Hairline -->
+        <div class="swatch-card">
+          <div class="swatch-color-box" style="background:#B08D3C;">
+            <span class="sc-badge sc-badge-brass" style="background:rgba(15,23,42,0.85);">DECORATION ONLY</span>
+          </div>
+          <div class="swatch-details">
+            <div class="swatch-name">Brass Hairline</div>
+            <div class="swatch-role">Dividers &bull; Double Borders</div>
+            <div class="swatch-rule-note">Measures 5.71:1 on canvas. Used strictly for decorative dividers and double borders, NEVER text.</div>
+            <div class="swatch-hex-row">
+              <span>#B08D3C</span>
+              <button class="hex-copy-btn" onclick="copyHex(this, '#B08D3C')">Copy</button>
             </div>
           </div>
         </div>
@@ -824,8 +1314,8 @@
 
   </main>
 
-  <footer style="border-top:1px solid #334155; background:#0B1120; padding:2.5rem 2rem; text-align:center; font-family:var(--font-technical); font-size:0.78rem; color:#64748B;">
-    Structural Clarity Telemetry Studio &bull; Canva AI Visual Identity System &bull; Precedent Systems
+  <footer style="border-top: 3px double var(--color-brass-hairline); background: #080D1A; padding: 2.5rem 2rem; text-align: center; font-family: var(--font-technical); font-size: 0.78rem; color: #94A3B8;">
+    Structural Clarity &bull; Looking-Glass Theme &bull; Utility Over Ornament &bull; Carrollian Wit in Structure &bull; Precedent Systems
   </footer>
 
   <div id="toast">Copied to clipboard</div>
@@ -867,15 +1357,17 @@
         inspNode.textContent = r.dataset.node;
 
         if (r.dataset.tone === 'warn') {
-          inspCur.style.color = '#F59E0B';
-          inspDelta.style.color = '#F59E0B';
-          inspStatus.style.color = '#F59E0B';
-          inspStatus.textContent = 'CAUTION / THRESHOLD';
+          // Red Queen for Caution / Threshold state, paired with explicit icon & text
+          inspCur.style.color = '#FDA4AF';
+          inspDelta.style.color = '#F59E0B'; // White Rabbit Gold marks focal coordinate
+          inspStatus.style.color = '#FDA4AF';
+          inspStatus.textContent = '⚠ CAUTION / THRESHOLD';
         } else {
-          inspCur.style.color = '#14B8A6';
-          inspDelta.style.color = '#14B8A6';
-          inspStatus.style.color = '#14B8A6';
-          inspStatus.textContent = 'NOMINAL';
+          // Cheshire Teal for Nominal state
+          inspCur.style.color = '#2DD4BF';
+          inspDelta.style.color = '#2DD4BF';
+          inspStatus.style.color = '#2DD4BF';
+          inspStatus.textContent = '✓ NOMINAL';
         }
       });
     });
@@ -884,12 +1376,8 @@
     const filterButtons = document.querySelectorAll('.filter-btn');
     filterButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        filterButtons.forEach(b => {
-          b.classList.remove('sc-gradient-teal');
-          b.classList.add('sc-outline-minimal');
-        });
-        btn.classList.add('sc-gradient-teal');
-        btn.classList.remove('sc-outline-minimal');
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
         const filter = btn.dataset.filter;
         rows.forEach(r => {
