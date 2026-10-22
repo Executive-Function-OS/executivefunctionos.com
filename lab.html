@@ -13,6 +13,7 @@
   
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="kinetic_clarity_buttons.css">
+  <link rel="stylesheet" href="navigation.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <style>
@@ -789,10 +790,11 @@
 </head>
 <body>
 
-  <header>
-    <div class="nav-inner">
-      <a href="index.html" class="brand">
-        <svg class="brand-logo" viewBox="0 0 64 64" fill="none">
+  <!-- Universal Looking-Glass Header Navigation -->
+  <header class="lg-navbar">
+    <div class="lg-nav-container">
+      <a href="index.html" class="lg-brand" title="Executive Function OS — Main Hub">
+        <svg class="lg-brand-logo" viewBox="0 0 64 64" fill="none">
           <rect width="64" height="64" rx="4" fill="#0F172A" />
           <rect x="8" y="8" width="48" height="48" stroke="#B08D3C" stroke-width="1.5" fill="#1B2540" />
           <circle cx="24" cy="24" r="4.5" fill="#2DD4BF" />
@@ -800,20 +802,165 @@
           <circle cx="32" cy="40" r="6" fill="#FDA4AF" stroke="#F59E0B" stroke-width="2" />
           <text x="32" y="43" text-anchor="middle" font-size="7" fill="#0F172A" font-weight="bold">♕</text>
         </svg>
-        <div>
-          <div class="brand-title">Looking-Glass Theme</div>
-          <div class="brand-sub">STRUCTURAL CLARITY &bull; UTILITY OVER ORNAMENT</div>
+        <div class="lg-brand-text">
+          <div class="lg-brand-title">Executive Function OS</div>
+          <div class="lg-brand-sub">Looking-Glass Architecture</div>
         </div>
       </a>
-      <div class="nav-actions">
-        <a href="paladin.html" class="nav-link" style="color:var(--color-white-rabbit-gold); font-weight:700;">PALADIN (A2J)</a>
-        <a href="library.html" class="nav-link" style="color:var(--color-cheshire-teal); font-weight:700;">Source Library</a>
-        <a href="store.html" class="nav-link">Storefront</a>
-        <a href="buttons.html" class="nav-link">Kinetic Buttons</a>
-        <a href="index.html" class="nav-link">EFOS Hub</a>
+
+      <!-- Cohesive Nav Menu with Hover Flyouts -->
+      <ul class="lg-nav-menu">
+        <li class="lg-nav-item">
+          <a href="index.html" class="lg-nav-btn">Hub Overview</a>
+        </li>
+
+        <!-- Pillar 1: Percolation Dynamics (Engine A) -->
+        <li class="lg-nav-item">
+          <button class="lg-nav-btn active">
+            Cognitive Percolation <span class="lg-chevron">&blacktriangledown;</span>
+          </button>
+          <div class="lg-dropdown">
+            <div class="lg-dropdown-header">Engine A &bull; Computational Phenotyping</div>
+            <a href="cognitive_fragmentation_lab.html" class="lg-dropdown-link">
+              <span class="lg-dropdown-icon">⚡</span>
+              <div class="lg-dropdown-text">
+                <span class="lg-dropdown-name">Percolation Diagnostic Lab <span class="lg-pill lg-pill-teal">N=1 Live</span></span>
+                <span class="lg-dropdown-desc">Bond dilution simulation, critical threshold (p_c), cluster timeline</span>
+              </div>
+            </a>
+            <a href="schema_canvas.html" class="lg-dropdown-link">
+              <span class="lg-dropdown-icon">🕸</span>
+              <div class="lg-dropdown-text">
+                <span class="lg-dropdown-name">Network Schema Canvas</span>
+                <span class="lg-dropdown-desc">Interactive node-link ontology mapping &amp; JSON schema export</span>
+              </div>
+            </a>
+            <a href="lab.html" class="lg-dropdown-link">
+              <span class="lg-dropdown-icon">📊</span>
+              <div class="lg-dropdown-text">
+                <span class="lg-dropdown-name">Telemetry Studio (12&times;11)</span>
+                <span class="lg-dropdown-desc">12&times;11 Cartesian checkerboard lattice &amp; real-time node inspector</span>
+              </div>
+            </a>
+          </div>
+        </li>
+
+        <!-- Pillar 2: Legal Provenance & A2J (Engine B) -->
+        <li class="lg-nav-item">
+          <button class="lg-nav-btn">
+            Legal Provenance (A2J) <span class="lg-chevron">&blacktriangledown;</span>
+          </button>
+          <div class="lg-dropdown">
+            <div class="lg-dropdown-header">Engine B &bull; Evidentiary Provenance</div>
+            <a href="paladin.html" class="lg-dropdown-link">
+              <span class="lg-dropdown-icon">⚖</span>
+              <div class="lg-dropdown-text">
+                <span class="lg-dropdown-name">PALADIN Pro Se Suite <span class="lg-pill lg-pill-gold">A2J</span></span>
+                <span class="lg-dropdown-desc">28-line UTCR pleading engine, citation verifier &amp; preflight triage</span>
+              </div>
+            </a>
+            <a href="timeline.html" class="lg-dropdown-link">
+              <span class="lg-dropdown-icon">📜</span>
+              <div class="lg-dropdown-text">
+                <span class="lg-dropdown-name">Master Forensic Timeline <span class="lg-pill lg-pill-teal">162 Records</span></span>
+                <span class="lg-dropdown-desc">Interleaved court filings, land use, municipal acts, and code enforcement</span>
+              </div>
+            </a>
+            <a href="library.html" class="lg-dropdown-link">
+              <span class="lg-dropdown-icon">📚</span>
+              <div class="lg-dropdown-text">
+                <span class="lg-dropdown-name">Evidence Source Library <span class="lg-pill lg-pill-teal">5,612</span></span>
+                <span class="lg-dropdown-desc">Curated public records, appellate authorities, and Daubert indices</span>
+              </div>
+            </a>
+            <a href="privity.html" class="lg-dropdown-link">
+              <span class="lg-dropdown-icon">🔍</span>
+              <div class="lg-dropdown-text">
+                <span class="lg-dropdown-name">The Privity Paradox</span>
+                <span class="lg-dropdown-desc">Standing defects, non-party vulnerability, and assignment chains</span>
+              </div>
+            </a>
+            <a href="forensic-microclimate.html" class="lg-dropdown-link">
+              <span class="lg-dropdown-icon">🛰</span>
+              <div class="lg-dropdown-text">
+                <span class="lg-dropdown-name">Forensic Microclimate Report <span class="lg-pill lg-pill-rose">FRE 702</span></span>
+                <span class="lg-dropdown-desc">30-year calibrated Landsat satellite surface temperature study</span>
+              </div>
+            </a>
+            <a href="why-paladin.html" class="lg-dropdown-link">
+              <span class="lg-dropdown-icon">🏛</span>
+              <div class="lg-dropdown-text">
+                <span class="lg-dropdown-name">Why PALADIN Exists</span>
+                <span class="lg-dropdown-desc">Structural manifesto on the pro se crisis &amp; cognitive asymmetry</span>
+              </div>
+            </a>
+          </div>
+        </li>
+
+        <!-- Pillar 3: System Atlas & Media -->
+        <li class="lg-nav-item">
+          <button class="lg-nav-btn">
+            System Atlas &amp; Specs <span class="lg-chevron">&blacktriangledown;</span>
+          </button>
+          <div class="lg-dropdown align-right">
+            <div class="lg-dropdown-header">System Synthesis &amp; Design Spec</div>
+            <a href="index.html#interrelations" class="lg-dropdown-link">
+              <span class="lg-dropdown-icon">🧭</span>
+              <div class="lg-dropdown-text">
+                <span class="lg-dropdown-name">Interrelation Atlas <span class="lg-pill lg-pill-gold">Map</span></span>
+                <span class="lg-dropdown-desc">Comprehensive cross-link matrix mapping all inputs and outputs</span>
+              </div>
+            </a>
+            <a href="presentation.html" class="lg-dropdown-link">
+              <span class="lg-dropdown-icon">📽</span>
+              <div class="lg-dropdown-text">
+                <span class="lg-dropdown-name">16-Slide Evidentiary Deck</span>
+                <span class="lg-dropdown-desc">"Making Complexity Legible" with native audio narration</span>
+              </div>
+            </a>
+            <a href="store.html" class="lg-dropdown-link">
+              <span class="lg-dropdown-icon">🎨</span>
+              <div class="lg-dropdown-text">
+                <span class="lg-dropdown-name">Looking-Glass Design Store</span>
+                <span class="lg-dropdown-desc">UI Kit, token specifications, and commercial licenses</span>
+              </div>
+            </a>
+            <a href="buttons.html" class="lg-dropdown-link">
+              <span class="lg-dropdown-icon">🔘</span>
+              <div class="lg-dropdown-text">
+                <span class="lg-dropdown-name">24 Kinetic CSS Buttons</span>
+                <span class="lg-dropdown-desc">GPU-accelerated pure CSS animated components</span>
+              </div>
+            </a>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Primary Action CTA -->
+      <div class="lg-nav-actions">
+        <a href="cognitive_fragmentation_lab.html" class="lg-cta-btn">
+          <span>⚡ Live Lab</span>
+        </a>
       </div>
     </div>
   </header>
+
+  <!-- Contextual Breadcrumb & Interrelation Sub-Bar -->
+  <div class="lg-breadcrumb-strip">
+    <div class="lg-breadcrumbs">
+      <a href="index.html">EFOS Hub</a>
+      <span class="lg-crumb-sep">&rsaquo;</span>
+      <a href="cognitive_fragmentation_lab.html">Cognitive Percolation</a>
+      <span class="lg-crumb-sep">&rsaquo;</span>
+      <span class="lg-crumb-current">Telemetry Studio (12&times;11 Matrix)</span>
+    </div>
+    <div class="lg-interrelations-strip">
+      <span class="lg-interrelation-label">Interrelated Nodes:</span>
+      <a href="cognitive_fragmentation_lab.html" class="lg-node-pill">⚡ N=1 Percolation Lab</a>
+      <a href="schema_canvas.html" class="lg-node-pill">🕸 Schema Canvas</a>
+      <a href="index.html#interrelations" class="lg-node-pill" style="border-color:var(--color-white-rabbit-gold); color:var(--color-white-rabbit-gold);">🧭 Interrelation Atlas &rarr;</a>
+    </div>
+  </div>
 
   <main class="container">
 

@@ -94,19 +94,19 @@ NEW_ENTRIES = [
         "phase_title": "0. Phase 0: Historical Foundation & Structural Architecture (1994–2022)",
         "layer": "foreclosure",
         "layer_title": "Foreclosure & Title",
-        "date_time": "July 11, 2011",
-        "date_sort": "2011-07-11",
+        "date_time": "June 21, 2012 (Recorded August 8, 2012)",
+        "date_sort": "2012-08-08",
         "title": "Recorded Assignment Conveys Beneficial Interest to CWALT 2006-OC11",
-        "medium": "County Deed Records (Instr. No. 2011-042854)",
+        "medium": "County Deed Records (Instr. No. 2012-052957 / Doc No. 2012-050620)",
         "medium_cat": "Court Filing / Order",
         "from": "Mortgage Electronic Registration Systems, Inc. (MERS)",
         "to": "The Bank of New York Mellon as Trustee for CWALT 2006-OC11",
         "actor_cat": "Other / Unknown",
         "subject": "Chain of Title Securitization Assignment Discrepancy",
-        "summary": "MERS records Assignment of Deed of Trust in Clackamas County Official Records (Fee No. 2011-042854), conveying beneficial interest exclusively to CWALT, Inc., Alternative Loan Trust 2006-OC11. When BONYM files foreclosure six years later, it sues under CWALT 2006-OC10—a legally separate trust with different SEC filings and distinct certificateholders—creating a permanent standing defect.",
-        "summary_html": "<p>MERS records Assignment of Deed of Trust in Clackamas County Official Records (Fee No. 2011-042854), conveying beneficial interest exclusively to CWALT, Inc., Alternative Loan Trust 2006-OC11. When BONYM files foreclosure six years later, it sues under CWALT 2006-OC10—a legally separate trust with different SEC filings and distinct certificateholders—creating a permanent standing defect.</p>",
-        "record_source": "Clackamas County Official Records Fee No. 2011-042854; SEC EDGAR Form 8-K; WFG Title Report File 22-359102; ORCP 71 Motion.",
-        "record_source_html": "<p><span class=\"file-source-tag\">Clackamas Rec. No. 2011-042854</span>; <span class=\"file-source-tag\">SEC EDGAR Filings</span>; <span class=\"file-source-tag\">ORCP 71 Motion</span>.</p>"
+        "summary": "MERS executes Assignment of Deed of Trust on June 21, 2012 (recorded August 8, 2012 in Clackamas County Official Records as Instrument No. 2012-052957 / Doc No. 2012-050620, Ex. B-1), conveying beneficial interest exclusively to CWALT, Inc., Alternative Loan Trust 2006-OC11. When BONYM files foreclosure five years later, it sues under CWALT 2006-OC10—a legally separate trust with different SEC filings and distinct certificateholders—creating a permanent standing defect.",
+        "summary_html": "<p>MERS executes Assignment of Deed of Trust on June 21, 2012 (recorded August 8, 2012 in Clackamas County Official Records as Instrument No. 2012-052957 / Doc No. 2012-050620, Ex. B-1), conveying beneficial interest exclusively to CWALT, Inc., Alternative Loan Trust 2006-OC11. When BONYM files foreclosure five years later, it sues under CWALT 2006-OC10—a legally separate trust with different SEC filings and distinct certificateholders—creating a permanent standing defect.</p>",
+        "record_source": "Clackamas County Official Records Instrument No. 2012-052957 (Doc No. 2012-050620, Ex. B-1); WFG Title Report File 22-359102 (Ex. B-6); ORCP 71 Motion.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Clackamas Instr. No. 2012-052957 (Ex. B-1)</span>; <span class=\"file-source-tag\">WFG Title Report (Ex. B-6)</span>; <span class=\"file-source-tag\">ORCP 71 Motion</span>.</p>"
     },
     {
         "id": "tlh-2014-01",
@@ -304,19 +304,19 @@ NEW_ENTRIES = [
         "phase_title": "0. Phase 0: Historical Foundation & Structural Architecture (1994–2022)",
         "layer": "foreclosure",
         "layer_title": "Foreclosure & Title",
-        "date_time": "April 14, 2016",
+        "date_time": "April 14–27, 2016 (Recorded May 16, 2016)",
         "date_sort": "2016-04-14",
-        "title": "Bankruptcy Order Approves Compromise; Trustee's Deed to TLH",
-        "medium": "Bankruptcy Order (Doc 39) & Recorded Trustee's Deed",
+        "title": "Bankruptcy Order Approves Compromise; Trustee's Deed to TLH (Instr. No. 2016-031273)",
+        "medium": "Bankruptcy Order (Doc 39) & Recorded Trustee's Deed (Instr. No. 2016-031273)",
         "medium_cat": "Court Filing / Order",
         "from": "Hon. Randall L. Dunn (U.S. Bankruptcy Judge) / Amy Mitchell (Trustee)",
         "to": "Turning Leaf Homes, LLC",
         "actor_cat": "Municipal Court",
         "subject": "Conveyance of Fee Title for 12054 Chapin Court to Turning Leaf Homes",
-        "summary": "Judge Dunn enters Order Approving Motion to Settle and Compromise (Doc 39). Trustee Amy Mitchell executes Trustee's Deed conveying all right, title, and interest in 12054 Chapin Court to Turning Leaf Homes, LLC, vesting fee simple ownership in TLH subject to valid senior encumbrances.",
-        "summary_html": "<p>Judge Dunn enters Order Approving Motion to Settle and Compromise (Doc 39). Trustee Amy Mitchell executes Trustee's Deed conveying all right, title, and interest in 12054 Chapin Court to Turning Leaf Homes, LLC, vesting fee simple ownership in TLH subject to valid senior encumbrances.</p>",
-        "record_source": "U.S. Bankruptcy Court Case 15-35133-rld7 Doc 39; Clackamas County Deed Records (April 2016 Trustee Deed); Corporate filings and legal docs.txt Section 6.",
-        "record_source_html": "<p><span class=\"file-source-tag\">Bankruptcy Doc 39</span>; <span class=\"file-source-tag\">2016 Trustee Deed to TLH</span>.</p>"
+        "summary": "Judge Dunn enters Order Approving Motion to Settle and Compromise (Doc 39) on April 14, 2016. Chapter 7 Trustee Amy Mitchell executes Trustee's Deed on April 27, 2016 (recorded May 16, 2016 as Instrument No. 2016-031273, Ex. A-2), conveying all right, title, and interest in 12054 Chapin Court to Turning Leaf Homes, LLC and vesting fee simple ownership in TLH.",
+        "summary_html": "<p>Judge Dunn enters Order Approving Motion to Settle and Compromise (Doc 39) on April 14, 2016. Chapter 7 Trustee Amy Mitchell executes Trustee's Deed on April 27, 2016 (recorded May 16, 2016 as Instrument No. 2016-031273, Ex. A-2), conveying all right, title, and interest in 12054 Chapin Court to Turning Leaf Homes, LLC and vesting fee simple ownership in TLH.</p>",
+        "record_source": "U.S. Bankruptcy Court Case 15-35133-rld7 Doc 39; Clackamas County Official Records Instrument No. 2016-031273 (Ex. A-2); Corporate filings and legal docs.txt Section 6.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Bankruptcy Doc 39</span>; <span class=\"file-source-tag\">Instr. No. 2016-031273 (Ex. A-2)</span>.</p>"
     },
     {
         "id": "tlh-2017-02",
@@ -340,6 +340,27 @@ NEW_ENTRIES = [
         "record_source_html": "<p><span class=\"file-source-tag\">Case No. 17-30353-tmb11</span>; <span class=\"file-source-tag\">Tracey Baron Research Spreadsheets</span>.</p>"
     },
     {
+        "id": "tlh-2017-09",
+        "item_num": "0.4d2",
+        "phase_num": 0,
+        "phase_title": "0. Phase 0: Historical Foundation & Structural Architecture (1994–2022)",
+        "layer": "tlh-zbs",
+        "layer_title": "Turning Leaf & ZBS Network",
+        "date_time": "September 21, 2017",
+        "date_sort": "2017-09-21",
+        "title": "Bank Counsel Sworn Admission in Fannie Mae v. Fitch: TLH IV and TLH Are 'Completely Separate' Business Entities",
+        "medium": "Circuit Court Sworn Declaration (Clackamas County Case 15CV34832)",
+        "medium_cat": "Court Filing / Order",
+        "from": "Brady Godbout (Attorney for Fannie Mae / McCarthy & Holthus, LLP)",
+        "to": "Clackamas County Circuit Court",
+        "actor_cat": "Other / Unknown",
+        "subject": "Sworn Admission of Independent Legal Existence Across Turning Leaf Numbered Entities",
+        "summary": "In Fannie Mae v. Fitch (Clackamas County Case No. 15CV34832), bank counsel Brady Godbout of McCarthy & Holthus LLP files a sworn declaration addressing a suggestion of bankruptcy stay filed under Turning Leaf Homes IV, LLC (Case No. 17-30353-tmb11). Godbout attests under penalty of perjury that the bankruptcy stay of TLH IV does not halt foreclosure because title is held by Turning Leaf Homes, LLC, which is 'a completely separate business entity.' This certified declaration (Exhibit L in 17CV38591) establishes institutional and judicial recognition that each Turning Leaf numbered entity was legally distinct, refuting Jeffrey Myers's later pretext that TLH somehow 'merged into' or was synonymous with other entities.",
+        "summary_html": "<p>In <em>Fannie Mae v. Fitch</em> (Clackamas County Case No. 15CV34832), bank counsel Brady Godbout of McCarthy &amp; Holthus LLP files a sworn declaration addressing a suggestion of bankruptcy stay filed under Turning Leaf Homes IV, LLC (Case No. 17-30353-tmb11). Godbout attests under penalty of perjury that the bankruptcy stay of TLH IV does not halt foreclosure because title is held by Turning Leaf Homes, LLC, which is <strong>\"a completely separate business entity.\"</strong> This certified declaration (Exhibit L in 17CV38591) establishes institutional and judicial recognition that each Turning Leaf numbered entity was legally distinct, refuting Jeffrey Myers's later pretext that TLH somehow \"merged into\" or was synonymous with other entities.</p>",
+        "record_source": "Clackamas County Circuit Court Case No. 15CV34832 (Godbout Decl. filed 09/21/2017); Case 17CV38591 Motion to Set Aside Void Judgment Exhibit L; CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Case No. 15CV34832 (Godbout Decl.)</span>; <span class=\"file-source-tag\">17CV38591 Motion Ex. L</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
+    },
+    {
         "id": "fc-2017-10",
         "item_num": "0.4e",
         "phase_num": 0,
@@ -361,6 +382,27 @@ NEW_ENTRIES = [
         "record_source_html": "<p><span class=\"file-source-tag\">Clackamas Rec. No. 2017-073187</span>; <span class=\"file-source-tag\">WFG Title Report</span>; <span class=\"file-source-tag\">ORCP 71 Motion</span>.</p>"
     },
     {
+        "id": "tlh-2018-01",
+        "item_num": "0.4e2",
+        "phase_num": 0,
+        "phase_title": "0. Phase 0: Historical Foundation & Structural Architecture (1994–2022)",
+        "layer": "tlh-zbs",
+        "layer_title": "Turning Leaf & ZBS Network",
+        "date_time": "January 5, 2018",
+        "date_sort": "2018-01-05",
+        "title": "FITE, LLC Chapter 11 Bankruptcy (18-30038-tmb11) & Exclusion of Chapin Court from Asset Schedules",
+        "medium": "U.S. Bankruptcy Court Petition & Schedules (Bankr. D. Or.)",
+        "medium_cat": "Court Filing / Order",
+        "from": "FITE, LLC (Tracey Baron, Manager)",
+        "to": "U.S. Bankruptcy Court / Secured Creditors",
+        "actor_cat": "Other / Unknown",
+        "subject": "FITE Chapter 11 Filing Follows TLH IV/V Merger Only; Chapin Court Omitted",
+        "summary": "FITE, LLC files Chapter 11 voluntary bankruptcy (Case No. 18-30038-tmb11, Bankr. D. Or.) following a January 3, 2018 merger of only Turning Leaf Homes IV, LLC and Turning Leaf Homes V, LLC. Turning Leaf Homes, LLC was NOT a party to the merger and remained an independent active Oregon LLC. In the sworn bankruptcy schedules (Doc 13), FITE, LLC lists its real estate assets; crucially, the combined asset schedules of TLH IV, TLH V, and FITE, LLC all together do not include 12054 Chapin Court (Exhibit E-5 to ORCP 71 motion), proving FITE never held, claimed, or scheduled any interest in the Chapin Court property.",
+        "summary_html": "<p>FITE, LLC files Chapter 11 voluntary bankruptcy (Case No. 18-30038-tmb11, Bankr. D. Or.) following a January 3, 2018 merger of only Turning Leaf Homes IV, LLC and Turning Leaf Homes V, LLC. Turning Leaf Homes, LLC was <strong>NOT</strong> a party to the merger and remained an independent active Oregon LLC. In the sworn bankruptcy schedules (Doc 13), FITE, LLC lists its real estate assets; crucially, the combined asset schedules of TLH IV, TLH V, and FITE, LLC all together <strong>do not include 12054 Chapin Court</strong> (Exhibit E-5 to ORCP 71 motion), proving FITE never held, claimed, or scheduled any interest in the Chapin Court property.</p>",
+        "record_source": "U.S. Bankruptcy Court Case No. 18-30038-tmb11 Petition & Schedule A/B; Oregon Secretary of State Articles of Merger (Jan 3, 2018); Case 17CV38591 Motion to Set Aside Void Judgment Exhibit E-5.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Case No. 18-30038-tmb11 Doc 13</span>; <span class=\"file-source-tag\">17CV38591 Motion Ex. E-5</span>; <span class=\"file-source-tag\">Articles of Merger (01/03/2018)</span>.</p>"
+    },
+    {
         "id": "tlh-2018-05",
         "item_num": "0.4f",
         "phase_num": 0,
@@ -380,6 +422,48 @@ NEW_ENTRIES = [
         "summary_html": "<p>Judicial foreclosure filed on 30620 SW Rose Lane, Wilsonville. Turning Leaf Homes acquired interest via 2015 deed. Attorney substitution from Janaya L. Carter to Jeffrey A. Myers. In this contemporaneous filing, Myers correctly captions Turning Leaf Homes LLC as a standalone active defendant without any 'now known as FITE' designation—proving Myers knew TLH was an independent active entity when he misled the court in 17CV38591.</p>",
         "record_source": "Clackamas County Case No. 18CV51697; ORCP 71 Motion Ex. F-1; Tracey Baron Research Spreadsheets.",
         "record_source_html": "<p><span class=\"file-source-tag\">Case No. 18CV51697</span>; <span class=\"file-source-tag\">ORCP 71 Motion Ex. F-1</span>.</p>"
+    },
+    {
+        "id": "tlh-2018-05b",
+        "item_num": "0.4f2",
+        "phase_num": 0,
+        "phase_title": "0. Phase 0: Historical Foundation & Structural Architecture (1994–2022)",
+        "layer": "tlh-zbs",
+        "layer_title": "Turning Leaf & ZBS Network",
+        "date_time": "May 8, 2018 (Dissolved October 11, 2018)",
+        "date_sort": "2018-05-08",
+        "title": "Dismissal of FITE, LLC Chapter 11 Bankruptcy (18-30038-tmb11) & Administrative Dissolution",
+        "medium": "U.S. Bankruptcy Court Order of Dismissal & Oregon SOS Records",
+        "medium_cat": "Court Filing / Order",
+        "from": "Hon. Trish M. Brown (U.S. Bankruptcy Judge)",
+        "to": "FITE, LLC / Secured Creditors",
+        "actor_cat": "Municipal Court",
+        "subject": "Termination of FITE Bankruptcy & Public Record Ignored by Jeffrey Myers",
+        "summary": "Judge Trish M. Brown enters an Order dismissing FITE, LLC's Chapter 11 bankruptcy proceeding (Case No. 18-30038-tmb11). Five months later, on October 11, 2018, FITE, LLC is administratively dissolved by the Oregon Secretary of State. This public dismissal and dissolution occurred well before Jeffrey A. Myers falsely claimed on the record in 17CV38591 that Turning Leaf Homes LLC 'merged into or became FITE, LLC.' Given the formal federal dismissal and state dissolution, Myers could not have missed that FITE was a dead, unmerged entity that never held title to Chapin Court, making his later representations to Senior Judge Breithaupt particularly egregious.",
+        "summary_html": "<p>Judge Trish M. Brown enters an Order dismissing FITE, LLC's Chapter 11 bankruptcy proceeding (Case No. 18-30038-tmb11). Five months later, on October 11, 2018, FITE, LLC is administratively dissolved by the Oregon Secretary of State. This public dismissal and dissolution occurred well before Jeffrey A. Myers falsely claimed on the record in 17CV38591 that Turning Leaf Homes LLC 'merged into or became FITE, LLC.' Given the formal federal dismissal and state dissolution, Myers could not have missed that FITE was a dead, unmerged entity that never held title to Chapin Court, making his later representations to Senior Judge Breithaupt particularly egregious.</p>",
+        "record_source": "U.S. Bankruptcy Court Case No. 18-30038-tmb11 Order of Dismissal (May 8, 2018); Oregon Secretary of State Business Registry for FITE, LLC (Registry # 1391799-97); Case 17CV38591 ORCP 71 Motion Grounds Three & Four.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Bankruptcy Dismissal Order (05/08/2018)</span>; <span class=\"file-source-tag\">Oregon SOS Registry # 1391799-97</span>; <span class=\"file-source-tag\">ORCP 71 Motion</span>.</p>"
+    },
+    {
+        "id": "tlh-2018-06",
+        "item_num": "0.4f3",
+        "phase_num": 0,
+        "phase_title": "0. Phase 0: Historical Foundation & Structural Architecture (1994–2022)",
+        "layer": "tlh-zbs",
+        "layer_title": "Turning Leaf & ZBS Network",
+        "date_time": "June 21, 2018 (Schedules Filed July 5, 2018)",
+        "date_sort": "2018-06-21",
+        "title": "Michelle Baron Chapter 7 Bankruptcy (18-32159-tmb7) Lists 12054 Chapin Court Under 50% TLH Ownership",
+        "medium": "U.S. Bankruptcy Court Petition & Schedule A/B (Bankr. D. Or.)",
+        "medium_cat": "Court Filing / Order",
+        "from": "Michelle Baron (Debtor / 50% Member of Turning Leaf Homes, LLC)",
+        "to": "U.S. Bankruptcy Court / Chapter 7 Trustee",
+        "actor_cat": "Other / Unknown",
+        "subject": "Debtor Member's Sworn Schedules Attest to TLH Fee Ownership of 12054 Chapin Court",
+        "summary": "Michelle Baron, holding a 50% managing ownership interest in Turning Leaf Homes, LLC alongside Tracey Baron, files Chapter 7 voluntary bankruptcy (Case No. 18-32159-tmb7, Bankr. D. Or.). In her sworn Schedule A/B (Doc 10, filed July 5, 2018), Michelle Baron explicitly schedules 12054 Chapin Court, Oregon City, OR 97045 as real property asset owned through her 50% equity in Turning Leaf Homes, LLC. This federal court filing proves that fee ownership of Chapin Court was actively claimed and scheduled by TLH's members in 2018, directly contradicting ZBS Law's false assertions and demonstrating that TLH was an active, operating entity with substantive assets during the exact window ZBS Law procured an improper default.",
+        "summary_html": "<p>Michelle Baron, holding a 50% managing ownership interest in Turning Leaf Homes, LLC alongside Tracey Baron, files Chapter 7 voluntary bankruptcy (Case No. 18-32159-tmb7, Bankr. D. Or.). In her sworn Schedule A/B (Doc 10, filed July 5, 2018), Michelle Baron explicitly schedules <strong>12054 Chapin Court, Oregon City, OR 97045</strong> as real property asset owned through her 50% equity in Turning Leaf Homes, LLC. This federal court filing proves that fee ownership of Chapin Court was actively claimed and scheduled by TLH's members in 2018, directly contradicting ZBS Law's false assertions and demonstrating that TLH was an active, operating entity with substantive assets during the exact window ZBS Law procured an improper default.</p>",
+        "record_source": "U.S. Bankruptcy Court Case No. 18-32159-tmb7 Petition (Doc 1) & Schedule A/B (Doc 10); Case 17CV38591 Motion to Set Aside Void Judgment Eriksson Decl. ¶ 21; CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Case No. 18-32159-tmb7 Doc 10</span>; <span class=\"file-source-tag\">17CV38591 Eriksson Decl. ¶ 21</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
     },
     {
         "id": "fc-2018-09",
@@ -436,13 +520,34 @@ NEW_ENTRIES = [
         "medium": "Circuit Court Hearing Transcript (Case 17CV38591)",
         "medium_cat": "Court Filing / Order",
         "from": "Jeffrey A. Myers (ZBS Law)",
-        "to": "Hon. Michael C. Wetzel (Clackamas County Circuit Court)",
+        "to": "Senior Judge Henry C. Breithaupt (Clackamas County Circuit Court)",
         "actor_cat": "Municipal Court",
         "subject": "Fraud on the Court & Procedural Impossibility Under ORCP 69 A(1)",
-        "summary": "At summary judgment hearing, Jeffrey Myers falsely represents on the record that Turning Leaf Homes LLC is 'now known as FITE, LLC,' knowing FITE was a separately formed entity administratively dissolved four months prior (October 2018) that never held title. Myers procures an order for default judgment against phantom FITE while TLH had filed a live Answer and Counterclaims, making default a legal impossibility under ORCP 69 A(1).",
-        "summary_html": "<p>At summary judgment hearing, Jeffrey Myers falsely represents on the record that Turning Leaf Homes LLC is 'now known as FITE, LLC,' knowing FITE was a separately formed entity administratively dissolved four months prior (October 2018) that never held title. Myers procures an order for default judgment against phantom FITE while TLH had filed a live Answer and Counterclaims, making default a legal impossibility under ORCP 69 A(1).</p>",
-        "record_source": "Case 17CV38591 Hearing Transcript (Feb 27, 2019); Oregon Secretary of State FITE Dissolution Records; ORCP 71 Motion Ground Three & Four.",
-        "record_source_html": "<p><span class=\"file-source-tag\">Feb 27 2019 Transcript</span>; <span class=\"file-source-tag\">Oregon SOS Records</span>; <span class=\"file-source-tag\">ORCP 71 Motion</span>.</p>"
+        "summary": "At the February 27, 2019 summary judgment hearing before Senior Judge Henry C. Breithaupt, Jeffrey Myers falsely represents on the record that Turning Leaf Homes LLC is 'now known as FITE, LLC.' Myers makes this representation despite the public docketed record that FITE, LLC's Chapter 11 bankruptcy (18-30038-tmb11) had already been dismissed on May 8, 2018 by Judge Trish M. Brown, that FITE was administratively dissolved on October 11, 2018, and that FITE never held title to Chapin Court—facts impossible for Myers to miss. Myers nonetheless continues lying about Turning Leaf's existence to procure an improper order for default against phantom FITE while TLH had a live Answer and Counterclaims pending, creating a fatal procedural violation under ORCP 69 A(1).",
+        "summary_html": "<p>At the February 27, 2019 summary judgment hearing before Senior Judge Henry C. Breithaupt, Jeffrey Myers falsely represents on the record that Turning Leaf Homes LLC is 'now known as FITE, LLC.' Myers makes this representation despite the public docketed record that FITE, LLC's Chapter 11 bankruptcy (18-30038-tmb11) had already been dismissed on May 8, 2018 by Judge Trish M. Brown, that FITE was administratively dissolved on October 11, 2018, and that FITE never held title to Chapin Court—facts impossible for Myers to miss. Myers nonetheless continues lying about Turning Leaf's existence to procure an improper order for default against phantom FITE while TLH had a live Answer and Counterclaims pending, creating a fatal procedural violation under ORCP 69 A(1).</p>",
+        "record_source": "Case 17CV38591 Hearing Transcript (Feb 27, 2019, Ex. U-3); Case No. 18-30038-tmb11 Dismissal Order; Oregon SOS FITE Dissolution Records; ORCP 71 Motion Ground Three & Four.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Feb 27 2019 Transcript (Ex. U-3)</span>; <span class=\"file-source-tag\">Bankruptcy Dismissal (05/08/2018)</span>; <span class=\"file-source-tag\">Oregon SOS Records</span>; <span class=\"file-source-tag\">ORCP 71 Motion</span>.</p>"
+    },
+    {
+        "id": "fc-2019-03",
+        "item_num": "0.4j",
+        "phase_num": 0,
+        "phase_title": "0. Phase 0: Historical Foundation & Structural Architecture (1994–2022)",
+        "layer": "foreclosure",
+        "layer_title": "Foreclosure & Title",
+        "date_time": "March 19 – August 7, 2019",
+        "date_sort": "2019-08-07",
+        "title": "Turning Leaf Homes LLC 12-Person Jury Trial Canceled Upon Docketing of Void Foreclosure Judgment",
+        "medium": "Circuit Court Docket & Trial Calendar (Case 17CV38591)",
+        "medium_cat": "Court Filing / Order",
+        "from": "Clackamas County Circuit Court / Hon. Michael C. Wetzel",
+        "to": "Turning Leaf Homes, LLC / The Bank of New York Mellon",
+        "actor_cat": "Municipal Court",
+        "subject": "Extinguishment of Jury Trial Right & Improper Judgment Docketing",
+        "summary": "On March 19, 2019, the court entered a UTCR 7.020 Limited Judgment of Dismissal as to other defendants and formally calendared a Twelve-Person Jury Trial for Turning Leaf Homes, LLC on August 7, 2019 at 9:00 AM (Ex. O-4). Judge Wetzel's conditional reinstatement expired June 3, 2019, and Presiding Judge Kathie Steele entered a General Judgment of Dismissal on July 26, 2019 (Ex. K-2). On July 30, 2019, Judge Wetzel signed a foreclosure judgment against phantom FITE LLC. That judgment sat undocketed until August 7, 2019 at 2:27 PM—the very afternoon of the scheduled jury trial—at which time the clerk docketed the judgment and marked TLH's jury trial as 'CANCELED Trial - Twelve Person Jury (9:00 AM) — Judgment', extinguishing TLH's right to trial over its live Answer and Counterclaims.",
+        "summary_html": "<p>On March 19, 2019, the court entered a UTCR 7.020 Limited Judgment of Dismissal as to other defendants and formally calendared a <strong>Twelve-Person Jury Trial for Turning Leaf Homes, LLC on August 7, 2019 at 9:00 AM</strong> (Ex. O-4). Judge Wetzel's conditional reinstatement expired June 3, 2019, and Presiding Judge Kathie Steele entered a General Judgment of Dismissal on July 26, 2019 (Ex. K-2). On July 30, 2019, Judge Wetzel signed a foreclosure judgment against phantom FITE LLC. That judgment sat undocketed until August 7, 2019 at 2:27 PM—the very afternoon of the scheduled jury trial—at which time the clerk docketed the judgment and marked TLH's jury trial as <em>\"CANCELED Trial - Twelve Person Jury (9:00 AM) — Judgment\"</em>, extinguishing TLH's right to trial over its live Answer and Counterclaims.</p>",
+        "record_source": "Case 17CV38591 Register of Actions (Ex. O-4); General Judgment of Dismissal (Ex. K-2); General Judgment of Foreclosure (July 30/Aug 7, 2019, Ex. 26).",
+        "record_source_html": "<p><span class=\"file-source-tag\">Case 17CV38591 Register of Actions (Ex. O-4)</span>; <span class=\"file-source-tag\">Judgment of Dismissal (Ex. K-2)</span>; <span class=\"file-source-tag\">Foreclosure Judgment (Ex. 26)</span>.</p>"
     },
     {
         "id": "hist-0-5",
@@ -451,19 +556,19 @@ NEW_ENTRIES = [
         "phase_title": "0. Phase 0: Historical Foundation & Structural Architecture (1994–2022)",
         "layer": "foreclosure",
         "layer_title": "Foreclosure & Title",
-        "date_time": "June 3, 2019",
+        "date_time": "June 3 – July 26, 2019",
         "date_sort": "2019-06-03",
-        "title": "ORS 12.020 Summons Expiration & Subject-Matter Jurisdiction Lapse",
-        "medium": "Circuit Court Docket & Statutory Deadline",
+        "title": "UTCR 7.020 Reinstatement Expiration (June 3, 2019) & General Judgment of Dismissal (July 26, 2019)",
+        "medium": "Circuit Court Order & General Judgment of Dismissal (Case 17CV38591)",
         "medium_cat": "Court Filing / Order",
-        "from": "The Bank of New York Mellon / Aldridge Pite",
-        "to": "Clackamas County Circuit Court (17CV38591)",
+        "from": "Hon. Michael C. Wetzel / Presiding Judge Kathie F. Steele",
+        "to": "The Bank of New York Mellon / Case 17CV38591",
         "actor_cat": "Municipal Court",
-        "subject": "Case 17CV38591 Statutory Summons Service Expiration",
-        "summary": "BNY Mellon / CWALT files foreclosure complaint in Clackamas County Circuit Court (17CV38591). Under ORS 12.020, summons service must occur within 60 days of filing; plaintiff fails timely service on necessary parties. On June 3, 2019, the statutory window expires, causing subject-matter jurisdiction to lapse prior to any judgment.",
-        "summary_html": "<p>BNY Mellon / CWALT files foreclosure complaint in Clackamas County Circuit Court (17CV38591). Under ORS 12.020, summons service must occur within 60 days of filing; plaintiff fails timely service on necessary parties. On June 3, 2019, the statutory window expires, causing subject-matter jurisdiction to lapse prior to any judgment.</p>",
-        "record_source": "Clackamas County Circuit Court Case No. 17CV38591; GEMINI.md; Motion to Set Aside Void Judgment.",
-        "record_source_html": "<p><span class=\"file-source-tag\">Case No. 17CV38591 Docket</span>; <span class=\"file-source-tag\">GEMINI.md</span>; ORCP 71 Motion.</p>"
+        "subject": "Automatic Expiration of Conditional Reinstatement & Entry of General Judgment of Dismissal",
+        "summary": "Following the March 19, 2019 UTCR 7.020 dismissal for want of prosecution, Judge Wetzel's April 1, 2019 Order conditionally reinstated Case 17CV38591 only until June 3, 2019. When Plaintiff failed to obtain a signed general judgment by the June 3, 2019 deadline, the conditional reinstatement automatically expired, and Presiding Judge Kathie F. Steele entered a General Judgment of Dismissal on July 26, 2019 (Ex. K-2)—four days before the July 30, 2019 foreclosure judgment was signed.",
+        "summary_html": "<p>Following the March 19, 2019 UTCR 7.020 dismissal for want of prosecution, Judge Wetzel's April 1, 2019 Order conditionally reinstated Case 17CV38591 only until June 3, 2019. When Plaintiff failed to obtain a signed general judgment by the June 3, 2019 deadline, the conditional reinstatement automatically expired, and Presiding Judge Kathie F. Steele entered a General Judgment of Dismissal on July 26, 2019 (Ex. K-2)—four days before the July 30, 2019 foreclosure judgment was signed.</p>",
+        "record_source": "Clackamas County Circuit Court Case No. 17CV38591 (Ex. K-1, Ex. K-2); Declaration of Annika Eriksson ¶¶ 37, 40; ORCP 71 Motion.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Case No. 17CV38591 (Ex. K-1, Ex. K-2)</span>; <span class=\"file-source-tag\">Eriksson Decl. ¶¶ 37, 40</span>; <span class=\"file-source-tag\">ORCP 71 Motion</span>.</p>"
     },
     {
         "id": "hist-0-6",
@@ -502,10 +607,31 @@ NEW_ENTRIES = [
         "to": "BONYM / CWALT 2006-OC10",
         "actor_cat": "Municipal Court",
         "subject": "Case 17CV38591 Foreclosure General Judgment Entry",
-        "summary": "General Judgment of Foreclosure signed by Judge Wetzel on July 30, 2019 (entered Aug 7, 2019) naming CWALT 2006-OC10. Recorded chain of title shows beneficial interest was assigned to CWALT 2006-OC11. Judgment entered by default against FITE, LLC, while TLH's Answer and live Counterclaims remained pending and unadjudicated, rendering judgment void ab initio.",
-        "summary_html": "<p>General Judgment of Foreclosure signed by Judge Wetzel on July 30, 2019 (entered Aug 7, 2019) naming CWALT 2006-OC10. Recorded chain of title shows beneficial interest was assigned to CWALT 2006-OC11. Judgment entered by default against FITE, LLC, while TLH's Answer and live Counterclaims remained pending and unadjudicated, rendering judgment void ab initio.</p>",
+        "summary": "General Judgment of Foreclosure signed by Judge Wetzel on July 30, 2019 (entered Aug 7, 2019) naming CWALT 2006-OC10. Recorded chain of title shows beneficial interest was assigned to CWALT 2006-OC11. Judgment entered by default against FITE, LLC, while TLH's Answer and live Counterclaims remained pending and unadjudicated, rendering judgment void.",
+        "summary_html": "<p>General Judgment of Foreclosure signed by Judge Wetzel on July 30, 2019 (entered Aug 7, 2019) naming CWALT 2006-OC10. Recorded chain of title shows beneficial interest was assigned to CWALT 2006-OC11. Judgment entered by default against FITE, LLC, while TLH's Answer and live Counterclaims remained pending and unadjudicated, rendering judgment void.</p>",
         "record_source": "Case 17CV38591 Docket (General Judgment of Foreclosure, July 30, 2019); Document Execution and Filing Dates for Foreclosure Proceedings.xlsx; ORCP 71 Motion.",
         "record_source_html": "<p><span class=\"file-source-tag\">Case 17CV38591 General Judgment</span>; <span class=\"file-source-tag\">Foreclosure Proceedings Dates Spreadsheet</span>; <span class=\"file-source-tag\">ORCP 71 Motion</span>.</p>"
+    },
+    {
+        "id": "fc-2019-2023-writs",
+        "item_num": "0.7d",
+        "phase_num": 0,
+        "phase_title": "0. Phase 0: Historical Foundation & Structural Architecture (1994–2022)",
+        "layer": "foreclosure",
+        "layer_title": "Foreclosure & Title",
+        "date_time": "October 2019 – August 2023",
+        "date_sort": "2019-10-03",
+        "title": "Chain of Authority & the July 30 / July 31 / August 7 Judgment Date Dichotomy Across Three Writs",
+        "medium": "Circuit Court Writs of Execution & Praecipes (Case 17CV38591)",
+        "medium_cat": "Court Filing / Order",
+        "from": "ZBS Law, LLP (Jeffrey A. Myers / Amber L. Labrecque)",
+        "to": "Clackamas County Clerk / Clackamas County Sheriff",
+        "actor_cat": "Municipal Court",
+        "subject": "Contradictory Judgment Dates in Writs #30586, #36119, and #17120597",
+        "summary": "Foreclosure judgment in 17CV38591 is internally contradicted across all three Praecipes and Writs: (1) Praecipe #1 (Sept 26/30, 2019, Ex. P-1) & Writ #1 (#30586, Oct 3, 2019, Ex. Q-1) commanded execution of a nonexistent July 31, 2019 judgment; (2) Praecipe #2 (Nov 30/Dec 9, 2022, Ex. P-2) & Writ #2 (#36119, Dec 16, 2022, Ex. Q-2) claimed the judgment was entered and executed on August 7, 2019 and double-counted Aug 7 in interest calculations; (3) Praecipe #3 (Aug 23/31, 2023, Ex. P-3) cited August 7, 2019, while Writ #3 (Aug 31, 2023, #17120597, Ex. Q-3) split the dates, certifying execution on July 30, 2019 and docketing on August 7, 2019; and the unrecorded May 9, 2024 Sheriff's Deed cited August 7, 2019, while ZBS briefs reverted to July 31, 2019.",
+        "summary_html": "<p>Foreclosure judgment in 17CV38591 is internally contradicted across all three Praecipes and Writs: (1) <strong>Praecipe #1 (Sept 26/30, 2019, Ex. P-1) &amp; Writ #1 (#30586, Oct 3, 2019, Ex. Q-1)</strong> commanded execution of a nonexistent <strong>July 31, 2019</strong> judgment; (2) <strong>Praecipe #2 (Nov 30/Dec 9, 2022, Ex. P-2) &amp; Writ #2 (#36119, Dec 16, 2022, Ex. Q-2)</strong> claimed the judgment was entered and executed on <strong>August 7, 2019</strong> and double-counted Aug 7 in interest calculations; (3) <strong>Praecipe #3 (Aug 23/31, 2023, Ex. P-3)</strong> cited August 7, 2019, while <strong>Writ #3 (Aug 31, 2023, #17120597, Ex. Q-3)</strong> split the dates, certifying execution on <strong>July 30, 2019</strong> and docketing on <strong>August 7, 2019</strong>; and the unrecorded May 9, 2024 Sheriff's Deed cited August 7, 2019, while ZBS briefs reverted to July 31, 2019.</p>",
+        "record_source": "Case 17CV38591 Praecipes (Exs. P-1–P-3); Writs of Execution (Exs. Q-1–Q-3); Sheriff's Case No. 23-20024; ORCP 71 Motion.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Praecipes (Exs. P-1–P-3)</span>; <span class=\"file-source-tag\">Writs of Execution (Exs. Q-1–Q-3)</span>; <span class=\"file-source-tag\">Sheriff's File 23-20024</span>.</p>"
     },
     {
         "id": "comp-2019",
@@ -537,17 +663,17 @@ NEW_ENTRIES = [
         "layer_title": "Foreclosure & Title",
         "date_time": "December 8, 2021",
         "date_sort": "2021-12-08",
-        "title": "Baron Marriage Dissolution Allocates 12054 Chapin Court (21DR19354)",
-        "medium": "General Judgment of Dissolution of Marriage",
+        "title": "Baron Marriage Dissolution Awards 12054 Chapin Court to Michelle Anne Baron (21DR19354)",
+        "medium": "General Judgment of Dissolution of Marriage (Ex. A-5)",
         "medium_cat": "Court Filing / Order",
         "from": "Clackamas County Circuit Court",
-        "to": "Tracey Stewart Baron / Michelle Anne Baron",
+        "to": "Michelle Anne Baron / Tracey Stewart Baron",
         "actor_cat": "Municipal Court",
         "subject": "Judicial Division of Real Property in Baron Divorce",
-        "summary": "Clackamas County Circuit Court enters General Judgment of Dissolution of Marriage in Case No. 21DR19354. Under division of real properties, Father Tracey Stewart Baron is specifically awarded all right, title, and equity interest in 12054 Chapin Court, Oregon City, OR 97045, clearing title issues between spouses.",
-        "summary_html": "<p>Clackamas County Circuit Court enters General Judgment of Dissolution of Marriage in Case No. 21DR19354. Under division of real properties, Father Tracey Stewart Baron is specifically awarded all right, title, and equity interest in 12054 Chapin Court, Oregon City, OR 97045, clearing title issues between spouses.</p>",
-        "record_source": "Case No. 21DR19354 General Judgment (Dec 8, 2021, recorded Aug 21, 2023); Corporate filings and legal docs.txt Section 7.",
-        "record_source_html": "<p><span class=\"file-source-tag\">Case 21DR19354 Divorce Judgment</span>; <span class=\"file-source-tag\">Corporate filings and legal docs.txt</span>.</p>"
+        "summary": "Clackamas County Circuit Court enters General Judgment of Dissolution of Marriage in Case No. 21DR19354 (Ex. A-5). Under the division of real properties, Michelle Anne Baron is specifically awarded all right, title, and interest in 12054 Chapin Court, Oregon City, OR 97045, confirming her authority as sole managing member of Turning Leaf Homes, LLC to convey fee-simple title to Annika Eriksson.",
+        "summary_html": "<p>Clackamas County Circuit Court enters General Judgment of Dissolution of Marriage in Case No. 21DR19354 (Ex. A-5). Under the division of real properties, Michelle Anne Baron is specifically awarded all right, title, and interest in 12054 Chapin Court, Oregon City, OR 97045, confirming her authority as sole managing member of Turning Leaf Homes, LLC to convey fee-simple title to Annika Eriksson.</p>",
+        "record_source": "Case No. 21DR19354 General Judgment (Dec 8, 2021, Ex. A-5); Declaration of Annika Eriksson ¶ 46; Corporate filings and legal docs.txt Section 7.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Case 21DR19354 Divorce Judgment (Ex. A-5)</span>; <span class=\"file-source-tag\">Eriksson Decl. ¶ 46</span>.</p>"
     },
     {
         "id": "hist-0-8",
@@ -556,19 +682,19 @@ NEW_ENTRIES = [
         "phase_title": "0. Phase 0: Historical Foundation & Structural Architecture (1994–2022)",
         "layer": "foreclosure",
         "layer_title": "Foreclosure & Title",
-        "date_time": "December 20, 2021",
-        "date_sort": "2021-12-20",
-        "title": "Bargain & Sale Deed Conveys Fee-Simple Title to Annika Eriksson",
-        "medium": "County Deed Records (Instr. No. 2021-094182)",
+        "date_time": "December 14–21, 2021",
+        "date_sort": "2021-12-21",
+        "title": "Bargain & Sale Deed Conveys Fee-Simple Title to Annika Eriksson (Instr. No. 2021-109930)",
+        "medium": "County Deed Records (Instr. No. 2021-109930)",
         "medium_cat": "Court Filing / Order",
-        "from": "Turning Leaf Homes LLC (Michelle Baron, RA)",
+        "from": "Turning Leaf Homes LLC (Michelle Baron, Managing Member)",
         "to": "Annika Eriksson",
         "actor_cat": "Other / Unknown",
         "subject": "Deed Conveyance & Vesting of Fee Simple Title",
-        "summary": "Turning Leaf Homes LLC conveys 12054 Chapin Court to Annika Eriksson via Bargain and Sale Deed with Covenants against Grantor's Acts, recorded December 20, 2021 as Instrument No. 2021-094182. Eriksson vests record legal and equitable title.",
-        "summary_html": "<p>Turning Leaf Homes LLC conveys 12054 Chapin Court to Annika Eriksson via Bargain and Sale Deed with Covenants against Grantor's Acts, recorded December 20, 2021 as Instrument No. 2021-094182. Eriksson vests record legal and equitable title.</p>",
-        "record_source": "Clackamas County Official Records Fee No. 2021-094182; ORCP 71 Motion Ex. 1; GEMINI.md.",
-        "record_source_html": "<p><span class=\"file-source-tag\">Clackamas Rec. No. 2021-094182</span>; <span class=\"file-source-tag\">ORCP 71 Motion Ex. 1</span>; <span class=\"file-source-tag\">GEMINI.md</span>.</p>"
+        "summary": "Turning Leaf Homes LLC (by sole managing member Michelle Baron) conveys 12054 Chapin Court to Annika Eriksson via Statutory Bargain and Sale Deed executed December 14, 2021 and recorded December 21, 2021 in Clackamas County Official Records as Instrument No. 2021-109930 (Ex. A-1 / Ex. 1). Eriksson vests record fee-simple legal and equitable title.",
+        "summary_html": "<p>Turning Leaf Homes LLC (by sole managing member Michelle Baron) conveys 12054 Chapin Court to Annika Eriksson via Statutory Bargain and Sale Deed executed December 14, 2021 and recorded December 21, 2021 in Clackamas County Official Records as Instrument No. 2021-109930 (Ex. A-1 / Ex. 1). Eriksson vests record fee-simple legal and equitable title.</p>",
+        "record_source": "Clackamas County Official Records Instrument No. 2021-109930 (Ex. A-1 / Ex. 1); CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Clackamas Instr. No. 2021-109930 (Ex. A-1 / Ex. 1)</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
     },
     {
         "id": "tlh-2021-11",
@@ -607,8 +733,8 @@ NEW_ENTRIES = [
         "to": "Annika Eriksson",
         "actor_cat": "Other / Unknown",
         "subject": "Title Examination Confirms OC11 Assignment & Lack of Multnomah Action",
-        "summary": "WFG National Title Insurance Company issues Title Report File No. 22-359102. Examination reveals the 2011 assignment runs to CWALT 2006-OC11 (not OC10) and ZBS Law's 2017 Notice of Pendency of Action was recorded for Multnomah County rather than Clackamas, creating no valid encumbrance against TLH or subsequent grantees.",
-        "summary_html": "<p>WFG National Title Insurance Company issues Title Report File No. 22-359102. Examination reveals the 2011 assignment runs to CWALT 2006-OC11 (not OC10) and ZBS Law's 2017 Notice of Pendency of Action was recorded for Multnomah County rather than Clackamas, creating no valid encumbrance against TLH or subsequent grantees.</p>",
+        "summary": "WFG National Title Insurance Company issues Title Report File No. 22-359102. Examination reveals the 2012 assignment (Instr. No. 2012-052957) runs to CWALT 2006-OC11 (not OC10) and ZBS Law's 2017 Notice of Pendency of Action was recorded for Multnomah County rather than Clackamas, creating no valid encumbrance against TLH or subsequent grantees.",
+        "summary_html": "<p>WFG National Title Insurance Company issues Title Report File No. 22-359102. Examination reveals the 2012 assignment (Instr. No. 2012-052957) runs to CWALT 2006-OC11 (not OC10) and ZBS Law's 2017 Notice of Pendency of Action was recorded for Multnomah County rather than Clackamas, creating no valid encumbrance against TLH or subsequent grantees.</p>",
         "record_source": "WFG National Title Insurance Company Report File No. 22-359102; ORCP 71 Motion Ex. B-6.",
         "record_source_html": "<p><span class=\"file-source-tag\">WFG Title Report 22-359102</span>; <span class=\"file-source-tag\">ORCP 71 Motion Ex. B-6</span>.</p>"
     },
@@ -642,17 +768,17 @@ NEW_ENTRIES = [
         "layer_title": "Municipal Code",
         "date_time": "October 2022",
         "date_sort": "2022-10-01",
-        "title": "City Enacts OCMC Chapter 15.11 (Distressed Residential Property)",
+        "title": "City Enacts OCMC Chapter 15.11 (Distressed Residential Property Ordinance)",
         "medium": "Municipal Ordinance Enactment",
         "medium_cat": "Other",
         "from": "City of Oregon City Commission",
-        "to": "City Code Enforcement Division",
+        "to": "City Code Enforcement Division / Property Servicers",
         "actor_cat": "City Leadership",
-        "subject": "Enactment of Distressed Property Registration & Inspection Framework",
-        "summary": "City Commission adopts Ordinance establishing OCMC Chapter 15.11, creating registration mandates, warrantless exterior inspection authority, and compounding fine powers over distressed or foreclosure-threatened residential properties, creating the enforcement chassis deployed against Chapin Court.",
-        "summary_html": "<p>City Commission adopts Ordinance establishing OCMC Chapter 15.11, creating registration mandates, warrantless exterior inspection authority, and compounding fine powers over distressed or foreclosure-threatened residential properties, creating the enforcement chassis deployed against Chapin Court.</p>",
-        "record_source": "OCMC Chapter 15.11; City Commission Ordinance Records; CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
-        "record_source_html": "<p><span class=\"file-source-tag\">OCMC 15.11</span>; <span class=\"file-source-tag\">City Commission Records</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
+        "subject": "Servicer Accountability Framework & Regulatory Gaps Exploited at Chapin Court",
+        "summary": "Oregon City adopts OCMC Chapter 15.11 with the purported legislative intent to place affirmative maintenance and security responsibilities on mortgage servicers and foreclosing entities for abandoned or distressed properties. However, because the City failed to enforce the ordinance against major servicers, failed to account for multi-year contested foreclosures where ownership is actively disputed in court, and failed to address pre-existing foreclosures initiated years earlier, it engineered a massive regulatory gap. This enforcement void was subsequently exploited against 12054 Chapin Court: while corporate servicer Shellpoint was never held accountable for property maintenance or compliance, the City concentrated administrative liens, escalating daily fines, and prolonged water shutoff enforcement entirely against the disabled resident homeowner.",
+        "summary_html": "<p>Oregon City adopts OCMC Chapter 15.11 with the purported legislative intent to place affirmative maintenance and security responsibilities on mortgage servicers and foreclosing entities for abandoned or distressed properties. However, because the City failed to enforce the ordinance against major servicers, failed to account for multi-year contested foreclosures where ownership is actively disputed in court, and failed to address pre-existing foreclosures initiated years earlier, it engineered a massive regulatory gap. This enforcement void was subsequently exploited against 12054 Chapin Court: while corporate servicer Shellpoint was never held accountable for property maintenance or compliance, the City concentrated administrative liens, escalating daily fines, and prolonged water shutoff enforcement entirely against the disabled resident homeowner.</p>",
+        "record_source": "OCMC Chapter 15.11; Oregon City Ordinance No. 22-1008; City Commission Records; First Amended Complaint (3:26-cv-01885-IM).",
+        "record_source_html": "<p><span class=\"file-source-tag\">OCMC 15.11</span>; <span class=\"file-source-tag\">Ordinance No. 22-1008</span>; <span class=\"file-source-tag\">First Amended Complaint (3:26-cv-01885-IM)</span>.</p>"
     },
     {
         "id": "tlh-homeowner-layne",
@@ -684,17 +810,17 @@ NEW_ENTRIES = [
         "layer_title": "Turning Leaf & ZBS Network",
         "date_time": "2023 – 2026",
         "date_sort": "2023-01-01",
-        "title": "Homeowner Defense: Janice Dysinger & Tarlecki v. Servicer (23CV50085)",
-        "medium": "Circuit Court Docket (Clackamas County Case No. 23CV50085)",
+        "title": "Homeowner Defense: Janice Dysinger & Tarlecki Foreclosure Challenge & Washington County Quiet Title (23CV50085)",
+        "medium": "Circuit Court Foreclosure & Quiet Title Pleadings",
         "medium_cat": "Court Filing / Order",
-        "from": "Janice Dysinger & Tarlecki (Homeowners)",
-        "to": "Foreclosure Servicer / Mortgage Trustee",
+        "from": "Janice Dysinger, Tarlecki & Annika Eriksson (Homeowners)",
+        "to": "Foreclosure Servicers / Mortgage Trustees",
         "actor_cat": "Municipal Court",
-        "subject": "Retrospective Justice Benchmark: Predatory Servicing & Void Judgment Attack",
-        "summary": "Janice Dysinger and Tarlecki challenge predatory mortgage servicing and void foreclosure judgment machinery in Clackamas County Circuit Court (23CV50085), attacking robo-signed securitization documents and lack of statutory jurisdiction. Serves alongside Case 17CV38591 as foundational multi-case validation dataset for the Retrospective Justice Engine.",
-        "summary_html": "<p>Janice Dysinger and Tarlecki challenge predatory mortgage servicing and void foreclosure judgment machinery in Clackamas County Circuit Court (23CV50085), attacking robo-signed securitization documents and lack of statutory jurisdiction. Serves alongside Case 17CV38591 as foundational multi-case validation dataset for the Retrospective Justice Engine.</p>",
-        "record_source": "Clackamas County Circuit Court Case No. 23CV50085; MEMORY.md; Retrospective Justice Grant Proposal (proposal.pdf).",
-        "record_source_html": "<p><span class=\"file-source-tag\">Case No. 23CV50085</span>; <span class=\"file-source-tag\">MEMORY.md</span>; <span class=\"file-source-tag\">Retrospective Justice Proposal</span>.</p>"
+        "subject": "Retrospective Justice Benchmark: Predatory Servicing & Void Judgment Challenges",
+        "summary": "Oregon homeowners Janice Dysinger and Tarlecki challenge predatory mortgage servicing and defective securitization assignments in parallel with Annika Eriksson's Washington County quiet title action (Case No. 23CV50085) and Clackamas County proceedings (Case Nos. 17CV38591 & 24CV21417), forming the multi-case validation dataset for the Retrospective Justice Engine.",
+        "summary_html": "<p>Oregon homeowners Janice Dysinger and Tarlecki challenge predatory mortgage servicing and defective securitization assignments in parallel with Annika Eriksson's Washington County quiet title action (Case No. 23CV50085) and Clackamas County proceedings (Case Nos. 17CV38591 &amp; 24CV21417), forming the multi-case validation dataset for the Retrospective Justice Engine.</p>",
+        "record_source": "Washington County Case No. 23CV50085; Dysinger & Tarlecki Foreclosure Files; Retrospective Justice Grant Proposal (proposal.pdf).",
+        "record_source_html": "<p><span class=\"file-source-tag\">Case No. 23CV50085</span>; <span class=\"file-source-tag\">Dysinger &amp; Tarlecki Files</span>; <span class=\"file-source-tag\">Retrospective Justice Proposal</span>.</p>"
     },
 
     # ==========================================
@@ -702,24 +828,45 @@ NEW_ENTRIES = [
     # ==========================================
     {
         "id": "comm-1-4b",
+        "item_num": "1.5b",
+        "phase_num": 1,
+        "phase_title": "1. Phase 1: Discovery & Crisis Onset (Oct 2023 – May 2024)",
+        "layer": "code",
+        "layer_title": "Municipal Code",
+        "date_time": "January 11, 2024",
+        "date_sort": "2024-01-11",
+        "title": "City Posts $867.62 Door Hanger Combining Prior Tenant Stephanie Jones's $606.60 Arrears",
+        "medium": "Door Hanger Notice & Internal Utility Billing Log (Fraijo Decl. Exs. 1–4)",
+        "medium_cat": "Notice / Letter (City)",
+        "from": "Ashley Flues (City of Oregon City Utility Billing)",
+        "to": "Annika Eriksson (Account 01-466348-05)",
+        "actor_cat": "City Staff",
+        "subject": "Unlawful Demand Combining Prior Tenant Account 01-466348-04 ($606.60) with Eriksson Account ($236.02)",
+        "summary": "City Utility Billing staffer Ashley Flues logs an internal account note stating: 'This address was shut off back on 10/3 and then someone turned it back on. Code confirmed it is Annika in the house - D/H for the full amount of Stephanie Jones account and this account + $25.00 to equal $867.62.' The $867.62 door hanger demand unlawfully combines prior tenant Stephanie Jones's unpaid $606.60 balance (Account 01-466348-04) with Eriksson's first two water bills ($116.79 + $119.23 = $236.02 on Account 01-466348-05) plus a $25.00 door hanger fee.",
+        "summary_html": "<p>City Utility Billing staffer Ashley Flues logs an internal account note stating: <em>\"This address was shut off back on 10/3 and then someone turned it back on. Code confirmed it is Annika in the house - D/H for the full amount of Stephanie Jones account and this account + $25.00 to equal $867.62.\"</em> The $867.62 door hanger demand unlawfully combines prior tenant Stephanie Jones's unpaid $606.60 balance (Account 01-466348-04) with Eriksson's first two water bills ($116.79 + $119.23 = $236.02 on Account 01-466348-05) plus a $25.00 door hanger fee.</p>",
+        "record_source": "Fraijo Decl. Exs. 1–4 (Internal City Utility Billing Notes & Account Ledgers 01-466348-04 & 01-466348-05); CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Fraijo Decl. Exs. 1–4</span>; <span class=\"file-source-tag\">Account 01-466348-05 Ledger</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
+    },
+    {
+        "id": "fc-2023-09-sheriff",
         "item_num": "1.4b",
         "phase_num": 1,
         "phase_title": "1. Phase 1: Discovery & Crisis Onset (Oct 2023 – May 2024)",
-        "layer": "public-ada",
-        "layer_title": "Public Intel & ADA",
-        "date_time": "October 3–15, 2023",
-        "date_sort": "2023-10-03",
-        "title": "Project Access NOW Lifeline Payment ($867.62) to Restore Water",
-        "medium": "Charitable Assistance Voucher & Utility Ledger",
-        "medium_cat": "Billing Statement",
-        "from": "Project Access NOW / Clackamas County Social Services",
-        "to": "City of Oregon City Utility Billing",
-        "actor_cat": "City Staff",
-        "subject": "Emergency Low-Income Utility Grant Intervention",
-        "summary": "Project Access NOW disburses emergency grant voucher of $867.62 directly to Oregon City Utility Billing to cure past-due water balances for disabled resident Annika Eriksson. City accepts charitable funds, restoring service temporarily while maintaining punitive tariff schedule and withholding income-qualified lifeline rates.",
-        "summary_html": "<p>Project Access NOW disburses emergency grant voucher of $867.62 directly to Oregon City Utility Billing to cure past-due water balances for disabled resident Annika Eriksson. City accepts charitable funds, restoring service temporarily while maintaining punitive tariff schedule and withholding income-qualified lifeline rates.</p>",
-        "record_source": "Utility Account 01-466348-05 Ledger; Project Access NOW Voucher Confirmation; CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
-        "record_source_html": "<p><span class=\"file-source-tag\">Utility Account 01-466348-05 Ledger</span>; <span class=\"file-source-tag\">PAN Voucher</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
+        "layer": "foreclosure",
+        "layer_title": "Foreclosure & Title",
+        "date_time": "September 7–19, 2023",
+        "date_sort": "2023-09-19",
+        "title": "Sheriff Pre-Sale Certified Mailings Omit Recorded Owner Annika Eriksson; 5 Envelopes Returned (23-20024)",
+        "medium": "Sheriff's Pre-Sale File, Instructions & USPS Certified Mail Strips (23-20024)",
+        "medium_cat": "Court Filing / Order",
+        "from": "ZBS Law, LLP (Jeffrey A. Myers) / Clackamas County Sheriff",
+        "to": "9 Notice Recipients (Omitting Annika Eriksson)",
+        "actor_cat": "Municipal Court",
+        "subject": "Pre-Sale Certified Mailings Under ORS 18.888/18.918 & Total Omission of Fee Owner",
+        "summary": "On September 7, 2023, ZBS Law (Jeffrey A. Myers) issued Instructions to Sheriff directing Certified and First-Class Mail notice to 9 recipients while completely omitting recorded fee-simple owner Annika Eriksson (whose Bargain & Sale Deed, Instr. No. 2021-109930, had been recorded Dec 20, 2021) and asserting under ORS 18.904(2) that 'a copy of the Judgment is not required to be attached.' On Sept 19, 2023, the Sheriff mailed 9 Certified Mail packets (7020 3160 0000 0262 5640 through 5725): Sherry Garboden (5640), Elbert Garboden (5657), and All Other Unknown Parties at 12054 Chapin Ct (5718) were returned UNCLAIMED; Turning Leaf Homes LLC (5671) and dissolved Fite LLC (5688) at Oak Shore Lane were returned NOT DELIVERABLE AS ADDRESSED / UTF; TLH (5664) and Fite LLC (5695) were sent to withdrawn counsel Andrew Glascock; only Citimortgage (5701) and Oregon Dept of Revenue (5725) were delivered.",
+        "summary_html": "<p>On September 7, 2023, ZBS Law (Jeffrey A. Myers) issued Instructions to Sheriff directing Certified and First-Class Mail notice to 9 recipients while <strong>completely omitting recorded fee-simple owner Annika Eriksson</strong> (whose Bargain &amp; Sale Deed, Instr. No. 2021-109930, had been recorded Dec 20, 2021) and asserting under ORS 18.904(2) that <em>\"a copy of the Judgment is not required to be attached.\"</em> On Sept 19, 2023, the Sheriff mailed 9 Certified Mail packets (7020 3160 0000 0262 5640 through 5725): Sherry Garboden (5640), Elbert Garboden (5657), and All Other Unknown Parties at 12054 Chapin Ct (5718) were <strong>returned UNCLAIMED</strong>; Turning Leaf Homes LLC (5671) and dissolved Fite LLC (5688) at Oak Shore Lane were <strong>returned NOT DELIVERABLE AS ADDRESSED / UTF</strong>; TLH (5664) and Fite LLC (5695) were sent to <strong>withdrawn counsel Andrew Glascock</strong>; only Citimortgage (5701) and Oregon Dept of Revenue (5725) were delivered.</p>",
+        "record_source": "Sheriff's Case No. 23-20024 File (Sale_File.pdf pp. 1–7; 23-24_returned_mail_20231121102023.pdf); USPS Tracking & Green Cards; CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Sheriff's File 23-20024</span>; <span class=\"file-source-tag\">Sale_File.pdf pp. 1–7</span>; <span class=\"file-source-tag\">Returned Mail Scans</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
     },
     {
         "id": "fc-2023-11",
@@ -728,40 +875,40 @@ NEW_ENTRIES = [
         "phase_title": "1. Phase 1: Discovery & Crisis Onset (Oct 2023 – May 2024)",
         "layer": "foreclosure",
         "layer_title": "Foreclosure & Title",
-        "date_time": "November 1, 2023",
+        "date_time": "October 27 – November 1, 2023",
         "date_sort": "2023-11-01",
-        "title": "Sheriff Execution Sale: Credit Bid $465,396 to BONYM (17CV38591)",
-        "medium": "Sheriff's Return of Sale & Objection to Sale",
+        "title": "Sheriff Execution Sale: Labrecque Written Credit Bid ($465,396.39) & Sole Bidder Rain City Capital",
+        "medium": "Written Credit Bid Letter, Auction Script & Bidder Registration Sheet (23-20024)",
         "medium_cat": "Court Filing / Order",
-        "from": "Clackamas County Sheriff / Annika Eriksson",
-        "to": "Clackamas County Circuit Court (17CV38591)",
+        "from": "Amber L. Labrecque (ZBS Law) / Adrianna Ramirez (Sheriff Management Analyst)",
+        "to": "Clackamas County Sheriff Civil Division / Public Auction Attendees",
         "actor_cat": "Municipal Court",
-        "subject": "Execution Sale of 12054 Chapin Court & Timely Homeowner Objection",
-        "summary": "Clackamas County Sheriff conducts execution sale of 12054 Chapin Court based on the void 2019 default judgment; BONYM submits credit bid of $465,396.39. Annika Eriksson files formal objection to the sheriff sale on December 19, 2023, asserting voidness of underlying judgment, improper notice, and lack of jurisdiction.",
-        "summary_html": "<p>Clackamas County Sheriff conducts execution sale of 12054 Chapin Court based on the void 2019 default judgment; BONYM submits credit bid of $465,396.39. Annika Eriksson files formal objection to the sheriff sale on December 19, 2023, asserting voidness of underlying judgment, improper notice, and lack of jurisdiction.</p>",
-        "record_source": "Case 17CV38591 Docket (Sheriff's Sale Return Nov 1, 2023; Objection filed Dec 19, 2023); ORCP 71 Motion Eriksson Decl. ¶ 14.",
-        "record_source_html": "<p><span class=\"file-source-tag\">Case 17CV38591 Sale Return</span>; <span class=\"file-source-tag\">Eriksson Objection to Sale</span>.</p>"
+        "subject": "Execution Sale of 12054 Chapin Court, Electronic Credit Bid & Bidder Registration",
+        "summary": "On October 27, 2023, Amber L. Labrecque of ZBS Law submitted a written credit bid letter via electronic service instructing the Sheriff: 'Please bid in the amount of $465,396.39' on behalf of BNYM-OC10. At the November 1, 2023 (10:00 AM) auction at 9101 SE Sunnybrook Blvd., Clackamas, OR, Senior Management Analyst Adrianna Ramirez conducted the sale. Neither BNYM nor ZBS Law appeared in person. Only one prospective bidder signed the Bidder Registration Sheet: #1) Rain City Capital of Oregon (12131 113th Ave NE #201, Kirkland, WA 98037). Rain City Capital placed no bid, and lines #2–#6 were blank. Annika Eriksson filed a formal objection to the sale on December 19, 2023.",
+        "summary_html": "<p>On October 27, 2023, <strong>Amber L. Labrecque</strong> of ZBS Law submitted a written credit bid letter via electronic service instructing the Sheriff: <strong>\"Please bid in the amount of $465,396.39\"</strong> on behalf of BNYM-OC10. At the November 1, 2023 (10:00 AM) auction at 9101 SE Sunnybrook Blvd., Senior Management Analyst Adrianna Ramirez conducted the sale. Neither BNYM nor ZBS Law appeared in person. Only <strong>one single prospective bidder</strong> signed the Bidder Registration Sheet: <strong>#1) Rain City Capital of Oregon</strong>. Rain City Capital placed no bid, and lines #2–#6 were blank. Annika Eriksson filed a formal objection to the sale on December 19, 2023.</p>",
+        "record_source": "Sheriff's Case No. 23-20024 File (Sale_File.pdf pp. 8–10); Bidder Registration Sheet; ZBS Credit Bid Letter dated 10/27/2023; CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Sheriff's File 23-20024</span>; <span class=\"file-source-tag\">Sale_File.pdf pp. 8–10</span>; <span class=\"file-source-tag\">ZBS Credit Bid Letter</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
     },
     {
         "id": "comm-1-5b",
-        "item_num": "1.5b",
+        "item_num": "1.6b",
         "phase_num": 1,
         "phase_title": "1. Phase 1: Discovery & Crisis Onset (Oct 2023 – May 2024)",
-        "layer": "code",
-        "layer_title": "Municipal Code",
-        "date_time": "January 22–23, 2024",
+        "layer": "public-ada",
+        "layer_title": "Public Intel & ADA",
+        "date_time": "January 22–23 & April 1–9, 2024",
         "date_sort": "2024-01-22",
-        "title": "Mid-Winter Shutoff & Second Project Access NOW Lifeline Payment",
-        "medium": "Disconnection Notice & Charitable Ledger",
+        "title": "Mid-Winter Water Shutoff & Project Access NOW Assistance Payments ($311.02 & $266.22)",
+        "medium": "Disconnection Order, Charitable Payments & City Billing Logs",
         "medium_cat": "Billing Statement",
-        "from": "City of Oregon City Utility Billing",
-        "to": "Annika Eriksson / Project Access NOW",
+        "from": "Jonathan (Project Access NOW) / City of Oregon City Utility Billing",
+        "to": "Account 01-466348-05 (Annika Eriksson)",
         "actor_cat": "City Staff",
-        "subject": "Sub-Freezing Water Cutoff & Social Service Intervention",
-        "summary": "During sub-freezing January weather, Oregon City terminates residential water service for non-payment. Project Access NOW mobilizes second emergency grant of $750.00 to force reconnection. Demonstrates municipal willingness to impose life-threatening physical conditions during winter freeze events without health or medical safeguards.",
-        "summary_html": "<p>During sub-freezing January weather, Oregon City terminates residential water service for non-payment. Project Access NOW mobilizes second emergency grant of $750.00 to force reconnection. Demonstrates municipal willingness to impose life-threatening physical conditions during winter freeze events without health or medical safeguards.</p>",
-        "record_source": "Utility Account 01-466348-05 Ledger; PAN Emergency Payment Receipt; Case Ground Truth and Evidence Map.",
-        "record_source_html": "<p><span class=\"file-source-tag\">Utility Account Ledger</span>; <span class=\"file-source-tag\">PAN Payment Receipt</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
+        "subject": "January 22 Shutoff, $311.02 Project Access NOW Reconnection Payment & April $266.22 Payment",
+        "summary": "On January 22, 2024, Oregon City physically shuts off residential water service and adds a $50.00 shutoff fee, bringing Eriksson's Account 01-466348-05 balance to $311.02 ($236.02 usage + $25.00 door hanger + $50.00 shutoff fee). On January 23, 2024 (Batch B00015794, Receipt R00738478), Jonathan from Project Access NOW pays $311.02 on Eriksson's behalf to restore water service, while John Oreskovich assesses another $50.00 meter tampering fee (paid Feb 22, 2024). Subsequently, per Oreskovich's April 1, 2024 account log ('Project Access: PA will be paying the full amount'), Project Access NOW remits a second assistance payment of $266.22 on April 9, 2024 (Batch B00016405, Receipt R00763703), covering the January ($128.93) and February ($137.29) statements.",
+        "summary_html": "<p>On January 22, 2024, Oregon City physically shuts off residential water service and adds a $50.00 shutoff fee, bringing Eriksson's Account 01-466348-05 balance to <strong>$311.02</strong> ($236.02 usage + $25.00 door hanger + $50.00 shutoff fee). On January 23, 2024 (Batch B00015794, Receipt R00738478), <strong>Jonathan from Project Access NOW</strong> pays <strong>$311.02</strong> on Eriksson's behalf to restore water service, while John Oreskovich assesses another $50.00 meter tampering fee (paid Feb 22, 2024). Subsequently, per Oreskovich's April 1, 2024 account log (<em>\"Project Access: PA will be paying the full amount\"</em>), Project Access NOW remits a second assistance payment of <strong>$266.22</strong> on April 9, 2024 (Batch B00016405, Receipt R00763703), covering the January ($128.93) and February ($137.29) statements.</p>",
+        "record_source": "Fraijo Decl. Exs. 1–3 (Utility Account 01-466348-05 Ledger & Internal Notes); Receipts R00738478 & R00763703; CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Fraijo Decl. Exs. 1–3</span>; <span class=\"file-source-tag\">Receipts R00738478 &amp; R00763703</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
     },
     {
         "id": "fc-2024-01",
@@ -785,8 +932,29 @@ NEW_ENTRIES = [
         "record_source_html": "<p><span class=\"file-source-tag\">Clackamas Rec. No. 2024-002834</span>; <span class=\"file-source-tag\">ORCP 71 Motion Ex. I-1</span>.</p>"
     },
     {
+        "id": "fc-2024-04-posthearing",
+        "item_num": "1.5d",
+        "phase_num": 1,
+        "phase_title": "1. Phase 1: Discovery & Crisis Onset (Oct 2023 – May 2024)",
+        "layer": "foreclosure",
+        "layer_title": "Foreclosure & Title",
+        "date_time": "December 19, 2023 – April 8, 2024",
+        "date_sort": "2024-01-25",
+        "title": "Post-Objection Motions, Jan 22 Non-Oral Hearing, Myers Email Objection & Contested Denial Order",
+        "medium": "Circuit Court Motions, Email Correspondence & Judicial Denial Order (17CV38591)",
+        "medium_cat": "Court Filing / Order",
+        "from": "Annika Eriksson / Jeffrey A. Myers (ZBS Law) / Hon. Michael C. Wetzel",
+        "to": "Clackamas County Circuit Court",
+        "actor_cat": "Municipal Court",
+        "subject": "Denial of Post-Hearing Motions as Moot & Email Objection That Judge Wetzel Did Not Rule on Vacatur",
+        "summary": "Following the Dec 19, 2023 objection hearing where Judge Wetzel orally rejected Eriksson's objection to the sale as untimely, Eriksson filed a post-hearing Motion to Set Aside Void Sheriff's Sale and Dismiss Case on Dec 19, 2023 (Ex. O-4), calendared for a Non-Oral Hearing on Jan 22, 2024 at 8:45 AM before Judge Eric James Tait (canceled ... other). Myers's Jan 12, 2024 proposed order was marked 'Unsigned. Moot.' on Jan 23, 2024 (Ex. W-1). On Jan 25, 2024 at 4:30 PM, Eriksson emailed Myers (Ex. Z-1) objecting that Judge Wetzel never ruled on her motion to vacate the judgment; Myers refused to remove the denial language (Ex. Z-2, 5:25 PM) and filed the order with emails attached (rejected Jan 26 as 'UNSIGNED: Needs to be filed without exhibits attached', Ex. W-2). On April 2, 2024 (entered April 8), Judge Wetzel entered Myers's order denying both the objection to sale and motion to set aside the judgment (Ex. T-1). On April 30, 2024, Amber Labrecque requested the Sheriff's Deed, executed May 9, 2024 and never recorded.",
+        "summary_html": "<p>Following the Dec 19, 2023 objection hearing where Judge Wetzel orally rejected Eriksson's objection to the sale as untimely, Eriksson filed a post-hearing <strong>Motion to Set Aside Void Sheriff's Sale and Dismiss Case</strong> on Dec 19, 2023 (Ex. O-4), calendared for a <strong>Non-Oral Hearing on Jan 22, 2024 at 8:45 AM before Judge Eric James Tait</strong> (canceled ... other). Myers's Jan 12, 2024 proposed order was marked <em>\"Unsigned. Moot.\"</em> on Jan 23, 2024 (Ex. W-1). On Jan 25, 2024 at 4:30 PM, Eriksson emailed Myers (Ex. Z-1) objecting that Judge Wetzel never ruled on her motion to vacate the judgment; Myers refused to remove the denial language (Ex. Z-2, 5:25 PM) and filed the order with emails attached (rejected Jan 26 as <em>\"UNSIGNED: Needs to be filed without exhibits attached\"</em>, Ex. W-2). On April 2, 2024 (entered April 8), Judge Wetzel entered Myers's order denying both the objection to sale and motion to set aside the judgment (Ex. T-1). On April 30, 2024, Amber Labrecque requested the Sheriff's Deed, executed May 9, 2024 and never recorded.</p>",
+        "record_source": "Case 17CV38591 Register of Actions (Ex. O-4); Order - Denial (Ex. T-1); Proposed Orders (Exs. W-1, W-2); Eriksson-Myers Emails (Exs. Z-1, Z-2); CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Register of Actions (Ex. O-4)</span>; <span class=\"file-source-tag\">Order - Denial (Ex. T-1)</span>; <span class=\"file-source-tag\">Proposed Orders (Exs. W-1, W-2)</span>; <span class=\"file-source-tag\">Emails (Exs. Z-1, Z-2)</span>.</p>"
+    },
+    {
         "id": "fc-2024-05",
-        "item_num": "1.9b",
+        "item_num": "1.10d",
         "phase_num": 1,
         "phase_title": "1. Phase 1: Discovery & Crisis Onset (Oct 2023 – May 2024)",
         "layer": "foreclosure",
@@ -905,7 +1073,7 @@ NEW_ENTRIES = [
         "title": "Post-Acquittal Red Placard Backdated to August 4, 2024 (Kennedy + 5 Officers)",
         "medium": "Dangerous Building Placard & Police Dispatch Log",
         "medium_cat": "Notice / Letter (City)",
-        "from": "Building Official Mike Sayers / Code Officer Kennedy / OCPD",
+        "from": "Building Official James Sayers / Code Officer Todd Kennedy / OCPD",
         "to": "12054 Chapin Court Occupants",
         "actor_cat": "Police / Code Enforcement",
         "subject": "Retaliatory Vacate Order Following Municipal Court Trial",
@@ -949,16 +1117,16 @@ NEW_ENTRIES = [
         "date_time": "November 1, 2024",
         "date_sort": "2024-11-01",
         "title": "Building Official Sayers Written Admission: Water Cutoff Causes Sewer Gas Influx",
-        "medium": "Internal Inter-Departmental Memo & Email",
-        "medium_cat": "Email",
-        "from": "Mike Sayers (Chief Building Official)",
-        "to": "Code Compliance & City Administration",
+        "medium": "Official Building Division Notice Letter (Ex. 14)",
+        "medium_cat": "Notice / Letter (City)",
+        "from": "James Sayers (Building Official)",
+        "to": "Annika Eriksson",
         "actor_cat": "City Staff",
         "subject": "Plumbing Trap Evaporation & Structural Health Hazards",
-        "summary": "Building Official Mike Sayers admits in writing that prolonged municipal water termination causes residential P-traps to evaporate, allowing sewer gases (methane, hydrogen sulfide) to enter living quarters. Establishes the City knowingly manufactured the exact hazardous biological condition it cited to declare the residence dangerous and uninhabitable.",
-        "summary_html": "<p>Building Official Mike Sayers admits in writing that prolonged municipal water termination causes residential P-traps to evaporate, allowing sewer gases (methane, hydrogen sulfide) to enter living quarters. Establishes the City knowingly manufactured the exact hazardous biological condition it cited to declare the residence dangerous and uninhabitable.</p>",
-        "record_source": "Sayers Internal Memorandum (Nov 1, 2024); Public Records Request Disclosure PRR-2025-089; CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
-        "record_source_html": "<p><span class=\"file-source-tag\">Sayers Internal Memo</span>; <span class=\"file-source-tag\">PRR-2025-089</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
+        "summary": "Building Official James Sayers issues a formal letter to Annika Eriksson (Ex. 14) admitting in writing: 'Without running water, the sewer gases come up through the drainpipes and contaminate the living areas... Because of this, the home is considered a Dangerous Building.' Establishes the City knowingly manufactured the exact hazardous biological condition it cited to declare the residence dangerous and uninhabitable.",
+        "summary_html": "<p>Building Official James Sayers issues a formal letter to Annika Eriksson (Ex. 14) admitting in writing: <em>\"Without running water, the sewer gases come up through the drainpipes and contaminate the living areas... Because of this, the home is considered a Dangerous Building.\"</em> Establishes the City knowingly manufactured the exact hazardous biological condition it cited to declare the residence dangerous and uninhabitable.</p>",
+        "record_source": "Building Official Sayers Letter (Nov 1, 2024, Ex. 14); CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Sayers Letter (Nov 1, 2024, Ex. 14)</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
     },
     {
         "id": "comm-4-3b",
@@ -967,19 +1135,19 @@ NEW_ENTRIES = [
         "phase_title": "4. Phase 4: Winter Freeze & Entrenchment (Nov 2024 – Mar 2025)",
         "layer": "foreclosure",
         "layer_title": "Foreclosure & Title",
-        "date_time": "November 5, 2024",
+        "date_time": "November 5, 2024 – March 2025",
         "date_sort": "2024-11-05",
-        "title": "Shellpoint Escrow Disburses $2,863.77 Check; City Holds Check 4 Months",
-        "medium": "Servicer Escrow Statement & Cancelled Instrument",
+        "title": "Shellpoint Disburses $2,863.77 Curing Check; Fraijo Holds Check 4 Months & Returns It Unapplied",
+        "medium": "Servicer Escrow Disbursement Check & City Billing Records (Exs. 21–23)",
         "medium_cat": "Billing Statement",
-        "from": "NewRez LLC d/b/a Shellpoint Mortgage Servicing",
+        "from": "NewRez LLC d/b/a Shellpoint Mortgage Servicing / Ashley Fraijo",
         "to": "City of Oregon City Utility Billing",
-        "actor_cat": "Other / Unknown",
-        "subject": "Escrow Advance Disbursal & Municipal Refusal to Clear Account",
-        "summary": "Shellpoint disburses $2,863.77 corporate escrow advance check to Oregon City to cure utility arrears on 12054 Chapin Court. City utility desk physically holds and delays depositing instrument for four months, preserving delinquent account status to justify maintaining physical water shutoff through sub-freezing winter.",
-        "summary_html": "<p>Shellpoint disburses $2,863.77 corporate escrow advance check to Oregon City to cure utility arrears on 12054 Chapin Court. City utility desk physically holds and delays depositing instrument for four months, preserving delinquent account status to justify maintaining physical water shutoff through sub-freezing winter.</p>",
-        "record_source": "Shellpoint Annual Escrow Statement (Dec 2024); City Finance Deposit Slip (March 2025); CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
-        "record_source_html": "<p><span class=\"file-source-tag\">Shellpoint Escrow Statement</span>; <span class=\"file-source-tag\">City Deposit Records</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
+        "actor_cat": "City Staff",
+        "subject": "4-Month Suppression of $2,863.77 Curing Check & Return Without Application",
+        "summary": "Shellpoint disburses a $2,863.77 check (dated November 5, 2024) to Oregon City to satisfy municipal utility charges on 12054 Chapin Court. Customer Accounting Coordinator Ashley Fraijo holds the check for four months without applying it or notifying Plaintiffs while communicating with private real estate broker Damien Pogue, before returning the check unapplied to Shellpoint in March 2025 to preserve the physical water shutoff.",
+        "summary_html": "<p>Shellpoint disburses a $2,863.77 check (dated November 5, 2024) to Oregon City to satisfy municipal utility charges on 12054 Chapin Court. Customer Accounting Coordinator Ashley Fraijo holds the check for four months without applying it or notifying Plaintiffs while communicating with private real estate broker Damien Pogue, before returning the check unapplied to Shellpoint in March 2025 to preserve the physical water shutoff.</p>",
+        "record_source": "Exs. 21–23; Fraijo Decl. ¶ 28; CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Exs. 21–23</span>; <span class=\"file-source-tag\">Fraijo Decl. ¶ 28</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
     },
     {
         "id": "comm-4-4b",
@@ -1008,9 +1176,9 @@ NEW_ENTRIES = [
     # ==========================================
     {
         "id": "comp-2025-06",
-        "item_num": "5.2b",
-        "phase_num": 5,
-        "phase_title": "5. Phase 5: Prolonged Isolation & Federal Initiation (Apr 2025 – Nov 2025)",
+        "item_num": "4.6b",
+        "phase_num": 4,
+        "phase_title": "4. Phase IV: Winter Freeze, Check Suppression & Tort Claims (November 2024 – August 2025)",
         "layer": "comparator",
         "layer_title": "Vetted Comparators",
         "date_time": "June 10, 2025",
@@ -1029,9 +1197,9 @@ NEW_ENTRIES = [
     },
     {
         "id": "comm-5-3b",
-        "item_num": "5.3b",
-        "phase_num": 5,
-        "phase_title": "5. Phase 5: Prolonged Isolation & Federal Initiation (Apr 2025 – Nov 2025)",
+        "item_num": "4.8b",
+        "phase_num": 4,
+        "phase_title": "4. Phase IV: Winter Freeze, Check Suppression & Tort Claims (November 2024 – August 2025)",
         "layer": "public-ada",
         "layer_title": "Public Intel & ADA",
         "date_time": "July 2, 2025",
@@ -1050,9 +1218,9 @@ NEW_ENTRIES = [
     },
     {
         "id": "comp-2025-07",
-        "item_num": "5.3c",
-        "phase_num": 5,
-        "phase_title": "5. Phase 5: Prolonged Isolation & Federal Initiation (Apr 2025 – Nov 2025)",
+        "item_num": "4.8c",
+        "phase_num": 4,
+        "phase_title": "4. Phase IV: Winter Freeze, Check Suppression & Tort Claims (November 2024 – August 2025)",
         "layer": "comparator",
         "layer_title": "Vetted Comparators",
         "date_time": "July 2025",
@@ -1071,24 +1239,45 @@ NEW_ENTRIES = [
     },
     {
         "id": "comm-5-5b",
-        "item_num": "5.5b",
+        "item_num": "5.1b",
         "phase_num": 5,
         "phase_title": "5. Phase 5: Prolonged Isolation & Federal Initiation (Apr 2025 – Nov 2025)",
         "layer": "public-ada",
         "layer_title": "Public Intel & ADA",
-        "date_time": "October 24, 2025",
-        "date_sort": "2025-10-24",
-        "title": "FOIA Audit Production Confirms Zero Written ADA Policies for Past 5 Years",
-        "medium": "Oregon Public Records Request Compliance Disclosure",
-        "medium_cat": "Other",
-        "from": "Oregon City Recorder / Legal Department",
-        "to": "Annika Eriksson (PRR-2025-094)",
+        "date_time": "September 29 – October 24, 2025",
+        "date_sort": "2025-09-29",
+        "title": "Jacob Burgard Public Records Disclosure: Zero Written ADA Policies or Staff Training Materials (Plus Eriksson PRR R001174-102425)",
+        "medium": "Official Oregon Public Records Responses (GovQA / Ex. 35)",
+        "medium_cat": "Notice / Letter (City)",
+        "from": "Office of the City Recorder (Evan Lee)",
+        "to": "Jacob Burgard (Sept 29, 2025 ADA Records Request) & Annika Eriksson (Oct 24, 2025 PRR R001174-102425)",
         "actor_cat": "City Staff",
-        "subject": "Absence of Federally Mandated ADA Title II Transition Plan & Regulations",
-        "summary": "In response to comprehensive public records request PRR-2025-094 demanding City's ADA Title II administrative complaint procedure, reasonable accommodation operating policies, and utility hardship protocols, City Recorder formally certifies that no written administrative appeal policies exist across city archives.",
-        "summary_html": "<p>In response to comprehensive public records request PRR-2025-094 demanding City's ADA Title II administrative complaint procedure, reasonable accommodation operating policies, and utility hardship protocols, City Recorder formally certifies that no written administrative appeal policies exist across city archives.</p>",
-        "record_source": "PRR-2025-094 Official Response Letter; Clackamas County Federal Action Ex. 19; CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
-        "record_source_html": "<p><span class=\"file-source-tag\">PRR-2025-094 Compliance Letter</span>; [Ex. 19]; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
+        "subject": "Absence of Written ADA Title II Policies, SOPs, or Staff Training Materials for Preceding 5 Years",
+        "summary": "In response to public records requests placed by Jacob Burgard (plaintiff in Burgard v. City of Oregon City, 3:25-cv-01198-AR) asking for the City's written ADA accommodation policies, ADA training materials for City staff, and attempts to designate or hire an ADA Coordinator, the City Recorder formally confirms on September 29, 2025 that Oregon City maintains zero written policies, Standard Operating Procedures (SOPs), directives, or staff training materials regarding ADA accommodations or an ADA Coordinator for the preceding five years (shared by Burgard with Eriksson, Ex. 35). On October 24, 2025, Eriksson submits Public Records Request R001174-102425 seeking OCMC 15.11 distressed property records and Shellpoint communications.",
+        "summary_html": "<p>In response to public records requests placed by <strong>Jacob Burgard</strong> (plaintiff in <em>Burgard v. City of Oregon City</em>, <code>3:25-cv-01198-AR</code>) asking for the City's written ADA accommodation policies, ADA training materials for City staff, and attempts to designate or hire an ADA Coordinator, the City Recorder formally confirms on September 29, 2025 that Oregon City maintains zero written policies, Standard Operating Procedures (SOPs), directives, or staff training materials regarding ADA accommodations or an ADA Coordinator for the preceding five years (shared by Burgard with Eriksson, Ex. 35). On October 24, 2025, Eriksson submits Public Records Request <code>R001174-102425</code> seeking OCMC 15.11 distressed property records and Shellpoint communications.</p>",
+        "record_source": "City Public Records Response to Jacob Burgard (Sept 29, 2025, Ex. 35); Eriksson PRR R001174-102425 (Oct 24, 2025); CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Burgard PRR Response (09/29/2025, Ex. 35)</span>; <span class=\"file-source-tag\">PRR R001174-102425</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
+    },
+    {
+        "id": "comm-5-3c",
+        "item_num": "5.3c",
+        "phase_num": 5,
+        "phase_title": "5. Phase 5: Prolonged Isolation & Federal Initiation (Apr 2025 – Nov 2025)",
+        "layer": "public-ada",
+        "layer_title": "Public Intel & ADA",
+        "date_time": "October 26 – November 10, 2025",
+        "date_sort": "2025-10-26",
+        "title": "Discovery & Webarchive Capture of Hastily Assembled Draft ADA Webpage; Republication Cutting Window to 30 Days",
+        "medium": "Webarchive Capture (OC_ADA Grievance.webarchive) & City Webpages",
+        "medium_cat": "Records Request",
+        "from": "Jacob Burgard & Annika Eriksson / City of Oregon City Web Admin",
+        "to": "Public / Evidentiary Record",
+        "actor_cat": "City Staff",
+        "subject": "Discovery of Live Unedited ADA Grievance Page & Republication Halving Grievance Window",
+        "summary": "Following Assistant City Manager Alexandra Troutman's assertion that ADA policies applied only to employees and Burgard's Oct 1 rebuttal citing 28 C.F.R. § 35.107, Annika Eriksson and Jacob Burgard discover Oregon City hastily publishing an unedited draft ADA Grievance page attempting to create retroactive Title II compliance. Burgard inspects and captures the page (OC_ADA Grievance | Oregon City, OR.webarchive, 5.3 MB; ADA grievance website archive.txt), emailing Eriksson: 'Oh this is definitely new… It's being created now. The pages have filler content. The coordinator position is being filled in by Alex Troutman... 100% because of me.' The archived page contains unedited placeholders: [ADA Coordinator Name], ada@oregoncity.gov, (XXX) XXX-XXXX, [ADA Coordinator Office Address], and a 60 calendar day grievance deadline. The City then takes down the page and quietly republishes it around Nov 10, 2025, inserting Alexandra Troutman's contact details and cutting the grievance window in half from 60 days to 30 days.",
+        "summary_html": "<p>Following Assistant City Manager Alexandra Troutman's assertion that ADA policies applied only to employees and Burgard's Oct 1 rebuttal citing 28 C.F.R. § 35.107, Annika Eriksson and Jacob Burgard discover Oregon City hastily publishing an unedited draft ADA Grievance page attempting to create retroactive Title II compliance. Burgard inspects and captures the page (<code>OC_ADA Grievance | Oregon City, OR.webarchive</code>, 5.3 MB; <span class=\"file-source-tag\">ADA grievance website archive.txt</span>), emailing Eriksson: <em>\"Oh this is definitely new… It's being created now. The pages have filler content. The coordinator position is being filled in by Alex Troutman... 100% because of me.\"</em> The archived page contains unedited placeholders: <code>[ADA Coordinator Name]</code>, <code>ada@oregoncity.gov</code>, <code>(XXX) XXX-XXXX</code>, <code>[ADA Coordinator Office Address]</code>, and a <strong>60 calendar day</strong> grievance deadline. The City then takes down the page and quietly republishes it around Nov 10, 2025, inserting Alexandra Troutman's contact details and <strong>cutting the grievance window in half from 60 days to 30 days</strong>.</p>",
+        "record_source": "OC_ADA Grievance | Oregon City, OR.webarchive (Oct 26, 2025); Emails with Burgard.txt; ADA grievance website archive.txt; Ex. 35; CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
+        "record_source_html": "<p><span class=\"file-source-tag\">OC_ADA Grievance.webarchive</span>; <span class=\"file-source-tag\">Emails with Burgard.txt</span>; <span class=\"file-source-tag\">ADA grievance archive.txt</span>; <span class=\"file-source-tag\">Ex. 35</span>.</p>"
     },
     {
         "id": "comm-5-7b",
@@ -1099,17 +1288,17 @@ NEW_ENTRIES = [
         "layer_title": "Public Intel & ADA",
         "date_time": "November 16, 2025",
         "date_sort": "2025-11-16",
-        "title": "Doorstep TRO Standoff: Henderson 'Not Happening Today' (510-Day Shutoff Ends)",
-        "medium": "Audio Recording & Field Incident Transcript",
+        "title": "Doorstep TRO Standoff: Retained Counsel Ramon Henderson 'Not Happening Today' (510-Day Shutoff Ends)",
+        "medium": "Cell Phone Audio Recording & Field Incident Transcript",
         "medium_cat": "Audio Recording / Transcript",
-        "from": "Water Quality Supervisor Henderson / City Utility Crew",
-        "to": "Annika Eriksson / Federal Court Process Server",
-        "actor_cat": "City Staff",
-        "subject": "Physical Restoration of Service Following Federal Injunction Pressure",
-        "summary": "Following emergency federal TRO filings, Water Quality Supervisor Henderson arrives at 12054 Chapin Court. When served with federal motion, Henderson states on tape: 'That's not happening today.' After high-level inter-departmental calls, crew removes physical lock from meter box, restoring running water after 509 consecutive days of deprivation.",
-        "summary_html": "<p>Following emergency federal TRO filings, Water Quality Supervisor Henderson arrives at 12054 Chapin Court. When served with federal motion, Henderson states on tape: 'That's not happening today.' After high-level inter-departmental calls, crew removes physical lock from meter box, restoring running water after 509 consecutive days of deprivation.</p>",
-        "record_source": "Field Audio Recording (11/16/2025); Federal Civil Rights Action 3:26-cv-01885-IM Complaint ¶ 84; CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
-        "record_source_html": "<p><span class=\"file-source-tag\">Audio Recording (11/16/2025)</span>; <span class=\"file-source-tag\">Federal Complaint ¶ 84</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
+        "from": "Ramon Henderson (Retained City Defense Counsel) / City Utility Crew",
+        "to": "Annika Eriksson & Donald Buckhout",
+        "actor_cat": "City Legal / Retained Counsel",
+        "subject": "Doorstep Liability-Waiver Demand Under Circuit Court TRO & Manual Valve Restoration",
+        "summary": "Following the November 14, 2025 Temporary Restraining Order issued by Clackamas County Circuit Court (Case No. 24CV21417) commanding the City to restore potable water by November 16, 2025, City utility personnel arrive accompanied by retained defense attorney Ramon Henderson (Hodgkinson Street Mepham). Henderson blocks the crew from turning the valve and declares on cell phone audio recording that restoration is 'not happening today' unless Plaintiffs sign an un-drafted liability waiver. After Henderson steps away, Donald Buckhout manually turns the curb-stop valve himself, restoring running water and ending the 510-day physical shutoff.",
+        "summary_html": "<p>Following the November 14, 2025 Temporary Restraining Order issued by Clackamas County Circuit Court (Case No. 24CV21417) commanding the City to restore potable water by November 16, 2025, City utility personnel arrive accompanied by retained defense attorney Ramon Henderson (Hodgkinson Street Mepham). Henderson blocks the crew from turning the valve and declares on cell phone audio recording that restoration is <em>\"not happening today\"</em> unless Plaintiffs sign an un-drafted liability waiver. After Henderson steps away, Donald Buckhout manually turns the curb-stop valve himself, restoring running water and ending the 510-day physical shutoff.</p>",
+        "record_source": "Field Audio Recording & Transcript (11/16/2025); Clackamas County Case No. 24CV21417 TRO; CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Audio Recording (11/16/2025)</span>; <span class=\"file-source-tag\">Case 24CV21417 TRO</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
     },
 
     # ==========================================
@@ -1213,16 +1402,16 @@ NEW_ENTRIES = [
         "date_time": "June 23, 2026",
         "date_sort": "2026-06-23",
         "title": "Troutman Categorical ADA Denial: 'ADA Does Not Excuse Code Compliance'",
-        "medium": "Formal City Legal Department Letter",
+        "medium": "Official Written ADA Determination (Ex. 20)",
         "medium_cat": "Notice / Letter (City)",
-        "from": "Carrie Troutman (Assistant City Attorney)",
+        "from": "Alexandra Troutman (Assistant City Manager & ADA Coordinator)",
         "to": "Annika Eriksson",
         "actor_cat": "City Leadership",
-        "subject": "Categorical Rejection of Disability Accommodation for Sidewalks",
-        "summary": "City legal counsel issues written determination declaring: 'The Americans with Disabilities Act does not excuse compliance with municipal maintenance codes.' Rejection establishes City's formal policy of treating civil code citations as superior to federal civil rights statutes.",
-        "summary_html": "<p>City legal counsel issues written determination declaring: 'The Americans with Disabilities Act does not excuse compliance with municipal maintenance codes.' Rejection establishes City's formal policy of treating civil code citations as superior to federal civil rights statutes.</p>",
-        "record_source": "City Legal Letter (June 23, 2026); Federal Action 3:26-cv-01885-IM Exhibit 14; CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
-        "record_source_html": "<p><span class=\"file-source-tag\">Troutman Letter (06/23/2026)</span>; [Ex. 14]; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
+        "subject": "Categorical Rejection of Disability Accommodation for Code Enforcement",
+        "summary": "Assistant City Manager and ADA Coordinator Alexandra Troutman issues a written determination within 24 hours declaring: 'The ADA does not excuse compliance with municipal code requirements.' Rejection establishes the City's formal policy of refusing reasonable modifications in code enforcement under Title II of the ADA.",
+        "summary_html": "<p>Assistant City Manager and ADA Coordinator Alexandra Troutman issues a written determination within 24 hours declaring: <em>\"The ADA does not excuse compliance with municipal code requirements.\"</em> Rejection establishes the City's formal policy of refusing reasonable modifications in code enforcement under Title II of the ADA.</p>",
+        "record_source": "Troutman Written Denial (June 23, 2026, Ex. 20); CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
+        "record_source_html": "<p><span class=\"file-source-tag\">Troutman Denial (06/23/2026, Ex. 20)</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
     },
     {
         "id": "comm-7-5b",
@@ -1509,8 +1698,10 @@ def main():
             if part.isdigit():
                 parsed_parts.append(int(part))
             elif part:
-                parsed_parts.append(part)
-        return (ds, parsed_parts)
+                parsed_parts.append(part.lower())
+        if e.get('phase_num', 0) == 0:
+            return (ds, parsed_parts)
+        return (parsed_parts, ds)
 
     for p_num in sorted(phases.keys()):
         phases[p_num]['entries'].sort(key=entry_sort_key)
@@ -1549,20 +1740,21 @@ def main():
     html = re.sub(pattern_stream, replacement_stream, html, flags=re.DOTALL)
 
     # Update counts and headers in HTML
-    html = html.replace('index and verbatim evidentiary record of 98 communications', f'index and verbatim evidentiary record of {total_count} multi-track records')
-    html = html.replace('<a href="timeline.html" class="active">Timeline (98)</a>', f'<a href="timeline.html" class="active">Timeline ({total_count})</a>')
-    html = html.replace('Point-and-click repository indexing 98 documented communications', f'Point-and-click repository indexing {total_count} documented multi-track records')
-    html = html.replace('<div class="stat-number">98</div>', f'<div class="stat-number">{total_count}</div>')
-    html = html.replace('placeholder="Search 98 records (person, date, topic, exhibit)..."', f'placeholder="Search {total_count} records across 7 tracks (person, date, topic, exhibit)..."')
-    html = html.replace('Timeline (98 Events)', f'Timeline ({total_count} Records)')
-    html = html.replace('98 item forensic dossier', f'{total_count} record multi-track dossier')
-    html = html.replace('98-Item Forensic Timeline', f'{total_count}-Record Multi-Track Forensic Timeline')
-    html = html.replace('The 98 Municipal Communications', f'Multi-Track Forensic Timeline ({total_count} Records)')
-    html = html.replace('98 Communications Recorded', f'{total_count} Multi-Track Records')
-    html = html.replace('98 chronological communications', f'{total_count} multi-track forensic records')
-    html = html.replace('98 Communications Logged', f'{total_count} Multi-Track Records Logged')
+    for old_n in (97, 98, 104, len(lived_entries)):
+        html = html.replace(f'index and verbatim evidentiary record of {old_n} communications', f'index and verbatim evidentiary record of {total_count} multi-track records')
+        html = html.replace(f'<a href="timeline.html" class="active">Timeline ({old_n})</a>', f'<a href="timeline.html" class="active">Timeline ({total_count})</a>')
+        html = html.replace(f'Point-and-click repository indexing {old_n} documented communications', f'Point-and-click repository indexing {total_count} documented multi-track records')
+        html = html.replace(f'<div class="stat-number">{old_n}</div>', f'<div class="stat-number">{total_count}</div>')
+        html = html.replace(f'placeholder="Search {old_n} records (person, date, topic, exhibit)..."', f'placeholder="Search {total_count} records across 7 tracks (person, date, topic, exhibit)..."')
+        html = html.replace(f'Timeline ({old_n} Events)', f'Timeline ({total_count} Records)')
+        html = html.replace(f'{old_n} item forensic dossier', f'{total_count} record multi-track dossier')
+        html = html.replace(f'{old_n}-Item Forensic Timeline', f'{total_count}-Record Multi-Track Forensic Timeline')
+        html = html.replace(f'The {old_n} Municipal Communications', f'Multi-Track Forensic Timeline ({total_count} Records)')
+        html = html.replace(f'{old_n} Communications Recorded', f'{total_count} Multi-Track Records')
+        html = html.replace(f'{old_n} chronological communications', f'{total_count} multi-track forensic records')
+        html = html.replace(f'{old_n} Communications Logged', f'{total_count} Multi-Track Records Logged')
+        html = html.replace(f'Showing {old_n} of {old_n} communications', f'Showing {total_count} of {total_count} multi-track records')
     html = html.replace('130 Multi-Track Records Logged', f'{total_count} Multi-Track Records Logged')
-    html = html.replace('Showing 98 of 98 communications', f'Showing {total_count} of {total_count} multi-track records')
     html = html.replace('Showing 130 of 130 multi-track records', f'Showing {total_count} of {total_count} multi-track records')
 
     # Add / Update Badge CSS for all layers
@@ -1797,6 +1989,104 @@ def main():
       drawerPhaseBadge.textContent = 'Phase ' + entry.phase_num;
       drawerMediumBadge.textContent = entry.medium;"""
         html = html.replace(drawer_js_old, drawer_js_new)
+
+    # Darken drawer summary & source text boxes for optimal contrast and legibility
+    drawer_css_old_start = html.find('.drawer-summary-box {')
+    drawer_css_old_end = html.find('.drawer-footer {', drawer_css_old_start)
+    if drawer_css_old_start != -1 and drawer_css_old_end != -1:
+        drawer_css_darkened = """.drawer-summary-box {
+      background: #0F172A;
+      border: 1px solid rgba(13, 148, 136, 0.4);
+      border-left: 4px solid var(--paladin-teal);
+      padding: 1.25rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #F8FAFC;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.35);
+    }
+
+    .drawer-summary-box p {
+      margin-bottom: 0.85rem;
+      color: #F8FAFC;
+    }
+
+    .drawer-summary-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .drawer-summary-box strong {
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+
+    .drawer-summary-box em {
+      color: #E2E8F0;
+    }
+
+    .drawer-summary-box a {
+      color: #38BDF8;
+      text-decoration: underline;
+    }
+
+    .drawer-summary-box a:hover {
+      color: #7DD3FC;
+    }
+
+    .drawer-summary-box blockquote {
+      border-left: 3px solid var(--paladin-amber);
+      background: rgba(217, 119, 6, 0.15);
+      padding: 0.65rem 0.85rem;
+      margin: 0.85rem 0;
+      font-style: italic;
+      color: #FEF3C7;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .drawer-summary-box code {
+      font-family: var(--font-technical, 'JetBrains Mono', monospace);
+      font-size: 0.85em;
+      background: rgba(255, 255, 255, 0.12);
+      color: #38BDF8;
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+    }
+
+    .drawer-source-box {
+      background: #141D30;
+      border: 1px solid rgba(217, 119, 6, 0.4);
+      border-left: 4px solid var(--paladin-amber);
+      padding: 0.95rem 1.15rem;
+      border-radius: 6px;
+      font-family: var(--font-technical, 'JetBrains Mono', monospace);
+      font-size: 0.82rem;
+      color: #E2E8F0;
+      line-height: 1.55;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.35);
+    }
+
+    .drawer-source-box a {
+      color: #38BDF8;
+      text-decoration: underline;
+    }
+
+    .drawer-source-box a:hover {
+      color: #7DD3FC;
+    }
+
+    .file-source-tag {
+      display: inline-block;
+      background: rgba(13, 148, 136, 0.2);
+      border: 1px solid rgba(13, 148, 136, 0.4);
+      color: #2DD4BF;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      margin: 0.15rem 0;
+      word-break: break-all;
+    }
+
+    """
+        html = html[:drawer_css_old_start] + drawer_css_darkened + html[drawer_css_old_end:]
 
     print(f"Writing updated HTML to {TIMELINE_PATH}...")
     with open(TIMELINE_PATH, 'w', encoding='utf-8') as f:

@@ -7,6 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="navigation.css">
   <style>
     :root {
       --bg-canvas: #090D14;
@@ -790,11 +792,14 @@
     <!-- Header Bar -->
     <div class="deck-header">
       <div class="brand-group">
-        <span class="brand-mark">
+        <a href="index.html" class="brand-mark" style="text-decoration:none; color:var(--color-vellum, #F5EFE0);" title="Return to EFOS Hub">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
           EFOS + PALADIN
-        </span>
+        </a>
         <span class="badge-thesis">MAKING COMPLEXITY LEGIBLE</span>
+        <a href="paladin.html" style="text-decoration:none; color:var(--color-cheshire-teal, #2DD4BF); font-size:0.75rem; margin-left:8px;">⚖ Suite</a>
+        <a href="timeline.html" style="text-decoration:none; color:var(--color-white-rabbit-gold, #F59E0B); font-size:0.75rem; margin-left:4px;">📜 Timeline</a>
+        <a href="index.html#interrelations" style="text-decoration:none; color:var(--color-red-queen, #FDA4AF); font-size:0.75rem; margin-left:4px;">🧭 Atlas</a>
       </div>
       <div class="slide-meta">
         <span id="slide-claim-badge" class="claim-tag claim-tag--concept">[FOUNDATIONAL THESIS]</span>

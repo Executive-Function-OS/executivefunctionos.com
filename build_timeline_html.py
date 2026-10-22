@@ -21,16 +21,16 @@ def parse_timeline(md_path):
         end_pos = phase_matches[i+1].start() if i+1 < len(phase_matches) else len(text)
         phase_content = text[start_pos:end_pos]
         
-        entry_chunks = re.split(r'\n(?=### \d+\.\d+ )', phase_content)
+        entry_chunks = re.split(r'\n(?=### \d+\.\d+[A-Za-z]? )', phase_content)
         entries = []
         for chunk in entry_chunks:
             chunk = chunk.strip()
             if not chunk.startswith('### '):
                 continue
             first_line = chunk.split('\n')[0]
-            m = re.match(r'^###\s+(\d+\.\d+)\s+(.+?)\s+—\s+(.+)$', first_line)
+            m = re.match(r'^###\s+(\d+\.\d+[A-Za-z]?)\s+(.+?)\s+—\s+(.+)$', first_line)
             if not m:
-                m = re.match(r'^###\s+(\d+\.\d+)\s+(.+)$', first_line)
+                m = re.match(r'^###\s+(\d+\.\d+[A-Za-z]?)\s+(.+)$', first_line)
                 item_num = m.group(1) if m else '0'
                 date_time = m.group(2) if m else ''
                 title = date_time
@@ -1106,7 +1106,10 @@ def generate_html(phases):
           <strong>Federal Action:</strong> <em>Eriksson v. City of Oregon City</em> (D. Or. Case No. <code>3:26-cv-01885-IM</code>)
         </div>
         <div class="case-chip">
-          <strong>Municipal / Appellate:</strong> <em>City v. Eriksson</em> (Case No. <code>CE-014675-26</code> / <code>A183495</code>)
+          <strong>Municipal Proceeding:</strong> <em>City v. Eriksson</em> (Case No. <code>CE-014675-26</code>)
+        </div>
+        <div class="case-chip">
+          <strong>Oregon Court of Appeals:</strong> (Case No. <code>A191649</code>)
         </div>
         <div class="case-chip">
           <strong>Evidentiary Standard:</strong> Verified Primary Sources &bull; No Prohibited Hallucinations

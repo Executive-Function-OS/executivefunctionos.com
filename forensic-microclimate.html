@@ -7,6 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="navigation.css">
   <style>
     :root {
       --bg-canvas: #090D14;
@@ -1021,9 +1023,31 @@
         <span class="brand-title">Forensic Microclimate Investigation</span>
       </div>
       <div class="deck-controls">
+        <a href="index.html" class="control-btn" style="text-decoration:none; color:var(--color-cheshire-teal, #2DD4BF);">🧭 EFOS Hub</a>
+        <a href="timeline.html" class="control-btn" style="text-decoration:none; color:var(--color-white-rabbit-gold, #F59E0B);">📜 Timeline</a>
+        <a href="paladin.html" class="control-btn" style="text-decoration:none; color:var(--color-red-queen, #FDA4AF);">⚖ PALADIN</a>
         <button class="control-btn" id="open-contents-btn">📑 Contents</button>
         <button class="control-btn" id="open-notes-btn">📝 Notes (N)</button>
         <button class="control-btn" id="toggle-fullscreen-btn">⛶ Fullscreen (F)</button>
+      </div>
+    </div>
+
+    <!-- Contextual Breadcrumb & Interrelation Sub-Bar -->
+    <div class="lg-breadcrumb-strip" style="z-index: 10; padding: 0.35rem 1.5rem; flex-shrink: 0;">
+      <div class="lg-breadcrumbs">
+        <a href="index.html">EFOS Hub</a>
+        <span class="lg-crumb-sep">&rsaquo;</span>
+        <a href="paladin.html">PALADIN (A2J)</a>
+        <span class="lg-crumb-sep">&rsaquo;</span>
+        <span class="lg-crumb-current">Forensic Microclimate Investigation (FRE 702)</span>
+      </div>
+      <div class="lg-interrelations-strip">
+        <span class="lg-interrelation-label">Interrelated Nodes:</span>
+        <a href="timeline.html" class="lg-node-pill">📜 Master Timeline (162)</a>
+        <a href="paladin.html" class="lg-node-pill">⚖ PALADIN Pleading Suite</a>
+        <a href="library.html" class="lg-node-pill">📚 Evidence Library (5,612)</a>
+        <a href="privity.html" class="lg-node-pill">🔍 Privity Paradox</a>
+        <a href="index.html#interrelations" class="lg-node-pill" style="border-color:var(--color-white-rabbit-gold); color:var(--color-white-rabbit-gold);">🧭 System Atlas &rarr;</a>
       </div>
     </div>
 
