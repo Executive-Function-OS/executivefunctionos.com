@@ -835,15 +835,15 @@ NEW_ENTRIES = [
         "layer_title": "Municipal Code",
         "date_time": "January 11, 2024",
         "date_sort": "2024-01-11",
-        "title": "City Posts $867.62 Door Hanger Combining Prior Tenant Stephanie Jones's $606.60 Arrears",
-        "medium": "Door Hanger Notice & Internal Utility Billing Log (Fraijo Decl. Exs. 1–4)",
+        "title": "City Utility Internal Log Discloses Directive to Demand $867.62 Combining Prior Tenant Arrears",
+        "medium": "Internal Utility Billing Account Notes (Fraijo Decl. Ex. 1)",
         "medium_cat": "Notice / Letter (City)",
         "from": "Ashley Flues (City of Oregon City Utility Billing)",
-        "to": "Annika Eriksson (Account 01-466348-05)",
+        "to": "Internal Utility Billing Records / Code Enforcement",
         "actor_cat": "City Staff",
-        "subject": "Unlawful Demand Combining Prior Tenant Account 01-466348-04 ($606.60) with Eriksson Account ($236.02)",
-        "summary": "City Utility Billing staffer Ashley Flues logs an internal account note stating: 'This address was shut off back on 10/3 and then someone turned it back on. Code confirmed it is Annika in the house - D/H for the full amount of Stephanie Jones account and this account + $25.00 to equal $867.62.' The $867.62 door hanger demand unlawfully combines prior tenant Stephanie Jones's unpaid $606.60 balance (Account 01-466348-04) with Eriksson's first two water bills ($116.79 + $119.23 = $236.02 on Account 01-466348-05) plus a $25.00 door hanger fee.",
-        "summary_html": "<p>City Utility Billing staffer Ashley Flues logs an internal account note stating: <em>\"This address was shut off back on 10/3 and then someone turned it back on. Code confirmed it is Annika in the house - D/H for the full amount of Stephanie Jones account and this account + $25.00 to equal $867.62.\"</em> The $867.62 door hanger demand unlawfully combines prior tenant Stephanie Jones's unpaid $606.60 balance (Account 01-466348-04) with Eriksson's first two water bills ($116.79 + $119.23 = $236.02 on Account 01-466348-05) plus a $25.00 door hanger fee.</p>",
+        "subject": "Internal Directive to Combine Prior Tenant Stephanie Jones's $606.60 Arrears with New Resident Account",
+        "summary": "City Utility Billing staffer Ashley Flues logs an internal account note stating: 'This address was shut off back on 10/3 and then someone turned it back on. Code confirmed it is Annika in the house - D/H for the full amount of Stephanie Jones account and this account + $25.00 to equal $867.62.' This internal note—later produced by the City as Exhibit 1 to Ashley Fraijo's federal court declaration—reveals that City utility staff internally directed a door hanger combining prior tenant Stephanie Jones's unpaid $606.60 debt (Account 01-466348-04) with Eriksson's first two water bills ($236.02 on Account 01-466348-05). While the accounts were never formally merged in the online customer portal (where Jones's account remained separate), Fraijo's filing revealed the City's internal posture of seeking to hold the incoming occupant responsible for the prior tenant's debt.",
+        "summary_html": "<p>City Utility Billing staffer Ashley Flues logs an internal account note stating: <em>\"This address was shut off back on 10/3 and then someone turned it back on. Code confirmed it is Annika in the house - D/H for the full amount of Stephanie Jones account and this account + $25.00 to equal $867.62.\"</em> This internal note—later produced by the City as Exhibit 1 to Ashley Fraijo's federal court declaration—reveals that City utility staff internally directed a door hanger combining prior tenant Stephanie Jones's unpaid $606.60 debt (Account 01-466348-04) with Eriksson's first two water bills ($236.02 on Account 01-466348-05). While the accounts were never formally merged in the online customer portal (where Jones's account remained separate), Fraijo's filing revealed the City's internal posture of seeking to hold the incoming occupant responsible for the prior tenant's debt.</p>",
         "record_source": "Fraijo Decl. Exs. 1–4 (Internal City Utility Billing Notes & Account Ledgers 01-466348-04 & 01-466348-05); CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md.",
         "record_source_html": "<p><span class=\"file-source-tag\">Fraijo Decl. Exs. 1–4</span>; <span class=\"file-source-tag\">Account 01-466348-05 Ledger</span>; <span class=\"file-source-tag\">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>.</p>"
     },
@@ -1661,6 +1661,15 @@ def main():
     for item in lived_entries:
         item['layer'] = 'lived'
         item['layer_title'] = 'Lived Experience'
+        if item['id'] == 'comm-1-6':
+            item['title'] = 'First Physical Water Shutoff & Project Access NOW Restoration Payment ($311.02)'
+            item['summary'] = "On January 22, 2024, the City physically shuts off water service to 12054 Chapin Court. City utility staffer John Oreskovich logs an internal alert: 'SHUT OFF 1/22/2024 $311.02 TO RESTORE'—reflecting Eriksson's actual utility balance of $236.02 plus a $25.00 door hanger fee and a $50.00 shutoff fee (excluding prior tenant Stephanie Jones's separate $606.60 account). Eriksson immediately coordinates with Project Access NOW, and on January 23, 2024 (credited January 24, Batch B00015794, Receipt R00738478), Jonathan from Project Access NOW pays $311.02 via VISA card (*4447, Auth 613634) on Eriksson's behalf to restore water service. Oreskovich logs: 'Jonathan, from Project Access (via health care provider) made the full payment to restore service,' but simultaneously assesses an additional $50.00 meter tampering fee (paid Feb 22, 2024), bringing January municipal fees alone to $125.00."
+            item['summary_html'] = "<p>On January 22, 2024, the City physically shuts off water service to 12054 Chapin Court. City utility staffer John Oreskovich logs an internal alert: <em>\"SHUT OFF 1/22/2024 $311.02 TO RESTORE\"</em>—reflecting Eriksson's actual utility balance of $236.02 plus a $25.00 door hanger fee and a $50.00 shutoff fee (excluding prior tenant Stephanie Jones's separate $606.60 account). Eriksson immediately coordinates with Project Access NOW, and on January 23, 2024 (credited January 24, Batch B00015794, Receipt R00738478), <strong>Jonathan from Project Access NOW</strong> pays <strong>$311.02</strong> via VISA card (*4447, Auth 613634) on Eriksson's behalf to restore water service. Oreskovich logs: <em>\"Jonathan, from Project Access (via health care provider) made the full payment to restore service,\"</em> but simultaneously assesses an additional $50.00 meter tampering fee (paid Feb 22, 2024), bringing January municipal fees alone to $125.00.</p>"
+        
+        # Sanitize any legacy horizontal rule dividers from lived entries
+        for field in ['summary', 'summary_html', 'record_source', 'record_source_html']:
+            if field in item and item[field]:
+                item[field] = item[field].replace('\n\n---', '').replace('<p>---</p>', '').replace('---', '')
 
     print(f"Loaded {len(lived_entries)} pristine lived communications.")
 
