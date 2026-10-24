@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Washington County Forensic Repository &bull; 1730 SW 203rd Ave Evidentiary Dossier</title>
+  <meta name="description" content="Public forensic reference library and evidentiary dossier for 1730 SW 203rd Ave (Beaverton, OR), detailing chain of title defects, void foreclosure decrees, extra-judicial self-help lockouts by Aldridge Pite, and active statutes of limitations.">
+  <link rel="icon" type="image/svg+xml" href="../favicon-paladin.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Charter:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../kinetic_clarity_buttons.css">
+
+  <style>
+    :root {
+      --paladin-paper: #F3EADC;
+      --paladin-paper-subtle: #FAF6EE;
+      --paladin-ink: #1C1710;
+      --paladin-ink-muted: #574F44;
+      --paladin-teal: #1F5F58;
+      --paladin-teal-light: #EBF4F3;
+      --paladin-terracotta: #C45C3E;
+      --paladin-terracotta-light: #FBF0ED;
+      --paladin-rule: rgba(28, 23, 16, 0.16);
+      --paladin-rule-strong: rgba(31, 95, 88, 0.35);
+      --paladin-amber: #D97706;
+      --paladin-amber-light: #FEF3C7;
+      --paladin-slate: #0F172A;
+      --paladin-blue: #1E40AF;
+      --paladin-blue-light: #EFF6FF;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--paladin-paper);
+    }
+
+    body {
+      background-color: var(--paladin-paper);
+      color: var(--paladin-ink);
+      font-family: var(--font-editorial, 'Charter', Georgia, serif);
+      line-height: 1.6;
+      font-size: 1.05rem;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: 
+        linear-gradient(to right, rgba(31, 95, 88, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(28, 23, 16, 0.035) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(243, 234, 220, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--paladin-teal);
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(28, 23, 16, 0.06);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--paladin-ink);
+      font-weight: 700;
+      font-family: var(--font-display, 'Space Grotesk', sans-serif);
+      font-size: 1.15rem;
+    }
+
+    .brand-logo-img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--paladin-teal);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: var(--font-interface, 'Inter', sans-serif);
+      padding: 0.4rem 0.65rem;
+      border-radius: 4px;
+      transition: background 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(31, 95, 88, 0.08);
+    }
+
+    .hero-section {
+      padding: 3rem 0 2.5rem;
+      border-bottom: 1px solid var(--paladin-rule);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: var(--font-interface, 'Inter', sans-serif);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--paladin-teal);
+      background: var(--paladin-teal-light);
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(31, 95, 88, 0.25);
+    }
+
+    .hero-section h1 {
+      font-family: var(--font-display, 'Space Grotesk', sans-serif);
+      font-size: 2.5rem;
+      line-height: 1.2;
+      color: var(--paladin-ink);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--paladin-ink-muted);
+      max-width: 880px;
+      margin-bottom: 1.75rem;
+    }
+
+    .action-bar {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--paladin-teal);
+      color: #fff;
+      padding: 0.65rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: var(--font-interface, 'Inter', sans-serif);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(31, 95, 88, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: #174843;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--paladin-paper-subtle);
+      color: var(--paladin-ink);
+      padding: 0.65rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: var(--font-interface, 'Inter', sans-serif);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: 1px solid var(--paladin-rule);
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #ede3d3;
+    }
+
+    .section-title {
+      font-family: var(--font-display, 'Space Grotesk', sans-serif);
+      font-size: 1.6rem;
+      color: var(--paladin-ink);
+      margin: 2.5rem 0 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-desc {
+      color: var(--paladin-ink-muted);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tier-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .file-card {
+      background: var(--paladin-paper-subtle);
+      border: 1px solid var(--paladin-rule);
+      border-left: 4px solid var(--paladin-teal);
+      border-radius: 6px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .file-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(28, 23, 16, 0.08);
+    }
+
+    .file-card.tier-legal {
+      border-left-color: var(--paladin-terracotta);
+    }
+
+    .file-card.tier-alert {
+      border-left-color: var(--paladin-amber);
+      background: #FFFDF9;
+    }
+
+    .file-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+      gap: 0.5rem;
+    }
+
+    .file-name {
+      font-family: var(--font-code, 'JetBrains Mono', monospace);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--paladin-ink);
+      word-break: break-word;
+    }
+
+    .file-size-badge {
+      font-family: var(--font-interface, 'Inter', sans-serif);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      background: rgba(28, 23, 16, 0.06);
+      color: var(--paladin-ink-muted);
+      white-space: nowrap;
+    }
+
+    .file-desc {
+      font-size: 0.95rem;
+      color: var(--paladin-ink-muted);
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .file-desc strong {
+      color: var(--paladin-ink);
+    }
+
+    .file-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      border-top: 1px dashed var(--paladin-rule);
+      padding-top: 0.75rem;
+    }
+
+    .file-links a {
+      color: var(--paladin-teal);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      font-family: var(--font-interface, 'Inter', sans-serif);
+    }
+
+    .file-links a:hover {
+      text-decoration: underline;
+    }
+
+    .copy-url-btn {
+      background: none;
+      border: 1px solid var(--paladin-rule);
+      padding: 0.25rem 0.55rem;
+      border-radius: 4px;
+      font-family: var(--font-interface, 'Inter', sans-serif);
+      font-size: 0.75rem;
+      color: var(--paladin-ink-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .copy-url-btn:hover {
+      background: #ede3d3;
+      color: var(--paladin-ink);
+    }
+
+    /* GAPS TABLE & CARDS */
+    .gaps-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 2rem;
+      font-size: 0.92rem;
+      background: var(--paladin-paper-subtle);
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--paladin-rule);
+    }
+
+    .gaps-table th {
+      background: #E8DDCC;
+      color: var(--paladin-ink);
+      text-align: left;
+      padding: 0.75rem 1rem;
+      font-family: var(--font-interface, 'Inter', sans-serif);
+      font-weight: 700;
+      border-bottom: 2px solid var(--paladin-rule);
+    }
+
+    .gaps-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--paladin-rule);
+      vertical-align: top;
+    }
+
+    .gaps-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .badge-critical {
+      background: #FEE2E2;
+      color: #991B1B;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      display: inline-block;
+    }
+
+    .badge-active {
+      background: #DCFCE7;
+      color: #166534;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      display: inline-block;
+    }
+
+    .prompt-box {
+      background: #1C1710;
+      color: #F3EADC;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0 2.5rem;
+      position: relative;
+    }
+
+    .prompt-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(243, 234, 220, 0.2);
+      padding-bottom: 0.75rem;
+      font-family: var(--font-interface, 'Inter', sans-serif);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #D1C7B7;
+    }
+
+    .prompt-box pre {
+      font-family: var(--font-code, 'JetBrains Mono', monospace);
+      font-size: 0.88rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: #FAF6EE;
+    }
+
+    .btn-copy-prompt {
+      background: var(--paladin-teal);
+      color: #fff;
+      border: none;
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-family: var(--font-interface, 'Inter', sans-serif);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn-copy-prompt:hover {
+      background: #2A7B72;
+    }
+
+    footer {
+      border-top: 1px solid var(--paladin-rule);
+      padding: 2rem 0;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: var(--paladin-ink-muted);
+      font-family: var(--font-interface, 'Inter', sans-serif);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="../index.html" class="brand-link">
+        <img src="../favicon-paladin.svg" alt="Paladin Mark" class="brand-logo-img">
+        <span>Executive Function OS</span>
+      </a>
+      <div class="nav-links">
+        <a href="../dossier/">&larr; Chapin Court Dossier</a>
+        <a href="../timeline.html">Interactive Timeline</a>
+        <a href="washington_county_forensic_reference_files.zip" class="btn-primary" style="padding: 0.35rem 0.8rem; font-size: 0.82rem;">Download All (.ZIP)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero-section">
+      <span class="hero-badge">Audit &bull; Washington County Evidentiary Dossier</span>
+      <h1>Forensic Reference Repository: 1730 SW 203rd Ave (Beaverton)</h1>
+      <p class="hero-subtitle">
+        Primary title records, reconveyance deeds, extra-judicial lockout evidence, small claims proceedings (<code>24SC05266</code>), quiet title records (<code>23CV50085</code> / <code>A184800</code>), missing documentary gaps audit, and actionable statute of limitations roadmap.
+      </p>
+
+      <div class="action-bar">
+        <a href="washington_county_forensic_reference_files.zip" class="btn-primary">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Download All Reference Files (.ZIP)
+        </a>
+        <a href="../dossier/" class="btn-secondary">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          View Chapin Court Dossier
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION 1: CHAIN OF TITLE & FORECLOSURE VOIDNESS -->
+    <section>
+      <h2 class="section-title">1. Primary Chain of Title & Deed Nullity Evidence</h2>
+      <p class="section-desc">Recorded deeds, Chase reconveyance instruments, bankruptcy court orders, and foreclosure complaints establishing the voidness of the 2018 foreclosure judgment and 2023 Sheriff's Deed.</p>
+      
+      <div class="tier-card-grid">
+        
+        <div class="file-card" style="border-left-color: var(--paladin-amber);">
+          <div class="file-header">
+            <span class="file-name">Open 2014 SUBSTITUTION OF TRUSTEE AND RECONVEYANCE DEED ONLY.pdf</span>
+            <span class="file-size-badge">568 KB (SMOKING GUN)</span>
+          </div>
+          <p class="file-desc">
+            <strong>Recorded Reconveyance Deed:</strong> Duly recorded in Washington County by MERS and <strong>JPMorgan Chase Bank, N.A.</strong> in 2014, releasing and extinguishing the 2006 Millennia Deed of Trust lien. Deutsche Bank sued in 2018 to rescind this deed <em>without ever joining or serving Chase</em>, rendering the resulting judgment void.
+          </p>
+          <div class="file-links">
+            <a href="Open%202014%20SUBSTITUTION%20OF%20TRUSTEE%20AND%20RECONVEYANCE%20DEED%20ONLY.pdf" target="_blank">View Document &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('Open 2014 SUBSTITUTION OF TRUSTEE AND RECONVEYANCE DEED ONLY.pdf')">Copy URL</button>
+          </div>
+        </div>
+
+        <div class="file-card" style="border-left-color: var(--paladin-amber);">
+          <div class="file-header">
+            <span class="file-name">2014-073078 Deed to Turning Leaf readable.pdf</span>
+            <span class="file-size-badge">271 KB (PRIMARY TITLE)</span>
+          </div>
+          <p class="file-desc">
+            <strong>Bankruptcy Short Sale Conveyance:</strong> Warranty deed recorded October 16, 2014 conveying the property from the Monckton Chapter 13 bankruptcy estate to Turning Leaf Homes, LLC free and clear of the reconveyed 2006 mortgage lien. Turning Leaf subsequently conveyed fee simple to Annika Eriksson.
+          </p>
+          <div class="file-links">
+            <a href="2014-073078%20Deed%20to%20Turning%20Leaf%20readable.pdf" target="_blank">View Document &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('2014-073078 Deed to Turning Leaf readable.pdf')">Copy URL</button>
+          </div>
+        </div>
+
+        <div class="file-card tier-legal">
+          <div class="file-header">
+            <span class="file-name">18CV01284 complaint.pdf</span>
+            <span class="file-size-badge">3.5 MB (COURT RECORD)</span>
+          </div>
+          <p class="file-desc">
+            <strong>The 2018 Foreclosure Complaint:</strong> Deutsche Bank's complaint praying to rescind the 2014 Chase Reconveyance. Proves on its face that JPMorgan Chase Bank was never named as a party defendant, depriving the court of jurisdiction under <em>Hughes v. Aetna</em>.
+          </p>
+          <div class="file-links">
+            <a href="18CV01284%20complaint.pdf" target="_blank">View Document &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('18CV01284 complaint.pdf')">Copy URL</button>
+          </div>
+        </div>
+
+        <div class="file-card tier-legal">
+          <div class="file-header">
+            <span class="file-name">2023 recorded WOE.pdf</span>
+            <span class="file-size-badge">831 KB (FACIAL NULLITY)</span>
+          </div>
+          <p class="file-desc">
+            <strong>Writ of Execution & Sheriff's Deed:</strong> Sheriff's return and deed executed in December 2023. Explicitly names <strong>retired Sheriff Pat Garrett</strong> as grantor after he had vacated constitutional office, rendering the deed null and void under ORS 18.942.
+          </p>
+          <div class="file-links">
+            <a href="2023%20recorded%20WOE.pdf" target="_blank">View Document &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('2023 recorded WOE.pdf')">Copy URL</button>
+          </div>
+        </div>
+
+        <div class="file-card">
+          <div class="file-header">
+            <span class="file-name">2016-2018 endorsements.pdf</span>
+            <span class="file-size-badge">1.3 MB (FORENSIC AUDIT)</span>
+          </div>
+          <p class="file-desc">
+            Side-by-side comparison of the promissory note endorsements between the dismissed 2016 foreclosure and the 2018 case, proving that the Judy Faber / RFC allonge was manufactured years after the trust closing date.
+          </p>
+          <div class="file-links">
+            <a href="2016-2018%20endorsements.pdf" target="_blank">View Document &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('2016-2018 endorsements.pdf')">Copy URL</button>
+          </div>
+        </div>
+
+        <div class="file-card">
+          <div class="file-header">
+            <span class="file-name">Lawyer’s Title.pdf</span>
+            <span class="file-size-badge">2.4 MB (TITLE AUDIT)</span>
+          </div>
+          <p class="file-desc">
+            Official title report and preliminary policy confirmation establishing bona fide purchaser status and the absence of any valid outstanding first mortgage lien following the 2014 reconveyance.
+          </p>
+          <div class="file-links">
+            <a href="Lawyer%E2%80%99s%20Title.pdf" target="_blank">View Document &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('Lawyer’s Title.pdf')">Copy URL</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: LOCKOUTS & SMALL CLAIMS OUSTER -->
+    <section>
+      <h2 class="section-title">2. Extra-Judicial Lockouts, Ouster & Small Claims Dossier (24SC05266)</h2>
+      <p class="section-desc">Evidentiary records of Aldridge Pite, LLP and Kimberly Hood's self-help lockouts without judicial eviction, Donald Buckhout's lawsuit, and the 15-week sheriff backlog.</p>
+
+      <div class="tier-card-grid">
+
+        <div class="file-card tier-alert">
+          <div class="file-header">
+            <span class="file-name">203rd Aldridge Pite 1_8_24.pdf</span>
+            <span class="file-size-badge">1.4 MB (DIRECT NOTICE)</span>
+          </div>
+          <p class="file-desc">
+            <strong>24-Hour Takeover Demand:</strong> Written demand issued by Kimberly Hood of Aldridge Pite demanding a 24-hour response despite knowing that quiet title litigation and a recorded lis pendens were pending, followed immediately by the January 20–21 and February 20, 2024 lockouts.
+          </p>
+          <div class="file-links">
+            <a href="203rd%20Aldridge%20Pite%201_8_24.pdf" target="_blank">View Document &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('203rd Aldridge Pite 1_8_24.pdf')">Copy URL</button>
+          </div>
+        </div>
+
+        <div class="file-card tier-alert">
+          <div class="file-header">
+            <span class="file-name">ILLEGAL_LOCKOUT_AND_OUSTER_EVIDENTIARY_DOSSIER.md</span>
+            <span class="file-size-badge">7.7 KB (FACTUAL AUDIT)</span>
+          </div>
+          <p class="file-desc">
+            Complete factual anatomy of Lockout #1 (Jan 20–21, 2024) and Lockout #2 (Feb 20, 2024). Documents the ouster of bona fide tenant Donald Buckhout, the detention of personal property, and the filing of Case No. 24SC05266.
+          </p>
+          <div class="file-links">
+            <a href="ILLEGAL_LOCKOUT_AND_OUSTER_EVIDENTIARY_DOSSIER.md" target="_blank">View Dossier &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('ILLEGAL_LOCKOUT_AND_OUSTER_EVIDENTIARY_DOSSIER.md')">Copy URL</button>
+          </div>
+        </div>
+
+        <div class="file-card">
+          <div class="file-header">
+            <span class="file-name">Joseph McCormick When Can a Servicer Take Possession...pdf</span>
+            <span class="file-size-badge">85 KB (OPPOSING COUNSEL)</span>
+          </div>
+          <p class="file-desc">
+            Published legal article by Deutsche Bank's defense counsel Joseph McCormick III admitting that Oregon law strictly regulates servicer property possession and prohibits unlawful extra-judicial self-help.
+          </p>
+          <div class="file-links">
+            <a href="Joseph%20McCormick%20When%20Can%20a%20Servicer%20Take%20Possession%20of%20a%20Property%20in%20Oregon%3F%20-%20MortgageOrb.pdf" target="_blank">View Document &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('Joseph McCormick When Can a Servicer Take Possession of a Property in Oregon? - MortgageOrb.pdf')">Copy URL</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: QUIET TITLE & APPELLATE PROCEEDINGS -->
+    <section>
+      <h2 class="section-title">3. Quiet Title Litigation & 3-Minute Dismissal Appeal (23CV50085 & A184800)</h2>
+      <p class="section-desc">Court filings, audio hearing logs, and appellate pleadings challenging Judge Erik Buchér's 3-minute dismissal with prejudice during an excusable transportation emergency.</p>
+
+      <div class="tier-card-grid">
+
+        <div class="file-card tier-legal">
+          <div class="file-header">
+            <span class="file-name">Courtroom304C_20240513_Redacted.pdf</span>
+            <span class="file-size-badge">124 KB (HEARING LOG)</span>
+          </div>
+          <p class="file-desc">
+            <strong>Official Audio Log Sheet:</strong> Proves that the May 13, 2024 hearing before Judge Erik Buchér lasted barely 3 minutes (9:33 AM to 9:36 AM). Dismissed Annika's quiet title complaint with prejudice upon failure to appear while her ride overslept and she faced emergency hospitalization.
+          </p>
+          <div class="file-links">
+            <a href="Courtroom304C_20240513_Redacted.pdf" target="_blank">View Hearing Log &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('Courtroom304C_20240513_Redacted.pdf')">Copy URL</button>
+          </div>
+        </div>
+
+        <div class="file-card tier-legal">
+          <div class="file-header">
+            <span class="file-name">All filings in 23CV50085.pdf.pdf</span>
+            <span class="file-size-badge">300 KB (CASE RECORD)</span>
+          </div>
+          <p class="file-desc">
+            Complete circuit court record of Case No. 23CV50085, including the Quiet Title Complaint, Lis Pendens, Deutsche Bank's motion to dismiss, and Annika's timely ORCP 71 B(1) Motion to Set Aside Dismissal with Casey Conant's declaration.
+          </p>
+          <div class="file-links">
+            <a href="All%20filings%20in%2023CV50085.pdf.pdf" target="_blank">View File &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('All filings in 23CV50085.pdf.pdf')">Copy URL</button>
+          </div>
+        </div>
+
+        <div class="file-card tier-legal">
+          <div class="file-header">
+            <span class="file-name">appeals Case filings.pdf.pdf</span>
+            <span class="file-size-badge">230 KB (APPELLATE RECORD)</span>
+          </div>
+          <p class="file-desc">
+            Court of Appeals filings in Docket A184800, including Commissioner Theresa Kidd's show cause order, Annika's Response establishing excusable neglect under Pioneer, and Motion for Leave to File Late Notice of Appeal.
+          </p>
+          <div class="file-links">
+            <a href="appeals%20Case%20filings.pdf.pdf" target="_blank">View Appellate File &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('appeals Case filings.pdf.pdf')">Copy URL</button>
+          </div>
+        </div>
+
+        <div class="file-card tier-legal">
+          <div class="file-header">
+            <span class="file-name">WASHINGTON_COUNTY_23CV50085_24SC05266_SOL_AUDIT.md</span>
+            <span class="file-size-badge">20.0 KB (MASTER LEGAL AUDIT)</span>
+          </div>
+          <p class="file-desc">
+            Comprehensive forensic legal audit deconstructing the non-preclusive effect of the small claims dismissal, the 6-year and 10-year limitations periods, and actionable claims against Aldridge Pite and Deutsche Bank.
+          </p>
+          <div class="file-links">
+            <a href="WASHINGTON_COUNTY_23CV50085_24SC05266_SOL_AUDIT.md" target="_blank">View Audit &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('WASHINGTON_COUNTY_23CV50085_24SC05266_SOL_AUDIT.md')">Copy URL</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: MISSING DOCUMENTARY GAPS -->
+    <section>
+      <h2 class="section-title">4. Missing Documentary Gaps & Subpoena Targets</h2>
+      <p class="section-desc">Key evidentiary records that must be subpoenaed, retrieved from county archives, or obtained via public records requests to complete the litigation matrix.</p>
+
+      <table class="gaps-table">
+        <thead>
+          <tr>
+            <th style="width: 12%;">Gap ID</th>
+            <th style="width: 28%;">Target Evidence</th>
+            <th style="width: 25%;">Primary Custodian</th>
+            <th style="width: 20%;">Legal Function</th>
+            <th style="width: 15%;">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>GAP 01</strong></td>
+            <td><strong>Chase Nonjoinder Proof in 18CV01284:</strong> Summons & return proving JPMorgan Chase Bank was never served with the complaint to rescind its reconveyance.</td>
+            <td>Washington County Circuit Court Records</td>
+            <td>Confirms 2018 judgment void <em>ab initio</em> under <em>Hughes v. Aetna</em>.</td>
+            <td><span class="badge-critical">CRITICAL</span></td>
+          </tr>
+          <tr>
+            <td><strong>GAP 02</strong></td>
+            <td><strong>Locksmith Work Orders & Invoices:</strong> Work orders, contractor dispatch logs, and invoices for Jan 20-21 & Feb 20, 2024 lockouts.</td>
+            <td>Aldridge Pite, LLP & Kimberly Hood</td>
+            <td>Identifies physical trespassers & proves intentional self-help ouster.</td>
+            <td><span class="badge-critical">CRITICAL</span></td>
+          </tr>
+          <tr>
+            <td><strong>GAP 03</strong></td>
+            <td><strong>Sheriff Pat Garrett Retirement Records:</strong> Certified records proving exact date Sheriff Pat Garrett retired prior to Dec 14, 2023 deed execution.</td>
+            <td>Washington County Commissioners / HR / DPSST</td>
+            <td>Proves Sheriff's Deed is facially void under ORS 18.942.</td>
+            <td><span class="badge-critical">CRITICAL</span></td>
+          </tr>
+          <tr>
+            <td><strong>GAP 04</strong></td>
+            <td><strong>Judy Faber Robo-Endorsement Vault Scans:</strong> Certified high-res color scans of promissory note allonges in 2016 vs 2018 actions.</td>
+            <td>Deutsche Bank Trust Custody Vault / Court Exhibits</td>
+            <td>Proves fabricated standing & post-closing endorsement.</td>
+            <td><span class="badge-critical">SUBSTANTIVE</span></td>
+          </tr>
+          <tr>
+            <td><strong>GAP 05</strong></td>
+            <td><strong>MCSO Civil Unit 15-Week Delay Logs:</strong> Intake receipts and backlog logs for small claims summons in 24SC05266.</td>
+            <td>Multnomah County Sheriff's Office Civil Unit</td>
+            <td>Proves state-action delay caused lack of timely service.</td>
+            <td><span class="badge-active">SUPPORTING</span></td>
+          </tr>
+          <tr>
+            <td><strong>GAP 06</strong></td>
+            <td><strong>2014 & 2021 Title Insurance Commitments:</strong> Lawyer's Title & Fidelity policy files for Turning Leaf and Annika Eriksson.</td>
+            <td>Lawyer's Title Oregon / Fidelity National</td>
+            <td>Establishes bona fide purchaser status with clear title.</td>
+            <td><span class="badge-active">SUPPORTING</span></td>
+          </tr>
+          <tr>
+            <td><strong>GAP 07</strong></td>
+            <td><strong>Pre-Sale Certified Mail Return Cards:</strong> Sheriff's certified mail green cards for June 8, 2023 sale under ORS 18.924.</td>
+            <td>Washington County Sheriff Civil Unit</td>
+            <td>Proves failure of statutory pre-sale notice to record owner.</td>
+            <td><span class="badge-active">SUPPORTING</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top: 1rem; margin-bottom: 2rem;">
+        <a href="MISSING_DOCUMENTARY_GAPS_AND_SUBPOENA_CHECKLIST.md" class="btn-secondary" style="font-size: 0.9rem;">
+          View Full Itemized Subpoena Checklist (.MD) &rarr;
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION 5: ACTION PLAN & STATUTE OF LIMITATIONS -->
+    <section>
+      <h2 class="section-title">5. Statute of Limitations Matrix & Action Plan</h2>
+      <p class="section-desc">Clear legal analysis of surviving causes of action for Donald Buckhout and Annika Eriksson following the small claims and quiet title dismissals.</p>
+
+      <table class="gaps-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Claim Description</th>
+            <th style="width: 20%;">Governing Statute</th>
+            <th style="width: 15%;">Statutory SOL</th>
+            <th style="width: 20%;">Expiration Date</th>
+            <th style="width: 20%;">Status (Oct 2026)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background: rgba(31, 95, 88, 0.05);">
+            <td><strong>Trespass to Real Property</strong></td>
+            <td>ORS 12.080(3)</td>
+            <td><strong>6 Years</strong></td>
+            <td><strong>February 2030</strong></td>
+            <td><span class="badge-active">ACTIVE (3+ Yrs Left)</span></td>
+          </tr>
+          <tr style="background: rgba(31, 95, 88, 0.05);">
+            <td><strong>Conversion of Personal Property</strong></td>
+            <td>ORS 12.080(4)</td>
+            <td><strong>6 Years</strong></td>
+            <td><strong>February 2030</strong></td>
+            <td><span class="badge-active">ACTIVE (3+ Yrs Left)</span></td>
+          </tr>
+          <tr style="background: rgba(31, 95, 88, 0.05);">
+            <td><strong>Recovery of Real Property (Quiet Title)</strong></td>
+            <td>ORS 12.040(1) / 105.605</td>
+            <td><strong>10 Years</strong></td>
+            <td><strong>December 19, 2033</strong></td>
+            <td><span class="badge-active">ACTIVE (7+ Yrs Left)</span></td>
+          </tr>
+          <tr style="background: rgba(31, 95, 88, 0.05);">
+            <td><strong>Attack on Void Judgment / Pat Garrett Deed</strong></td>
+            <td>ORCP 71 C / Common Law</td>
+            <td><strong>NO LIMIT</strong></td>
+            <td><strong>Perpetually Actionable</strong></td>
+            <td><span class="badge-active">PERPETUAL</span></td>
+          </tr>
+          <tr>
+            <td>General Personal Injury / IIED</td>
+            <td>ORS 12.110(1)</td>
+            <td>2 Years</td>
+            <td>February 2026</td>
+            <td>Consequential Damages Only</td>
+          </tr>
+          <tr>
+            <td>ORS 90.375 Tenant Lockout Multiplier</td>
+            <td>ORS 12.125 / ORS 12.220</td>
+            <td>1 Year + 180 Days</td>
+            <td>March 19, 2025</td>
+            <td>Expired (Use 6-Yr Trespass)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top: 1rem; margin-bottom: 2rem;">
+        <a href="ACTION_PLAN_AND_SOL_ROADMAP.md" class="btn-primary" style="font-size: 0.9rem;">
+          View Strategic Action Plan & Litigation Roadmap (.MD) &rarr;
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION 6: JULIUS AI SYSTEM PROMPT -->
+    <section>
+      <h2 class="section-title">6. JuliusAI / Counsel Execution Prompt</h2>
+      <p class="section-desc">Copy and paste this pre-configured instruction prompt directly into JuliusAI, legal counsel, or litigation analysts alongside this repository.</p>
+      
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <span>JuliusAI Execution System Prompt &bull; 1730 SW 203rd Ave</span>
+          <button class="btn-copy-prompt" onclick="copyPrompt()">Copy Prompt Text</button>
+        </div>
+        <pre id="juliusPrompt">You are acting as a senior forensic property analyst, commercial banking accountant, and Oregon civil litigator.
+
+I am providing you with the complete evidentiary audit records concerning 1730 SW 203rd Ave, Beaverton, OR 97003 (Washington County), involving record owner Annika Eriksson, bona fide tenant Donald Buckhout, foreclosing trustee Deutsche Bank Trust Company Americas (RALI 2006-QS14), and foreclosure mill counsel Aldridge Pite, LLP and Kimberly Hood.
+
+Primary Forensic & Strategic Tasks:
+1. Audit the Chain of Title & Void Foreclosure Judgment (18CV01284):
+   - Analyze the 2014 recorded Deed of Reconveyance executed by MERS and JPMorgan Chase Bank, N.A., which extinguished the 2006 mortgage lien.
+   - Deconstruct Deutsche Bank's 2018 judicial foreclosure complaint (18CV01284) praying to rescind Chase's reconveyance: verify the total omission and nonjoinder of JPMorgan Chase Bank as an indispensable party.
+   - Apply Hughes v. Aetna Cas. & Sur. Co., 234 Or 426 (1963) and Bailey v. Vanderkin, 198 Or App 232 (2005) to establish why the foreclosure decree is void ab initio.
+2. Audit the December 19, 2023 Sheriff's Deed:
+   - Examine the face of the recorded Sheriff's Deed (Instrument No. 2023-066922) naming retired Sheriff Pat Garrett as grantor.
+   - Evaluate the legal nullity of an official deed executed in the name of an unauthorized retired official under ORS 18.942.
+3. Formulate Donald Buckhout's Circuit Court Tort Action (Aldridge Pite & Kimberly Hood):
+   - Confirm that the dismissal of small claims case 24SC05266 was WITHOUT PREJUDICE under ORCP 54 B(4) due to the Multnomah County Sheriff's 15-week service backlog.
+   - Formulate claims for Common Law Trespass to Real Property (ORS 12.080(3)) and Conversion of Personal Property (ORS 12.080(4)) against Aldridge Pite, LLP and Kimberly Hood for the Jan 20-21 and Feb 20, 2024 lockouts.
+   - Confirm that these claims are governed by a 6-YEAR statute of limitations running until February 2030.
+4. Prepare Subpoena Specifications for Missing Documentary Gaps:
+   - Draft targeted subpoena specifications for GAP 01 (Chase service returns in 18CV01284), GAP 02 (locksmith dispatch work orders and invoices from Aldridge Pite), and GAP 03 (Sheriff Pat Garrett retirement verification).</pre>
+      </div>
+    </section>
+
+    <footer>
+      <span>Washington County Evidentiary Dossier &bull; Executive Function OS</span>
+      <span>Published for Court Review, Retained Counsel, & Academic Audit (2026)</span>
+    </footer>
+
+  </main>
+
+  <script>
+    function copyFileUrl(fileName) {
+      const fullUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/') + encodeURIComponent(fileName);
+      navigator.clipboard.writeText(fullUrl).then(() => {
+        alert('Copied URL: ' + fullUrl);
+      });
+    }
+
+    function copyPrompt() {
+      const text = document.getElementById('juliusPrompt').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('JuliusAI Washington County prompt copied to clipboard!');
+      });
+    }
+  </script>
+</body>
+</html>
