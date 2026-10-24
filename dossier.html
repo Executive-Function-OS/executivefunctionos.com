@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forensic Legal & Utility Audit Repository &bull; Evidentiary Reference Files</title>
+  <meta name="description" content="Public forensic reference library and evidentiary dossier for 12054 Chapin Court, detailing municipal utility accounting, lien tracking, and mortgage servicer escrow disbursements.">
+  <link rel="icon" type="image/svg+xml" href="../favicon-paladin.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Charter:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="stylesheet" href="../kinetic_clarity_buttons.css">
+
+  <style>
+    :root {
+      --paladin-paper: #F3EADC;
+      --paladin-paper-subtle: #FAF6EE;
+      --paladin-ink: #1C1710;
+      --paladin-ink-muted: #574F44;
+      --paladin-teal: #1F5F58;
+      --paladin-teal-light: #EBF4F3;
+      --paladin-terracotta: #C45C3E;
+      --paladin-terracotta-light: #FBF0ED;
+      --paladin-rule: rgba(28, 23, 16, 0.16);
+      --paladin-rule-strong: rgba(31, 95, 88, 0.35);
+      --paladin-amber: #D97706;
+      --paladin-slate: #0F172A;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--paladin-paper);
+    }
+
+    body {
+      background-color: var(--paladin-paper);
+      color: var(--paladin-ink);
+      font-family: var(--font-editorial, 'Charter', Georgia, serif);
+      line-height: 1.6;
+      font-size: 1.05rem;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: 
+        linear-gradient(to right, rgba(31, 95, 88, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(28, 23, 16, 0.035) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(243, 234, 220, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--paladin-teal);
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(28, 23, 16, 0.06);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--paladin-ink);
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .brand-logo-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--paladin-teal);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .hero-section {
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--paladin-rule);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--paladin-teal-light);
+      color: var(--paladin-teal);
+      border: 1px solid var(--paladin-rule-strong);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      line-height: 1.2;
+      color: var(--paladin-slate);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--paladin-ink-muted);
+      max-width: 850px;
+      margin-bottom: 1.5rem;
+    }
+
+    .action-bar {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--paladin-teal);
+      color: #fff !important;
+      padding: 0.65rem 1.2rem;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+      transition: all 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background: #164641;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff;
+      color: var(--paladin-slate) !important;
+      padding: 0.65rem 1.2rem;
+      border-radius: 6px;
+      border: 1px solid var(--paladin-rule);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--paladin-paper-subtle);
+      border-color: var(--paladin-teal);
+    }
+
+    /* Section Styling */
+    .section-title {
+      font-size: 1.5rem;
+      color: var(--paladin-slate);
+      margin-bottom: 0.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-desc {
+      color: var(--paladin-ink-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .tier-card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .file-card {
+      background: #fff;
+      border: 1px solid var(--paladin-rule);
+      border-left: 4px solid var(--paladin-teal);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .file-card:hover {
+      border-color: var(--paladin-teal);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+
+    .file-card.tier-legal {
+      border-left-color: var(--paladin-terracotta);
+    }
+
+    .file-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .file-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--paladin-slate);
+    }
+
+    .file-size-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      background: var(--paladin-paper);
+      color: var(--paladin-ink-muted);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      border: 1px solid var(--paladin-rule);
+    }
+
+    .file-desc {
+      font-size: 0.95rem;
+      color: var(--paladin-ink-muted);
+      line-height: 1.5;
+    }
+
+    .file-links {
+      display: flex;
+      gap: 0.85rem;
+      margin-top: 0.5rem;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+    }
+
+    .file-links a {
+      color: var(--paladin-teal);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .file-links a:hover {
+      text-decoration: underline;
+    }
+
+    .copy-url-btn {
+      background: none;
+      border: none;
+      color: var(--paladin-ink-muted);
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: var(--paladin-paper);
+      border: 1px solid var(--paladin-rule);
+    }
+
+    .copy-url-btn:hover {
+      background: var(--paladin-teal-light);
+      color: var(--paladin-teal);
+      border-color: var(--paladin-teal);
+    }
+
+    /* Prompt Box */
+    .prompt-box {
+      background: #1C1710;
+      color: #F8FAFC;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      position: relative;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      border: 1px solid #332D25;
+    }
+
+    .prompt-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #332D25;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      color: #94A3B8;
+    }
+
+    .btn-copy-prompt {
+      background: var(--paladin-teal);
+      color: #fff;
+      border: none;
+      padding: 0.35rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: background 0.15s ease;
+    }
+
+    .btn-copy-prompt:hover {
+      background: #2A7970;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    footer {
+      border-top: 1px solid var(--paladin-rule);
+      padding: 2rem 0;
+      margin-top: 3rem;
+      color: var(--paladin-ink-muted);
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="../index.html" class="brand-link">
+        <img src="../favicon-paladin.svg" alt="Paladin Mark" class="brand-logo-img">
+        <span>Executive Function OS</span>
+      </a>
+      <div class="nav-links">
+        <a href="../timeline.html">&larr; Evidentiary Timeline</a>
+        <a href="forensic_audit_reference_files.zip" class="btn-primary" style="padding: 0.35rem 0.8rem; font-size: 0.82rem;">Download All (.ZIP)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero-section">
+      <span class="hero-badge">Audit &bull; Evidentiary Record</span>
+      <h1>Forensic Reference Repository: 12054 Chapin Court</h1>
+      <p class="hero-subtitle">
+        Curated legal reference files, itemized utility accounting ledgers, municipal lien dockets, and mortgage servicer escrow disbursements for direct ingestion by <strong>JuliusAI</strong>, legal research teams, and court exhibits.
+      </p>
+
+      <div class="action-bar">
+        <a href="forensic_audit_reference_files.zip" class="btn-primary">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Download All Reference Files (.ZIP)
+        </a>
+        <a href="../timeline.html" class="btn-secondary">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          View Interactive Timeline (180 Items)
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION 1: ACCOUNTING & UTILITY LEDGERS -->
+    <section>
+      <h2 class="section-title">1. Accounting & Utility Billing Ledgers</h2>
+      <p class="section-desc">Itemized transaction tables, historical account ledgers, barrier labor surcharges, and verified municipal notes.</p>
+      
+      <div class="tier-card-grid">
+        
+        <div class="file-card">
+          <div class="file-header">
+            <span class="file-name">UTILITY_BILLING_STATEMENT_TABLE.md</span>
+            <span class="file-size-badge">3.4 KB</span>
+          </div>
+          <p class="file-desc">
+            Complete reconciliation of Account 01-466348-05 from Oct 2023 through Oct 2026. Tracks monthly billing, $150 payments under protest, the $1,194–$2,438 Public Works barrier surcharges, and Shellpoint escrow disbursements.
+          </p>
+          <div class="file-links">
+            <a href="UTILITY_BILLING_STATEMENT_TABLE.md" target="_blank">View File &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('UTILITY_BILLING_STATEMENT_TABLE.md')">Copy Public URL</button>
+          </div>
+        </div>
+
+        <div class="file-card">
+          <div class="file-header">
+            <span class="file-name">city_documents_chronological.txt</span>
+            <span class="file-size-badge">45.0 KB</span>
+          </div>
+          <p class="file-desc">
+            Verbatim municipal utility logs, internal CSR notes from Ashley Fraijo, Layla Cnossen, John Oreskovich, meter pull records, and door hanger notices.
+          </p>
+          <div class="file-links">
+            <a href="city_documents_chronological.txt" target="_blank">View File &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('city_documents_chronological.txt')">Copy Public URL</button>
+          </div>
+        </div>
+
+        <div class="file-card">
+          <div class="file-header">
+            <span class="file-name">library_data.json</span>
+            <span class="file-size-badge">4.2 MB</span>
+          </div>
+          <p class="file-desc">
+            Master machine-readable database backing the visual timeline. Contains 180+ multi-track entries with structured metadata, dates, actors, and cross-references.
+          </p>
+          <div class="file-links">
+            <a href="library_data.json" target="_blank">View File &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('library_data.json')">Copy Public URL</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: GROUND TRUTH & CHRONOLOGY -->
+    <section>
+      <h2 class="section-title">2. Ground Truth & Multi-Track Chronology</h2>
+      <p class="section-desc">Documentary indices and master communications records tracking municipal interactions.</p>
+      
+      <div class="tier-card-grid">
+
+        <div class="file-card">
+          <div class="file-header">
+            <span class="file-name">CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md</span>
+            <span class="file-size-badge">25.1 KB</span>
+          </div>
+          <p class="file-desc">
+            Verified evidentiary map defining core undisputed facts, physical water disconnections, municipal lien dockets, and servicer corporate advances.
+          </p>
+          <div class="file-links">
+            <a href="CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md" target="_blank">View File &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('CASE_GROUND_TRUTH_AND_EVIDENCE_MAP.md')">Copy Public URL</button>
+          </div>
+        </div>
+
+        <div class="file-card">
+          <div class="file-header">
+            <span class="file-name">TIMELINE_OF_ALL_COMMUNICATIONS_WITH_CITY_OFFICIALS.md</span>
+            <span class="file-size-badge">118.0 KB</span>
+          </div>
+          <p class="file-desc">
+            Granular chronological record of all written and verbal exchanges with Alexandra Troutman, Ashley Fraijo, Todd Kennedy, and Oregon City staff.
+          </p>
+          <div class="file-links">
+            <a href="TIMELINE_OF_ALL_COMMUNICATIONS_WITH_CITY_OFFICIALS.md" target="_blank">View File &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('TIMELINE_OF_ALL_COMMUNICATIONS_WITH_CITY_OFFICIALS.md')">Copy Public URL</button>
+          </div>
+        </div>
+
+        <div class="file-card">
+          <div class="file-header">
+            <span class="file-name">FORENSIC_MASTER_NARRATIVE_12054_CHAPIN_CT.md</span>
+            <span class="file-size-badge">196.6 KB</span>
+          </div>
+          <p class="file-desc">
+            Exhaustive factual narrative documenting property history, Turning Leaf Homes bankruptcy compromise, chain of title, and municipal extraction.
+          </p>
+          <div class="file-links">
+            <a href="FORENSIC_MASTER_NARRATIVE_12054_CHAPIN_CT.md" target="_blank">View File &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('FORENSIC_MASTER_NARRATIVE_12054_CHAPIN_CT.md')">Copy Public URL</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: LEGAL PLEADINGS & INSTITUTIONAL ANALYSIS -->
+    <section>
+      <h2 class="section-title">3. Legal Pleadings & Pincer Analysis</h2>
+      <p class="section-desc">Federal civil rights claims, state court quiet title records, and multi-track systemic dossiers.</p>
+      
+      <div class="tier-card-grid">
+
+        <div class="file-card tier-legal">
+          <div class="file-header">
+            <span class="file-name">MASTER_FEDERAL_CASE_COMPENDIUM.md</span>
+            <span class="file-size-badge">150.3 KB</span>
+          </div>
+          <p class="file-desc">
+            Comprehensive compendium detailing statutory claims under 42 U.S.C. § 1983, Title II ADA, substantive due process, and the November 2024 $2,863.77 check suppression (¶ 41).
+          </p>
+          <div class="file-links">
+            <a href="MASTER_FEDERAL_CASE_COMPENDIUM.md" target="_blank">View File &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('MASTER_FEDERAL_CASE_COMPENDIUM.md')">Copy Public URL</button>
+          </div>
+        </div>
+
+        <div class="file-card tier-legal">
+          <div class="file-header">
+            <span class="file-name">FIRST_AMENDED_CIVIL_RIGHTS_COMPLAINT.md</span>
+            <span class="file-size-badge">36.3 KB</span>
+          </div>
+          <p class="file-desc">
+            Operative First Amended Complaint filed in U.S. District Court for the District of Oregon (Case No. 3:26-cv-01885-IM), establishing individual municipal liability.
+          </p>
+          <div class="file-links">
+            <a href="FIRST_AMENDED_CIVIL_RIGHTS_COMPLAINT.md" target="_blank">View File &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('FIRST_AMENDED_CIVIL_RIGHTS_COMPLAINT.md')">Copy Public URL</button>
+          </div>
+        </div>
+
+        <div class="file-card tier-legal">
+          <div class="file-header">
+            <span class="file-name">24CV21417_Chronological_Compilation.md</span>
+            <span class="file-size-badge">43.3 KB</span>
+          </div>
+          <p class="file-desc">
+            Clackamas County Circuit Court Quiet Title action compilation detailing Shellpoint's corporate advance demands ($75k+), trust mismatches, and void judgments.
+          </p>
+          <div class="file-links">
+            <a href="24CV21417_Chronological_Compilation.md" target="_blank">View File &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('24CV21417_Chronological_Compilation.md')">Copy Public URL</button>
+          </div>
+        </div>
+
+        <div class="file-card tier-legal">
+          <div class="file-header">
+            <span class="file-name">RETROSPECTIVE_THREE_TRACK_DOSSIER.md</span>
+            <span class="file-size-badge">18.6 KB</span>
+          </div>
+          <p class="file-desc">
+            Forensic analysis of the three-track pincer: (1) Municipal Code Enforcement, (2) Mortgage Servicer Foreclosure Advances, and (3) ADA Procedural Deprivation.
+          </p>
+          <div class="file-links">
+            <a href="RETROSPECTIVE_THREE_TRACK_DOSSIER.md" target="_blank">View File &rarr;</a>
+            <button class="copy-url-btn" onclick="copyFileUrl('RETROSPECTIVE_THREE_TRACK_DOSSIER.md')">Copy Public URL</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- JULIUS AI SETUP PROMPT -->
+    <section>
+      <h2 class="section-title">4. JuliusAI Initialization Prompt</h2>
+      <p class="section-desc">Copy and paste this pre-configured instruction prompt directly into JuliusAI along with this repository link or downloaded files.</p>
+      
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <span>JuliusAI Execution System Prompt</span>
+          <button class="btn-copy-prompt" onclick="copyPrompt()">Copy Prompt Text</button>
+        </div>
+        <pre id="juliusPrompt">You are acting as a senior forensic legal accountant and federal civil rights litigation analyst.
+
+I am providing you with the evidentiary audit records concerning 12054 Chapin Court (Oregon City, OR), involving Account 01-466348-05, predecessor tenant account 01-466348-04 (Stephanie Jones), mortgage servicer Shellpoint Mortgage Servicing, and the City of Oregon City.
+
+Primary Forensic Tasks:
+1. Reconcile the Utility Ledger (Oct 2023 – Oct 2026):
+   - Compare Shellpoint's unnotified $4,629.79 escrow disbursement (Oct 9, 2026) against the City's Oct 20, 2026 letter showing a $203.54 credit balance.
+   - Deconstruct the $4,426.25 absorbed by the City: show how the disputed $2,438.69 Public Works concrete barrier work orders and Stephanie Jones's $665.01 prior tenant arrears were quietly absorbed.
+   - Contrast this with the monthly "Notice: $2,438.69 is only due and payable upon failure to pay $150.00 each month" printed alongside threatening red-letter Shut Off Notices demanding $4,000+.
+2. Audit the $2,863.77 "Ghost Check" under RESPA (12 C.F.R. § 1024.17):
+   - Audit the paper trail of Shellpoint's Nov 5, 2024 curing check ($2,863.77), which Ashley Fraijo held for 4 months and claimed to return unapplied in March 2025.
+   - Investigate whether Shellpoint ever re-credited this check to the escrow account or continued charging interest on it as part of its $75,238.82 corporate advance demand.
+3. Contrast Municipal Lien Docket (Conduits / ORS Chapter 223) vs Retail Billing:
+   - Analyze how maintaining un-cleared utility liens on the City Lien Docket clouds property title and triggers servicer advances while the citizen is given a retail statement showing a credit balance.
+4. Prepare Audit Deliverables:
+   - Provide an itemized damages table for federal claims (42 U.S.C. § 1983; Title II ADA).
+   - Formulate specific subpoena interrogatories for Shellpoint cashiering records and City of Oregon City Conduits lien ledgers.</pre>
+      </div>
+    </section>
+
+    <footer>
+      <span>Evidentiary Record Repository &bull; Executive Function OS</span>
+      <span>Published for Court Review & Academic Audit (2026)</span>
+    </footer>
+
+  </main>
+
+  <script>
+    function copyFileUrl(fileName) {
+      const fullUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/') + fileName;
+      navigator.clipboard.writeText(fullUrl).then(() => {
+        alert('Copied URL: ' + fullUrl);
+      });
+    }
+
+    function copyPrompt() {
+      const text = document.getElementById('juliusPrompt').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('JuliusAI prompt copied to clipboard!');
+      });
+    }
+  </script>
+</body>
+</html>
