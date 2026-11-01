@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EFOS: Executive Function Software and the Work-to-Rhythm Loop</title>
+<meta name="description" content="EFOS (Executive Function OS) is executive function software built around the Work-to-Rhythm Loop: work context capture, a useful next step, and plans you can revisit. Join the waitlist.">
+<link rel="canonical" href="https://executivefunctionos.com/">
+<meta name="theme-color" content="#f6f1e7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161c1a" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EFOS (Executive Function OS)">
+<meta property="og:title" content="EFOS: Turn scattered priorities into a rhythm you can maintain">
+<meta property="og:description" content="Executive function software for people juggling complex work. Capture context, pick a useful next step, revisit the plan. Join the waitlist for early access.">
+<meta property="og:url" content="https://executivefunctionos.com/">
+<meta property="og:image" content="https://executivefunctionos.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EFOS: Turn scattered priorities into a rhythm you can maintain">
+<meta name="twitter:description" content="Executive function software built around the Work-to-Rhythm Loop. Join the waitlist.">
+<meta name="twitter:image" content="https://executivefunctionos.com/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "EFOS (Executive Function OS)",
+  "alternateName": "Executive Function OS",
+  "url": "https://executivefunctionos.com/",
+  "applicationCategory": "BusinessApplication",
+  "description": "Executive function software and AI workflow tool built around the Work-to-Rhythm Loop: work context capture, next-step decisions, plan revisits, and agent memory for developers. In development; waitlist open.",
+  "featureList": ["Work context capture", "Next-step decisions", "Plan revisits", "Project instructions (AGENTS.md)", "AI agent memory management"]
+}
+</script>
+
+<style>
+:root{
+  --bg:#f6f1e7; --bg-alt:#efe8da; --surface:#fffdf8; --ink:#1f2a27; --muted:#55625d;
+  --line:#ddd3c0; --accent:#2f5d50; --accent-ink:#ffffff; --warm:#c47a45; --warm-soft:#f3dcc6;
+  --focus:#1a4fd6; --shadow:0 1px 2px rgba(31,42,39,.06),0 12px 32px -12px rgba(31,42,39,.14);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#161c1a; --bg-alt:#1b2220; --surface:#202927; --ink:#ece7dc; --muted:#a6b1ab;
+  --line:#33403c; --accent:#8cc5b0; --accent-ink:#10201b; --warm:#e3a273; --warm-soft:#3a2d22;
+  --focus:#8fb2ff; --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px -12px rgba(0,0,0,.5);}
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.65}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;letter-spacing:-.01em;margin:0 0 .5em}
+h1{font-size:clamp(2.25rem,6vw,3.75rem)}
+h2{font-size:clamp(1.65rem,3.6vw,2.4rem)}
+h3{font-size:1.25rem}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:var(--accent-ink);padding:.6rem 1rem;z-index:10}
+.skip:focus{left:1rem;top:1rem}
+.wrap{width:min(1080px,100% - 2.5rem);margin-inline:auto}
+.narrow{width:min(720px,100% - 2.5rem);margin-inline:auto}
+section{padding:clamp(3.5rem,8vw,6rem) 0}
+.alt{background:var(--bg-alt)}
+.eyebrow{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:1rem}
+.lede{font-size:1.2rem;color:var(--muted);max-width:40rem}
+
+header.top{padding:1.25rem 0}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--ink);text-decoration:none}
+.brand img{width:30px;height:30px}
+.brand small{font-family:var(--sans);font-weight:400;color:var(--muted);font-size:.85rem}
+.top a.nav{font-size:.95rem;color:var(--ink)}
+
+.hero{padding:clamp(2.5rem,7vw,5rem) 0 clamp(3.5rem,8vw,6rem)}
+.hero-grid{display:grid;gap:3rem;grid-template-columns:1.15fr .85fr;align-items:center}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.badge{display:inline-block;background:var(--warm-soft);color:var(--ink);border-radius:999px;padding:.25rem .8rem;font-size:.85rem;margin-bottom:1.25rem}
+
+form.waitlist{margin-top:1.75rem;max-width:34rem}
+.row{display:flex;gap:.6rem;flex-wrap:wrap}
+label{display:block;font-weight:600;font-size:.95rem;margin-bottom:.35rem}
+input[type=email],textarea{width:100%;font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:.8rem 1rem;min-height:3rem}
+textarea{resize:vertical;min-height:5.5rem}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:.8}
+.field{margin-bottom:1rem}
+.field.grow{flex:1 1 15rem;margin-bottom:0}
+.opt{font-weight:400;color:var(--muted)}
+button.cta{font:inherit;font-weight:600;background:var(--accent);color:var(--accent-ink);border:0;border-radius:12px;padding:.8rem 1.5rem;min-height:3rem;cursor:pointer;transition:transform .15s,filter .15s}
+button.cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+button.cta[disabled]{opacity:.65;cursor:wait}
+.note{font-size:.9rem;color:var(--muted);margin:.8rem 0 0}
+.hp{position:absolute;left:-9999px;height:0;overflow:hidden}
+.status{margin-top:1rem;padding:1rem 1.2rem;border-radius:12px;background:var(--warm-soft);border:1px solid var(--line)}
+.status[hidden]{display:none}
+.status.err{border-color:#b3402a}
+
+
+.loop-card{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:1.5rem;box-shadow:var(--shadow)}
+.loop-card svg{display:block;width:100%;height:auto}
+.loop-card figcaption{text-align:center;font-size:.9rem;color:var(--muted);margin-top:.5rem}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)}
+.ring{fill:none;stroke:var(--line);stroke-width:2;stroke-dasharray:3 7}
+.arc{fill:none;stroke:var(--accent);stroke-width:5;stroke-linecap:round}
+.arc2{stroke:var(--warm)}
+.node{fill:var(--surface);stroke:var(--accent);stroke-width:3}
+.node-n{font-family:var(--serif);font-weight:700;font-size:20px;fill:var(--accent)}
+.lbl{font-family:var(--sans);font-size:15px;font-weight:600;fill:var(--ink)}
+
+.cols{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1.5rem}
+.card p{color:var(--muted);margin:0}
+.card h3{margin-bottom:.4rem}
+.problem-list{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:.9rem}
+.problem-list li{padding-left:1.6rem;position:relative}
+.problem-list li::before{content:"";position:absolute;left:0;top:.7em;width:.7rem;height:2px;background:var(--warm)}
+
+.steps{list-style:none;padding:0;margin:2.5rem 0 0;display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));counter-reset:s}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1.5rem;position:relative}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-family:var(--serif);font-weight:700;margin-bottom:1rem}
+.steps p{color:var(--muted);margin:0}
+.loop-back{margin-top:1.25rem;color:var(--muted);font-size:.95rem}
+
+.feature{display:grid;gap:1.25rem;grid-template-columns:repeat(2,1fr)}@media (max-width:680px){.feature{grid-template-columns:1fr}}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;background:var(--bg-alt);padding:.1em .4em;border-radius:6px}
+.alt code{background:var(--surface)}
+
+details.faq{border-bottom:1px solid var(--line);padding:1.1rem 0}
+details.faq summary{cursor:pointer;font-family:var(--serif);font-size:1.2rem;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";color:var(--accent);font-size:1.5rem;line-height:1}
+details.faq[open] summary::after{content:"\2212"}
+details.faq p{margin:.7rem 0 0;color:var(--muted)}
+
+.final{text-align:center}
+.final form.waitlist{margin-inline:auto;text-align:left}
+.final .lede{margin-inline:auto}
+footer{padding:2.5rem 0;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr}.loop-card{max-width:26rem;margin-inline:auto}}
+@media (max-width:480px){button.cta{width:100%}.top a.nav{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#waitlist">Skip to waitlist</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="EFOS home"><img src="favicon.svg" alt="" width="30" height="30">EFOS <small>Executive Function OS</small></a>
+    <a class="nav" href="#waitlist">Join the waitlist</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge">In development &middot; waitlist open</span>
+      <h1 id="h1">Turn scattered priorities into a <em>rhythm</em> you can maintain.</h1>
+      <p class="lede">EFOS is executive function software built around the Work-to-Rhythm Loop: bring the right context into view, pick a useful next step, and revisit the plan as things change.</p>
+
+      <!-- ============ WAITLIST FORM #1 ============ -->
+      <form action='/' class='waitlist' data-waitlist id='waitlist' method='POST' name='waitlist'>
+        <input type="hidden" name="form-name" value="waitlist">
+        <div class="row">
+          <div class="field grow">
+            <label for="email-1">Email address</label>
+            <input id="email-1" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="you@example.com">
+          </div>
+          <button class="cta" type="submit" style="align-self:flex-end">Get early access</button>
+        </div>
+        <div class="field" style="margin-top:1rem">
+            <label for="hard-1">What's the hardest part of keeping your work on track? <span class="opt">(optional)</span></label>
+            <textarea id="hard-1" name="hardest_part" rows="2" placeholder="A sentence or two is plenty."></textarea>
+          </div>
+        <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="_subject" value="EFOS waitlist signup">
+        <p class="note">One email when early access opens. No spam, and you can leave any time.</p>
+        <div class="status" role="status" aria-live="polite" hidden></div>
+      </form>
+    </div>
+
+    <figure class="loop-card" style="margin:0">
+      <svg viewBox="0 0 320 320" role="img" aria-labelledby="loop-t loop-d">
+        <title id="loop-t">The Work-to-Rhythm Loop</title>
+        <desc id="loop-d">A circle with three steps: bring context into view, decide a next step, revisit the plan. The last step leads back to the first.</desc>
+        <defs><marker id="ah1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1l8 4-8 4z" fill="var(--accent)"/></marker><marker id="ah2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1l8 4-8 4z" fill="var(--warm)"/></marker></defs>
+        <circle class="ring" cx="160" cy="160" r="105"/>
+        <path class="arc" marker-end="url(#ah1)" d="M194.2 60.7 A105 105 0 0 1 264.2 172.8"/>
+        <path class="arc arc2" marker-end="url(#ah2)" d="M228.9 239.2 A105 105 0 0 1 96.8 243.9"/>
+        <path class="arc" marker-end="url(#ah1)" d="M56.9 180.0 A105 105 0 0 1 119.0 63.3"/>
+        <circle class="node" cx="160" cy="55" r="22"/><text class="node-n" x="160" y="62" text-anchor="middle">1</text>
+        <circle class="node" cx="251" cy="212" r="22"/><text class="node-n" x="251" y="219" text-anchor="middle">2</text>
+        <circle class="node" cx="69" cy="212" r="22"/><text class="node-n" x="69" y="219" text-anchor="middle">3</text>
+        <text class="lbl" x="160" y="22" text-anchor="middle">Bring into view</text>
+        <text class="lbl" x="276" y="262" text-anchor="end">Decide</text>
+        <text class="lbl" x="44" y="262" text-anchor="start">Revisit</text>
+        <text class="lbl" x="160" y="156" text-anchor="middle" style="font-family:var(--serif);font-size:20px">Work-to-</text>
+        <text class="lbl" x="160" y="180" text-anchor="middle" style="font-family:var(--serif);font-size:20px">Rhythm</text>
+      </svg>
+      <figcaption>A loop, not a list: each pass starts from where you actually are.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="alt" aria-labelledby="problem">
+  <div class="narrow">
+    <p class="eyebrow">The problem</p>
+    <h2 id="problem">Priorities pile up. Context gets lost.</h2>
+    <p class="lede">Complex, active work lives in many places at once. The hard part is rarely effort. It's knowing what matters right now, and remembering why.</p>
+    <ul class="problem-list">
+      <li>Tabs, notes, threads, and tickets each hold a piece of the picture, and none of them hold all of it.</li>
+      <li>Every time you switch tasks, you pay a cost to rebuild what you already knew.</li>
+      <li>Rigid plans break as soon as circumstances change, and then they're ignored.</li>
+      <li>Tools that demand constant upkeep add one more thing to keep on track.</li>
+    </ul>
+  </div>
+</section>
+
+<section aria-labelledby="loop">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2 id="loop">The Work-to-Rhythm Loop</h2>
+    <p class="lede">A practical, individual-scale loop for personal workflow optimization. Three small steps you can repeat as often as your work needs.</p>
+    <ol class="steps">
+      <li><h3>Bring chosen context into view</h3><p>Pull in only what you decide is relevant to the work at hand, so it's in front of you instead of scattered.</p></li>
+      <li><h3>Decide on a useful next step</h3><p>Choose one next action that moves things forward. Not a perfect plan, just a clear place to begin.</p></li>
+      <li><h3>Revisit as circumstances change</h3><p>Come back, adjust, and carry on. The plan bends with your week instead of breaking.</p></li>
+    </ol>
+    <p class="loop-back">Then the loop starts again, from where you are now.</p>
+  </div>
+</section>
+
+<section class="alt" aria-labelledby="who">
+  <div class="wrap">
+    <p class="eyebrow">Who it's for</p>
+    <h2 id="who">Built for people managing complex, active work</h2>
+    <div class="cols" style="margin-top:2rem">
+      <div class="card"><h3>Individuals</h3><p>Anyone who wants a calmer way to see what matters and take the next step.</p></div>
+      <div class="card"><h3>Executives</h3><p>Leaders balancing many threads who need the right context in view before they decide.</p></div>
+      <div class="card"><h3>Knowledge workers</h3><p>People whose work is spread across documents, conversations, and shifting priorities.</p></div>
+      <div class="card"><h3>Developers</h3><p>Builders who want project instructions and agent memory to carry context between sessions.</p></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="features">
+  <div class="wrap">
+    <p class="eyebrow">What EFOS is designed to do</p>
+    <h2 id="features">AI workflow tools, designed to stay out of your way</h2>
+    <p class="lede">Low friction and calm by design. These are the capabilities we're building toward, and details may change before launch.</p>
+    <div class="feature" style="margin-top:2rem">
+      <div class="card"><h3>Work context capture</h3><p>Gather the context behind your work, on your terms, so you don't have to reconstruct it each time you return.</p></div>
+      <div class="card"><h3>Next-step decisions</h3><p>Turn a crowded list into one useful next action you can start on right now.</p></div>
+      <div class="card"><h3>Plan revisits</h3><p>Gentle check-ins to adjust the plan when circumstances change, without starting over.</p></div>
+      <div class="card"><h3>Agent memory and AGENTS.md</h3><p>For developers: project instructions in <code>AGENTS.md</code> and AI agent memory management, so your assistants keep the context that matters.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" aria-labelledby="faq">
+  <div class="narrow">
+    <p class="eyebrow">Questions</p>
+    <h2 id="faq">Frequently asked questions</h2>
+    <details class="faq"><summary>What is EFOS?</summary><p>EFOS (Executive Function OS) is workflow and context-capture software built around the Work-to-Rhythm Loop. It helps you bring chosen context into view, decide on a useful next step, and revisit your plan as things change. It also includes project instructions (<code>AGENTS.md</code>) and agent memory for developers.</p></details>
+    <details class="faq"><summary>When does it launch?</summary><p>We're building it now. Joining the waitlist gets you early access.</p></details>
+    <details class="faq"><summary>Is my data private?</summary><p>We're designing EFOS for user control, and we'll share the details before launch.</p></details>
+    <details class="faq"><summary>How much will it cost?</summary><p>Pricing isn't set yet. Founding members get early pricing.</p></details>
+  </div>
+</section>
+
+<section class="final" aria-labelledby="join">
+  <div class="narrow">
+    <h2 id="join">Be one of the first to try a calmer rhythm</h2>
+    <p class="lede">Join the waitlist for early access and early pricing. We'll write when there's something real to show.</p>
+    <!-- ============ WAITLIST FORM #2 ============ -->
+    <form action='/' class='waitlist' data-waitlist method='POST' name='waitlist'>
+        <input type="hidden" name="form-name" value="waitlist">
+      <div class="field">
+        <label for="email-2">Email address</label>
+        <input id="email-2" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label for="hard-2">What's the hardest part of keeping your work on track? <span class="opt">(optional)</span></label>
+        <textarea id="hard-2" name="hardest_part" rows="3" placeholder="A sentence or two is plenty."></textarea>
+      </div>
+      <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="_subject" value="EFOS waitlist signup">
+      <button class="cta" type="submit">Join the waitlist</button>
+      <p class="note">One email when early access opens. No spam, and you can leave any time.</p>
+      <div class="status" role="status" aria-live="polite" hidden></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> EFOS (Executive Function OS)</span>
+    <span>Pre-launch. Features and details are subject to change.</span>
+  </div>
+</footer>
+
+<script>
+/* Waitlist progressive enhancement.
+   The form endpoint is the `action` attribute on each <form data-waitlist>
+   Handled by Netlify Forms (data-netlify). Without JS the form posts normally. */
+(function(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var forms = document.querySelectorAll('form[data-waitlist]');
+  Array.prototype.forEach.call(forms, function(form){
+    form.addEventListener('submit', function(e){
+      var action = form.getAttribute('action');
+      if (!window.fetch || !window.URLSearchParams) return;
+      e.preventDefault();
+      var btn = form.querySelector('button[type=submit]');
+      var label = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending\u2026';
+      fetch('/', {method:'POST', body:new URLSearchParams(new FormData(form)).toString(), headers:{'Content-Type':'application/x-www-form-urlencoded'}})
+        .then(function(r){
+          if (!r.ok) throw new Error('bad status');
+          Array.prototype.forEach.call(form.children, function(c){ if(!c.classList.contains('status')) c.hidden = true; });
+          show(form, 'Thank you. You\u2019re on the list. We\u2019ll email you when early access opens.', false);
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = label;
+          show(form, 'Something went wrong sending that. Please try again in a moment.', true);
+        });
+    });
+  });
+  function show(form, msg, isErr){
+    var s = form.querySelector('.status');
+    s.textContent = msg; s.hidden = false;
+    s.className = 'status' + (isErr ? ' err' : '');
+  }
+})();
+</script>
+</body>
+</html>
+<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="f5ce0300-13d0-4995-b7e2-fab0f60b5f39" data-app-host="app.netlify.com" data-account-tier="free"></script>
