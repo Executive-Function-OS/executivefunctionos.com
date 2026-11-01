@@ -19,7 +19,9 @@ Unified specification harmonizing the public Work-to-Rhythm landing page (warm p
 * **Primary Ink (`--color-ink`)**: `#1F2A27` (Deep slate ink) — **13.15:1 AAA** on `#F6F1E7`
 * **Muted Text (`--color-muted`)**: `#55625D` — **5.67:1 AA** on `#F6F1E7`
 * **Action Accent (`--color-accent-action`)**: `#2F5D50` (Spruce green) — **6.66:1 AA** on `#F6F1E7`
+* **Focus / White Rabbit Gold (`--color-white-rabbit-gold`)**: `#92400E` (Deep amber) — **6.30:1 AA** on `#F6F1E7` (Darkened from `#B45309` to satisfy the >= 4.5:1 WCAG normal-text threshold)
 * **Warm Accent (`--color-warm-accent`)**: `#C47A45` (Terracotta amber) — **3.00:1** (Reserved for non-text decoration, cards, borders, and large display; below 4.5:1 normal-text threshold)
+* **Keyboard Focus Indicator (`--sc-btn-focus`)**: `#0D9488` (Signal teal 2px solid ring, 3px offset; preserved across all interactive states)
 * **Border Line (`--color-line`)**: `#DDD3C0`
 
 ### Looking-Glass Mode (Dark & Focused System)
