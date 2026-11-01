@@ -16,10 +16,10 @@ Unified specification harmonizing the public Work-to-Rhythm landing page (warm p
 * **Canvas Grounding (`--color-canvas`)**: `#F6F1E7` (Warm light paper)
 * **Surface Card (`--color-surface`)**: `#FFFDF8` (Soft cream plate)
 * **Alt Surface (`--color-surface-alt`)**: `#EFE8DA`
-* **Primary Ink (`--color-ink`)**: `#1F2A27` (Deep slate ink) — **14.2:1 AAA** on `#F6F1E7`
-* **Muted Text (`--color-muted`)**: `#55625D` — **4.8:1 AA** on `#F6F1E7`
-* **Action Accent (`--color-accent-action`)**: `#2F5D50` (Spruce green) — **5.8:1 AA** on `#F6F1E7`
-* **Warm Accent (`--color-warm-accent`)**: `#C47A45` (Terracotta amber)
+* **Primary Ink (`--color-ink`)**: `#1F2A27` (Deep slate ink) — **13.15:1 AAA** on `#F6F1E7`
+* **Muted Text (`--color-muted`)**: `#55625D` — **5.67:1 AA** on `#F6F1E7`
+* **Action Accent (`--color-accent-action`)**: `#2F5D50` (Spruce green) — **6.66:1 AA** on `#F6F1E7`
+* **Warm Accent (`--color-warm-accent`)**: `#C47A45` (Terracotta amber) — **3.00:1** (Reserved for non-text decoration, cards, borders, and large display; below 4.5:1 normal-text threshold)
 * **Border Line (`--color-line`)**: `#DDD3C0`
 
 ### Looking-Glass Mode (Dark & Focused System)

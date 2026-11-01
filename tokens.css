@@ -8,8 +8,8 @@
  * - Dark / Looking-Glass: Deep Slate, Vellum, Cheshire Teal, White Rabbit Gold
  */
 
-@import url('./kinetic_clarity_buttons.css');
-@import url('./navigation.css');
+@import url("./kinetic_clarity_buttons.css");
+@import url("./navigation.css");
 
 :root {
   /* ==========================================================================
@@ -17,22 +17,37 @@
      ========================================================================== */
   --color-canvas: #F6F1E7;
   --color-canvas-alt: #EFE8DA;
+  --color-board-slate: #E5DCCE;
   --color-surface: #FFFDF8;
   --color-surface-card: #FFFDF8;
+  --color-surface-card-dark: #141D30;
   --color-surface-subtle: #EFE8DA;
+  --color-surface-subtle-dark: #1B2540;
   --color-line: #DDD3C0;
-  
-  --color-ink: #1F2A27;                /* 14.2:1 AAA on #F6F1E7 */
-  --color-muted: #55625D;              /* 4.8:1 AA on #F6F1E7 */
-  --color-vellum: #1F2A27;             /* Semantic mapping for daylight */
 
-  --color-accent-action: #2F5D50;      /* Deep spruce green */
+  --color-ink: #1F2A27;                /* 13.15:1 AAA on #F6F1E7 */
+  --color-muted: #55625D;              /* 5.67:1 AA on #F6F1E7 */
+  --color-vellum: #1F2A27;             /* Semantic mapping for daylight reading */
+
+  /* Semantic Component Colors for Daylight */
+  --color-brass-hairline: #997A2E;     /* Deepened brass for readable hairline on paper */
+  --color-brass-hairline-dark: #B08D3C;
+  --color-cheshire-teal: #1F5F58;      /* Deep spruce teal for daytime high contrast */
+  --color-white-rabbit-gold: #B45309;  /* Deep amber */
+  --color-red-queen: #BE123C;          /* Deep rose / threshold */
+
+  --color-accent-action: #2F5D50;      /* Spruce green (6.66:1 AA on paper) */
   --color-accent-ink: #FFFFFF;
-  --color-warm-accent: #C47A45;        /* Terracotta amber */
+  --color-warm-accent: #C47A45;        /* Terracotta amber (3.00:1 decoration) */
   --color-warm-soft: #F3DCC6;
   --color-threshold-error: #DC2626;
 
-  /* Backward compatibility aliases */
+  /* Backwards-Compatible System Aliases */
+  --color-primary-base: var(--color-canvas);
+  --color-neutral-canvas: var(--color-canvas);
+  --color-bg-canvas: var(--color-canvas);
+  --color-bg-canvas-dark: #0F172A;
+
   --bg: var(--color-canvas);
   --bg-alt: var(--color-canvas-alt);
   --surface: var(--color-surface);
@@ -44,23 +59,77 @@
   --warm: var(--color-warm-accent);
   --warm-soft: var(--color-warm-soft);
 
+  /* Borders & Double Hairlines */
+  --color-border-hairline: var(--color-brass-hairline);
+  --color-border-hairline-dark: #B08D3C;
+  --color-border-grid: rgba(153, 122, 46, 0.25);
+  --color-border-grid-dark: rgba(176, 141, 60, 0.25);
+  --color-crosshair: var(--color-cheshire-teal);
+
+  /* Typography Colors */
+  --color-text-primary: var(--color-ink);
+  --color-text-primary-dark: #F5EFE0;
+  --color-text-secondary: #475569;
+  --color-text-secondary-dark: #94A3B8;
+  --color-text-muted: #64748B;
+  --color-text-muted-dark: #64748B;
+
+  /* Interactive States */
+  --color-state-default-border: var(--color-brass-hairline);
+  --color-state-hover-bg: rgba(31, 95, 88, 0.08);
+  --color-state-hover-border: var(--color-cheshire-teal);
+  --color-state-active-bg: var(--color-cheshire-teal);
+  --color-state-active-text: #FFFFFF;
+  --color-state-disabled-bg: rgba(229, 220, 206, 0.6);
+  --color-state-disabled-border: #CBD5E1;
+  --color-state-disabled-text: #94A3B8;
+  --color-state-alert-border: var(--color-red-queen);
+  --color-state-alert-bg: rgba(190, 18, 60, 0.08);
+  --color-state-alert-text: var(--color-red-queen);
+
+  /* Juridical Profile (JudgeSmoke / PALADIN A2J) */
+  --color-juridical-paper: #F3EADC;
+  --color-juridical-ink: #1C1710;
+  --color-juridical-stamp: #1F5F58;
+  --color-juridical-terracotta: #C45C3E;
+  --color-juridical-rule: rgba(153, 122, 46, 0.3);
+  --color-juridical-rule-strong: rgba(153, 122, 46, 0.6);
+
   /* Typography Stacks */
   --font-serif: "EB Garamond", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --font-sans: "Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
-  --font-display: var(--font-sans);
+  --font-display: var(--font-serif);
   --font-body: var(--font-sans);
   --font-technical: var(--font-mono);
   --font-editorial: var(--font-serif);
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.015em;
+  --tracking-technical: 0.05em;
+  --tracking-wide: 0.08em;
+
+  /* Grid & Dimensions */
+  --grid-columns: 12;
+  --grid-rows: 11;
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
 }
 
 /* ==========================================================================
-   2. Looking-Glass Dark Mode ([data-theme="dark"] & prefers-color-scheme)
+   2. Looking-Glass Dark Mode
    ========================================================================== */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-canvas: #0F172A;              /* Looking-Glass Deep Slate */
+    --color-canvas: #0F172A;
     --color-canvas-alt: #161C1A;
     --color-board-slate: #1B2540;
     --color-surface: #141D30;
@@ -69,12 +138,12 @@
     --color-line: #33403C;
 
     --color-ink: #ECE7DC;
-    --color-vellum: #F5EFE0;              /* 15.56:1 AAA on #0F172A */
+    --color-vellum: #F5EFE0;
     --color-muted: #A6B1AB;
 
-    --color-cheshire-teal: #2DD4BF;       /* 9.59:1 AAA on #0F172A */
-    --color-white-rabbit-gold: #F59E0B;   /* 8.31:1 AAA on #0F172A */
-    --color-red-queen: #FDA4AF;           /* 9.44:1 AAA on #0F172A */
+    --color-cheshire-teal: #2DD4BF;
+    --color-white-rabbit-gold: #F59E0B;
+    --color-red-queen: #FDA4AF;
     --color-brass-hairline: #B08D3C;
 
     --color-accent-action: #2DD4BF;
@@ -82,6 +151,24 @@
     --color-warm-accent: #F59E0B;
     --color-warm-soft: #3A2D22;
     --color-threshold-error: #FDA4AF;
+
+    --color-border-hairline: var(--color-brass-hairline);
+    --color-border-grid: rgba(176, 141, 60, 0.25);
+    --color-text-primary: var(--color-vellum);
+    --color-text-secondary: #CBD5E1;
+    --color-text-muted: #94A3B8;
+
+    --color-state-default-border: var(--color-brass-hairline);
+    --color-state-hover-bg: rgba(45, 212, 191, 0.12);
+    --color-state-hover-border: var(--color-cheshire-teal);
+    --color-state-active-bg: var(--color-cheshire-teal);
+    --color-state-active-text: #0F172A;
+    --color-state-disabled-bg: rgba(27, 37, 64, 0.6);
+    --color-state-disabled-border: #334155;
+    --color-state-disabled-text: #64748B;
+    --color-state-alert-border: var(--color-red-queen);
+    --color-state-alert-bg: rgba(253, 164, 175, 0.1);
+    --color-state-alert-text: var(--color-red-queen);
 
     --bg: #0F172A;
     --bg-alt: #141D30;
@@ -120,38 +207,12 @@
   --color-warm-soft: #3A2D22;
   --color-threshold-error: #FDA4AF;
 
-  --bg: #0F172A;
-  --bg-alt: #141D30;
-  --surface: #141D30;
-  --ink: #ECE7DC;
-  --muted: #A6B1AB;
-  --line: #33403C;
-  --accent: #2DD4BF;
-  --accent-ink: #0F172A;
-  --warm: #F59E0B;
-  --warm-soft: #3A2D22;
-}
-  --color-surface-card: #141D30;
-  --color-surface-card-dark: #141D30;
-  --color-surface-subtle: var(--color-board-slate);
-  --color-surface-subtle-dark: var(--color-board-slate);
-
-  /* Borders & Double Hairlines */
   --color-border-hairline: var(--color-brass-hairline);
-  --color-border-hairline-dark: var(--color-brass-hairline);
   --color-border-grid: rgba(176, 141, 60, 0.25);
-  --color-border-grid-dark: rgba(176, 141, 60, 0.25);
-  --color-crosshair: var(--color-cheshire-teal);
-
-  /* Typography Colors */
   --color-text-primary: var(--color-vellum);
-  --color-text-primary-dark: var(--color-vellum);
   --color-text-secondary: #CBD5E1;
-  --color-text-secondary-dark: #94A3B8;
-  --color-text-muted: #64748B;
-  --color-text-muted-dark: #64748B;
+  --color-text-muted: #94A3B8;
 
-  /* Interactive States */
   --color-state-default-border: var(--color-brass-hairline);
   --color-state-hover-bg: rgba(45, 212, 191, 0.12);
   --color-state-hover-border: var(--color-cheshire-teal);
@@ -164,47 +225,16 @@
   --color-state-alert-bg: rgba(253, 164, 175, 0.1);
   --color-state-alert-text: var(--color-red-queen);
 
-  /* Juridical Profile (JudgeSmoke / PALADIN A2J) */
-  --color-juridical-paper: #F3EADC;
-  --color-juridical-ink: #1C1710;
-  --color-juridical-stamp: #1F5F58;
-  --color-juridical-terracotta: #C45C3E;
-  --color-juridical-rule: rgba(176, 141, 60, 0.3);
-  --color-juridical-rule-strong: rgba(176, 141, 60, 0.6);
-
-  /* ==========================================================================
-     2. Typography Hierarchy (Looking-Glass Standards)
-     ========================================================================== */
-
-  /* Display & Headings: EB Garamond with robust fallbacks */
-  --font-display: 'EB Garamond', 'Cormorant Garamond', Garamond, Georgia, 'Times New Roman', serif;
-  
-  /* Body: Sans for density and legibility */
-  --font-body: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  
-  /* Data, Hashes & Telemetry: Monospace */
-  --font-technical: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
-
-  /* Legacy alias */
-  --font-editorial: var(--font-display);
-
-  /* Font Weights */
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-
-  /* Letter Spacing */
-  --tracking-tight: -0.015em;
-  --tracking-technical: 0.05em;
-  --tracking-wide: 0.08em;
-
-  /* Grid & Dimensions */
-  --grid-columns: 12;
-  --grid-rows: 11;
-  --radius-none: 0px;
-  --radius-xs: 2px;
-  --radius-sm: 4px;
+  --bg: #0F172A;
+  --bg-alt: #141D30;
+  --surface: #141D30;
+  --ink: #ECE7DC;
+  --muted: #A6B1AB;
+  --line: #33403C;
+  --accent: #2DD4BF;
+  --accent-ink: #0F172A;
+  --warm: #F59E0B;
+  --warm-soft: #3A2D22;
 }
 
 /* ==========================================================================
