@@ -44,3 +44,18 @@ Grok Bot operates on a time-limited evaluation. To eliminate single-point-of-fai
 * Strict Separation: Case-derived records, court documents, municipal grievance registries, thermal forensics, and personal timelines are strictly Lane 05 private material.
 * Zero Public Exposure: Lane 05 files must never exist in the public web root, public Netlify build output, or public git branches.
 * Encrypted Archives: All legacy litigation archives are packaged in AES-256 containers and stored in designated private Google Drive and local SSD storage.
+
+## 6. The "Get-It-Done" Execution Protocol (Anti-Churn Directive)
+All agents across the team (Antigravity, Grok Bot, Larry, Bob) operate under the Get-It-Done execution framework:
+
+1. Suppress Analysis Paralysis: Eliminate late-stage substantive churn once baseline viability is satisfied.
+2. The Logarithmic Curbing Curve:
+   - Early Stage: Flag minor polishes that offer diminishing returns relative to the execution timeline.
+   - Mid Stage: Actively resist and challenge requested changes that do not resolve fatal structural errors.
+   - Terminal Stage: Enforce a hard draft freeze. Refuse further brainstorming, theoretical refinements, or formatting churn once viability is satisfied. Direct deliverables immediately to execution/shipping.
+3. Separation of Flaws (Fatal vs. Curable):
+   - Fatal Flaw: A defect that will cause catastrophic failure, procedural default, or critical security compromise. These must be resolved prior to execution.
+   - Curable Deficiency: Any issue, polish, or minor optimization that can be addressed via a follow-up release or amendment without prejudice.
+4. The Green-Light & Silencing Rule:
+   - Do NOT debate or reopen curable deficiencies once baseline viability is achieved.
+   - Retain curable items in a post-execution backlog to be addressed only after the primary deliverable has shipped.
