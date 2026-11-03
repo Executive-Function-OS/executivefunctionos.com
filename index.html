@@ -1,1365 +1,342 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Executive Function OS — Looking-Glass Architecture | Computational Phenotyping, Percolation Theory &amp; Legal Provenance</title>
-  <meta name="description" content="A dual-domain research platform uniting client-side percolation modeling of cognitive fragmentation from naturalistic digital traces with auditable multi-agent synthesis for high-stakes legal corpora.">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  
-  <!-- Fallback font stacks & Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="tokens.css">
-  <link rel="stylesheet" href="kinetic_clarity_buttons.css">
-  <link rel="stylesheet" href="navigation.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EFOS: Executive Function Software and the Work-to-Rhythm Loop</title>
+<meta name="description" content="EFOS (Executive Function OS) is executive function software built around the Work-to-Rhythm Loop: work context capture, a useful next step, and plans you can revisit. Join the waitlist.">
+<link rel="canonical" href="https://executivefunctionos.com/">
+<meta name="theme-color" content="#f6f1e7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161c1a" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-  <style>
-    /* ==========================================================================
-       Looking-Glass Main Hub Styling
-       ========================================================================== */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 6rem;
-    }
-    section, [id] {
-      scroll-margin-top: 6rem;
-    }
-    body {
-      background-color: var(--color-canvas, #0F172A);
-      color: var(--color-vellum, #F5EFE0);
-      font-family: var(--font-body, 'Space Grotesk', sans-serif);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EFOS (Executive Function OS)">
+<meta property="og:title" content="EFOS: Turn scattered priorities into a rhythm you can maintain">
+<meta property="og:description" content="Executive function software for people juggling complex work. Capture context, pick a useful next step, revisit the plan. Join the waitlist for early access.">
+<meta property="og:url" content="https://executivefunctionos.com/">
+<meta property="og:image" content="https://executivefunctionos.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EFOS: Turn scattered priorities into a rhythm you can maintain">
+<meta name="twitter:description" content="Executive function software built around the Work-to-Rhythm Loop. Join the waitlist.">
+<meta name="twitter:image" content="https://executivefunctionos.com/og-image.png">
 
-    /* Typography Hierarchy */
-    h1, h2, h3, h4, .brand-title, .chapter-title, .hero-title, .section-title {
-      font-family: var(--font-display, 'EB Garamond', Georgia, serif);
-      color: var(--color-vellum, #F5EFE0);
-      font-weight: 600;
-    }
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "EFOS (Executive Function OS)",
+  "alternateName": "Executive Function OS",
+  "url": "https://executivefunctionos.com/",
+  "applicationCategory": "BusinessApplication",
+  "description": "Executive function software and AI workflow tool built around the Work-to-Rhythm Loop: work context capture, next-step decisions, plan revisits, and agent memory for developers. In development; waitlist open.",
+  "featureList": ["Work context capture", "Next-step decisions", "Plan revisits", "Project instructions (AGENTS.md)", "AI agent memory management"]
+}
+</script>
 
-    /* Small-caps on Chapter numerals and Section Labels */
-    .section-tag,
-    .chapter-numeral,
-    .chapter-label,
-    .step-num,
-    .meta-tag,
-    .terminal-header {
-      font-family: var(--font-display, 'EB Garamond', Georgia, serif);
-      font-variant: small-caps;
-      letter-spacing: 0.08em;
-    }
+<style>
+:root{
+  --bg:#f6f1e7; --bg-alt:#efe8da; --surface:#fffdf8; --ink:#1f2a27; --muted:#55625d;
+  --line:#ddd3c0; --accent:#2f5d50; --accent-ink:#ffffff; --warm:#c47a45; --warm-soft:#f3dcc6;
+  --focus:#1a4fd6; --shadow:0 1px 2px rgba(31,42,39,.06),0 12px 32px -12px rgba(31,42,39,.14);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#161c1a; --bg-alt:#1b2220; --surface:#202927; --ink:#ece7dc; --muted:#a6b1ab;
+  --line:#33403c; --accent:#8cc5b0; --accent-ink:#10201b; --warm:#e3a273; --warm-soft:#3a2d22;
+  --focus:#8fb2ff; --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px -12px rgba(0,0,0,.5);}
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.65}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;letter-spacing:-.01em;margin:0 0 .5em}
+h1{font-size:clamp(2.25rem,6vw,3.75rem)}
+h2{font-size:clamp(1.65rem,3.6vw,2.4rem)}
+h3{font-size:1.25rem}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:var(--accent-ink);padding:.6rem 1rem;z-index:10}
+.skip:focus{left:1rem;top:1rem}
+.wrap{width:min(1080px,100% - 2.5rem);margin-inline:auto}
+.narrow{width:min(720px,100% - 2.5rem);margin-inline:auto}
+section{padding:clamp(3.5rem,8vw,6rem) 0}
+.alt{background:var(--bg-alt)}
+.eyebrow{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:1rem}
+.lede{font-size:1.2rem;color:var(--muted);max-width:40rem}
 
-    /* Old-style figures in stats and deltas */
-    .oldstyle-num,
-    .stat-cell,
-    .stat-figure,
-    table.sc-table td:nth-child(2),
-    table.sc-table td:nth-child(4) {
-      font-variant-numeric: oldstyle-nums;
-      font-feature-settings: "onum" 1;
-    }
+header.top{padding:1.25rem 0}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--ink);text-decoration:none}
+.brand img{width:30px;height:30px}
+.brand small{font-family:var(--sans);font-weight:400;color:var(--muted);font-size:.85rem}
+.top a.nav{font-size:.95rem;color:var(--ink)}
 
-    /* Mathematical Variables in Italic */
-    var, .math-var {
-      font-family: var(--font-display, 'EB Garamond', serif);
-      font-style: italic;
-      color: var(--color-cheshire-teal, #2DD4BF);
-    }
+.hero{padding:clamp(2.5rem,7vw,5rem) 0 clamp(3.5rem,8vw,6rem)}
+.hero-grid{display:grid;gap:3rem;grid-template-columns:1.15fr .85fr;align-items:center}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.badge{display:inline-block;background:var(--warm-soft);color:var(--ink);border-radius:999px;padding:.25rem .8rem;font-size:.85rem;margin-bottom:1.25rem}
 
-    .container {
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 0 1.75rem;
-    }
+form.waitlist{margin-top:1.75rem;max-width:34rem}
+.row{display:flex;gap:.6rem;flex-wrap:wrap}
+label{display:block;font-weight:600;font-size:.95rem;margin-bottom:.35rem}
+input[type=email],textarea{width:100%;font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:.8rem 1rem;min-height:3rem}
+textarea{resize:vertical;min-height:5.5rem}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:.8}
+.field{margin-bottom:1rem}
+.field.grow{flex:1 1 15rem;margin-bottom:0}
+.opt{font-weight:400;color:var(--muted)}
+button.cta{font:inherit;font-weight:600;background:var(--accent);color:var(--accent-ink);border:0;border-radius:12px;padding:.8rem 1.5rem;min-height:3rem;cursor:pointer;transition:transform .15s,filter .15s}
+button.cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+button.cta[disabled]{opacity:.65;cursor:wait}
+.note{font-size:.9rem;color:var(--muted);margin:.8rem 0 0}
+.hp{position:absolute;left:-9999px;height:0;overflow:hidden}
+.status{margin-top:1rem;padding:1rem 1.2rem;border-radius:12px;background:var(--warm-soft);border:1px solid var(--line)}
+.status[hidden]{display:none}
+.status.err{border-color:#b3402a}
 
-    /* Hero Section */
-    .hero-wrapper {
-      padding: 3.5rem 0 3rem;
-      border-bottom: 3px double var(--color-brass-hairline, #B08D3C);
-      background: radial-gradient(circle at 80% 20%, rgba(27, 37, 64, 0.6) 0%, rgba(15, 23, 42, 1) 70%);
-      position: relative;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    .eyebrow {
-      font-family: var(--font-display, 'EB Garamond', serif);
-      font-variant: small-caps;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--color-white-rabbit-gold, #F59E0B);
-      letter-spacing: 0.08em;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--color-white-rabbit-gold, #F59E0B);
-      border-radius: 50%;
-    }
-    .hero-title {
-      font-size: 2.75rem;
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-      color: var(--color-vellum, #F5EFE0);
-      margin-bottom: 1.25rem;
-    }
-    .hero-lede {
-      font-size: 1.12rem;
-      line-height: 1.6;
-      color: #CBD5E1;
-      margin-bottom: 2rem;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      margin-bottom: 2rem;
-    }
 
-    .spine-box {
-      border: 3px double var(--color-brass-hairline, #B08D3C);
-      background: var(--color-board-slate, #1B2540);
-      border-radius: 4px;
-      padding: 1.25rem 1.5rem;
-      font-size: 0.95rem;
-      color: var(--color-vellum, #F5EFE0);
-      font-family: var(--font-display, 'EB Garamond', serif);
-      font-style: italic;
-      line-height: 1.55;
-    }
+.loop-card{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:1.5rem;box-shadow:var(--shadow)}
+.loop-card svg{display:block;width:100%;height:auto}
+.loop-card figcaption{text-align:center;font-size:.9rem;color:var(--muted);margin-top:.5rem}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)}
+.ring{fill:none;stroke:var(--line);stroke-width:2;stroke-dasharray:3 7}
+.arc{fill:none;stroke:var(--accent);stroke-width:5;stroke-linecap:round}
+.arc2{stroke:var(--warm)}
+.node{fill:var(--surface);stroke:var(--accent);stroke-width:3}
+.node-n{font-family:var(--serif);font-weight:700;font-size:20px;fill:var(--accent)}
+.lbl{font-family:var(--sans);font-size:15px;font-weight:600;fill:var(--ink)}
 
-    /* Terminal Telemetry Card */
-    .hero-card {
-      background: var(--color-board-slate, #1B2540);
-      color: var(--color-vellum, #F5EFE0);
-      border-radius: 4px;
-      padding: 1.75rem;
-      border: 3px double var(--color-brass-hairline, #B08D3C);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
-    }
-    .terminal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(176, 141, 60, 0.35);
-      padding-bottom: 0.75rem;
-      margin-bottom: 1.25rem;
-      font-size: 0.82rem;
-      color: var(--color-white-rabbit-gold, #F59E0B);
-      font-weight: 700;
-    }
+.cols{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1.5rem}
+.card p{color:var(--muted);margin:0}
+.card h3{margin-bottom:.4rem}
+.problem-list{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:.9rem}
+.problem-list li{padding-left:1.6rem;position:relative}
+.problem-list li::before{content:"";position:absolute;left:0;top:.7em;width:.7rem;height:2px;background:var(--warm)}
 
-    /* Section Styles */
-    section {
-      padding: 4.5rem 0;
-      border-bottom: 3px double rgba(176, 141, 60, 0.4);
-    }
-    .section-head {
-      margin-bottom: 2.75rem;
-    }
-    .section-tag {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--color-white-rabbit-gold, #F59E0B);
-      margin-bottom: 0.35rem;
-    }
-    .section-title {
-      font-size: 2.25rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: var(--color-vellum, #F5EFE0);
-      line-height: 1.2;
-    }
-    .section-intro {
-      font-size: 1.1rem;
-      color: #94A3B8;
-      max-width: 860px;
-      margin-top: 0.65rem;
-      line-height: 1.6;
-    }
+.steps{list-style:none;padding:0;margin:2.5rem 0 0;display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));counter-reset:s}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1.5rem;position:relative}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-family:var(--serif);font-weight:700;margin-bottom:1rem}
+.steps p{color:var(--muted);margin:0}
+.loop-back{margin-top:1.25rem;color:var(--muted);font-size:.95rem}
 
-    /* Four Operational Pillars */
-    .branch-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-    @media (max-width: 1200px) {
-      .branch-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 680px) {
-      .branch-grid { grid-template-columns: 1fr; }
-    }
-    .branch-card {
-      background: var(--color-board-slate, #1B2540);
-      border: 3px double var(--color-brass-hairline, #B08D3C);
-      border-radius: 4px;
-      padding: 1.75rem;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
-    }
-    .branch-card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
-    }
-    .branch-badge {
-      align-self: flex-start;
-      margin-bottom: 1rem;
-    }
-    .branch-name {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--color-vellum, #F5EFE0);
-      margin-bottom: 0.35rem;
-    }
-    .branch-org {
-      font-family: var(--font-technical, monospace);
-      font-size: 0.72rem;
-      color: var(--color-cheshire-teal, #2DD4BF);
-      margin-bottom: 0.85rem;
-    }
-    .branch-desc {
-      font-size: 0.92rem;
-      color: #CBD5E1;
-      margin-bottom: 1.5rem;
-      flex-grow: 1;
-      line-height: 1.55;
-    }
-    .branch-links {
-      list-style: none;
-      border-top: 1px solid rgba(176, 141, 60, 0.3);
-      padding-top: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      font-family: var(--font-technical, monospace);
-      font-size: 0.78rem;
-    }
-    .branch-links a {
-      color: var(--color-vellum, #F5EFE0);
-      text-decoration: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: color 150ms ease, transform 150ms ease;
-    }
-    .branch-links a:hover {
-      color: var(--color-cheshire-teal, #2DD4BF);
-      transform: translateX(2px);
-    }
+.feature{display:grid;gap:1.25rem;grid-template-columns:repeat(2,1fr)}@media (max-width:680px){.feature{grid-template-columns:1fr}}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;background:var(--bg-alt);padding:.1em .4em;border-radius:6px}
+.alt code{background:var(--surface)}
 
-    /* Engine Walkthrough Steps */
-    .pipeline-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-    @media (max-width: 960px) {
-      .pipeline-steps { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 600px) {
-      .pipeline-steps { grid-template-columns: 1fr; }
-    }
-    .step-card {
-      background: var(--color-board-slate, #1B2540);
-      border: 3px double var(--color-brass-hairline, #B08D3C);
-      border-radius: 4px;
-      padding: 1.5rem;
-      transition: transform 150ms ease;
-    }
-    .step-card:hover {
-      transform: scale(1.02);
-    }
-    .step-num {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--color-white-rabbit-gold, #F59E0B);
-      margin-bottom: 0.35rem;
-    }
-    .step-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--color-vellum, #F5EFE0);
-      margin-bottom: 0.5rem;
-    }
-    .step-desc {
-      font-size: 0.86rem;
-      color: #CBD5E1;
-      line-height: 1.5;
-    }
+details.faq{border-bottom:1px solid var(--line);padding:1.1rem 0}
+details.faq summary{cursor:pointer;font-family:var(--serif);font-size:1.2rem;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";color:var(--accent);font-size:1.5rem;line-height:1}
+details.faq[open] summary::after{content:"\2212"}
+details.faq p{margin:.7rem 0 0;color:var(--muted)}
 
-    /* Tables in Looking-Glass */
-    table.sc-table {
-      width: 100%;
-      border-collapse: collapse;
-      border: 3px double var(--color-brass-hairline, #B08D3C);
-      background: var(--color-board-slate, #1B2540);
-      font-family: var(--font-technical, monospace);
-      font-size: 0.82rem;
-      text-align: left;
-    }
-    table.sc-table th {
-      padding: 0.85rem 1.25rem;
-      font-weight: 600;
-      color: #94A3B8;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border-bottom: 1px solid rgba(176, 141, 60, 0.4);
-      background: rgba(15, 23, 42, 0.6);
-      font-size: 0.72rem;
-    }
-    table.sc-table td {
-      padding: 0.95rem 1.25rem;
-      border-bottom: 1px solid rgba(176, 141, 60, 0.2);
-      color: var(--color-vellum, #F5EFE0);
-    }
-    table.sc-table tr:hover td {
-      background: rgba(45, 212, 191, 0.08);
-    }
+.final{text-align:center}
+.final form.waitlist{margin-inline:auto;text-align:left}
+.final .lede{margin-inline:auto}
+footer{padding:2.5rem 0;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
 
-    /* Motion Accessibility Constraint */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
-        transform: none !important;
-      }
-    }
-
-    /* Reading area protection: No animation in reading areas */
-    .reading-area, .reading-area *, .spine-box, .spine-box * {
-      animation: none !important;
-    }
-  </style>
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr}.loop-card{max-width:26rem;margin-inline:auto}}
+@media (max-width:480px){button.cta{width:100%}.top a.nav{display:none}}
+</style>
 </head>
-<body id="top">
+<body>
+<a class="skip" href="#waitlist">Skip to waitlist</a>
 
-  <!-- 1. Universal Looking-Glass Header Navigation -->
-  <header class="lg-navbar">
-    <div class="lg-nav-container">
-      <a href="index.html" class="lg-brand" title="Executive Function OS — Main Hub">
-        <svg class="lg-brand-logo" viewBox="0 0 64 64" fill="none">
-          <rect width="64" height="64" rx="4" fill="#0F172A" />
-          <rect x="8" y="8" width="48" height="48" stroke="#B08D3C" stroke-width="1.5" fill="#1B2540" />
-          <circle cx="24" cy="24" r="4.5" fill="#2DD4BF" />
-          <circle cx="40" cy="24" r="4.5" fill="#2DD4BF" />
-          <circle cx="32" cy="40" r="6" fill="#FDA4AF" stroke="#F59E0B" stroke-width="2" />
-          <text x="32" y="43" text-anchor="middle" font-size="7" fill="#0F172A" font-weight="bold">♕</text>
-        </svg>
-        <div class="lg-brand-text">
-          <div class="lg-brand-title">Executive Function OS</div>
-          <div class="lg-brand-sub">Looking-Glass Architecture</div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="EFOS home"><img src="favicon.svg" alt="" width="30" height="30">EFOS <small>Executive Function OS</small></a>
+    <a class="nav" href="#waitlist">Join the waitlist</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge">In development &middot; waitlist open</span>
+      <h1 id="h1">Turn scattered priorities into a <em>rhythm</em> you can maintain.</h1>
+      <p class="lede">EFOS is executive function software built around the Work-to-Rhythm Loop: bring the right context into view, pick a useful next step, and revisit the plan as things change.</p>
+
+      <!-- ============ WAITLIST FORM #1 ============ -->
+      <form action='/' class='waitlist' data-waitlist id='waitlist' method='POST' name='waitlist' data-netlify='true' netlify-honeypot='_gotcha'>
+        <input type="hidden" name="form-name" value="waitlist">
+        <div class="row">
+          <div class="field grow">
+            <label for="email-1">Email address</label>
+            <input id="email-1" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="you@example.com">
+          </div>
+          <button class="cta" type="submit" style="align-self:flex-end">Get early access</button>
         </div>
-      </a>
-
-      <!-- Cohesive Nav Menu with Hover Flyouts -->
-      <ul class="lg-nav-menu">
-        <!-- Active Hub Link -->
-        <li class="lg-nav-item">
-          <a href="index.html" class="lg-nav-btn active">Hub Overview</a>
-        </li>
-
-        <!-- Pillar 1: Percolation Dynamics (Engine A) -->
-        <li class="lg-nav-item">
-          <button class="lg-nav-btn">
-            Cognitive Percolation <span class="lg-chevron">&blacktriangledown;</span>
-          </button>
-          <div class="lg-dropdown">
-            <div class="lg-dropdown-header">Engine A &bull; Computational Phenotyping</div>
-            <a href="cognitive_fragmentation_lab.html" class="lg-dropdown-link">
-              <span class="lg-dropdown-icon">⚡</span>
-              <div class="lg-dropdown-text">
-                <span class="lg-dropdown-name">Percolation Diagnostic Lab <span class="lg-pill lg-pill-teal">N=1 Live</span></span>
-                <span class="lg-dropdown-desc">Bond dilution simulation, critical threshold (p_c), cluster timeline</span>
-              </div>
-            </a>
-            <a href="schema_canvas.html" class="lg-dropdown-link">
-              <span class="lg-dropdown-icon">🕸</span>
-              <div class="lg-dropdown-text">
-                <span class="lg-dropdown-name">Network Schema Canvas</span>
-                <span class="lg-dropdown-desc">Interactive node-link ontology mapping &amp; JSON schema export</span>
-              </div>
-            </a>
-            <a href="lab.html" class="lg-dropdown-link">
-              <span class="lg-dropdown-icon">📊</span>
-              <div class="lg-dropdown-text">
-                <span class="lg-dropdown-name">Telemetry Studio (12&times;11)</span>
-                <span class="lg-dropdown-desc">12&times;11 Cartesian checkerboard lattice &amp; real-time node inspector</span>
-              </div>
-            </a>
+        <div class="field" style="margin-top:1rem">
+            <label for="hard-1">What's the hardest part of keeping your work on track? <span class="opt">(optional)</span></label>
+            <textarea id="hard-1" name="hardest_part" rows="2" placeholder="A sentence or two is plenty."></textarea>
           </div>
-        </li>
-
-        <!-- Pillar 2: Legal Provenance & A2J (Engine B) -->
-        <li class="lg-nav-item">
-          <button class="lg-nav-btn">
-            Legal Provenance (A2J) <span class="lg-chevron">&blacktriangledown;</span>
-          </button>
-          <div class="lg-dropdown">
-            <div class="lg-dropdown-header">Engine B &bull; Evidentiary Provenance</div>
-            <a href="paladin.html" class="lg-dropdown-link">
-              <span class="lg-dropdown-icon">⚖</span>
-              <div class="lg-dropdown-text">
-                <span class="lg-dropdown-name">PALADIN Pro Se Suite <span class="lg-pill lg-pill-gold">A2J</span></span>
-                <span class="lg-dropdown-desc">28-line UTCR pleading engine, citation verifier &amp; preflight triage</span>
-              </div>
-            </a>
-            <a href="timeline.html" class="lg-dropdown-link">
-              <span class="lg-dropdown-icon">📜</span>
-              <div class="lg-dropdown-text">
-                <span class="lg-dropdown-name">Master Forensic Timeline <span class="lg-pill lg-pill-teal">162 Records</span></span>
-                <span class="lg-dropdown-desc">Interleaved court filings, land use, municipal acts, and code enforcement</span>
-              </div>
-            </a>
-            <a href="library.html" class="lg-dropdown-link">
-              <span class="lg-dropdown-icon">📚</span>
-              <div class="lg-dropdown-text">
-                <span class="lg-dropdown-name">Evidence Source Library <span class="lg-pill lg-pill-teal">5,612</span></span>
-                <span class="lg-dropdown-desc">Curated public records, appellate authorities, and Daubert indices</span>
-              </div>
-            </a>
-            <a href="privity.html" class="lg-dropdown-link">
-              <span class="lg-dropdown-icon">🔍</span>
-              <div class="lg-dropdown-text">
-                <span class="lg-dropdown-name">The Privity Paradox</span>
-                <span class="lg-dropdown-desc">Standing defects, non-party vulnerability, and assignment chains</span>
-              </div>
-            </a>
-            <a href="dossier/" class="lg-dropdown-link">
-              <span class="lg-dropdown-icon">📂</span>
-              <div class="lg-dropdown-text">
-                <span class="lg-dropdown-name">Dossier: 12054 Chapin Court <span class="lg-pill lg-pill-gold">Audit</span></span>
-                <span class="lg-dropdown-desc">Utility ledger reconciliation, Shellpoint disbursement &amp; civil rights</span>
-              </div>
-            </a>
-            <a href="dossier-washington/" class="lg-dropdown-link">
-              <span class="lg-dropdown-icon">📑</span>
-              <div class="lg-dropdown-text">
-                <span class="lg-dropdown-name">Dossier: 1730 SW 203rd Ave <span class="lg-pill lg-pill-rose">Beaverton</span></span>
-                <span class="lg-dropdown-desc">Void deed, Chase reconveyance, Aldridge Pite lockout &amp; SOL roadmap</span>
-              </div>
-            </a>
-            <a href="forensic-microclimate.html" class="lg-dropdown-link">
-              <span class="lg-dropdown-icon">🛰</span>
-              <div class="lg-dropdown-text">
-                <span class="lg-dropdown-name">Forensic Microclimate Report <span class="lg-pill lg-pill-rose">FRE 702</span></span>
-                <span class="lg-dropdown-desc">30-year calibrated Landsat satellite surface temperature study</span>
-              </div>
-            </a>
-            <a href="why-paladin.html" class="lg-dropdown-link">
-              <span class="lg-dropdown-icon">🏛</span>
-              <div class="lg-dropdown-text">
-                <span class="lg-dropdown-name">Why PALADIN Exists</span>
-                <span class="lg-dropdown-desc">Structural manifesto on the pro se crisis &amp; cognitive asymmetry</span>
-              </div>
-            </a>
-          </div>
-        </li>
-
-        <!-- Pillar 3: System Atlas & Media -->
-        <li class="lg-nav-item">
-          <button class="lg-nav-btn">
-            System Atlas &amp; Specs <span class="lg-chevron">&blacktriangledown;</span>
-          </button>
-          <div class="lg-dropdown align-right">
-            <div class="lg-dropdown-header">System Synthesis &amp; Design Spec</div>
-            <a href="#interrelations" class="lg-dropdown-link">
-              <span class="lg-dropdown-icon">🧭</span>
-              <div class="lg-dropdown-text">
-                <span class="lg-dropdown-name">Interrelation Atlas <span class="lg-pill lg-pill-gold">Map</span></span>
-                <span class="lg-dropdown-desc">Comprehensive cross-link matrix mapping all inputs and outputs</span>
-              </div>
-            </a>
-            <a href="presentation.html" class="lg-dropdown-link">
-              <span class="lg-dropdown-icon">📽</span>
-              <div class="lg-dropdown-text">
-                <span class="lg-dropdown-name">16-Slide Evidentiary Deck</span>
-                <span class="lg-dropdown-desc">"Making Complexity Legible" with native audio narration</span>
-              </div>
-            </a>
-            <a href="store.html" class="lg-dropdown-link">
-              <span class="lg-dropdown-icon">🎨</span>
-              <div class="lg-dropdown-text">
-                <span class="lg-dropdown-name">Looking-Glass Design Store</span>
-                <span class="lg-dropdown-desc">UI Kit, token specifications, and commercial licenses</span>
-              </div>
-            </a>
-            <a href="buttons.html" class="lg-dropdown-link">
-              <span class="lg-dropdown-icon">🔘</span>
-              <div class="lg-dropdown-text">
-                <span class="lg-dropdown-name">24 Kinetic CSS Buttons</span>
-                <span class="lg-dropdown-desc">GPU-accelerated pure CSS animated components</span>
-              </div>
-            </a>
-          </div>
-        </li>
-      </ul>
-
-      <!-- Primary Action CTA -->
-      <div class="lg-nav-actions">
-        <a href="cognitive_fragmentation_lab.html" class="lg-cta-btn">
-          <span>⚡ Live Lab</span>
-        </a>
-      </div>
+        <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="_subject" value="EFOS waitlist signup">
+        <p class="note">One email when early access opens. No spam, and you can leave any time.</p>
+        <div class="status" role="status" aria-live="polite" hidden></div>
+      </form>
     </div>
-  </header>
 
-  <!-- 2. Contextual Breadcrumb & Interrelation Sub-Bar -->
-  <div class="lg-breadcrumb-strip">
-    <div class="lg-breadcrumbs">
-      <a href="index.html">EFOS Hub</a>
-      <span class="lg-crumb-sep">&rsaquo;</span>
-      <span class="lg-crumb-current">System Overview &amp; Dual-Engine Synthesis</span>
-    </div>
-    <div class="lg-interrelations-strip">
-      <span class="lg-interrelation-label">Quick Jump to Nodes:</span>
-      <a href="cognitive_fragmentation_lab.html" class="lg-node-pill">⚡ N=1 Percolation Lab</a>
-      <a href="schema_canvas.html" class="lg-node-pill">🕸 Schema Canvas</a>
-      <a href="paladin.html" class="lg-node-pill">⚖ PALADIN (A2J)</a>
-      <a href="timeline.html" class="lg-node-pill">📜 Forensic Timeline</a>
-      <a href="library.html" class="lg-node-pill">📚 Source Library (5,612)</a>
-      <a href="#interrelations" class="lg-node-pill" style="border-color:var(--color-white-rabbit-gold); color:var(--color-white-rabbit-gold);">🧭 View Interrelation Atlas &darr;</a>
+    <figure class="loop-card" style="margin:0">
+      <svg viewBox="0 0 320 320" role="img" aria-labelledby="loop-t loop-d">
+        <title id="loop-t">The Work-to-Rhythm Loop</title>
+        <desc id="loop-d">A circle with three steps: bring context into view, decide a next step, revisit the plan. The last step leads back to the first.</desc>
+        <defs><marker id="ah1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1l8 4-8 4z" fill="var(--accent)"/></marker><marker id="ah2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1l8 4-8 4z" fill="var(--warm)"/></marker></defs>
+        <circle class="ring" cx="160" cy="160" r="105"/>
+        <path class="arc" marker-end="url(#ah1)" d="M194.2 60.7 A105 105 0 0 1 264.2 172.8"/>
+        <path class="arc arc2" marker-end="url(#ah2)" d="M228.9 239.2 A105 105 0 0 1 96.8 243.9"/>
+        <path class="arc" marker-end="url(#ah1)" d="M56.9 180.0 A105 105 0 0 1 119.0 63.3"/>
+        <circle class="node" cx="160" cy="55" r="22"/><text class="node-n" x="160" y="62" text-anchor="middle">1</text>
+        <circle class="node" cx="251" cy="212" r="22"/><text class="node-n" x="251" y="219" text-anchor="middle">2</text>
+        <circle class="node" cx="69" cy="212" r="22"/><text class="node-n" x="69" y="219" text-anchor="middle">3</text>
+        <text class="lbl" x="160" y="22" text-anchor="middle">Bring into view</text>
+        <text class="lbl" x="276" y="262" text-anchor="end">Decide</text>
+        <text class="lbl" x="44" y="262" text-anchor="start">Revisit</text>
+        <text class="lbl" x="160" y="156" text-anchor="middle" style="font-family:var(--serif);font-size:20px">Work-to-</text>
+        <text class="lbl" x="160" y="180" text-anchor="middle" style="font-family:var(--serif);font-size:20px">Rhythm</text>
+      </svg>
+      <figcaption>A loop, not a list: each pass starts from where you actually are.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="alt" aria-labelledby="problem">
+  <div class="narrow">
+    <p class="eyebrow">The problem</p>
+    <h2 id="problem">Priorities pile up. Context gets lost.</h2>
+    <p class="lede">Complex, active work lives in many places at once. The hard part is rarely effort. It's knowing what matters right now, and remembering why.</p>
+    <ul class="problem-list">
+      <li>Tabs, notes, threads, and tickets each hold a piece of the picture, and none of them hold all of it.</li>
+      <li>Every time you switch tasks, you pay a cost to rebuild what you already knew.</li>
+      <li>Rigid plans break as soon as circumstances change, and then they're ignored.</li>
+      <li>Tools that demand constant upkeep add one more thing to keep on track.</li>
+    </ul>
+  </div>
+</section>
+
+<section aria-labelledby="loop">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2 id="loop">The Work-to-Rhythm Loop</h2>
+    <p class="lede">A practical, individual-scale loop for personal workflow optimization. Three small steps you can repeat as often as your work needs.</p>
+    <ol class="steps">
+      <li><h3>Bring chosen context into view</h3><p>Pull in only what you decide is relevant to the work at hand, so it's in front of you instead of scattered.</p></li>
+      <li><h3>Decide on a useful next step</h3><p>Choose one next action that moves things forward. Not a perfect plan, just a clear place to begin.</p></li>
+      <li><h3>Revisit as circumstances change</h3><p>Come back, adjust, and carry on. The plan bends with your week instead of breaking.</p></li>
+    </ol>
+    <p class="loop-back">Then the loop starts again, from where you are now.</p>
+  </div>
+</section>
+
+<section class="alt" aria-labelledby="who">
+  <div class="wrap">
+    <p class="eyebrow">Who it's for</p>
+    <h2 id="who">Built for people managing complex, active work</h2>
+    <div class="cols" style="margin-top:2rem">
+      <div class="card"><h3>Individuals</h3><p>Anyone who wants a calmer way to see what matters and take the next step.</p></div>
+      <div class="card"><h3>Executives</h3><p>Leaders balancing many threads who need the right context in view before they decide.</p></div>
+      <div class="card"><h3>Knowledge workers</h3><p>People whose work is spread across documents, conversations, and shifting priorities.</p></div>
+      <div class="card"><h3>Developers</h3><p>Builders who want project instructions and agent memory to carry context between sessions.</p></div>
     </div>
   </div>
+</section>
 
-  <!-- 3. Hero Section (Chapter I) -->
-  <div class="hero-wrapper">
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Chapter I &bull; Prolegomenon &bull; Bioinformatics, Percolation Dynamics &amp; Legal Provenance
-        </div>
-        <h1 class="hero-title">
-          Turn complex corpora into drafts you can defend &mdash; and model cognitive fragmentation through percolation theory.
-        </h1>
-        <p class="hero-lede">
-          A dual-domain research platform uniting bioinformatic digital phenotyping and multi-agent legal provenance. We apply percolation graph theory and DBSCAN clustering to naturalistic behavioral traces (Google Docs, Drive, Takeout) to quantify cognitive fragmentation under acute stress, while deploying adversarial citation auditing to transform high-stakes legal corpora into decision-grade court pleadings.
-        </p>
-
-        <div class="hero-actions">
-          <a href="cognitive_fragmentation_lab.html" class="sc-btn sc-btn-pipeline" style="padding:0.75rem 1.4rem; font-size:0.88rem;">
-            <span class="btn-primary">Launch Percolation Lab (N=1 Live) &rarr;</span>
-            <span class="btn-carroll-tag">“Drink Me” &bull; Bond Dilution Simulation</span>
-          </a>
-          <a href="schema_canvas.html" class="sc-btn sc-btn-inspect" style="padding:0.75rem 1.25rem; font-size:0.88rem;">
-            <span class="btn-primary">Schema Canvas Studio &rarr;</span>
-            <span class="btn-carroll-tag">“Eat Me” &bull; Node-Link Ontology</span>
-          </a>
-          <a href="#interrelations" class="sc-btn sc-btn-focal" style="padding:0.75rem 1.25rem; font-size:0.88rem;">
-            <span class="btn-primary">System Interrelation Atlas &darr;</span>
-            <span class="btn-carroll-tag">Map All Inputs &amp; Outputs</span>
-          </a>
-          <a href="library.html" class="sc-btn sc-btn-inspect" style="padding:0.75rem 1.25rem; font-size:0.88rem;">
-            <span class="btn-primary">Search 5,612 Documents &rarr;</span>
-            <span class="btn-carroll-tag">Curated Case Corpus</span>
-          </a>
-        </div>
-
-        <div class="spine-box reading-area">
-          Complex procedural systems exceed human working memory. When cognitive bandwidth breaks under acute deadline pressure, the failure is a physical network phase transition (<var>p</var> &lt; <var>p_c</var>), not a personal moral fault.
-        </div>
-      </div>
-
-      <!-- Right Visual Card: Live Multi-Pass Telemetry -->
-      <div>
-        <div class="hero-card">
-          <div class="terminal-header">
-            <span>DUAL-DOMAIN RESEARCH ENGINE // v4.0</span>
-            <span style="color: var(--color-cheshire-teal);">● BIO + LEGAL AUDITED</span>
-          </div>
-
-          <div style="font-family: var(--font-technical); font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.75rem;">
-            <div style="display:flex; justify-content:space-between; border-bottom: 1px solid rgba(176,141,60,0.25); padding-bottom: 0.4rem;">
-              <span style="color: #94A3B8;">Cognitive Model</span>
-              <span style="color: var(--color-cheshire-teal); font-weight:600;">BMS 4.0 Percolation Simulator</span>
-            </div>
-            <div style="display:flex; justify-content:space-between; border-bottom: 1px solid rgba(176,141,60,0.25); padding-bottom: 0.4rem;">
-              <span style="color: #94A3B8;">Critical Threshold</span>
-              <span style="color: var(--color-white-rabbit-gold); font-weight:600;"><var>p_c</var> = 0.42 (Bond Dilution)</span>
-            </div>
-            <div style="display:flex; justify-content:space-between; border-bottom: 1px solid rgba(176,141,60,0.25); padding-bottom: 0.4rem;">
-              <span style="color: #94A3B8;">Behavioral Traces</span>
-              <span style="color: var(--color-vellum); font-weight:600;">Google Takeout / Docs N=1</span>
-            </div>
-            <div style="display:flex; justify-content:space-between; border-bottom: 1px solid rgba(176,141,60,0.25); padding-bottom: 0.4rem;">
-              <span style="color: #94A3B8;">Manifold Clustering</span>
-              <span style="color: var(--color-cheshire-teal); font-weight:600;">DBSCAN Cognitive Modes</span>
-            </div>
-            <div style="display:flex; justify-content:space-between; border-bottom: 1px solid rgba(176,141,60,0.25); padding-bottom: 0.4rem;">
-              <span style="color: #94A3B8;">Corpus Records</span>
-              <span style="color: var(--color-vellum); font-weight:600;" class="oldstyle-num">5,612 Curated Documents</span>
-            </div>
-            <div style="display:flex; justify-content:space-between; border-bottom: 1px solid rgba(176,141,60,0.25); padding-bottom: 0.4rem;">
-              <span style="color: #94A3B8;">Citation Audit</span>
-              <span style="color: var(--color-cheshire-teal); font-weight:600;">100% CaseLaw Verified</span>
-            </div>
-            <div style="display:flex; justify-content:space-between;">
-              <span style="color: #94A3B8;">Client-Side Privacy</span>
-              <span style="color: #10B981; font-weight:600;">100% Zero Server Exfiltration</span>
-            </div>
-          </div>
-
-          <div style="margin-top: 1.25rem; padding-top: 0.75rem; border-top: 1px solid rgba(176,141,60,0.3); font-family: var(--font-technical); font-size: 0.72rem; color: #94A3B8; display:flex; justify-content:space-between; align-items:center;">
-            <span>Ready for federal judicial review</span>
-            <a href="lab.html" style="color:var(--color-cheshire-teal); text-decoration:none;">Open Telemetry Lab &rarr;</a>
-          </div>
-        </div>
-      </div>
+<section aria-labelledby="features">
+  <div class="wrap">
+    <p class="eyebrow">What EFOS is designed to do</p>
+    <h2 id="features">AI workflow tools, designed to stay out of your way</h2>
+    <p class="lede">Low friction and calm by design. These are the capabilities we're building toward, and details may change before launch.</p>
+    <div class="feature" style="margin-top:2rem">
+      <div class="card"><h3>Work context capture</h3><p>Gather the context behind your work, on your terms, so you don't have to reconstruct it each time you return.</p></div>
+      <div class="card"><h3>Next-step decisions</h3><p>Turn a crowded list into one useful next action you can start on right now.</p></div>
+      <div class="card"><h3>Plan revisits</h3><p>Gentle check-ins to adjust the plan when circumstances change, without starting over.</p></div>
+      <div class="card"><h3>Agent memory and AGENTS.md</h3><p>For developers: project instructions in <code>AGENTS.md</code> and AI agent memory management, so your assistants keep the context that matters.</p></div>
     </div>
   </div>
+</section>
 
-  <!-- 4. The Ecosystem: Four Operational Pillars (Chapter II) -->
-  <section id="branches">
-    <div class="container">
-      <div class="section-head">
-        <div class="section-tag">Chapter II &bull; Ecosystem Architecture</div>
-        <h2 class="section-title">One Spine, Four Operational Pillars</h2>
-        <p class="section-intro">
-          Executive Function OS unites computational psychiatry, network physiology, and adversarial legal synthesis into four co-equal operational branches addressing bioinformatic research, access to justice, enterprise automation, and creative systems.
-        </p>
+<section class="alt" aria-labelledby="faq">
+  <div class="narrow">
+    <p class="eyebrow">Questions</p>
+    <h2 id="faq">Frequently asked questions</h2>
+    <details class="faq"><summary>What is EFOS?</summary><p>EFOS (Executive Function OS) is workflow and context-capture software built around the Work-to-Rhythm Loop. It helps you bring chosen context into view, decide on a useful next step, and revisit your plan as things change. It also includes project instructions (<code>AGENTS.md</code>) and agent memory for developers.</p></details>
+    <details class="faq"><summary>When does it launch?</summary><p>We're building it now. Joining the waitlist gets you early access.</p></details>
+    <details class="faq"><summary>Is my data private?</summary><p>We're designing EFOS for user control, and we'll share the details before launch.</p></details>
+    <details class="faq"><summary>How much will it cost?</summary><p>Pricing isn't set yet. Founding members get early pricing.</p></details>
+  </div>
+</section>
+
+<section class="final" aria-labelledby="join">
+  <div class="narrow">
+    <h2 id="join">Be one of the first to try a calmer rhythm</h2>
+    <p class="lede">Join the waitlist for early access and early pricing. We'll write when there's something real to show.</p>
+    <!-- ============ WAITLIST FORM #2 ============ -->
+    <form action='/' class='waitlist' data-waitlist method='POST' name='waitlist' data-netlify='true' netlify-honeypot='_gotcha'>
+        <input type="hidden" name="form-name" value="waitlist">
+      <div class="field">
+        <label for="email-2">Email address</label>
+        <input id="email-2" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="you@example.com">
       </div>
-
-      <div class="branch-grid">
-        <!-- Pillar 1: Bioinformatics & Percolation Physiology -->
-        <div class="branch-card">
-          <span class="sc-badge sc-badge-active branch-badge"><span class="sc-badge-dot"></span>Bioinformatics &amp; Science</span>
-          <h3 class="branch-name">Percolation &amp; Phenotyping</h3>
-          <div class="branch-org">BMS 4.0 Percolation Engine</div>
-          <p class="branch-desc">
-            Client-side computational psychiatry framework applying percolation graph theory and DBSCAN clustering to naturalistic behavioral traces (Google Takeout, Drive, Docs). Models cognitive fragmentation, critical thresholds (<var>p_c</var>), and Observer&ndash;Operator lag under deadline stress.
-          </p>
-          <ul class="branch-links">
-            <li><a href="cognitive_fragmentation_lab.html" style="font-weight:700; color:var(--color-cheshire-teal);">Percolation Diagnostic Lab (N=1 Live) <span>&rarr;</span></a></li>
-            <li><a href="schema_canvas.html" style="font-weight:700; color:var(--color-cheshire-teal);">Network Schema Canvas Studio <span>&rarr;</span></a></li>
-            <li><a href="lab.html" style="font-weight:600; color:var(--color-white-rabbit-gold);">12&times;11 Matrix Telemetry Lab <span>&rarr;</span></a></li>
-            <li><a href="https://github.com/Executive-Function-OS/percolation-import" target="_blank" rel="noopener noreferrer">Percolation Engine Codebase (MIT) <span>&rarr;</span></a></li>
-            <li><a href="https://demo.executivefunctionos.com" target="_blank" rel="noopener noreferrer">Cognitive Dynamics Demo <span>&rarr;</span></a></li>
-          </ul>
-        </div>
-
-        <!-- Pillar 2: Public Benefit & Justice -->
-        <div class="branch-card">
-          <span class="sc-badge sc-badge-focal branch-badge"><span class="sc-badge-dot"></span>Public Benefit &amp; Justice</span>
-          <h3 class="branch-name">PALADIN Pro Se Suite</h3>
-          <div class="branch-org">github.com/Executive-Function-OS</div>
-          <p class="branch-desc">
-            Open-source legal aid infrastructure, UTCR 28-line pleading engine (JustiTeX), live CourtListener citation verification, and a 5,612-record curated evidence archive. Dedicated to leveling the playing field for self-represented litigants.
-          </p>
-          <ul class="branch-links">
-            <li><a href="paladin.html" style="font-weight:700; color:var(--color-white-rabbit-gold);">PALADIN Pro Se Suite Platform <span>&rarr;</span></a></li>
-            <li><a href="timeline.html" style="font-weight:700; color:var(--color-cheshire-teal);">Master Forensic Timeline (162 Records) <span>&rarr;</span></a></li>
-            <li><a href="library.html" style="font-weight:700; color:var(--color-cheshire-teal);">Evidence &amp; Research Library (5,612) <span>&rarr;</span></a></li>
-            <li><a href="privity.html" style="font-weight:600; color:var(--color-vellum);">The Privity Paradox Analysis <span>&rarr;</span></a></li>
-            <li><a href="dossier/" style="font-weight:600; color:var(--color-white-rabbit-gold);">Evidentiary Dossier: 12054 Chapin Court <span>&rarr;</span></a></li>
-            <li><a href="dossier-washington/" style="font-weight:600; color:var(--color-march-hare-rose);">Evidentiary Dossier: 1730 SW 203rd Ave <span>&rarr;</span></a></li>
-            <li><a href="why-paladin.html">Why PALADIN Exists: Structural Manifesto <span>&rarr;</span></a></li>
-          </ul>
-        </div>
-
-        <!-- Pillar 3: Commercial & Enterprise -->
-        <div class="branch-card">
-          <span class="sc-badge sc-badge-caution branch-badge"><span class="sc-badge-dot"></span>Commercial &amp; SaaS</span>
-          <h3 class="branch-name">Precedent Systems</h3>
-          <div class="branch-org">github.com/Precedent-Systems</div>
-          <p class="branch-desc">
-            Commercial enterprise legal automation, institutional B2B APIs, and hardware/retail operational infrastructure. High-reliability tooling engineered for professional liability separation and high-throughput document extraction.
-          </p>
-          <ul class="branch-links">
-            <li><a href="https://github.com/Precedent-Systems/DocSplit" target="_blank" rel="noopener noreferrer">DocSplit Document Parser (&lt;70ms) <span>&rarr;</span></a></li>
-            <li><a href="https://github.com/Precedent-Systems/FormGuide" target="_blank" rel="noopener noreferrer">FormGuide White-Label Suite <span>&rarr;</span></a></li>
-            <li><a href="store.html" style="font-weight:700; color:var(--color-white-rabbit-gold);">Looking-Glass Design Store &amp; UI Kit <span>&rarr;</span></a></li>
-            <li><a href="buttons.html">24 Kinetic CSS Animated Buttons <span>&rarr;</span></a></li>
-            <li><a href="store.html#pricing">Commercial Licensing &amp; SLAs <span>&rarr;</span></a></li>
-          </ul>
-        </div>
-
-        <!-- Pillar 4: Creative Synthesis & Exploratory -->
-        <div class="branch-card">
-          <span class="sc-badge branch-badge" style="background:rgba(176,141,60,0.15); color:var(--color-brass-hairline); border:1px solid rgba(176,141,60,0.4);"><span class="sc-badge-dot" style="background:var(--color-brass-hairline);"></span>Creative Labs</span>
-          <h3 class="branch-name">Transdimensional Studio</h3>
-          <div class="branch-org">github.com/erikssonaicloud-gif</div>
-          <p class="branch-desc">
-            Emergent cognitive play, spatial geometry, procedural audio engineering, and flow-state acceleration. Testing the boundary between human attention and algorithmic structure.
-          </p>
-          <ul class="branch-links">
-            <li><a href="https://github.com/erikssonaicloud-gif/Nestris-3D" target="_blank" rel="noopener noreferrer">NESTRIS Δ &amp; 3D Spatial Engine <span>&rarr;</span></a></li>
-            <li><a href="https://github.com/erikssonaicloud-gif/Asset-Linker" target="_blank" rel="noopener noreferrer">Asset-Linker Mobile Workspace <span>&rarr;</span></a></li>
-            <li><a href="presentation.html" style="font-weight:700; color:var(--color-cheshire-teal);">Making Complexity Legible (16-Slide Deck) <span>&rarr;</span></a></li>
-            <li><a href="forensic-microclimate.html" style="color:var(--color-red-queen);">Chapin Thermal Report (FRE 702) <span>&rarr;</span></a></li>
-          </ul>
-        </div>
+      <div class="field">
+        <label for="hard-2">What's the hardest part of keeping your work on track? <span class="opt">(optional)</span></label>
+        <textarea id="hard-2" name="hardest_part" rows="3" placeholder="A sentence or two is plenty."></textarea>
       </div>
-    </div>
-  </section>
+      <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="_subject" value="EFOS waitlist signup">
+      <button class="cta" type="submit">Join the waitlist</button>
+      <p class="note">One email when early access opens. No spam, and you can leave any time.</p>
+      <div class="status" role="status" aria-live="polite" hidden></div>
+    </form>
+  </div>
+</section>
+</main>
 
-  <!-- 5. Front-Line Source Intake & The Automated Manifest Engine (Chapter III) -->
-  <section id="intake">
-    <div class="container">
-      <div class="section-head">
-        <div class="section-tag">Chapter III &bull; Front-Line Source Intake</div>
-        <h2 class="section-title">The Real-World Source Material Crisis</h2>
-        <p class="section-intro">
-          In real litigation and forensic research, documents do not arrive cataloged, OCR-indexed, or clean. Pro se litigants, public defenders, and legal aid clinics face fragmented digital debris: generic filenames, duplicate servicer portal dumps, unindexed archives, and missing manifests. Executive Function OS was built from the ground up to solve this front-line intake barrier.
-        </p>
-      </div>
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> EFOS (Executive Function OS)</span>
+    <span>Pre-launch. Features and details are subject to change.</span>
+  </div>
+</footer>
 
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem;">
-        <!-- The Problem Card -->
-        <div style="background: var(--color-board-slate); border: 3px double var(--color-red-queen); border-radius: 4px; padding: 2rem;">
-          <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom: 1rem;">
-            <span class="sc-badge sc-badge-caution">⚠ The Front-Line Reality</span>
-          </div>
-          <h3 style="font-family:var(--font-display); font-size:1.35rem; color:var(--color-red-queen); margin-bottom: 1rem; font-weight:700;">Unmanifested Digital Chaos</h3>
-          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.85rem; font-size:0.92rem; color:#CBD5E1; line-height:1.55;">
-            <li style="display:flex; gap:0.6rem; align-items:flex-start;">
-              <span style="color:var(--color-red-queen); font-weight:bold;">&times;</span>
-              <div><strong style="color:var(--color-vellum);">Generic Auto-Saved Names:</strong> Files saved as <code>download (3).pdf</code>, <code>scan0022.pdf</code>, <code>Untitled.pdf</code>, or <code>174.pdf</code>, completely obscuring their evidentiary provenance.</div>
-            </li>
-            <li style="display:flex; gap:0.6rem; align-items:flex-start;">
-              <span style="color:var(--color-red-queen); font-weight:bold;">&times;</span>
-              <div><strong style="color:var(--color-vellum);">Multi-Servicer Portal Dumps:</strong> Portals (Shellpoint, Countrywide, Bank of America) generate duplicate monthly statements, contradictory payoff letters, and redundant transaction histories.</div>
-            </li>
-            <li style="display:flex; gap:0.6rem; align-items:flex-start;">
-              <span style="color:var(--color-red-queen); font-weight:bold;">&times;</span>
-              <div><strong style="color:var(--color-vellum);">Inaccessible Container Formats:</strong> Multi-page unindexed TIFFs, monolithic court files, and nested zip/tar archives that cannot be searched on standard mobile devices.</div>
-            </li>
-            <li style="display:flex; gap:0.6rem; align-items:flex-start;">
-              <span style="color:var(--color-red-queen); font-weight:bold;">&times;</span>
-              <div><strong style="color:var(--color-vellum);">No Verifiable Manifest:</strong> No central index, no cryptographic hashes, no page maps, and no cross-references connecting documents to court dockets.</div>
-            </li>
-          </ul>
-        </div>
-
-        <!-- The Solution Card -->
-        <div style="background: var(--color-board-slate); border: 3px double var(--color-cheshire-teal); border-radius: 4px; padding: 2rem;">
-          <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom: 1rem;">
-            <span class="sc-badge sc-badge-active">✓ The EFOS Ingestion Solution</span>
-          </div>
-          <h3 style="font-family:var(--font-display); font-size:1.35rem; color:var(--color-cheshire-teal); margin-bottom: 1rem; font-weight:700;">The Automated Manifest Engine</h3>
-          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.85rem; font-size:0.92rem; color:#CBD5E1; line-height:1.55;">
-            <li style="display:flex; gap:0.6rem; align-items:flex-start;">
-              <span style="color:var(--color-cheshire-teal); font-weight:bold;">&check;</span>
-              <div><strong style="color:var(--color-vellum);">Macro-Disaggregation (DocSplit):</strong> Opens compressed archives in memory in &lt;70ms, decomposes multi-page filings, and runs high-fidelity client-side OCR without cloud leakage.</div>
-            </li>
-            <li style="display:flex; gap:0.6rem; align-items:flex-start;">
-              <span style="color:var(--color-cheshire-teal); font-weight:bold;">&check;</span>
-              <div><strong style="color:var(--color-vellum);">Cross-Servicer Deduplication:</strong> Automatically detects duplicate statements, normalizes payment histories, and isolates genuine chain-of-title defects.</div>
-            </li>
-            <li style="display:flex; gap:0.6rem; align-items:flex-start;">
-              <span style="color:var(--color-cheshire-teal); font-weight:bold;">&check;</span>
-              <div><strong style="color:var(--color-vellum);">Semantic Re-Indexing:</strong> Transforms opaque strings like <code>Loan_AvailableDocument_1772594860914.pdf</code> into transparent legal assets like <code>2016-04-12 Garboden Bankruptcy Trustee Settlement Notice</code>.</div>
-            </li>
-            <li style="display:flex; gap:0.6rem; align-items:flex-start;">
-              <span style="color:var(--color-cheshire-teal); font-weight:bold;">&check;</span>
-              <div><strong style="color:var(--color-vellum);">Cryptographic Case Manifests:</strong> Compiles comprehensive indices (<code>MASTER_TEXT_CORPUS_MANIFEST.json</code>) with SHA-256 hashes, page ranges, and direct exhibit links.</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Live Library Showcase Banner -->
-      <div style="background: var(--color-board-slate); color: var(--color-vellum); border-radius: 4px; padding: 2.25rem; border: 3px double var(--color-brass-hairline); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.75rem;">
-        <div style="max-width: 760px;">
-          <div style="font-family:var(--font-technical); font-size:0.75rem; color:var(--color-white-rabbit-gold); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.5rem;">Live Specimen // The Empirical Proof</div>
-          <h3 style="font-family:var(--font-display); font-size:1.75rem; font-weight:700; color:var(--color-vellum); margin-bottom:0.75rem;">The PALADIN Evidence &amp; Jurisprudential Archive</h3>
-          <p style="color:#94A3B8; font-size:1rem; line-height:1.6;">
-            We applied this exact ingestion engine to over 15 years of complex foreclosure, bankruptcy, and municipal litigation. Explore <strong style="color:var(--color-vellum);" class="oldstyle-num">5,612 curated public-record and research entries</strong> across CWALT securitization trusts, servicer transfers, and binding appellate precedents.
-          </p>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:0.75rem; align-items:flex-start;">
-          <a href="library.html" class="sc-btn sc-btn-pipeline" style="padding:0.75rem 1.5rem; font-size:0.95rem;">
-            <span class="btn-primary">Search 5,612 Documents &rarr;</span>
-            <span class="btn-carroll-tag">Instant Client-Side Search</span>
-          </a>
-          <span style="font-family:var(--font-technical); font-size:0.72rem; color:#64748B;">Zero Server Latency &bull; Zero Data Exfiltration</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. Dual Core Technologies & Pipelines (Chapter IV) -->
-  <section id="method">
-    <div class="container">
-      <div class="section-head">
-        <div class="section-tag">Chapter IV &bull; Core Methodology</div>
-        <h2 class="section-title">Dual Core Engines: Percolation Phenotyping &amp; Legal Provenance</h2>
-        <p class="section-intro">
-          Executive Function OS bridges computational psychiatry with adversarial document intelligence. Two parallel, client-side pipelines transform raw behavioral traces into quantitative phenotypes, and unindexed legal corpora into decision-grade court pleadings.
-        </p>
-      </div>
-
-      <!-- Engine 1: Percolation & Digital Phenotyping -->
-      <div style="margin-bottom: 3.5rem;">
-        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.5rem;">
-          <span class="sc-badge sc-badge-active" style="font-weight:700;">ENGINE A</span>
-          <h3 style="font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--color-vellum); margin:0;">
-            Percolation Dynamics &amp; Cognitive Fragmentation Pipeline (Bioinformatics)
-          </h3>
-        </div>
-        <div class="pipeline-steps">
-          <div class="step-card">
-            <div class="step-num">STAGE 01</div>
-            <h3 class="step-title">Passive Trace Ingestion</h3>
-            <p class="step-desc">
-              Ingests naturalistic digital activity (Google Takeout, Drive Activity API, Docs edit logs) client-side into volatile RAM without uploading sensitive behavioral traces.
-            </p>
-          </div>
-          <div class="step-card">
-            <div class="step-num">STAGE 02</div>
-            <h3 class="step-title">Entropy Vectorization</h3>
-            <p class="step-desc">
-              Discretizes event streams into sliding temporal windows to extract Shannon document entropy, inter-event latency, and task-switching velocity.
-            </p>
-          </div>
-          <div class="step-card">
-            <div class="step-num">STAGE 03</div>
-            <h3 class="step-title">DBSCAN Mode Discovery</h3>
-            <p class="step-desc">
-              Identifies natural cognitive manifolds (sustained synthesis vs. hyper-switching context churn) while isolating unclustered executive stalls as noise.
-            </p>
-          </div>
-          <div class="step-card">
-            <div class="step-num">STAGE 04</div>
-            <h3 class="step-title">Phase Breakdown Simulation</h3>
-            <p class="step-desc">
-              Models bond dilution under deadline stress, estimates critical threshold (<var>p_c</var> = 0.42), and quantifies Observer&ndash;Operator decoupling lag.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Engine 2: Multi-Agent Legal Provenance -->
-      <div>
-        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.5rem;">
-          <span class="sc-badge sc-badge-focal" style="font-weight:700;">ENGINE B</span>
-          <h3 style="font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--color-vellum); margin:0;">
-            Multi-Agent Legal Provenance &amp; Synthesis Pipeline (Justice &amp; Forensics)
-          </h3>
-        </div>
-        <div class="pipeline-steps">
-          <div class="step-card">
-            <div class="step-num">STAGE 01</div>
-            <h3 class="step-title">Corpus Ingestion &amp; OCR</h3>
-            <p class="step-desc">
-              Raw, unstructured PDFs, transcripts, court dockets, and audio records pass through client-side OCR and extraction pipelines without external data exfiltration.
-            </p>
-          </div>
-          <div class="step-card">
-            <div class="step-num">STAGE 02</div>
-            <h3 class="step-title">Entity Knowledge Graph</h3>
-            <p class="step-desc">
-              Chronological timelines, relational actors, statutory duties, and exhibits are structured into an audited graph network with explicit bi-directional links.
-            </p>
-          </div>
-          <div class="step-card">
-            <div class="step-num">STAGE 03</div>
-            <h3 class="step-title">Adversarial Auditing</h3>
-            <p class="step-desc">
-              Every factual proposition is cross-referenced against original exhibits. Citations are verified live via CourtListener. Hallucinated quotes and fabricated rules are purged.
-            </p>
-          </div>
-          <div class="step-card">
-            <div class="step-num">STAGE 04</div>
-            <h3 class="step-title">Decision-Grade Drafts</h3>
-            <p class="step-desc">
-              Clean, formatted deliverables compiled in locked 28-line UTCR pleading format or peer-reviewable research reports ready for immediate external scrutiny.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. Master System Interrelation Matrix & Provenance Atlas (Chapter V) -->
-  <section id="interrelations" class="lg-atlas-section container">
-    <div class="lg-atlas-head">
-      <div class="lg-atlas-numeral">Chapter V &bull; The System Interrelation Matrix</div>
-      <h2 class="lg-atlas-title">How the Entire Suite Interconnects</h2>
-      <p class="lg-atlas-lede">
-        Every document, simulator, timeline, and forensic artifact in Executive Function OS is an interconnected node in a dual-domain graph. Below is the operational mapping connecting behavioral sensorless phenotyping with adversarial court defense.
-      </p>
-    </div>
-
-    <!-- Dual Engine Interrelation Columns -->
-    <div class="lg-atlas-grid">
-      <!-- Engine A Column -->
-      <div class="lg-atlas-column">
-        <div class="lg-column-header">
-          <div class="lg-column-tag" style="color:var(--color-cheshire-teal);">Domain 1 &bull; Bioinformatics &amp; Physics</div>
-          <div class="lg-column-title">Cognitive Dynamics &amp; Percolation Suite</div>
-          <div class="lg-column-desc">
-            Quantifies executive working memory collapse and cognitive manifold transitions from digital exhaust under administrative duress.
-          </div>
-        </div>
-
-        <!-- Node A1: Percolation Lab -->
-        <div class="lg-interrelation-card">
-          <div class="lg-card-top">
-            <a href="cognitive_fragmentation_lab.html" class="lg-card-name">
-              <span>⚡ Percolation Diagnostic Lab</span> &rarr;
-            </a>
-            <span class="lg-pill lg-pill-teal">N=1 Live Simulation</span>
-          </div>
-          <div class="lg-card-role">
-            Live interactive phase transition simulator modeling cognitive bond dilution (<var>p</var> vs <var>p_c</var>) under stress.
-          </div>
-          <div class="lg-card-meta">
-            <div class="lg-meta-block">
-              <span class="lg-meta-title">Inputs / Sensors</span>
-              <span class="lg-meta-val">Google Takeout, Docs revision logs, keystroke latency</span>
-            </div>
-            <div class="lg-meta-block">
-              <span class="lg-meta-title">Outputs / Artifacts</span>
-              <span class="lg-meta-val">Largest cluster size S(p), critical exponent &gamma;, Observer lag</span>
-            </div>
-          </div>
-          <div class="lg-connected-nodes">
-            <span>Interrelated Nodes:</span>
-            <a href="schema_canvas.html" class="lg-node-pill">🕸 Schema Canvas</a>
-            <a href="lab.html" class="lg-node-pill">📊 Telemetry Studio</a>
-            <a href="timeline.html" class="lg-node-pill">📜 Case Timeline</a>
-          </div>
-        </div>
-
-        <!-- Node A2: Schema Canvas -->
-        <div class="lg-interrelation-card">
-          <div class="lg-card-top">
-            <a href="schema_canvas.html" class="lg-card-name">
-              <span>🕸 Network Schema Canvas Studio</span> &rarr;
-            </a>
-            <span class="lg-pill lg-pill-teal">Ontology Studio</span>
-          </div>
-          <div class="lg-card-role">
-            Interactive canvas visualizing graph relationships between behavioral observations, operators, and task channels.
-          </div>
-          <div class="lg-card-meta">
-            <div class="lg-meta-block">
-              <span class="lg-meta-title">Inputs / Sensors</span>
-              <span class="lg-meta-val">Entity tuples, multi-task switching matrices, node coordinates</span>
-            </div>
-            <div class="lg-meta-block">
-              <span class="lg-meta-title">Outputs / Artifacts</span>
-              <span class="lg-meta-val">Exportable JSON schemas, force-directed topological layouts</span>
-            </div>
-          </div>
-          <div class="lg-connected-nodes">
-            <span>Interrelated Nodes:</span>
-            <a href="cognitive_fragmentation_lab.html" class="lg-node-pill">⚡ Percolation Lab</a>
-            <a href="lab.html" class="lg-node-pill">📊 Telemetry Studio</a>
-          </div>
-        </div>
-
-        <!-- Node A3: Telemetry Studio -->
-        <div class="lg-interrelation-card">
-          <div class="lg-card-top">
-            <a href="lab.html" class="lg-card-name">
-              <span>📊 System Performance Telemetry</span> &rarr;
-            </a>
-            <span class="lg-pill lg-pill-gold">12&times;11 Matrix</span>
-          </div>
-          <div class="lg-card-role">
-            Interactive laboratory specimen displaying the 12&times;11 checkerboard matrix with the Red Queen focal nexus at (8, 6).
-          </div>
-          <div class="lg-card-meta">
-            <div class="lg-meta-block">
-              <span class="lg-meta-title">Inputs / Sensors</span>
-              <span class="lg-meta-val">Network throughput, phase core latency, adversarial stress</span>
-            </div>
-            <div class="lg-meta-block">
-              <span class="lg-meta-title">Outputs / Artifacts</span>
-              <span class="lg-meta-val">Validated WCAG AAA contrast tokens, coordinate mapping</span>
-            </div>
-          </div>
-          <div class="lg-connected-nodes">
-            <span>Interrelated Nodes:</span>
-            <a href="cognitive_fragmentation_lab.html" class="lg-node-pill">⚡ Percolation Lab</a>
-            <a href="store.html" class="lg-node-pill">🎨 Design Store</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Engine B Column -->
-      <div class="lg-atlas-column">
-        <div class="lg-column-header">
-          <div class="lg-column-tag" style="color:var(--color-white-rabbit-gold);">Domain 2 &bull; Forensics &amp; Access to Justice</div>
-          <div class="lg-column-title">Legal Provenance &amp; Pleading Suite</div>
-          <div class="lg-column-desc">
-            Reconstructs fragmented, 15-year unindexed court records into decision-grade, citation-verified pleadings and Daubert reports.
-          </div>
-        </div>
-
-        <!-- Node B1: Paladin Suite -->
-        <div class="lg-interrelation-card">
-          <div class="lg-card-top">
-            <a href="paladin.html" class="lg-card-name">
-              <span>⚖ PALADIN (A2J) Pro Se Platform</span> &rarr;
-            </a>
-            <span class="lg-pill lg-pill-gold">Pleading Engine</span>
-          </div>
-          <div class="lg-card-role">
-            Access to Justice suite uniting the 28-line JustiTeX pleading compiler with live citation verification and document rescue.
-          </div>
-          <div class="lg-card-meta">
-            <div class="lg-meta-block">
-              <span class="lg-meta-title">Inputs / Sensors</span>
-              <span class="lg-meta-val">Raw motion drafts, case dockets, CourtListener API</span>
-            </div>
-            <div class="lg-meta-block">
-              <span class="lg-meta-title">Outputs / Artifacts</span>
-              <span class="lg-meta-val">UTCR 2.010 compliant PDFs, verified citation ledgers, tables of authorities</span>
-            </div>
-          </div>
-          <div class="lg-connected-nodes">
-            <span>Interrelated Nodes:</span>
-            <a href="timeline.html" class="lg-node-pill">📜 Forensic Timeline</a>
-            <a href="library.html" class="lg-node-pill">📚 Source Library</a>
-            <a href="privity.html" class="lg-node-pill">🔍 Privity Paradox</a>
-          </div>
-        </div>
-
-        <!-- Node B2: Master Timeline -->
-        <div class="lg-interrelation-card">
-          <div class="lg-card-top">
-            <a href="timeline.html" class="lg-card-name">
-              <span>📜 Master Multi-Track Forensic Timeline</span> &rarr;
-            </a>
-            <span class="lg-pill lg-pill-teal">162 Records</span>
-          </div>
-          <div class="lg-card-role">
-            162-record granular chronology interleaving foreclosure litigation, code enforcement actions, and land use dockets.
-          </div>
-          <div class="lg-card-meta">
-            <div class="lg-meta-block">
-              <span class="lg-meta-title">Inputs / Sensors</span>
-              <span class="lg-meta-val">Clackamas County dockets, municipal court emails, Title 12 notices</span>
-            </div>
-            <div class="lg-meta-block">
-              <span class="lg-meta-title">Outputs / Artifacts</span>
-              <span class="lg-meta-val">Multi-track chronological audit, exhibit cross-references, ground truth map</span>
-            </div>
-          </div>
-          <div class="lg-connected-nodes">
-            <span>Interrelated Nodes:</span>
-            <a href="library.html" class="lg-node-pill">📚 Source Library</a>
-            <a href="forensic-microclimate.html" class="lg-node-pill">🛰 Microclimate Report</a>
-            <a href="paladin.html" class="lg-node-pill">⚖ PALADIN</a>
-          </div>
-        </div>
-
-        <!-- Node B3: Evidence Library -->
-        <div class="lg-interrelation-card">
-          <div class="lg-card-top">
-            <a href="library.html" class="lg-card-name">
-              <span>📚 Evidentiary Source Library</span> &rarr;
-            </a>
-            <span class="lg-pill lg-pill-teal">5,612 Records</span>
-          </div>
-          <div class="lg-card-role">
-            Comprehensive archive of 5,612 verified public records, trust agreements, and binding state/federal legal precedents.
-          </div>
-          <div class="lg-card-meta">
-            <div class="lg-meta-block">
-              <span class="lg-meta-title">Inputs / Sensors</span>
-              <span class="lg-meta-val">SEC EDGAR filings, Oregon appellate dockets, municipal enforcement records</span>
-            </div>
-            <div class="lg-meta-block">
-              <span class="lg-meta-title">Outputs / Artifacts</span>
-              <span class="lg-meta-val">Instant client-side searchable corpus, Daubert/FRE 702 indices</span>
-            </div>
-          </div>
-          <div class="lg-connected-nodes">
-            <span>Interrelated Nodes:</span>
-            <a href="timeline.html" class="lg-node-pill">📜 Forensic Timeline</a>
-            <a href="privity.html" class="lg-node-pill">🔍 Privity Paradox</a>
-            <a href="paladin.html" class="lg-node-pill">⚖ PALADIN</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- The Dual Engine Synthesis Bridge -->
-    <div class="lg-synthesis-bridge">
-      <div>
-        <div class="lg-bridge-title">★ The Dual-Engine Synthesis: Transforming Cognitive Duress into Defensible Proof</div>
-        <p class="lg-bridge-body">
-          How do the two domains connect? In high-stakes legal proceedings against institutional adversaries, procedural exhaustion and bureaucratic saturation are weapons designed to trigger cognitive bond dilution (<var>p</var> &lt; <var>p_c</var>).
-          <strong>Engine A</strong> provides the sensorless bioinformatic mathematical proof that cognitive fragmentation occurred as an objective network phase collapse.
-          <strong>Engine B</strong> takes that reality and builds the decision-grade Rule 8 pleadings and evidentiary timelines to legally enforce Title II ADA accommodations and Due Process rights.
-        </p>
-      </div>
-      <div class="lg-bridge-actions">
-        <a href="presentation.html" class="sc-btn sc-btn-pipeline" style="text-align:center;">
-          <span class="btn-primary">View 16-Slide Synthesis Deck &rarr;</span>
-          <span class="btn-carroll-tag">“Making Complexity Legible”</span>
-        </a>
-        <a href="forensic-microclimate.html" class="sc-btn sc-btn-inspect" style="text-align:center;">
-          <span class="btn-primary">Explore Microclimate Forensic Deck &rarr;</span>
-          <span class="btn-carroll-tag">FRE / OEC 702 Satellite Radiometry</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. Empirical Validation & Adversarial Proof (Chapter VI) -->
-  <section id="proof">
-    <div class="container">
-      <div class="section-head">
-        <div class="section-tag">Chapter VI &bull; Empirical Validation</div>
-        <h2 class="section-title">Battle-Tested Against Adversarial Systems</h2>
-        <p class="section-intro">
-          The pipeline was forged not in an academic sandbox, but under the extreme pressures of active federal civil rights litigation (Eriksson v. Oregon City, 3:26-cv-01885-IM) and municipal quiet title proceedings.
-        </p>
-      </div>
-
-      <div style="background:var(--color-board-slate); border: 3px double var(--color-brass-hairline); border-radius: 4px; padding: 2rem;">
-        <table class="sc-table">
-          <thead>
-            <tr>
-              <th>Deliverable / Case Milestone</th>
-              <th>Pipeline Role</th>
-              <th>Output Integrity Gate</th>
-              <th>Status / Evidence</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <a href="library.html" style="color:var(--color-vellum); text-decoration:none; font-weight:600;">
-                  Live Case Evidence &amp; Authorities Library &rarr;
-                </a>
-              </td>
-              <td>5,612 Curated Legal &amp; Forensic Records</td>
-              <td>Automated Manifest &amp; CourtListener Verification</td>
-              <td>
-                <a href="library.html" class="sc-badge sc-badge-active" style="text-decoration:none;">
-                  <span class="sc-badge-dot"></span>5,612 Live Records &rarr;
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="timeline.html" style="color:var(--color-vellum); text-decoration:none; font-weight:600;">
-                  Master Multi-Track Forensic Timeline &rarr;
-                </a>
-              </td>
-              <td>162-Record Multi-Year Chronology</td>
-              <td>Triple Cross-Verified Municipal &amp; Judicial Logs</td>
-              <td>
-                <a href="timeline.html" class="sc-badge sc-badge-active" style="text-decoration:none;">
-                  <span class="sc-badge-dot"></span>162 Interleaved Events &rarr;
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://github.com/erikssonaicloud-gif/eriksson-v-oregon-city-records" target="_blank" rel="noopener noreferrer" style="color:var(--color-vellum); text-decoration:none; font-weight:600;">
-                  Federal Complaint (3:26-cv-01885-IM) &rarr;
-                </a>
-              </td>
-              <td>12-Count Section 1983 &amp; Monell Analysis</td>
-              <td>100% Plaintext Evidence Grounded</td>
-              <td>
-                <a href="https://github.com/erikssonaicloud-gif/eriksson-v-oregon-city-records" target="_blank" rel="noopener noreferrer" class="sc-badge sc-badge-active" style="text-decoration:none;">
-                  <span class="sc-badge-dot"></span>Filed / D. Or. Records &rarr;
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="forensic-microclimate.html" style="color:var(--color-vellum); text-decoration:none; font-weight:600;">
-                  Forensic Microclimate Satellite Study &rarr;
-                </a>
-              </td>
-              <td>30-Year Landsat Surface Temperature Radiometry</td>
-              <td>FRE / OEC 702 Daubert Compliance</td>
-              <td>
-                <a href="forensic-microclimate.html" class="sc-badge sc-badge-focal" style="text-decoration:none;">
-                  <span class="sc-badge-dot"></span>16-Slide Evidentiary Report &rarr;
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="privity.html" style="color:var(--color-vellum); text-decoration:none; font-weight:600;">
-                  The Privity Paradox Case Analysis &rarr;
-                </a>
-              </td>
-              <td>Subprime Trust Securitization Defense</td>
-              <td>Standing &amp; Real Party in Interest Verification</td>
-              <td>
-                <a href="privity.html" class="sc-badge sc-badge-caution" style="text-decoration:none;">
-                  <span class="sc-badge-dot"></span>Interactive Specimen &rarr;
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9. Open Science & Research Callout (Chapter VII) -->
-  <section id="research">
-    <div class="container">
-      <div style="background:var(--color-board-slate); border: 3px double var(--color-brass-hairline); border-radius: 4px; padding: 3rem;">
-        <div style="display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center;">
-          <div>
-            <div class="section-tag" style="color: var(--color-cheshire-teal);">Chapter VII &bull; Open Science &amp; Research Inquiry</div>
-            <h2 style="font-family: var(--font-display); font-size: 2.25rem; font-weight: 700; margin-bottom: 1rem; color:var(--color-vellum);">
-              Percolation Dynamics &amp; Network Physiology
-            </h2>
-            <p style="color: #CBD5E1; font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6;">
-              We explore percolation theory and observer-operator dynamics not as a finalized commercial cure, but as a rigorous, open scientific hypothesis: can digital interaction graphs and physiological time-series detect cognitive phase transitions and fragmentation before functional collapse occurs?
-            </p>
-
-            <!-- Interactive Live Embed Preview -->
-            <div style="margin: 1.75rem 0; border: 3px double var(--color-brass-hairline); border-radius: 4px; overflow: hidden; background: #0F172A; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);">
-              <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.25rem; background: var(--color-board-slate); border-bottom: 1px solid rgba(176,141,60,0.3); font-family: var(--font-technical); font-size: 0.75rem;">
-                <span style="color: var(--color-cheshire-teal); font-weight: 600;">LIVE COGNITIVE FRAGMENTATION &amp; PERCOLATION DIAGNOSTIC LAB (N=1)</span>
-                <a href="cognitive_fragmentation_lab.html" target="_blank" style="color: var(--color-vellum); text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 600;">Open Fullscreen &rarr;</a>
-              </div>
-              <iframe src="cognitive_fragmentation_lab.html" style="width: 100%; height: 580px; border: none; display: block;" title="Executive Function OS Percolation Diagnostic Lab"></iframe>
-            </div>
-
-            <div style="display: flex; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
-              <a href="cognitive_fragmentation_lab.html" class="sc-btn sc-btn-pipeline">
-                <span class="btn-primary">Launch Diagnostic Lab &rarr;</span>
-                <span class="btn-carroll-tag">Interactive Controls</span>
-              </a>
-              <a href="schema_canvas.html" class="sc-btn sc-btn-inspect">
-                <span class="btn-primary">Schema Canvas &rarr;</span>
-                <span class="btn-carroll-tag">Ontology Mapping</span>
-              </a>
-              <a href="https://github.com/Executive-Function-OS/percolation-import" target="_blank" rel="noopener noreferrer" class="sc-btn sc-btn-inspect">
-                <span class="btn-primary">Percolation Engine Repo &rarr;</span>
-                <span class="btn-carroll-tag">Open Source MIT</span>
-              </a>
-            </div>
-
-            <!-- In-Page Jump Bar -->
-            <div class="lg-interrelations-strip" style="margin-top:1.5rem; padding-top:1rem; border-top:1px solid rgba(176,141,60,0.3);">
-              <span class="lg-interrelation-label">Site Directory:</span>
-              <a href="#top" class="lg-node-pill">&uarr; Top of Hub</a>
-              <a href="#branches" class="lg-node-pill">Ecosystem Branches</a>
-              <a href="#intake" class="lg-node-pill">Source Intake</a>
-              <a href="#method" class="lg-node-pill">Dual Methodology</a>
-              <a href="#interrelations" class="lg-node-pill" style="color:var(--color-white-rabbit-gold);">Interrelation Atlas</a>
-              <a href="#proof" class="lg-node-pill">Adversarial Proof</a>
-              <a href="store.html" class="lg-node-pill">Design System Store &rarr;</a>
-            </div>
-          </div>
-
-          <div style="border-left: 1px solid rgba(176,141,60,0.35); padding-left: 2rem; font-family: var(--font-technical); font-size: 0.82rem; color: #94A3B8;">
-            <div style="margin-bottom: 1.25rem; color: var(--color-white-rabbit-gold); font-weight: 700; letter-spacing: 0.05em; font-family:var(--font-display); font-variant:small-caps; font-size:1rem;">
-              ACADEMIC PREPRINTS &amp; RESEARCH GRANTS
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
-              <div>
-                <div style="color: var(--color-vellum); font-weight: 600;">• NSF SBIR Phase I</div>
-                <div style="color: #94A3B8; font-size: 0.76rem;">Human-Computer Interaction &amp; Computational Phenotyping</div>
-                <a href="mailto:annika@executivefunctionos.com?subject=NSF%20SBIR%20Research%20Collaboration" style="color: var(--color-cheshire-teal); text-decoration: none; font-size: 0.74rem;">Research Collaboration Inquiry &rarr;</a>
-              </div>
-              <div>
-                <div style="color: var(--color-vellum); font-weight: 600;">• NIH PA-27-100</div>
-                <div style="color: #94A3B8; font-size: 0.76rem;">Digital Mental Health / Sensorless Trace Dynamics</div>
-                <a href="mailto:annika@executivefunctionos.com?subject=NIH%20Research%20Inquiry" style="color: var(--color-cheshire-teal); text-decoration: none; font-size: 0.74rem;">Clinical Pilot Collaboration &rarr;</a>
-              </div>
-              <div>
-                <div style="color: var(--color-vellum); font-weight: 600;">• LSC TIG (Access to Justice)</div>
-                <div style="color: #94A3B8; font-size: 0.76rem;">JustiTeX &amp; Pleading Provenance Engine</div>
-                <a href="https://github.com/Executive-Function-OS/JustiTeX" target="_blank" rel="noopener noreferrer" style="color: var(--color-cheshire-teal); text-decoration: none; font-size: 0.74rem;">Explore JustiTeX Core &rarr;</a>
-              </div>
-              <div style="padding-top: 0.75rem; border-top: 1px solid rgba(176,141,60,0.25);">
-                <span style="color: var(--color-cheshire-teal);">Open Science Framework (OSF):</span>
-                <div style="color: #94A3B8; font-size: 0.74rem;">BMS 4.0 Pre-registration In Progress</div>
-                <a href="https://github.com/Executive-Function-OS/percolation-import" target="_blank" rel="noopener noreferrer" style="color: var(--color-cheshire-teal); text-decoration: none; font-size: 0.74rem;">View Open Source Codebase &rarr;</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. Master Looking-Glass Footer -->
-  <footer style="background:#080D1A; border-top: 3px double var(--color-brass-hairline); padding: 3.5rem 0; font-size: 0.85rem; color: #94A3B8;">
-    <div class="container">
-      <div style="display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem;">
-        <div>
-          <div style="font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; color: var(--color-vellum); margin-bottom: 0.5rem;">
-            Executive Function OS
-          </div>
-          <p style="max-width: 360px; line-height: 1.55; color: #CBD5E1; margin-bottom: 1rem;">
-            Translating complex systems into transparent, functional frameworks where Carrollian wit reinforces mathematical and legal precision.
-          </p>
-          <div style="font-family: var(--font-technical); font-size: 0.75rem; color: var(--color-cheshire-teal); margin-bottom: 1rem;">
-            Structured Thought. Functional Action. &bull; Utility Over Ornament.
-          </div>
-          <a href="#top" class="lg-node-pill">&uarr; Back to Top of Hub</a>
-        </div>
-
-        <div>
-          <div style="font-family:var(--font-display); font-variant:small-caps; font-weight:700; color:var(--color-white-rabbit-gold); letter-spacing:0.06em; margin-bottom:0.75rem;">Cognitive Dynamics</div>
-          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.45rem; font-family:var(--font-technical); font-size:0.78rem;">
-            <li><a href="cognitive_fragmentation_lab.html" style="color:var(--color-cheshire-teal); text-decoration:none;">Percolation Lab (N=1)</a></li>
-            <li><a href="schema_canvas.html" style="color:#CBD5E1; text-decoration:none;">Schema Canvas Studio</a></li>
-            <li><a href="lab.html" style="color:#CBD5E1; text-decoration:none;">Telemetry Studio (12&times;11)</a></li>
-            <li><a href="https://demo.executivefunctionos.com" target="_blank" rel="noopener noreferrer" style="color:#CBD5E1; text-decoration:none;">demo.efos Dynamics Demo</a></li>
-            <li><a href="https://github.com/Executive-Function-OS/percolation-import" target="_blank" rel="noopener noreferrer" style="color:#CBD5E1; text-decoration:none;">Percolation Engine Repo</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <div style="font-family:var(--font-display); font-variant:small-caps; font-weight:700; color:var(--color-white-rabbit-gold); letter-spacing:0.06em; margin-bottom:0.75rem;">Legal Provenance (A2J)</div>
-          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.45rem; font-family:var(--font-technical); font-size:0.78rem;">
-            <li><a href="paladin.html" style="color:var(--color-white-rabbit-gold); text-decoration:none;">PALADIN Suite Platform</a></li>
-            <li><a href="timeline.html" style="color:var(--color-cheshire-teal); text-decoration:none;">Master Forensic Timeline</a></li>
-            <li><a href="library.html" style="color:#CBD5E1; text-decoration:none;">Source Library (5,612)</a></li>
-            <li><a href="privity.html" style="color:#CBD5E1; text-decoration:none;">The Privity Paradox</a></li>
-            <li><a href="forensic-microclimate.html" style="color:var(--color-red-queen); text-decoration:none;">Chapin Microclimate (FRE 702)</a></li>
-            <li><a href="why-paladin.html" style="color:#CBD5E1; text-decoration:none;">Why PALADIN Manifesto</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <div style="font-family:var(--font-display); font-variant:small-caps; font-weight:700; color:var(--color-white-rabbit-gold); letter-spacing:0.06em; margin-bottom:0.75rem;">System Atlas &amp; Store</div>
-          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.45rem; font-family:var(--font-technical); font-size:0.78rem;">
-            <li><a href="#interrelations" style="color:var(--color-white-rabbit-gold); text-decoration:none;">Interrelation Matrix Atlas</a></li>
-            <li><a href="presentation.html" style="color:var(--color-cheshire-teal); text-decoration:none;">16-Slide Evidentiary Deck</a></li>
-            <li><a href="store.html" style="color:#CBD5E1; text-decoration:none;">Looking-Glass Store</a></li>
-            <li><a href="buttons.html" style="color:#CBD5E1; text-decoration:none;">24 Kinetic CSS Buttons</a></li>
-            <li><a href="store.html#pricing" style="color:#CBD5E1; text-decoration:none;">Commercial Licensing</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div style="border-top: 1px solid rgba(176,141,60,0.3); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items:center; flex-wrap:wrap; gap:1rem; font-family: var(--font-technical); font-size: 0.75rem;">
-        <div>&copy; 2026 Annika Eriksson &bull; <a href="mailto:annika@executivefunctionos.com" style="color:var(--color-cheshire-teal); text-decoration:none;">annika@executivefunctionos.com</a> &bull; All rights reserved.</div>
-        <div style="display:flex; gap:1.5rem; align-items:center;">
-          <span style="color:var(--color-white-rabbit-gold);">UTILITY OVER ORNAMENT // ZERO SERVER EXFILTRATION</span>
-          <a href="#top" style="font-weight:600; color:var(--color-cheshire-teal); text-decoration:none;">&uarr; Top of Page</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
+<script>
+/* Waitlist progressive enhancement.
+   The form endpoint is the `action` attribute on each <form data-waitlist>
+   Handled by Netlify Forms (data-netlify). Without JS the form posts normally. */
+(function(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var forms = document.querySelectorAll('form[data-waitlist]');
+  Array.prototype.forEach.call(forms, function(form){
+    form.addEventListener('submit', function(e){
+      var action = form.getAttribute('action');
+      if (!window.fetch || !window.URLSearchParams) return;
+      e.preventDefault();
+      var btn = form.querySelector('button[type=submit]');
+      var label = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending\u2026';
+      fetch('/', {method:'POST', body:new URLSearchParams(new FormData(form)).toString(), headers:{'Content-Type':'application/x-www-form-urlencoded'}})
+        .then(function(r){
+          if (!r.ok) throw new Error('bad status');
+          Array.prototype.forEach.call(form.children, function(c){ if(!c.classList.contains('status')) c.hidden = true; });
+          show(form, 'Thank you. You\u2019re on the list. We\u2019ll email you when early access opens.', false);
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = label;
+          show(form, 'Something went wrong sending that. Please try again in a moment.', true);
+        });
+    });
+  });
+  function show(form, msg, isErr){
+    var s = form.querySelector('.status');
+    s.textContent = msg; s.hidden = false;
+    s.className = 'status' + (isErr ? ' err' : '');
+  }
+})();
+</script>
 </body>
 </html>

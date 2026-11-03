@@ -1,0 +1,20 @@
+# Executive Function OS (executivefunctionos.com)
+# Netlify Redirects & Clean Route Protection
+
+# Privacy Quarantine: Deprecate and 404 case-derived litigation routes
+/timeline.html                         / 404
+/citizen-grievance-registry.html       / 404
+/dossier.html                          / 404
+/dossier-washington.html               / 404
+/dossier/*                             / 404
+/dossier-washington/*                  / 404
+/chapin-thermal.html                   / 404
+/forensic-microclimate.html            / 404
+/privity.html                          / 404
+/privity-paradox.html                  / 404
+/paladin.html                          / 404
+/why-paladin.html                      / 404
+/library.html                          / 404
+/presentation.html                     / 404
+/presentation_making_complexity_legible.html / 404
+/radar.html                            / 404
