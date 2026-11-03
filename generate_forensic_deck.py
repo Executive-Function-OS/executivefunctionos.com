@@ -65,16 +65,16 @@ slides_data = [
         <div class="grid-3col" style="margin-top: 1.25rem;">
           <div class="card-item">
             <div class="card-label">OBSERVATIONAL DATASET</div>
-            <div class="stat-highlight amber">12 Overpasses</div>
+            <div class="stat-highlight amber">12 Overpasses · 324 Pixels</div>
             <p class="body-text">
-              12 cloud-free USGS Landsat 5, 7, 8, & 9 Level-2 Surface Temperature (30m LST resampled from native 60–120m thermal sensors) overpasses spanning 1994 through 2024.
+              12 cloud-free USGS Landsat 5, 7, 8, & 9 Level-2 Surface Temperature overpasses (1994–2024), audited at both center pixels (36/36 clear) and 3&times;3 neighborhood buffers (324/324 QA clear).
             </p>
           </div>
           <div class="card-item">
             <div class="card-label">ATMOSPHERIC BASELINES</div>
-            <div class="stat-highlight teal">ERA5-Land Hourly</div>
+            <div class="stat-highlight teal">Daily Max &amp; Overpass 2m</div>
             <p class="body-text">
-              Hourly surface reanalysis from Open-Meteo ERA5-Land at Oregon City coordinates (45.33° N, -122.61° W) paired to exact satellite overpass timestamps.
+              Published ambient series reconciled against Open-Meteo <code>best_match</code> local-day maximums (MAE 0.058°F) alongside exact UTC overpass-hour ERA5-Land 2m air temperatures (18:14–18:56 UTC).
             </p>
           </div>
           <div class="card-item">
@@ -271,32 +271,30 @@ slides_data = [
     },
     {
         "id": 6,
-        "badge": "EMPIRICAL RADIOMETRY • 1994–2024",
+        "badge": "EMPIRICAL RADIOMETRY • 1994–2024 (CYCLES 2 & 3 STAC + WEATHER VERIFIED)",
         "title": "30-Year Landsat Overpasses Table",
-        "subtitle": "Twelve cloud-free USGS Landsat 5, 7, 8, & 9 Level-2 thermal observations",
-        "notes": "Here is the comparative time series of twelve cloud-free Landsat overpasses across Landsat 5, 7, 8, and 9. Every observation was calibrated using standard USGS Level-2 surface temperature scaling. Chapin Court consistently exceeds matched controls across all twelve observations, with a sample peak of 122.59 degrees surface temperature in July 2024.",
+        "subtitle": "Twelve cloud-free USGS Landsat 5, 7, 8, & 9 Collection 2 Level-2 thermal observations with reconciled weather series",
+        "notes": "Here is the comparative time series of twelve cloud-free Landsat overpasses across Landsat 5, 7, 8, and 9, verified in Cycles 2 and 3. Every Chapin Court surface temperature, two-control mean, and thermal excess value reproduced within five-thousandths of a degree Fahrenheit from raw USGS Level-2 rasters. Cycle 3 also reconciled the published ambient column as closely matching the Open-Meteo best-match local-day maximum within 0.1 degrees, shown alongside the exact UTC overpass-hour ERA5-Land 2-meter air temperature.",
         "html": """
-        <div class="table-responsive" style="max-height: 480px;">
+        <div class="table-responsive" style="max-height: 410px;">
           <table class="data-table">
             <thead>
               <tr>
-                <th>Date</th>
-                <th>Sensor & Scene ID</th>
-                <th>Policy Era</th>
-                <th>Ambient (ERA5)</th>
+                <th>Date (CSV/STAC UTC)</th>
+                <th>STAC Item ID &amp; Tier</th>
+                <th>Daily High / Overpass 2m</th>
                 <th>Chapin LST</th>
-                <th>Rivercrest</th>
-                <th>Hillendale</th>
+                <th>Rivercrest (Pt)</th>
+                <th>Hillendale (Pt)</th>
                 <th>Control Avg</th>
                 <th>Excess Heat</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="mono">1994-07-31</td>
-                <td class="mono small">Landsat 5 · LT05_L2SP_046029_19940731</td>
-                <td><span class="badge-pill gray">Baseline (Built)</span></td>
-                <td class="mono">83.3°F</td>
+                <td class="mono">1994-07-31 <small>18:14:08Z</small></td>
+                <td class="mono small">LT05_L2SP_046029_19940731_02_T1</td>
+                <td class="mono">83.3°F <small class="teal">(71.1°F)</small></td>
                 <td class="mono font-bold">98.70°F</td>
                 <td class="mono">81.78°F</td>
                 <td class="mono">90.95°F</td>
@@ -304,98 +302,89 @@ slides_data = [
                 <td class="mono coral font-bold">+12.34°F</td>
               </tr>
               <tr>
-                <td class="mono">1998-08-27</td>
-                <td class="mono small">Landsat 5 · LT05_L2SP_046029_19980827</td>
-                <td><span class="badge-pill gray">Baseline</span></td>
-                <td class="mono">82.0°F</td>
+                <td class="mono">1998-08-27 <small>18:35:04Z</small></td>
+                <td class="mono small">LT05_L2SP_046029_19980827_02_T1</td>
+                <td class="mono">82.0°F <small class="teal">(71.8°F)</small></td>
                 <td class="mono font-bold">93.54°F</td>
-                <td class="mono">82.16°F</td>
-                <td class="mono">88.33°F</td>
+                <td class="mono">81.15°F</td>
+                <td class="mono">89.34°F</td>
                 <td class="mono">85.24°F</td>
                 <td class="mono coral font-bold">+8.29°F</td>
               </tr>
               <tr>
-                <td class="mono">2002-07-29</td>
-                <td class="mono small">Landsat 7 · LE07_L2SP_046029_20020729</td>
-                <td><span class="badge-pill gray">Baseline</span></td>
-                <td class="mono">81.0°F</td>
+                <td class="mono">2002-07-29 <small>18:44:41Z</small></td>
+                <td class="mono small">LE07_L2SP_046029_20020729_02_T1</td>
+                <td class="mono">81.0°F <small class="teal">(73.6°F)</small></td>
                 <td class="mono font-bold">105.67°F</td>
-                <td class="mono">89.20°F</td>
-                <td class="mono">93.96°F</td>
+                <td class="mono">88.63°F</td>
+                <td class="mono">94.54°F</td>
                 <td class="mono">91.58°F</td>
                 <td class="mono coral font-bold">+14.09°F</td>
               </tr>
               <tr>
-                <td class="mono">2004-07-26</td>
-                <td class="mono small">Landsat 5 · LT05_L2SP_046029_20040726</td>
-                <td><span class="badge-pill gray">Baseline</span></td>
-                <td class="mono">82.6°F</td>
+                <td class="mono">2004-07-26 <small>18:39:02Z</small></td>
+                <td class="mono small">LT05_L2SP_046029_20040726_02_T1</td>
+                <td class="mono">82.6°F <small class="teal">(71.7°F)</small></td>
                 <td class="mono font-bold">100.35°F</td>
-                <td class="mono">86.74°F</td>
-                <td class="mono">89.87°F</td>
+                <td class="mono">88.24°F</td>
+                <td class="mono">88.35°F</td>
                 <td class="mono">88.30°F</td>
                 <td class="mono coral font-bold">+12.06°F</td>
               </tr>
               <tr class="row-highlight">
-                <td class="mono">2006-07-24</td>
-                <td class="mono small">Landsat 7 · LE07_L2SP_046029_20060724</td>
-                <td><span class="badge-pill amber">Baseline Heatwave</span></td>
-                <td class="mono">96.4°F</td>
+                <td class="mono">2006-07-24 <small>18:46:09Z</small></td>
+                <td class="mono small">LE07_L2SP_046029_20060724_02_T1</td>
+                <td class="mono">96.4°F <small class="teal">(88.8°F)</small></td>
                 <td class="mono font-bold">119.01°F</td>
-                <td class="mono">99.45°F</td>
-                <td class="mono">103.96°F</td>
+                <td class="mono">97.69°F</td>
+                <td class="mono">105.71°F</td>
                 <td class="mono">101.70°F</td>
                 <td class="mono coral font-bold">+17.31°F</td>
               </tr>
               <tr>
-                <td class="mono">2010-08-20</td>
-                <td class="mono small">Landsat 7 · LE07_L2SP_046029_20100820</td>
-                <td><span class="badge-pill purple">Removal Wave</span></td>
-                <td class="mono">73.0°F</td>
+                <td class="mono">2010-08-20 <small>18:48:41Z</small></td>
+                <td class="mono small">LE07_L2SP_046029_20100820_02_T2</td>
+                <td class="mono">73.0°F <small class="teal">(64.9°F)</small></td>
                 <td class="mono font-bold">91.70°F</td>
-                <td class="mono">82.88°F</td>
-                <td class="mono">86.48°F</td>
+                <td class="mono">86.86°F</td>
+                <td class="mono">82.49°F</td>
                 <td class="mono">84.68°F</td>
                 <td class="mono coral font-bold">+7.02°F</td>
               </tr>
               <tr>
-                <td class="mono">2013-07-27</td>
-                <td class="mono small">Landsat 7 · LE07_L2SP_046029_20130727</td>
-                <td><span class="badge-pill purple">Removal Wave</span></td>
-                <td class="mono">77.7°F</td>
+                <td class="mono">2013-07-27 <small>18:51:44Z</small></td>
+                <td class="mono small">LE07_L2SP_046029_20130727_02_T1</td>
+                <td class="mono">77.7°F <small class="teal">(69.9°F)</small></td>
                 <td class="mono font-bold">105.20°F</td>
-                <td class="mono">90.41°F</td>
-                <td class="mono">94.92°F</td>
+                <td class="mono">88.64°F</td>
+                <td class="mono">96.68°F</td>
                 <td class="mono">92.66°F</td>
                 <td class="mono coral font-bold">+12.54°F</td>
               </tr>
               <tr>
-                <td class="mono">2015-08-18</td>
-                <td class="mono small">Landsat 7 · LE07_L2SP_046029_20150818</td>
-                <td><span class="badge-pill purple">Removal Wave</span></td>
-                <td class="mono">95.5°F</td>
+                <td class="mono">2015-08-18 <small>18:56:18Z</small></td>
+                <td class="mono small">LE07_L2SP_046029_20150818_02_T1</td>
+                <td class="mono">95.5°F <small class="teal">(85.6°F)</small></td>
                 <td class="mono font-bold">103.75°F</td>
-                <td class="mono">92.11°F</td>
-                <td class="mono">95.66°F</td>
+                <td class="mono">92.61°F</td>
+                <td class="mono">95.17°F</td>
                 <td class="mono">93.89°F</td>
                 <td class="mono coral font-bold">+9.86°F</td>
               </tr>
               <tr>
-                <td class="mono">2018-08-18</td>
-                <td class="mono small">Landsat 8 · LC08_L2SP_046029_20180818</td>
-                <td><span class="badge-pill purple">Removal Wave</span></td>
-                <td class="mono">83.5°F</td>
+                <td class="mono">2018-08-18 <small>18:55:55Z</small></td>
+                <td class="mono small">LC08_L2SP_046029_20180818_02_T1</td>
+                <td class="mono">83.5°F <small class="teal">(73.8°F)</small></td>
                 <td class="mono font-bold">101.04°F</td>
-                <td class="mono">88.62°F</td>
-                <td class="mono">92.31°F</td>
+                <td class="mono">86.66°F</td>
+                <td class="mono">94.27°F</td>
                 <td class="mono">90.47°F</td>
                 <td class="mono coral font-bold">+10.57°F</td>
               </tr>
               <tr>
-                <td class="mono">2021-07-25</td>
-                <td class="mono small">Landsat 8 · LC08_L2SP_046028_20210725</td>
-                <td><span class="badge-pill red">Post-Clearance</span></td>
-                <td class="mono">91.2°F</td>
+                <td class="mono">2021-07-25 <small>18:56:03Z</small></td>
+                <td class="mono small">LC08_L2SP_046028_20210725_02_T1</td>
+                <td class="mono">91.2°F <small class="teal">(79.1°F)</small></td>
                 <td class="mono font-bold">110.26°F</td>
                 <td class="mono">97.44°F</td>
                 <td class="mono">100.26°F</td>
@@ -403,29 +392,30 @@ slides_data = [
                 <td class="mono coral font-bold">+11.41°F</td>
               </tr>
               <tr>
-                <td class="mono">2023-08-16</td>
-                <td class="mono small">Landsat 8 · LC08_L2SP_046028_20230816</td>
-                <td><span class="badge-pill red">Post-Clearance</span></td>
-                <td class="mono">101.5°F</td>
+                <td class="mono">2023-08-16 <small>18:55:59Z</small></td>
+                <td class="mono small">LC08_L2SP_046028_20230816_02_T1</td>
+                <td class="mono">101.5°F <small class="teal">(92.2°F)</small></td>
                 <td class="mono font-bold">118.21°F</td>
-                <td class="mono">103.85°F</td>
-                <td class="mono">107.39°F</td>
+                <td class="mono">102.79°F</td>
+                <td class="mono">108.45°F</td>
                 <td class="mono">105.62°F</td>
                 <td class="mono coral font-bold">+12.59°F</td>
               </tr>
               <tr class="row-highlight">
-                <td class="mono">2024-07-09</td>
-                <td class="mono small">Landsat 9 · LC09_L2SP_046029_20240709</td>
-                <td><span class="badge-pill red">Post-Clearance</span></td>
-                <td class="mono">99.7°F</td>
+                <td class="mono">2024-07-09 <small>18:55:49Z</small></td>
+                <td class="mono small">LC09_L2SP_046029_20240709_02_T1</td>
+                <td class="mono">99.7°F <small class="teal">(91.6°F)</small></td>
                 <td class="mono font-bold coral">122.59°F</td>
-                <td class="mono">109.63°F</td>
+                <td class="mono">109.64°F</td>
                 <td class="mono">109.29°F</td>
                 <td class="mono">109.46°F</td>
                 <td class="mono coral font-bold">+13.13°F</td>
               </tr>
             </tbody>
           </table>
+        </div>
+        <div class="note-box" style="margin-top: 0.65rem; font-size: 0.77rem; padding: 0.5rem 0.85rem;">
+          <strong class="teal">Cycles 2 &amp; 3 Audit Note:</strong> All 12 Chapin LST values, 2-control averages, and Excess Heat values reproduced within <code>&plusmn;0.005&deg;F</code> from raw USGS Collection 2 Level-2 rasters (<code>QA_PIXEL</code> bits 0–5 = 0; <code>QA_RADSAT</code> = 0 across all 36 center pixels and all 324 <code>3&times;3</code> buffer pixels). Column 3 shows the published daily-high-like ambient temperature (which matches Open-Meteo <code>best_match</code> local-day max with <code>MAE = 0.058&deg;F</code>) alongside the exact UTC overpass-hour ERA5-Land 2m air temperature in parentheses.
         </div>
         """
     },
@@ -513,62 +503,65 @@ slides_data = [
     },
     {
         "id": 8,
-        "badge": "CLIMATIC REGIMES",
-        "title": "Regime Statistics & Thermodynamic Buffer",
-        "subtitle": "Normal summer days vs extreme regional heatwaves and latent heat dissipation",
-        "notes": "Breaking the data down by climatic regime shows that under normal summer days below ninety degrees, the built offset averages 10.99 degrees. Under regional heat events at or above ninety degrees, the excess heat averages 12.86 degrees. When canopy shade is absent, net radiation partitions into sensible heat and ground storage rather than latent heat transpiration.",
+        "badge": "CLIMATIC REGIMES & 3×3 BUFFER SENSITIVITY",
+        "title": "Regime Statistics & Spatial Buffer Check",
+        "subtitle": "Center-pixel vs. 3×3 window (90m × 90m, 324/324 clear pixels) thermal excess across regimes",
+        "notes": "Breaking the data down by climatic regime and spatial extraction window confirms that the surface-temperature contrast is positive across all 12 dates under both center-pixel and 90-by-90-meter neighborhood buffer extractions. Under normal summer days below ninety degrees daily high, excess heat averages 10.99 degrees at the center pixel, 10.48 degrees for the 3-by-3 mean, and 10.98 degrees for the 3-by-3 median. Under heatwave days at or above ninety degrees, excess heat averages 12.86 degrees at the center pixel, 12.08 degrees for the 3-by-3 mean, and 12.71 degrees for the 3-by-3 median.",
         "html": """
         <div class="table-responsive">
           <table class="data-table">
             <thead>
               <tr>
-                <th>Climatic Regime</th>
-                <th>Ambient Air (ERA5)</th>
-                <th>Chapin Court LST</th>
-                <th>Control Avg LST</th>
-                <th>Net Excess Heat</th>
-                <th>Sample Status / Context</th>
+                <th>Extraction Method &amp; Regime</th>
+                <th>Daily High / Overpass 2m</th>
+                <th>Mean Excess Heat</th>
+                <th>Min / Max Excess (12/12 Positive)</th>
+                <th>Cycle 3 QA &amp; Sensitivity Status</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Normal Summer Days (&lt;90°F)</strong></td>
-                <td class="mono">80.8°F avg</td>
-                <td class="mono font-bold">99.46°F avg</td>
-                <td class="mono">88.47°F avg</td>
+                <td><strong>Center Pixel (30m) · Normal (&lt;90°F, n=7)</strong></td>
+                <td class="mono">80.4°F / 71.0°F</td>
                 <td class="mono teal font-bold">+10.99°F</td>
-                <td><span class="badge-pill gray">Baseline Built Offset</span></td>
+                <td class="mono">+7.02°F to +14.09°F</td>
+                <td><span class="badge-pill gray">36/36 Center Pixels Clear</span></td>
               </tr>
               <tr class="row-highlight">
-                <td><strong>Heatwave Days (≥90°F)</strong></td>
-                <td class="mono">96.9°F avg</td>
-                <td class="mono font-bold">114.76°F avg</td>
-                <td class="mono">101.90°F avg</td>
+                <td><strong>Center Pixel (30m) · Heat (≥90°F, n=5)</strong></td>
+                <td class="mono">96.9°F / 87.5°F</td>
                 <td class="mono coral font-bold">+12.86°F</td>
-                <td><span class="badge-pill coral">+1.875°F Gap Widening (Welch p ≈ 0.265)</span></td>
+                <td class="mono">+9.86°F to +17.31°F</td>
+                <td><span class="badge-pill coral">+1.87°F Diff (Welch p = 0.266)</span></td>
               </tr>
               <tr>
-                <td><strong>Maximum Absolute Recorded</strong></td>
-                <td class="mono">101.5°F (2023)</td>
-                <td class="mono font-bold coral">122.59°F (2024)</td>
-                <td class="mono">109.46°F (2024)</td>
-                <td class="mono amber font-bold">+17.31°F (2006)</td>
-                <td><span class="badge-pill amber">Sample Maximum (2006 Baseline)</span></td>
+                <td><strong>3&times;3 Window Mean (90m&times;90m) · &lt;90°F / ≥90°F</strong></td>
+                <td class="mono">n=7 / n=5</td>
+                <td class="mono teal font-bold">+10.48°F / +12.08°F</td>
+                <td class="mono">+7.74°F to +16.19°F</td>
+                <td><span class="badge-pill teal">324/324 Pixels QA Clear</span></td>
+              </tr>
+              <tr>
+                <td><strong>3&times;3 Window Median (90m&times;90m) · &lt;90°F / ≥90°F</strong></td>
+                <td class="mono">n=7 / n=5</td>
+                <td class="mono amber font-bold">+10.98°F / +12.71°F</td>
+                <td class="mono">+7.02°F to +17.06°F</td>
+                <td><span class="badge-pill amber">Robust to 2010 T2 Exclusion</span></td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class="grid-2col" style="margin-top: 1.25rem;">
+        <div class="grid-2col" style="margin-top: 1rem;">
           <div class="card-item">
             <div class="card-label">CANOPY EVAPOTRANSPIRATIVE BUFFER</div>
             <p class="body-text">
-              Mature trees actively convert solar flux into <strong>latent heat</strong> via transpiration, cooling surrounding ambient air and preventing direct radiative loading of road surfaces and residential facades.
+              Mature trees actively convert solar flux into <strong>latent heat</strong> via transpiration, cooling surrounding surfaces and preventing direct radiative loading of road asphalt and residential roofs.
             </p>
           </div>
           <div class="card-item">
-            <div class="card-label">SURFACE ENERGY BALANCE PARTITIONING</div>
+            <div class="card-label">CYCLE 3 SPATIAL BUFFER CONCLUSION</div>
             <p class="body-text">
-              In the absence of vegetative shade and latent heat dissipation (evapotranspiration), net radiation (R<sub>n</sub>) partitions predominantly into <strong>sensible heat flux (H)</strong> and <strong>ground heat storage (G)</strong>, elevating asphalt pavement and dark roofing temperatures far above ambient air.
+              All <strong>324/324</strong> pixels in the 90m&times;90m windows passed <code>QA_PIXEL</code> (bits 0–5 = 0) and <code>QA_RADSAT = 0</code>. Thermal excess stays positive on 12/12 dates across point, mean, and median windows, though 3&times;3 buffering does not explain the 9/12 single-control offset.
             </p>
           </div>
         </div>
@@ -842,23 +835,87 @@ slides_data = [
     },
     {
         "id": 15,
+        "badge": "CONTEMPORANEOUS AQI & CYCLES 2–3 AUDIT • NOV 1–2, 2026",
+        "title": "Elevated AQI Observation & Cycles 2–3 Audit",
+        "subtitle": "Nov 1, 2026 Oregon City AQI 91 screenshot paired with CAMS model check, weather provenance, and 3×3 buffer audit",
+        "notes": "Slide 15 synthesizes the November 1, 2026 AQI 91 screenshot with the Cycle 2 and Cycle 3 technical audits. At the attributed 08:45 PST timestamp on November 1, 2026, the screenshot displays US AQI 91 over Oregon City, while coarse 0.4-degree CAMS global forecasts via Open-Meteo model Oregon City at AQI 79 and PM2.5 of 23.15 micrograms per cubic meter under shallow boundary-layer and weak-wind conditions. On the thermal side, Cycles 2 and 3 verified 100 percent of center-pixel temperatures within 0.005 degrees, confirmed all 324 3-by-3 buffer pixels passed QA with positive thermal excess on all 12 dates, and identified that the published ambient column closely matches Open-Meteo best-match local-day maximums within 0.1 degrees.",
+        "html": """
+        <div class="grid-2col" style="align-items: stretch;">
+          <div class="card-item" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="card-label">CONTEMPORANEOUS SCREENSHOT &amp; CAMS CHECK (NOV 1, 2026 · 08:45 PST)</div>
+              <div class="metric-row">
+                <span class="metric-name">Screenshot Display (My Location):</span>
+                <span class="metric-val amber font-bold">US AQI 91 (Moderate · USG starts at 101)</span>
+              </div>
+              <div class="metric-row">
+                <span class="metric-name">CAMS Global Forecast (16:45 UTC / 08:45 PST):</span>
+                <span class="metric-val teal">AQI 79 · PM2.5 23.15 &mu;g/m&sup3; · BLH 151 m</span>
+              </div>
+              <p class="body-text" style="font-size: 0.78rem; margin-top: 0.45rem; line-height: 1.45;">
+                Screenshot shows a yellow feature (<strong>AQI 91</strong>) over Oregon City with green surroundings at map scale. Coarse (<code>~0.4&deg;</code>) CAMS forecast models Oregon City at <strong>AQI 79</strong> (<code>+15.75 AQI</code> above 5-city valley median, though McMinnville is 83 and Newberg 79 in coarse forecast; ERA5 reanalysis pending latency).
+              </p>
+            </div>
+            <div style="margin-top: 0.6rem; text-align: center; background: #070B12; border: 1px solid var(--amber-border); border-radius: 8px; padding: 0.45rem;">
+              <img src="assets/microclimate/2026-11-01_0845_Oregon_City_Elevated_AQI_91_Pocket.png"
+                   onerror="this.onerror=null;this.src='aqi_observations/2026-11-01_0845_Oregon_City_Elevated_AQI_91_Pocket.png';"
+                   alt="November 1, 2026 08:45 AM Oregon City Elevated AQI 91 Pocket"
+                   style="max-height: 215px; max-width: 100%; object-fit: contain; border-radius: 6px;" />
+            </div>
+          </div>
+          <div class="card-item">
+            <div class="card-label">CYCLES 2 &amp; 3 MULTI-STAGE AUDIT SUMMARY</div>
+            <div class="metric-row">
+              <span class="metric-name">Gate 1A Center LST &amp; Excess (12/12):</span>
+              <span class="metric-val teal font-bold">&le; 0.005&deg;F (0.000&deg;F Cycle 3 Re-check)</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-name">Gate 1B Published Ambient vs <code>best_match</code> Max:</span>
+              <span class="metric-val teal font-bold">MAE 0.058&deg;F (All 12 Dates &le; 0.1&deg;F)</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-name">Gate 1B Exact Overpass ERA5-Land 2m Air:</span>
+              <span class="metric-val amber">64.9&deg;F–92.2&deg;F (Mean &minus;9.44&deg;F vs Max)</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-name">3&times;3 Buffer (90m&times;90m · 324/324 Clear):</span>
+              <span class="metric-val teal">Mean +10.48&deg;F / +12.08&deg;F (12/12 &gt; 0)</span>
+            </div>
+            <div class="metric-row highlight">
+              <span class="metric-name">3&times;3 Median Excess (&lt;90&deg;F vs &ge;90&deg;F):</span>
+              <span class="metric-val amber">+10.98&deg;F vs +12.71&deg;F (12/12 &gt; 0)</span>
+            </div>
+            <ul class="bullet-list" style="margin-top: 0.65rem; font-size: 0.78rem; gap: 0.4rem;">
+              <li>
+                <strong>Control Offset &amp; Tier Disclosure:</strong> Centered 3&times;3 buffering does not explain the 9/12 single-control offsets; exact point-sample control values and 2010 Tier 2 (<code>T2</code>) status are transparently reported.
+              </li>
+              <li>
+                <strong>Evidentiary Boundary:</strong> Cool-season particulate accumulation and summer surface heating are documented as distinct observations without overclaiming common tree-removal causation or verified inversion profiles.
+              </li>
+            </ul>
+          </div>
+        </div>
+        """
+    },
+    {
+        "id": 16,
         "badge": "LITIGATION SCRUTINY",
         "title": "Litigation Scrutiny & FRE / OEC 702 Compliance",
-        "subtitle": "Rigorous evidentiary standards under the Cycle 1 Litigation Readiness Review",
-        "notes": "Under the Cycle 1 Litigation Readiness Review, this assessment is structured to comply with Federal Rule of Evidence 702 and Oregon Evidence Code 702. It grounds all observations in calibrated USGS Landsat Level-2 products, elevation-matched controls, transparent reporting of small-sample statistical power, and authenticated municipal court records.",
+        "subtitle": "Rigorous evidentiary standards across Cycles 1, 2, & 3 Litigation Readiness Reviews",
+        "notes": "Across Cycles 1, 2, and 3 of the Litigation Readiness Review, this assessment is structured to comply with Federal Rule of Evidence 702 and Oregon Evidence Code 702. It grounds all thermal observations in raw USGS Landsat Level-2 rasters verified at both center pixels and 3-by-3 windows, reconciles daily-high versus overpass-hour weather series, and transparently reports small-sample uncertainty and model resolution limits.",
         "html": """
         <div class="grid-2col">
           <div class="card-item">
             <div class="card-label">FRE 702 / OEC 702 FOUNDATION</div>
             <ul class="bullet-list">
               <li>
-                <strong>Calibrated Radiometry:</strong> Relies exclusively on calibrated USGS Landsat Collection 2 Level-2 Surface Temperature products (30m grid resampled from native 60–120m thermal sensors).
+                <strong>Verified Raw Radiometry &amp; 3&times;3 Buffers (Cycles 2–3):</strong> All 12 USGS Collection 2 Level-2 scenes, CSV/STAC UTC timestamps (<code>18:14–18:56 UTC</code>), 36 center pixels, and 324 <code>3&times;3</code> window pixels independently verified.
               </li>
               <li>
-                <strong>Matched-Elevation Controls:</strong> Controls selected within the same municipal boundary and elevation band (~443–475 ft ASL), isolating macro atmospheric air masses.
+                <strong>Weather Provenance Transparency (Cycle 3):</strong> Distinguishes published daily-high-like ambient temperatures (matching <code>best_match</code> local-day max, <code>MAE = 0.058&deg;F</code>) from exact overpass-hour 2m air temperatures (<code>&minus;9.44&deg;F</code> mean difference).
               </li>
               <li>
-                <strong>Transparent Small-Sample Power:</strong> Explicitly reports small-sample statistics (Welch p ≈ 0.265, slope CI [-0.046, +0.317]) to prevent cross-examination impeachment.
+                <strong>Transparent Small-Sample &amp; Model Limits:</strong> Reports small-sample statistics (Welch <code>p = 0.26605</code>, slope CI <code>[-0.046, +0.317]</code>), single-control offset checks, and coarse CAMS (<code>~0.4&deg;</code>) vs. screenshot AQI differences.
               </li>
               <li>
                 <strong>Authenticated Municipal Records:</strong> Corroborated by Clackamas County Municipal Court dockets CE-000520-19 and CE-000554-20 and recorded county liens.
@@ -866,55 +923,59 @@ slides_data = [
             </ul>
           </div>
           <div class="card-item">
-            <div class="card-label">CYCLE 1 LITIGATION READINESS GATES</div>
+            <div class="card-label">LITIGATION READINESS GATES (CYCLES 1–3 COMPLETE)</div>
             <div class="metric-row">
-              <span class="metric-name">Gate 1: Sensor & Weather Reproduction</span>
-              <span class="metric-val teal">USGS Level-2 & ERA5-Land Verified</span>
+              <span class="metric-name">Gate 1A: Satellite Center &amp; 3&times;3 Raster Audit</span>
+              <span class="metric-val teal">COMPLETE (324/324 Pixels Clear)</span>
             </div>
             <div class="metric-row">
-              <span class="metric-name">Gate 2: Geocoded Permit Ledger</span>
-              <span class="metric-val amber">167 Corridor Permits Mapped</span>
+              <span class="metric-name">Gate 1B: Weather Provenance &amp; UTC Pairing</span>
+              <span class="metric-val teal">COMPLETE (Daily Max &amp; Overpass 2m)</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-name">Gate 2: Geocoded Permit &amp; Canopy Ledger</span>
+              <span class="metric-val amber">In Progress (Parcel Orthophotos)</span>
             </div>
             <div class="metric-row">
               <span class="metric-name">Gate 3: Causal DiD Specification</span>
-              <span class="metric-val teal">Parcel-Level Staggered Design</span>
+              <span class="metric-val amber">Staggered Parcel-Level Design</span>
             </div>
             <div class="metric-row">
-              <span class="metric-name">Gate 4: Formal Expert & Counsel Review</span>
-              <span class="metric-val coral">In Progress (Cycle 1 Audit Complete)</span>
+              <span class="metric-name">Gate 4: AQI Model Check &amp; ERA5 Post-Latency</span>
+              <span class="metric-val teal">CAMS Audited (ERA5 Re-pull Pending)</span>
             </div>
             <p class="body-text" style="margin-top: 0.75rem;">
-              Meets standards under Federal Rule of Evidence 702 and Oregon Evidence Code 702 (ORS 40.410).
+              Structured for evidentiary transparency under Federal Rule of Evidence 702 and Oregon Evidence Code 702 (ORS 40.410).
             </p>
           </div>
         </div>
         """
     },
     {
-        "id": 16,
+        "id": 17,
         "badge": "PRIMARY SOURCES",
         "title": "Primary Sources & References",
-        "subtitle": "Federal remote-sensing documentation, reanalysis baselines, and municipal permit registers",
-        "notes": "Our findings are grounded in primary federal and municipal data sources: the USGS EROS Landsat Level-2 Science Product Guide, ECMWF Open-Meteo ERA5-Land hourly atmospheric reanalysis, Oregon City Municipal Code Chapters 1.20, 1.24, and Title 12, Municipal Court dockets CE-000520-19 and CE-000554-20, and the Cycle 1 Litigation Readiness Review.",
+        "subtitle": "Federal remote-sensing documentation, STAC raster audit packages, AQI observations, and municipal records",
+        "notes": "Our findings are grounded in primary federal and municipal data sources: the USGS EROS Landsat Level-2 Science Product Guide, the Cycle 2 Planetary Computer STAC raster audit package, ECMWF Open-Meteo ERA5-Land hourly atmospheric reanalysis, the November 1, 2026 Oregon City AQI 91 observation, and Oregon City Municipal Court dockets CE-000520-19 and CE-000554-20.",
         "html": """
         <div class="grid-2col">
           <div class="card-item">
             <div class="card-label">PRIMARY DATA ARCHIVES</div>
-            <ul class="bullet-list" style="font-size: 0.85rem;">
+            <ul class="bullet-list" style="font-size: 0.84rem;">
               <li>
-                <strong>USGS EROS Center:</strong> Landsat Collection 2 Level-2 Surface Temperature Science Product Guide (2020). Calibration: <code>T<sub>K</sub> = DN &times; 0.00341802 + 149.0 K</code>.
+                <strong>USGS EROS &amp; Planetary Computer STAC:</strong> Landsat Collection 2 Level-2 Surface Temperature (<code>landsat-c2-l2</code>). Scaling: <code>T<sub>K</sub> = DN &times; 0.00341802 + 149.0 K</code>. Verified in <code>microclimate_audit/</code> (Oct 28, 2026).
               </li>
               <li>
                 <strong>Open-Meteo / ECMWF:</strong> ERA5-Land Hourly Surface Temperature Reanalysis Baselines, Oregon City Coordinates (45.33° N, -122.61° W).
               </li>
               <li>
-                <strong>Oregon City Municipal Court:</strong> Case CE-000520-19 ($72,000 judgment; Clackamas County Doc. 2019-079244) and Case CE-000554-20 ($14,601 judgment & lien; Doc. 2021-006197).
+                <strong>Contemporaneous Air Quality Archive:</strong> Regional US AQI Monitoring Snapshot (<code>2026-11-01_0845_Oregon_City_Elevated_AQI_91_Pocket.png</code>, Nov 1, 2026, 08:45 PST, US AQI 91 over Oregon City).
               </li>
               <li>
-                <strong>Oregon City Municipal Code:</strong> Title 12: Streets & Sidewalks (12.04.030) and Enforcement Chapters 1.20, 1.24, 8.08, 8.20, 8.28.
+                <strong>Oregon City Municipal Court:</strong> Case CE-000520-19 ($72,000 judgment; Clackamas County Doc. 2019-079244) and Case CE-000554-20 ($14,601 judgment &amp; lien; Doc. 2021-006197).
               </li>
               <li>
-                <strong>Legal Standards:</strong> Federal Rule of Evidence 702 and Oregon Evidence Code 702 (ORS 40.410).
+                <strong>Legal &amp; Evidentiary Standards:</strong> Federal Rule of Evidence 702 and Oregon Evidence Code 702 (ORS 40.410).
               </li>
             </ul>
           </div>
@@ -924,10 +985,11 @@ slides_data = [
               <span class="mono-badge">Subject: 12054 Chapin Court</span>
               <span class="mono-badge">Jurisdiction: Oregon City, OR</span>
               <span class="mono-badge">Subdivision: Tower Vista</span>
-              <span class="mono-badge">Overpass Span: 1994–2024</span>
+              <span class="mono-badge">Landsat Span: 1994–2024</span>
+              <span class="mono-badge amber">AQI Supplement: 2026-11-01</span>
             </div>
             <p class="body-text" style="font-size: 0.85rem; line-height: 1.55;">
-              Technical report compiled from verified public records, peer-reviewed federal satellite observations, and gridded atmospheric reanalyses. Structured in accordance with the Cycle 1 Litigation Readiness Review.
+              Technical report compiled from verified public records, raw USGS Collection 2 Level-2 satellite rasters, gridded atmospheric reanalyses, and contemporaneous air-quality observations. Updated November 1, 2026 with Cycle 2 STAC raster audit and AQI 91 pocket documentation.
             </p>
             <div style="margin-top: 1rem;">
               <a href="index.html" class="back-link">&larr; Return to Executive Function OS Hub</a>

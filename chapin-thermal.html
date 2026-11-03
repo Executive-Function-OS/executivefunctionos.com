@@ -7,8 +7,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="tokens.css">
-  <link rel="stylesheet" href="navigation.css">
   <style>
     :root {
       --bg-canvas: #090D14;
@@ -621,113 +619,6 @@
       line-height: 1.5;
     }
 
-    /* Aerial Photogrammetry Epoch Grid */
-    .aerial-epoch-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.85rem;
-      height: 100%;
-    }
-    .aerial-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-hairline);
-      border-radius: 8px;
-      padding: 0.85rem;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-    .aerial-card.epoch-1 { border-color: var(--amber-border); }
-    .aerial-card.epoch-2 { border-color: var(--teal-border); }
-    .aerial-card.epoch-3 { border-color: var(--purple-border); }
-    .aerial-card.epoch-4 { border-color: var(--coral-border); background: rgba(244, 63, 94, 0.04); }
-
-    .aerial-viewport {
-      width: 100%;
-      height: 155px;
-      border-radius: 6px;
-      background: #070B12;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 0.65rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .aerial-viewport img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 5;
-    }
-    .aerial-viewport svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    .aerial-hud-top {
-      position: absolute;
-      top: 6px;
-      left: 6px;
-      right: 6px;
-      display: flex;
-      justify-content: space-between;
-      pointer-events: none;
-      z-index: 10;
-    }
-    .hud-tag {
-      background: rgba(9, 13, 20, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      color: var(--text-secondary);
-      backdrop-filter: blur(4px);
-    }
-    .hud-tag.teal { color: var(--teal-bright); border-color: var(--teal-border); }
-    .hud-tag.amber { color: var(--amber-bright); border-color: var(--amber-border); }
-    .hud-tag.purple { color: var(--purple-bright); border-color: var(--purple-border); }
-    .hud-tag.coral { color: var(--coral-bright); border-color: var(--coral-border); }
-
-    .aerial-hud-bottom {
-      position: absolute;
-      bottom: 6px;
-      left: 6px;
-      right: 6px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      pointer-events: none;
-      font-family: var(--font-mono);
-      font-size: 0.58rem;
-      z-index: 10;
-    }
-    .hud-coord {
-      color: rgba(255, 255, 255, 0.6);
-      background: rgba(0, 0, 0, 0.7);
-      padding: 1px 4px;
-      border-radius: 2px;
-    }
-    .hud-src {
-      color: var(--amber-bright);
-      background: rgba(0, 0, 0, 0.7);
-      padding: 1px 4px;
-      border-radius: 2px;
-    }
-
-    .aerial-meta-box {
-      margin-top: 0.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
     /* Causal Chain */
     .causal-chain-grid {
       display: flex;
@@ -1023,31 +914,9 @@
         <span class="brand-title">Forensic Microclimate Investigation</span>
       </div>
       <div class="deck-controls">
-        <a href="index.html" class="control-btn" style="text-decoration:none; color:var(--color-cheshire-teal, #2DD4BF);">🧭 EFOS Hub</a>
-        <a href="timeline.html" class="control-btn" style="text-decoration:none; color:var(--color-white-rabbit-gold, #F59E0B);">📜 Timeline</a>
-        <a href="paladin.html" class="control-btn" style="text-decoration:none; color:var(--color-red-queen, #FDA4AF);">⚖ PALADIN</a>
         <button class="control-btn" id="open-contents-btn">📑 Contents</button>
         <button class="control-btn" id="open-notes-btn">📝 Notes (N)</button>
         <button class="control-btn" id="toggle-fullscreen-btn">⛶ Fullscreen (F)</button>
-      </div>
-    </div>
-
-    <!-- Contextual Breadcrumb & Interrelation Sub-Bar -->
-    <div class="lg-breadcrumb-strip" style="z-index: 10; padding: 0.35rem 1.5rem; flex-shrink: 0;">
-      <div class="lg-breadcrumbs">
-        <a href="index.html">EFOS Hub</a>
-        <span class="lg-crumb-sep">&rsaquo;</span>
-        <a href="paladin.html">PALADIN (A2J)</a>
-        <span class="lg-crumb-sep">&rsaquo;</span>
-        <span class="lg-crumb-current">Forensic Microclimate Investigation (FRE 702)</span>
-      </div>
-      <div class="lg-interrelations-strip">
-        <span class="lg-interrelation-label">Interrelated Nodes:</span>
-        <a href="timeline.html" class="lg-node-pill">📜 Master Timeline (162)</a>
-        <a href="paladin.html" class="lg-node-pill">⚖ PALADIN Pleading Suite</a>
-        <a href="library.html" class="lg-node-pill">📚 Evidence Library (5,612)</a>
-        <a href="privity.html" class="lg-node-pill">🔍 Privity Paradox</a>
-        <a href="index.html#interrelations" class="lg-node-pill" style="border-color:var(--color-white-rabbit-gold); color:var(--color-white-rabbit-gold);">🧭 System Atlas &rarr;</a>
       </div>
     </div>
 
@@ -1109,16 +978,16 @@
         <div class="grid-3col" style="margin-top: 1.25rem;">
           <div class="card-item">
             <div class="card-label">OBSERVATIONAL DATASET</div>
-            <div class="stat-highlight amber">12 Overpasses</div>
+            <div class="stat-highlight amber">12 Overpasses · 324 Pixels</div>
             <p class="body-text">
-              12 cloud-free USGS Landsat 5, 7, 8, & 9 Level-2 Surface Temperature (30m LST resampled from native 60–120m thermal sensors) overpasses spanning 1994 through 2024.
+              12 cloud-free USGS Landsat 5, 7, 8, & 9 Level-2 Surface Temperature overpasses (1994–2024), audited at both center pixels (36/36 clear) and 3&times;3 neighborhood buffers (324/324 QA clear).
             </p>
           </div>
           <div class="card-item">
             <div class="card-label">ATMOSPHERIC BASELINES</div>
-            <div class="stat-highlight teal">ERA5-Land Hourly</div>
+            <div class="stat-highlight teal">Daily Max &amp; Overpass 2m</div>
             <p class="body-text">
-              Hourly surface reanalysis from Open-Meteo ERA5-Land at Oregon City coordinates (45.33° N, -122.61° W) paired to exact satellite overpass timestamps.
+              Published ambient series reconciled against Open-Meteo <code>best_match</code> local-day maximums (MAE 0.058°F) alongside exact UTC overpass-hour ERA5-Land 2m air temperatures (18:14–18:56 UTC).
             </p>
           </div>
           <div class="card-item">
@@ -1322,33 +1191,31 @@
     </div>
     
 
-    <div class="slide" id="slide-6" data-notes="Here is the comparative time series of twelve cloud-free Landsat overpasses across Landsat 5, 7, 8, and 9. Every observation was calibrated using standard USGS Level-2 surface temperature scaling. Chapin Court consistently exceeds matched controls across all twelve observations, with a sample peak of 122.59 degrees surface temperature in July 2024.">
-      <div class="slide-badge">EMPIRICAL RADIOMETRY • 1994–2024</div>
+    <div class="slide" id="slide-6" data-notes="Here is the comparative time series of twelve cloud-free Landsat overpasses across Landsat 5, 7, 8, and 9, verified in Cycles 2 and 3. Every Chapin Court surface temperature, two-control mean, and thermal excess value reproduced within five-thousandths of a degree Fahrenheit from raw USGS Level-2 rasters. Cycle 3 also reconciled the published ambient column as closely matching the Open-Meteo best-match local-day maximum within 0.1 degrees, shown alongside the exact UTC overpass-hour ERA5-Land 2-meter air temperature.">
+      <div class="slide-badge">EMPIRICAL RADIOMETRY • 1994–2024 (CYCLES 2 & 3 STAC + WEATHER VERIFIED)</div>
       <div class="slide-title">30-Year Landsat Overpasses Table</div>
-      <div class="slide-subtitle">Twelve cloud-free USGS Landsat 5, 7, 8, & 9 Level-2 thermal observations</div>
+      <div class="slide-subtitle">Twelve cloud-free USGS Landsat 5, 7, 8, & 9 Collection 2 Level-2 thermal observations with reconciled weather series</div>
       <div class="slide-body">
         
-        <div class="table-responsive" style="max-height: 480px;">
+        <div class="table-responsive" style="max-height: 410px;">
           <table class="data-table">
             <thead>
               <tr>
-                <th>Date</th>
-                <th>Sensor & Scene ID</th>
-                <th>Policy Era</th>
-                <th>Ambient (ERA5)</th>
+                <th>Date (CSV/STAC UTC)</th>
+                <th>STAC Item ID &amp; Tier</th>
+                <th>Daily High / Overpass 2m</th>
                 <th>Chapin LST</th>
-                <th>Rivercrest</th>
-                <th>Hillendale</th>
+                <th>Rivercrest (Pt)</th>
+                <th>Hillendale (Pt)</th>
                 <th>Control Avg</th>
                 <th>Excess Heat</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="mono">1994-07-31</td>
-                <td class="mono small">Landsat 5 · LT05_L2SP_046029_19940731</td>
-                <td><span class="badge-pill gray">Baseline (Built)</span></td>
-                <td class="mono">83.3°F</td>
+                <td class="mono">1994-07-31 <small>18:14:08Z</small></td>
+                <td class="mono small">LT05_L2SP_046029_19940731_02_T1</td>
+                <td class="mono">83.3°F <small class="teal">(71.1°F)</small></td>
                 <td class="mono font-bold">98.70°F</td>
                 <td class="mono">81.78°F</td>
                 <td class="mono">90.95°F</td>
@@ -1356,98 +1223,89 @@
                 <td class="mono coral font-bold">+12.34°F</td>
               </tr>
               <tr>
-                <td class="mono">1998-08-27</td>
-                <td class="mono small">Landsat 5 · LT05_L2SP_046029_19980827</td>
-                <td><span class="badge-pill gray">Baseline</span></td>
-                <td class="mono">82.0°F</td>
+                <td class="mono">1998-08-27 <small>18:35:04Z</small></td>
+                <td class="mono small">LT05_L2SP_046029_19980827_02_T1</td>
+                <td class="mono">82.0°F <small class="teal">(71.8°F)</small></td>
                 <td class="mono font-bold">93.54°F</td>
-                <td class="mono">82.16°F</td>
-                <td class="mono">88.33°F</td>
+                <td class="mono">81.15°F</td>
+                <td class="mono">89.34°F</td>
                 <td class="mono">85.24°F</td>
                 <td class="mono coral font-bold">+8.29°F</td>
               </tr>
               <tr>
-                <td class="mono">2002-07-29</td>
-                <td class="mono small">Landsat 7 · LE07_L2SP_046029_20020729</td>
-                <td><span class="badge-pill gray">Baseline</span></td>
-                <td class="mono">81.0°F</td>
+                <td class="mono">2002-07-29 <small>18:44:41Z</small></td>
+                <td class="mono small">LE07_L2SP_046029_20020729_02_T1</td>
+                <td class="mono">81.0°F <small class="teal">(73.6°F)</small></td>
                 <td class="mono font-bold">105.67°F</td>
-                <td class="mono">89.20°F</td>
-                <td class="mono">93.96°F</td>
+                <td class="mono">88.63°F</td>
+                <td class="mono">94.54°F</td>
                 <td class="mono">91.58°F</td>
                 <td class="mono coral font-bold">+14.09°F</td>
               </tr>
               <tr>
-                <td class="mono">2004-07-26</td>
-                <td class="mono small">Landsat 5 · LT05_L2SP_046029_20040726</td>
-                <td><span class="badge-pill gray">Baseline</span></td>
-                <td class="mono">82.6°F</td>
+                <td class="mono">2004-07-26 <small>18:39:02Z</small></td>
+                <td class="mono small">LT05_L2SP_046029_20040726_02_T1</td>
+                <td class="mono">82.6°F <small class="teal">(71.7°F)</small></td>
                 <td class="mono font-bold">100.35°F</td>
-                <td class="mono">86.74°F</td>
-                <td class="mono">89.87°F</td>
+                <td class="mono">88.24°F</td>
+                <td class="mono">88.35°F</td>
                 <td class="mono">88.30°F</td>
                 <td class="mono coral font-bold">+12.06°F</td>
               </tr>
               <tr class="row-highlight">
-                <td class="mono">2006-07-24</td>
-                <td class="mono small">Landsat 7 · LE07_L2SP_046029_20060724</td>
-                <td><span class="badge-pill amber">Baseline Heatwave</span></td>
-                <td class="mono">96.4°F</td>
+                <td class="mono">2006-07-24 <small>18:46:09Z</small></td>
+                <td class="mono small">LE07_L2SP_046029_20060724_02_T1</td>
+                <td class="mono">96.4°F <small class="teal">(88.8°F)</small></td>
                 <td class="mono font-bold">119.01°F</td>
-                <td class="mono">99.45°F</td>
-                <td class="mono">103.96°F</td>
+                <td class="mono">97.69°F</td>
+                <td class="mono">105.71°F</td>
                 <td class="mono">101.70°F</td>
                 <td class="mono coral font-bold">+17.31°F</td>
               </tr>
               <tr>
-                <td class="mono">2010-08-20</td>
-                <td class="mono small">Landsat 7 · LE07_L2SP_046029_20100820</td>
-                <td><span class="badge-pill purple">Removal Wave</span></td>
-                <td class="mono">73.0°F</td>
+                <td class="mono">2010-08-20 <small>18:48:41Z</small></td>
+                <td class="mono small">LE07_L2SP_046029_20100820_02_T2</td>
+                <td class="mono">73.0°F <small class="teal">(64.9°F)</small></td>
                 <td class="mono font-bold">91.70°F</td>
-                <td class="mono">82.88°F</td>
-                <td class="mono">86.48°F</td>
+                <td class="mono">86.86°F</td>
+                <td class="mono">82.49°F</td>
                 <td class="mono">84.68°F</td>
                 <td class="mono coral font-bold">+7.02°F</td>
               </tr>
               <tr>
-                <td class="mono">2013-07-27</td>
-                <td class="mono small">Landsat 7 · LE07_L2SP_046029_20130727</td>
-                <td><span class="badge-pill purple">Removal Wave</span></td>
-                <td class="mono">77.7°F</td>
+                <td class="mono">2013-07-27 <small>18:51:44Z</small></td>
+                <td class="mono small">LE07_L2SP_046029_20130727_02_T1</td>
+                <td class="mono">77.7°F <small class="teal">(69.9°F)</small></td>
                 <td class="mono font-bold">105.20°F</td>
-                <td class="mono">90.41°F</td>
-                <td class="mono">94.92°F</td>
+                <td class="mono">88.64°F</td>
+                <td class="mono">96.68°F</td>
                 <td class="mono">92.66°F</td>
                 <td class="mono coral font-bold">+12.54°F</td>
               </tr>
               <tr>
-                <td class="mono">2015-08-18</td>
-                <td class="mono small">Landsat 7 · LE07_L2SP_046029_20150818</td>
-                <td><span class="badge-pill purple">Removal Wave</span></td>
-                <td class="mono">95.5°F</td>
+                <td class="mono">2015-08-18 <small>18:56:18Z</small></td>
+                <td class="mono small">LE07_L2SP_046029_20150818_02_T1</td>
+                <td class="mono">95.5°F <small class="teal">(85.6°F)</small></td>
                 <td class="mono font-bold">103.75°F</td>
-                <td class="mono">92.11°F</td>
-                <td class="mono">95.66°F</td>
+                <td class="mono">92.61°F</td>
+                <td class="mono">95.17°F</td>
                 <td class="mono">93.89°F</td>
                 <td class="mono coral font-bold">+9.86°F</td>
               </tr>
               <tr>
-                <td class="mono">2018-08-18</td>
-                <td class="mono small">Landsat 8 · LC08_L2SP_046029_20180818</td>
-                <td><span class="badge-pill purple">Removal Wave</span></td>
-                <td class="mono">83.5°F</td>
+                <td class="mono">2018-08-18 <small>18:55:55Z</small></td>
+                <td class="mono small">LC08_L2SP_046029_20180818_02_T1</td>
+                <td class="mono">83.5°F <small class="teal">(73.8°F)</small></td>
                 <td class="mono font-bold">101.04°F</td>
-                <td class="mono">88.62°F</td>
-                <td class="mono">92.31°F</td>
+                <td class="mono">86.66°F</td>
+                <td class="mono">94.27°F</td>
                 <td class="mono">90.47°F</td>
                 <td class="mono coral font-bold">+10.57°F</td>
               </tr>
               <tr>
-                <td class="mono">2021-07-25</td>
-                <td class="mono small">Landsat 8 · LC08_L2SP_046028_20210725</td>
-                <td><span class="badge-pill red">Post-Clearance</span></td>
-                <td class="mono">91.2°F</td>
+                <td class="mono">2021-07-25 <small>18:56:03Z</small></td>
+                <td class="mono small">LC08_L2SP_046028_20210725_02_T1</td>
+                <td class="mono">91.2°F <small class="teal">(79.1°F)</small></td>
                 <td class="mono font-bold">110.26°F</td>
                 <td class="mono">97.44°F</td>
                 <td class="mono">100.26°F</td>
@@ -1455,29 +1313,30 @@
                 <td class="mono coral font-bold">+11.41°F</td>
               </tr>
               <tr>
-                <td class="mono">2023-08-16</td>
-                <td class="mono small">Landsat 8 · LC08_L2SP_046028_20230816</td>
-                <td><span class="badge-pill red">Post-Clearance</span></td>
-                <td class="mono">101.5°F</td>
+                <td class="mono">2023-08-16 <small>18:55:59Z</small></td>
+                <td class="mono small">LC08_L2SP_046028_20230816_02_T1</td>
+                <td class="mono">101.5°F <small class="teal">(92.2°F)</small></td>
                 <td class="mono font-bold">118.21°F</td>
-                <td class="mono">103.85°F</td>
-                <td class="mono">107.39°F</td>
+                <td class="mono">102.79°F</td>
+                <td class="mono">108.45°F</td>
                 <td class="mono">105.62°F</td>
                 <td class="mono coral font-bold">+12.59°F</td>
               </tr>
               <tr class="row-highlight">
-                <td class="mono">2024-07-09</td>
-                <td class="mono small">Landsat 9 · LC09_L2SP_046029_20240709</td>
-                <td><span class="badge-pill red">Post-Clearance</span></td>
-                <td class="mono">99.7°F</td>
+                <td class="mono">2024-07-09 <small>18:55:49Z</small></td>
+                <td class="mono small">LC09_L2SP_046029_20240709_02_T1</td>
+                <td class="mono">99.7°F <small class="teal">(91.6°F)</small></td>
                 <td class="mono font-bold coral">122.59°F</td>
-                <td class="mono">109.63°F</td>
+                <td class="mono">109.64°F</td>
                 <td class="mono">109.29°F</td>
                 <td class="mono">109.46°F</td>
                 <td class="mono coral font-bold">+13.13°F</td>
               </tr>
             </tbody>
           </table>
+        </div>
+        <div class="note-box" style="margin-top: 0.65rem; font-size: 0.77rem; padding: 0.5rem 0.85rem;">
+          <strong class="teal">Cycles 2 &amp; 3 Audit Note:</strong> All 12 Chapin LST values, 2-control averages, and Excess Heat values reproduced within <code>&plusmn;0.005&deg;F</code> from raw USGS Collection 2 Level-2 rasters (<code>QA_PIXEL</code> bits 0–5 = 0; <code>QA_RADSAT</code> = 0 across all 36 center pixels and all 324 <code>3&times;3</code> buffer pixels). Column 3 shows the published daily-high-like ambient temperature (which matches Open-Meteo <code>best_match</code> local-day max with <code>MAE = 0.058&deg;F</code>) alongside the exact UTC overpass-hour ERA5-Land 2m air temperature in parentheses.
         </div>
         
       </div>
@@ -1568,63 +1427,66 @@
     </div>
     
 
-    <div class="slide" id="slide-8" data-notes="Breaking the data down by climatic regime shows that under normal summer days below ninety degrees, the built offset averages 10.99 degrees. Under regional heat events at or above ninety degrees, the excess heat averages 12.86 degrees. When canopy shade is absent, net radiation partitions into sensible heat and ground storage rather than latent heat transpiration.">
-      <div class="slide-badge">CLIMATIC REGIMES</div>
-      <div class="slide-title">Regime Statistics & Thermodynamic Buffer</div>
-      <div class="slide-subtitle">Normal summer days vs extreme regional heatwaves and latent heat dissipation</div>
+    <div class="slide" id="slide-8" data-notes="Breaking the data down by climatic regime and spatial extraction window confirms that the surface-temperature contrast is positive across all 12 dates under both center-pixel and 90-by-90-meter neighborhood buffer extractions. Under normal summer days below ninety degrees daily high, excess heat averages 10.99 degrees at the center pixel, 10.48 degrees for the 3-by-3 mean, and 10.98 degrees for the 3-by-3 median. Under heatwave days at or above ninety degrees, excess heat averages 12.86 degrees at the center pixel, 12.08 degrees for the 3-by-3 mean, and 12.71 degrees for the 3-by-3 median.">
+      <div class="slide-badge">CLIMATIC REGIMES & 3×3 BUFFER SENSITIVITY</div>
+      <div class="slide-title">Regime Statistics & Spatial Buffer Check</div>
+      <div class="slide-subtitle">Center-pixel vs. 3×3 window (90m × 90m, 324/324 clear pixels) thermal excess across regimes</div>
       <div class="slide-body">
         
         <div class="table-responsive">
           <table class="data-table">
             <thead>
               <tr>
-                <th>Climatic Regime</th>
-                <th>Ambient Air (ERA5)</th>
-                <th>Chapin Court LST</th>
-                <th>Control Avg LST</th>
-                <th>Net Excess Heat</th>
-                <th>Sample Status / Context</th>
+                <th>Extraction Method &amp; Regime</th>
+                <th>Daily High / Overpass 2m</th>
+                <th>Mean Excess Heat</th>
+                <th>Min / Max Excess (12/12 Positive)</th>
+                <th>Cycle 3 QA &amp; Sensitivity Status</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Normal Summer Days (&lt;90°F)</strong></td>
-                <td class="mono">80.8°F avg</td>
-                <td class="mono font-bold">99.46°F avg</td>
-                <td class="mono">88.47°F avg</td>
+                <td><strong>Center Pixel (30m) · Normal (&lt;90°F, n=7)</strong></td>
+                <td class="mono">80.4°F / 71.0°F</td>
                 <td class="mono teal font-bold">+10.99°F</td>
-                <td><span class="badge-pill gray">Baseline Built Offset</span></td>
+                <td class="mono">+7.02°F to +14.09°F</td>
+                <td><span class="badge-pill gray">36/36 Center Pixels Clear</span></td>
               </tr>
               <tr class="row-highlight">
-                <td><strong>Heatwave Days (≥90°F)</strong></td>
-                <td class="mono">96.9°F avg</td>
-                <td class="mono font-bold">114.76°F avg</td>
-                <td class="mono">101.90°F avg</td>
+                <td><strong>Center Pixel (30m) · Heat (≥90°F, n=5)</strong></td>
+                <td class="mono">96.9°F / 87.5°F</td>
                 <td class="mono coral font-bold">+12.86°F</td>
-                <td><span class="badge-pill coral">+1.875°F Gap Widening (Welch p ≈ 0.265)</span></td>
+                <td class="mono">+9.86°F to +17.31°F</td>
+                <td><span class="badge-pill coral">+1.87°F Diff (Welch p = 0.266)</span></td>
               </tr>
               <tr>
-                <td><strong>Maximum Absolute Recorded</strong></td>
-                <td class="mono">101.5°F (2023)</td>
-                <td class="mono font-bold coral">122.59°F (2024)</td>
-                <td class="mono">109.46°F (2024)</td>
-                <td class="mono amber font-bold">+17.31°F (2006)</td>
-                <td><span class="badge-pill amber">Sample Maximum (2006 Baseline)</span></td>
+                <td><strong>3&times;3 Window Mean (90m&times;90m) · &lt;90°F / ≥90°F</strong></td>
+                <td class="mono">n=7 / n=5</td>
+                <td class="mono teal font-bold">+10.48°F / +12.08°F</td>
+                <td class="mono">+7.74°F to +16.19°F</td>
+                <td><span class="badge-pill teal">324/324 Pixels QA Clear</span></td>
+              </tr>
+              <tr>
+                <td><strong>3&times;3 Window Median (90m&times;90m) · &lt;90°F / ≥90°F</strong></td>
+                <td class="mono">n=7 / n=5</td>
+                <td class="mono amber font-bold">+10.98°F / +12.71°F</td>
+                <td class="mono">+7.02°F to +17.06°F</td>
+                <td><span class="badge-pill amber">Robust to 2010 T2 Exclusion</span></td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class="grid-2col" style="margin-top: 1.25rem;">
+        <div class="grid-2col" style="margin-top: 1rem;">
           <div class="card-item">
             <div class="card-label">CANOPY EVAPOTRANSPIRATIVE BUFFER</div>
             <p class="body-text">
-              Mature trees actively convert solar flux into <strong>latent heat</strong> via transpiration, cooling surrounding ambient air and preventing direct radiative loading of road surfaces and residential facades.
+              Mature trees actively convert solar flux into <strong>latent heat</strong> via transpiration, cooling surrounding surfaces and preventing direct radiative loading of road asphalt and residential roofs.
             </p>
           </div>
           <div class="card-item">
-            <div class="card-label">SURFACE ENERGY BALANCE PARTITIONING</div>
+            <div class="card-label">CYCLE 3 SPATIAL BUFFER CONCLUSION</div>
             <p class="body-text">
-              In the absence of vegetative shade and latent heat dissipation (evapotranspiration), net radiation (R<sub>n</sub>) partitions predominantly into <strong>sensible heat flux (H)</strong> and <strong>ground heat storage (G)</strong>, elevating asphalt pavement and dark roofing temperatures far above ambient air.
+              All <strong>324/324</strong> pixels in the 90m&times;90m windows passed <code>QA_PIXEL</code> (bits 0–5 = 0) and <code>QA_RADSAT = 0</code>. Thermal excess stays positive on 12/12 dates across point, mean, and median windows, though 3&times;3 buffering does not explain the 9/12 single-control offset.
             </p>
           </div>
         </div>
@@ -1872,275 +1734,7 @@
     </div>
     
 
-    <div class="slide" id="slide-14" data-notes="Multi-Decadal Aerial Photogrammetry across 1994 to 2024. This visual evidence establishes the physical loss of tree canopy across all four operational epochs: from initial sapling planting in 1994, to mature shade coverage in 2005, through the 2009-2018 municipal tree removal wave, culminating in the current barren hardscape with an NDVI of 0.115 and radiant surface temperatures exceeding 122 degrees.">
-      <div class="slide-badge">MULTI-DECADAL PHOTOGRAMMETRY</div>
-      <div class="slide-title">Aerial Photogrammetry: Canopy Depletion Across Four Epochs</div>
-      <div class="slide-subtitle">Multi-decadal orthoimagery (1994–2024) establishing the physical disappearance of mature street tree canopy</div>
-      <div class="slide-body">
-        
-        <div class="aerial-epoch-grid">
-          
-          <!-- Epoch 1 -->
-          <div class="aerial-card epoch-1">
-            <div class="epoch-badge">EPOCH 1 • 1994–2000</div>
-            <div class="epoch-title" style="font-size: 0.92rem;">Subdivision Platting Baseline</div>
-            
-            <div class="aerial-viewport">
-              <img src="assets/aerial-epoch-1.jpg" alt="Epoch 1 Aerial View (1994–2000)" onerror="this.style.display='none'">
-              <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
-                <!-- Cul-de-sac & lots base -->
-                <rect width="200" height="130" fill="#0B132B"/>
-                <path d="M 0,65 L 120,65 A 40,40 0 1,0 120,65" fill="#1C2541" stroke="#3A506B" stroke-width="20"/>
-                <circle cx="135" cy="65" r="28" fill="#1C2541"/>
-                <circle cx="135" cy="65" r="8" fill="#0B132B" stroke="#D97706" stroke-dasharray="2,2"/>
-                <!-- Lots / Roof footprints -->
-                <rect x="70" y="15" width="28" height="22" fill="#334155" rx="2"/>
-                <rect x="120" y="12" width="30" height="24" fill="#334155" rx="2"/>
-                <rect x="155" y="45" width="28" height="24" fill="#475569" stroke="#F59E0B" stroke-width="1" rx="2"/>
-                <text x="169" y="59" fill="#F59E0B" font-size="5" font-family="monospace" text-anchor="middle">#12054</text>
-                <rect x="125" y="92" width="28" height="24" fill="#334155" rx="2"/>
-                <rect x="75" y="92" width="26" height="22" fill="#334155" rx="2"/>
-                <!-- Young Saplings (tiny dots) -->
-                <circle cx="85" cy="48" r="2.5" fill="#D97706"/>
-                <circle cx="115" cy="46" r="2.5" fill="#D97706"/>
-                <circle cx="150" cy="40" r="2.5" fill="#D97706"/>
-                <circle cx="168" cy="80" r="2.5" fill="#D97706"/>
-                <circle cx="130" cy="82" r="2.5" fill="#D97706"/>
-                <circle cx="95" cy="80" r="2.5" fill="#D97706"/>
-              </svg>
-              <div class="aerial-hud-top">
-                <span class="hud-tag amber">USGS DOQ / NAPP</span>
-                <span class="hud-tag">1994–1998</span>
-              </div>
-              <div class="aerial-hud-bottom">
-                <span class="hud-coord">45.342°N, 122.590°W</span>
-                <span class="hud-src">Canopy: ~5.8%</span>
-              </div>
-            </div>
-
-            <div class="aerial-meta-box">
-              <div class="metric-row">
-                <span class="metric-name">Corridor Canopy:</span>
-                <span class="metric-val amber">5.8% (Saplings)</span>
-              </div>
-              <div class="metric-row">
-                <span class="metric-name">Frontage Shading:</span>
-                <span class="metric-val">Immature / Nil</span>
-              </div>
-              <div class="metric-row">
-                <span class="metric-name">Corridor NDVI:</span>
-                <span class="metric-val">0.182</span>
-              </div>
-              <div class="metric-row">
-                <span class="metric-name">Radiant Baseline:</span>
-                <span class="metric-val">+8.3°F to +12.3°F</span>
-              </div>
-            </div>
-            <p class="epoch-text" style="margin-top: 0.45rem;">
-              Newly paved cul-de-sac with narrow 4-ft planter strips. Mandatory 1.5" city nursery saplings planted without crown shade spread.
-            </p>
-          </div>
-
-          <!-- Epoch 2 -->
-          <div class="aerial-card epoch-2">
-            <div class="epoch-badge teal">EPOCH 2 • 2001–2008</div>
-            <div class="epoch-title" style="font-size: 0.92rem;">Maturation & Peak Canopy</div>
-            
-            <div class="aerial-viewport">
-              <img src="assets/aerial-epoch-2.jpg" alt="Epoch 2 Aerial View (2001–2008)" onerror="this.style.display='none'">
-              <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
-                <rect width="200" height="130" fill="#0B132B"/>
-                <path d="M 0,65 L 120,65 A 40,40 0 1,0 120,65" fill="#1C2541" stroke="#3A506B" stroke-width="20"/>
-                <circle cx="135" cy="65" r="28" fill="#1C2541"/>
-                <!-- Roofs -->
-                <rect x="70" y="15" width="28" height="22" fill="#334155" rx="2"/>
-                <rect x="120" y="12" width="30" height="24" fill="#334155" rx="2"/>
-                <rect x="155" y="45" width="28" height="24" fill="#475569" stroke="#14B8A6" stroke-width="1" rx="2"/>
-                <text x="169" y="59" fill="#14B8A6" font-size="5" font-family="monospace" text-anchor="middle">#12054</text>
-                <rect x="125" y="92" width="28" height="24" fill="#334155" rx="2"/>
-                <rect x="75" y="92" width="26" height="22" fill="#334155" rx="2"/>
-                <!-- Expanding Translucent Green Canopy Crowns -->
-                <circle cx="85" cy="46" r="14" fill="#059669" opacity="0.65"/>
-                <circle cx="118" cy="42" r="15" fill="#10B981" opacity="0.7"/>
-                <circle cx="148" cy="38" r="16" fill="#059669" opacity="0.75"/>
-                <circle cx="165" cy="46" r="13" fill="#10B981" opacity="0.7"/>
-                <circle cx="168" cy="80" r="15" fill="#059669" opacity="0.75"/>
-                <circle cx="135" cy="84" r="16" fill="#10B981" opacity="0.7"/>
-                <circle cx="98" cy="82" r="14" fill="#059669" opacity="0.65"/>
-                <!-- Road shaded corridor wash -->
-                <ellipse cx="135" cy="65" rx="24" ry="18" fill="#10B981" opacity="0.18"/>
-              </svg>
-              <div class="aerial-hud-top">
-                <span class="hud-tag teal">USDA NAIP / CIR</span>
-                <span class="hud-tag">2005–2007</span>
-              </div>
-              <div class="aerial-hud-bottom">
-                <span class="hud-coord">Leaf-On Summer</span>
-                <span class="hud-src">Canopy: ~41.2%</span>
-              </div>
-            </div>
-
-            <div class="aerial-meta-box">
-              <div class="metric-row">
-                <span class="metric-name">Corridor Canopy:</span>
-                <span class="metric-val teal">41.2% (Full Canopy)</span>
-              </div>
-              <div class="metric-row">
-                <span class="metric-name">Frontage Shading:</span>
-                <span class="metric-val teal">Continuous Overhang</span>
-              </div>
-              <div class="metric-row">
-                <span class="metric-name">Corridor NDVI:</span>
-                <span class="metric-val teal">0.485 (Vigorous)</span>
-              </div>
-              <div class="metric-row">
-                <span class="metric-name">Thermal Function:</span>
-                <span class="metric-val teal">Active Transpiration</span>
-              </div>
-            </div>
-            <p class="epoch-text" style="margin-top: 0.45rem;">
-              Expanding deciduous crowns heavily shade curbs, sidewalks, and driveways, dampening asphalt solar absorption during heatwaves.
-            </p>
-          </div>
-
-          <!-- Epoch 3 -->
-          <div class="aerial-card epoch-3">
-            <div class="epoch-badge purple">EPOCH 3 • 2009–2018</div>
-            <div class="epoch-title" style="font-size: 0.92rem;">Municipal Culling Wave</div>
-            
-            <div class="aerial-viewport">
-              <img src="assets/aerial-epoch-3.jpg" alt="Epoch 3 Aerial View (2009–2018)" onerror="this.style.display='none'">
-              <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
-                <rect width="200" height="130" fill="#0B132B"/>
-                <path d="M 0,65 L 120,65 A 40,40 0 1,0 120,65" fill="#1C2541" stroke="#3A506B" stroke-width="20"/>
-                <circle cx="135" cy="65" r="28" fill="#1C2541"/>
-                <rect x="70" y="15" width="28" height="22" fill="#334155" rx="2"/>
-                <rect x="120" y="12" width="30" height="24" fill="#334155" rx="2"/>
-                <rect x="155" y="45" width="28" height="24" fill="#475569" stroke="#A78BFA" stroke-width="1" rx="2"/>
-                <text x="169" y="59" fill="#A78BFA" font-size="5" font-family="monospace" text-anchor="middle">#12054</text>
-                <rect x="125" y="92" width="28" height="24" fill="#334155" rx="2"/>
-                <rect x="75" y="92" width="26" height="22" fill="#334155" rx="2"/>
-                <!-- Few Remaining Canopies -->
-                <circle cx="85" cy="46" r="13" fill="#059669" opacity="0.6"/>
-                <circle cx="125" cy="92" r="12" fill="#059669" opacity="0.5"/>
-                <!-- Eradication Marks (Red X and Stumps) -->
-                <!-- Tree 1 removed -->
-                <line x1="112" y1="36" x2="124" y2="48" stroke="#F43F5E" stroke-width="2.5"/>
-                <line x1="124" y1="36" x2="112" y2="48" stroke="#F43F5E" stroke-width="2.5"/>
-                <!-- Tree 2 removed at 12054 -->
-                <line x1="144" y1="32" x2="156" y2="44" stroke="#F43F5E" stroke-width="2.5"/>
-                <line x1="156" y1="32" x2="144" y2="44" stroke="#F43F5E" stroke-width="2.5"/>
-                <!-- Tree 3 removed -->
-                <line x1="162" y1="74" x2="174" y2="86" stroke="#F43F5E" stroke-width="2.5"/>
-                <line x1="174" y1="74" x2="162" y2="86" stroke="#F43F5E" stroke-width="2.5"/>
-                <!-- Concrete repair patch indicator -->
-                <rect x="142" y="50" width="8" height="14" fill="#94A3B8" opacity="0.4"/>
-              </svg>
-              <div class="aerial-hud-top">
-                <span class="hud-tag purple">NAIP / Google Earth</span>
-                <span class="hud-tag">2014–2016</span>
-              </div>
-              <div class="aerial-hud-bottom">
-                <span class="hud-coord">Title 12 Citations</span>
-                <span class="hud-src">Canopy: ~16.4%</span>
-              </div>
-            </div>
-
-            <div class="aerial-meta-box">
-              <div class="metric-row">
-                <span class="metric-name">Corridor Canopy:</span>
-                <span class="metric-val purple">16.4% (Severe Culling)</span>
-              </div>
-              <div class="metric-row">
-                <span class="metric-name">Frontage Shading:</span>
-                <span class="metric-val purple">Fragmented / Voids</span>
-              </div>
-              <div class="metric-row">
-                <span class="metric-name">Corridor NDVI:</span>
-                <span class="metric-val purple">0.276 (Collapsing)</span>
-              </div>
-              <div class="metric-row">
-                <span class="metric-name">Citations Cited:</span>
-                <span class="metric-val coral">167 Corridor Permits</span>
-              </div>
-            </div>
-            <p class="epoch-text" style="margin-top: 0.45rem;">
-              Title 12 sidewalk liability shifting triggers wave of tree fellings. Homeowners pour back concrete without canopy replanting to avoid fines.
-            </p>
-          </div>
-
-          <!-- Epoch 4 -->
-          <div class="aerial-card epoch-4">
-            <div class="epoch-badge coral">EPOCH 4 • 2019–2026</div>
-            <div class="epoch-title" style="font-size: 0.92rem;">Post-Clearance Barren Void</div>
-            
-            <div class="aerial-viewport">
-              <img src="assets/aerial-epoch-4.jpg" alt="Epoch 4 Aerial View (2019–2026)" onerror="this.style.display='none'">
-              <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
-                <rect width="200" height="130" fill="#0B132B"/>
-                <path d="M 0,65 L 120,65 A 40,40 0 1,0 120,65" fill="#1C2541" stroke="#3A506B" stroke-width="20"/>
-                <circle cx="135" cy="65" r="28" fill="#1C2541"/>
-                <!-- Radiant Heat Glow across Entire Cul-de-sac -->
-                <circle cx="135" cy="65" r="35" fill="none" stroke="#E11D48" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6"/>
-                <circle cx="135" cy="65" r="48" fill="none" stroke="#E11D48" stroke-width="1" stroke-dasharray="4,4" opacity="0.35"/>
-                <!-- Roofs with Heat Burdens -->
-                <rect x="70" y="15" width="28" height="22" fill="#4B1E2B" stroke="#E11D48" stroke-width="0.8" rx="2"/>
-                <rect x="120" y="12" width="30" height="24" fill="#4B1E2B" stroke="#E11D48" stroke-width="0.8" rx="2"/>
-                <!-- 12054 Target Roof with extreme thermal loading -->
-                <rect x="155" y="45" width="28" height="24" fill="#5C1D24" stroke="#F43F5E" stroke-width="1.5" rx="2"/>
-                <circle cx="169" cy="57" r="10" fill="#E11D48" opacity="0.35"/>
-                <text x="169" y="55" fill="#FFFFFF" font-size="5" font-weight="bold" font-family="monospace" text-anchor="middle">122.59°F</text>
-                <text x="169" y="63" fill="#FB7185" font-size="4" font-family="monospace" text-anchor="middle">#12054</text>
-                <rect x="125" y="92" width="28" height="24" fill="#4B1E2B" stroke="#E11D48" stroke-width="0.8" rx="2"/>
-                <rect x="75" y="92" width="26" height="22" fill="#4B1E2B" stroke="#E11D48" stroke-width="0.8" rx="2"/>
-                <!-- Zero street canopy, bare sidewalk ribbons -->
-                <path d="M 0,55 L 115,55" stroke="#64748B" stroke-width="1" stroke-dasharray="2,2"/>
-                <path d="M 0,75 L 115,75" stroke="#64748B" stroke-width="1" stroke-dasharray="2,2"/>
-              </svg>
-              <div class="aerial-hud-top">
-                <span class="hud-tag coral">NAIP / GMP Solar API</span>
-                <span class="hud-tag danger">2022–2024</span>
-              </div>
-              <div class="aerial-hud-bottom">
-                <span class="hud-coord">Peak 122.59°F LST</span>
-                <span class="hud-src">Canopy: &lt;2.5%</span>
-              </div>
-            </div>
-
-            <div class="aerial-meta-box">
-              <div class="metric-row">
-                <span class="metric-name">Corridor Canopy:</span>
-                <span class="metric-val coral">&lt;2.5% (Barren Void)</span>
-              </div>
-              <div class="metric-row">
-                <span class="metric-name">Frontage Shading:</span>
-                <span class="metric-val coral">Zero / Full Exposure</span>
-              </div>
-              <div class="metric-row">
-                <span class="metric-name">Corridor NDVI:</span>
-                <span class="metric-val coral">0.115 (Collapsed)</span>
-              </div>
-              <div class="metric-row highlight">
-                <span class="metric-name">Surface Temp Peak:</span>
-                <span class="metric-val coral font-bold">122.59°F (Solar Trap)</span>
-              </div>
-            </div>
-            <p class="epoch-text" style="margin-top: 0.45rem;">
-              Complete elimination of continuous street canopy. Unshaded dark asphalt roadbed and roofing act as thermal heat sinks, maximizing solar flux.
-            </p>
-          </div>
-
-        </div>
-
-        <div class="note-box" style="margin-top: 0.85rem;">
-          <strong class="coral">Photogrammetric Evidentiary Nexus (FRE / OEC 702):</strong> Multi-decadal orthoimagery corroborates the Landsat surface temperature record. The physical eradication of mature shade trees along Chapin Court directly tracks the 11°F–13°F thermal excess and 122.59°F surface temperature peak, verifying that the extreme microclimate at 12054 Chapin Court is an artificial consequence of municipal Title 12 enforcement.
-        </div>
-
-      </div>
-    </div>
-    
-
-    <div class="slide" id="slide-15" data-notes="The evidentiary architecture links municipal policy directly to environmental outcome: First, the City mandated street trees in narrow planter strips at subdivision approval. Second, the City shifted sidewalk repair liability onto abutting owners under threat of $300 daily fines. Third, homeowners removed mature trees without shade replacement, collapsing canopy to 0.115 NDVI. Fourth, this unbuffered hardscape produced an average 11 to 13 degree surface temperature elevation.">
+    <div class="slide" id="slide-14" data-notes="The evidentiary architecture links municipal policy directly to environmental outcome: First, the City mandated street trees in narrow planter strips at subdivision approval. Second, the City shifted sidewalk repair liability onto abutting owners under threat of $300 daily fines. Third, homeowners removed mature trees without shade replacement, collapsing canopy to 0.115 NDVI. Fourth, this unbuffered hardscape produced an average 11 to 13 degree surface temperature elevation.">
       <div class="slide-badge">EVIDENTIARY ARCHITECTURE</div>
       <div class="slide-title">Evidentiary Architecture & Causal Linkage</div>
       <div class="slide-subtitle">Municipal Approval Mandate → Title 12 Cost-Shifting → Canopy Loss → Thermal Amplification</div>
@@ -2179,10 +1773,76 @@
     </div>
     
 
-    <div class="slide" id="slide-16" data-notes="Under the Cycle 1 Litigation Readiness Review, this assessment is structured to comply with Federal Rule of Evidence 702 and Oregon Evidence Code 702. It grounds all observations in calibrated USGS Landsat Level-2 products, elevation-matched controls, transparent reporting of small-sample statistical power, and authenticated municipal court records.">
+    <div class="slide" id="slide-15" data-notes="Slide 15 synthesizes the November 1, 2026 AQI 91 screenshot with the Cycle 2 and Cycle 3 technical audits. At the attributed 08:45 PST timestamp on November 1, 2026, the screenshot displays US AQI 91 over Oregon City, while coarse 0.4-degree CAMS global forecasts via Open-Meteo model Oregon City at AQI 79 and PM2.5 of 23.15 micrograms per cubic meter under shallow boundary-layer and weak-wind conditions. On the thermal side, Cycles 2 and 3 verified 100 percent of center-pixel temperatures within 0.005 degrees, confirmed all 324 3-by-3 buffer pixels passed QA with positive thermal excess on all 12 dates, and identified that the published ambient column closely matches Open-Meteo best-match local-day maximums within 0.1 degrees.">
+      <div class="slide-badge">CONTEMPORANEOUS AQI & CYCLES 2–3 AUDIT • NOV 1–2, 2026</div>
+      <div class="slide-title">Elevated AQI Observation & Cycles 2–3 Audit</div>
+      <div class="slide-subtitle">Nov 1, 2026 Oregon City AQI 91 screenshot paired with CAMS model check, weather provenance, and 3×3 buffer audit</div>
+      <div class="slide-body">
+        
+        <div class="grid-2col" style="align-items: stretch;">
+          <div class="card-item" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="card-label">CONTEMPORANEOUS SCREENSHOT &amp; CAMS CHECK (NOV 1, 2026 · 08:45 PST)</div>
+              <div class="metric-row">
+                <span class="metric-name">Screenshot Display (My Location):</span>
+                <span class="metric-val amber font-bold">US AQI 91 (Moderate · USG starts at 101)</span>
+              </div>
+              <div class="metric-row">
+                <span class="metric-name">CAMS Global Forecast (16:45 UTC / 08:45 PST):</span>
+                <span class="metric-val teal">AQI 79 · PM2.5 23.15 &mu;g/m&sup3; · BLH 151 m</span>
+              </div>
+              <p class="body-text" style="font-size: 0.78rem; margin-top: 0.45rem; line-height: 1.45;">
+                Screenshot shows a yellow feature (<strong>AQI 91</strong>) over Oregon City with green surroundings at map scale. Coarse (<code>~0.4&deg;</code>) CAMS forecast models Oregon City at <strong>AQI 79</strong> (<code>+15.75 AQI</code> above 5-city valley median, though McMinnville is 83 and Newberg 79 in coarse forecast; ERA5 reanalysis pending latency).
+              </p>
+            </div>
+            <div style="margin-top: 0.6rem; text-align: center; background: #070B12; border: 1px solid var(--amber-border); border-radius: 8px; padding: 0.45rem;">
+              <img src="assets/microclimate/2026-11-01_0845_Oregon_City_Elevated_AQI_91_Pocket.png"
+                   onerror="this.onerror=null;this.src='aqi_observations/2026-11-01_0845_Oregon_City_Elevated_AQI_91_Pocket.png';"
+                   alt="November 1, 2026 08:45 AM Oregon City Elevated AQI 91 Pocket"
+                   style="max-height: 215px; max-width: 100%; object-fit: contain; border-radius: 6px;" />
+            </div>
+          </div>
+          <div class="card-item">
+            <div class="card-label">CYCLES 2 &amp; 3 MULTI-STAGE AUDIT SUMMARY</div>
+            <div class="metric-row">
+              <span class="metric-name">Gate 1A Center LST &amp; Excess (12/12):</span>
+              <span class="metric-val teal font-bold">&le; 0.005&deg;F (0.000&deg;F Cycle 3 Re-check)</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-name">Gate 1B Published Ambient vs <code>best_match</code> Max:</span>
+              <span class="metric-val teal font-bold">MAE 0.058&deg;F (All 12 Dates &le; 0.1&deg;F)</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-name">Gate 1B Exact Overpass ERA5-Land 2m Air:</span>
+              <span class="metric-val amber">64.9&deg;F–92.2&deg;F (Mean &minus;9.44&deg;F vs Max)</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-name">3&times;3 Buffer (90m&times;90m · 324/324 Clear):</span>
+              <span class="metric-val teal">Mean +10.48&deg;F / +12.08&deg;F (12/12 &gt; 0)</span>
+            </div>
+            <div class="metric-row highlight">
+              <span class="metric-name">3&times;3 Median Excess (&lt;90&deg;F vs &ge;90&deg;F):</span>
+              <span class="metric-val amber">+10.98&deg;F vs +12.71&deg;F (12/12 &gt; 0)</span>
+            </div>
+            <ul class="bullet-list" style="margin-top: 0.65rem; font-size: 0.78rem; gap: 0.4rem;">
+              <li>
+                <strong>Control Offset &amp; Tier Disclosure:</strong> Centered 3&times;3 buffering does not explain the 9/12 single-control offsets; exact point-sample control values and 2010 Tier 2 (<code>T2</code>) status are transparently reported.
+              </li>
+              <li>
+                <strong>Evidentiary Boundary:</strong> Cool-season particulate accumulation and summer surface heating are documented as distinct observations without overclaiming common tree-removal causation or verified inversion profiles.
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+
+    <div class="slide" id="slide-16" data-notes="Across Cycles 1, 2, and 3 of the Litigation Readiness Review, this assessment is structured to comply with Federal Rule of Evidence 702 and Oregon Evidence Code 702. It grounds all thermal observations in raw USGS Landsat Level-2 rasters verified at both center pixels and 3-by-3 windows, reconciles daily-high versus overpass-hour weather series, and transparently reports small-sample uncertainty and model resolution limits.">
       <div class="slide-badge">LITIGATION SCRUTINY</div>
       <div class="slide-title">Litigation Scrutiny & FRE / OEC 702 Compliance</div>
-      <div class="slide-subtitle">Rigorous evidentiary standards under the Cycle 1 Litigation Readiness Review</div>
+      <div class="slide-subtitle">Rigorous evidentiary standards across Cycles 1, 2, & 3 Litigation Readiness Reviews</div>
       <div class="slide-body">
         
         <div class="grid-2col">
@@ -2190,13 +1850,13 @@
             <div class="card-label">FRE 702 / OEC 702 FOUNDATION</div>
             <ul class="bullet-list">
               <li>
-                <strong>Calibrated Radiometry:</strong> Relies exclusively on calibrated USGS Landsat Collection 2 Level-2 Surface Temperature products (30m grid resampled from native 60–120m thermal sensors).
+                <strong>Verified Raw Radiometry &amp; 3&times;3 Buffers (Cycles 2–3):</strong> All 12 USGS Collection 2 Level-2 scenes, CSV/STAC UTC timestamps (<code>18:14–18:56 UTC</code>), 36 center pixels, and 324 <code>3&times;3</code> window pixels independently verified.
               </li>
               <li>
-                <strong>Matched-Elevation Controls:</strong> Controls selected within the same municipal boundary and elevation band (~443–475 ft ASL), isolating macro atmospheric air masses.
+                <strong>Weather Provenance Transparency (Cycle 3):</strong> Distinguishes published daily-high-like ambient temperatures (matching <code>best_match</code> local-day max, <code>MAE = 0.058&deg;F</code>) from exact overpass-hour 2m air temperatures (<code>&minus;9.44&deg;F</code> mean difference).
               </li>
               <li>
-                <strong>Transparent Small-Sample Power:</strong> Explicitly reports small-sample statistics (Welch p ≈ 0.265, slope CI [-0.046, +0.317]) to prevent cross-examination impeachment.
+                <strong>Transparent Small-Sample &amp; Model Limits:</strong> Reports small-sample statistics (Welch <code>p = 0.26605</code>, slope CI <code>[-0.046, +0.317]</code>), single-control offset checks, and coarse CAMS (<code>~0.4&deg;</code>) vs. screenshot AQI differences.
               </li>
               <li>
                 <strong>Authenticated Municipal Records:</strong> Corroborated by Clackamas County Municipal Court dockets CE-000520-19 and CE-000554-20 and recorded county liens.
@@ -2204,25 +1864,29 @@
             </ul>
           </div>
           <div class="card-item">
-            <div class="card-label">CYCLE 1 LITIGATION READINESS GATES</div>
+            <div class="card-label">LITIGATION READINESS GATES (CYCLES 1–3 COMPLETE)</div>
             <div class="metric-row">
-              <span class="metric-name">Gate 1: Sensor & Weather Reproduction</span>
-              <span class="metric-val teal">USGS Level-2 & ERA5-Land Verified</span>
+              <span class="metric-name">Gate 1A: Satellite Center &amp; 3&times;3 Raster Audit</span>
+              <span class="metric-val teal">COMPLETE (324/324 Pixels Clear)</span>
             </div>
             <div class="metric-row">
-              <span class="metric-name">Gate 2: Geocoded Permit Ledger</span>
-              <span class="metric-val amber">167 Corridor Permits Mapped</span>
+              <span class="metric-name">Gate 1B: Weather Provenance &amp; UTC Pairing</span>
+              <span class="metric-val teal">COMPLETE (Daily Max &amp; Overpass 2m)</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-name">Gate 2: Geocoded Permit &amp; Canopy Ledger</span>
+              <span class="metric-val amber">In Progress (Parcel Orthophotos)</span>
             </div>
             <div class="metric-row">
               <span class="metric-name">Gate 3: Causal DiD Specification</span>
-              <span class="metric-val teal">Parcel-Level Staggered Design</span>
+              <span class="metric-val amber">Staggered Parcel-Level Design</span>
             </div>
             <div class="metric-row">
-              <span class="metric-name">Gate 4: Formal Expert & Counsel Review</span>
-              <span class="metric-val coral">In Progress (Cycle 1 Audit Complete)</span>
+              <span class="metric-name">Gate 4: AQI Model Check &amp; ERA5 Post-Latency</span>
+              <span class="metric-val teal">CAMS Audited (ERA5 Re-pull Pending)</span>
             </div>
             <p class="body-text" style="margin-top: 0.75rem;">
-              Meets standards under Federal Rule of Evidence 702 and Oregon Evidence Code 702 (ORS 40.410).
+              Structured for evidentiary transparency under Federal Rule of Evidence 702 and Oregon Evidence Code 702 (ORS 40.410).
             </p>
           </div>
         </div>
@@ -2231,30 +1895,30 @@
     </div>
     
 
-    <div class="slide" id="slide-17" data-notes="Our findings are grounded in primary federal and municipal data sources: the USGS EROS Landsat Level-2 Science Product Guide, ECMWF Open-Meteo ERA5-Land hourly atmospheric reanalysis, Oregon City Municipal Code Chapters 1.20, 1.24, and Title 12, Municipal Court dockets CE-000520-19 and CE-000554-20, and the Cycle 1 Litigation Readiness Review.">
+    <div class="slide" id="slide-17" data-notes="Our findings are grounded in primary federal and municipal data sources: the USGS EROS Landsat Level-2 Science Product Guide, the Cycle 2 Planetary Computer STAC raster audit package, ECMWF Open-Meteo ERA5-Land hourly atmospheric reanalysis, the November 1, 2026 Oregon City AQI 91 observation, and Oregon City Municipal Court dockets CE-000520-19 and CE-000554-20.">
       <div class="slide-badge">PRIMARY SOURCES</div>
       <div class="slide-title">Primary Sources & References</div>
-      <div class="slide-subtitle">Federal remote-sensing documentation, reanalysis baselines, and municipal permit registers</div>
+      <div class="slide-subtitle">Federal remote-sensing documentation, STAC raster audit packages, AQI observations, and municipal records</div>
       <div class="slide-body">
         
         <div class="grid-2col">
           <div class="card-item">
             <div class="card-label">PRIMARY DATA ARCHIVES</div>
-            <ul class="bullet-list" style="font-size: 0.85rem;">
+            <ul class="bullet-list" style="font-size: 0.84rem;">
               <li>
-                <strong>USGS EROS Center:</strong> Landsat Collection 2 Level-2 Surface Temperature Science Product Guide (2020). Calibration: <code>T<sub>K</sub> = DN &times; 0.00341802 + 149.0 K</code>.
+                <strong>USGS EROS &amp; Planetary Computer STAC:</strong> Landsat Collection 2 Level-2 Surface Temperature (<code>landsat-c2-l2</code>). Scaling: <code>T<sub>K</sub> = DN &times; 0.00341802 + 149.0 K</code>. Verified in <code>microclimate_audit/</code> (Oct 28, 2026).
               </li>
               <li>
                 <strong>Open-Meteo / ECMWF:</strong> ERA5-Land Hourly Surface Temperature Reanalysis Baselines, Oregon City Coordinates (45.33° N, -122.61° W).
               </li>
               <li>
-                <strong>Oregon City Municipal Court:</strong> Case CE-000520-19 ($72,000 judgment; Clackamas County Doc. 2019-079244) and Case CE-000554-20 ($14,601 judgment & lien; Doc. 2021-006197).
+                <strong>Contemporaneous Air Quality Archive:</strong> Regional US AQI Monitoring Snapshot (<code>2026-11-01_0845_Oregon_City_Elevated_AQI_91_Pocket.png</code>, Nov 1, 2026, 08:45 PST, US AQI 91 over Oregon City).
               </li>
               <li>
-                <strong>Oregon City Municipal Code:</strong> Title 12: Streets & Sidewalks (12.04.030) and Enforcement Chapters 1.20, 1.24, 8.08, 8.20, 8.28.
+                <strong>Oregon City Municipal Court:</strong> Case CE-000520-19 ($72,000 judgment; Clackamas County Doc. 2019-079244) and Case CE-000554-20 ($14,601 judgment &amp; lien; Doc. 2021-006197).
               </li>
               <li>
-                <strong>Legal Standards:</strong> Federal Rule of Evidence 702 and Oregon Evidence Code 702 (ORS 40.410).
+                <strong>Legal &amp; Evidentiary Standards:</strong> Federal Rule of Evidence 702 and Oregon Evidence Code 702 (ORS 40.410).
               </li>
             </ul>
           </div>
@@ -2264,10 +1928,11 @@
               <span class="mono-badge">Subject: 12054 Chapin Court</span>
               <span class="mono-badge">Jurisdiction: Oregon City, OR</span>
               <span class="mono-badge">Subdivision: Tower Vista</span>
-              <span class="mono-badge">Overpass Span: 1994–2024</span>
+              <span class="mono-badge">Landsat Span: 1994–2024</span>
+              <span class="mono-badge amber">AQI Supplement: 2026-11-01</span>
             </div>
             <p class="body-text" style="font-size: 0.85rem; line-height: 1.55;">
-              Technical report compiled from verified public records, peer-reviewed federal satellite observations, and gridded atmospheric reanalyses. Structured in accordance with the Cycle 1 Litigation Readiness Review.
+              Technical report compiled from verified public records, raw USGS Collection 2 Level-2 satellite rasters, gridded atmospheric reanalyses, and contemporaneous air-quality observations. Updated November 1, 2026 with Cycle 2 STAC raster audit and AQI 91 pocket documentation.
             </p>
             <div style="margin-top: 1rem;">
               <a href="index.html" class="back-link">&larr; Return to Executive Function OS Hub</a>
@@ -2283,7 +1948,7 @@
     <!-- Footer Bar -->
     <div class="deck-footer">
       <div class="slide-counter">
-        <span id="current-slide-num">1</span> / <span id="total-slide-num">17</span>
+        <span id="current-slide-num">1</span> / <span id="total-slide-num">16</span>
       </div>
       <div class="footer-actions">
         <button class="nav-btn" id="prev-btn" disabled>&larr; Previous</button>
