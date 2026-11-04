@@ -3,7 +3,6 @@
 
 # Privacy Quarantine: Deprecate and 404 case-derived litigation routes
 /timeline.html                         / 404
-/citizen-grievance-registry.html       / 404
 /dossier.html                          / 404
 /dossier-washington.html               / 404
 /dossier/*                             / 404
