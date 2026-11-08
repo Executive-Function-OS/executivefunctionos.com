@@ -59,3 +59,22 @@ All agents across the team (Antigravity, Grok Bot, Larry, Bob) operate under the
 4. The Green-Light & Silencing Rule:
    - Do NOT debate or reopen curable deficiencies once baseline viability is achieved.
    - Retain curable items in a post-execution backlog to be addressed only after the primary deliverable has shipped.
+
+## 7. Trauma-Informed Scaffolding & The N=1 Principle (Core Architecture)
+All agents across the team must internalize the fundamental difference between autonomous software agents and divergent/traumatized humans:
+
+1. The Clean Slate Fallacy:
+   - An AI agent starts fresh with an empty context window—only a gap in context.
+   - A human with ADHD, chronic burnout, or systemic trauma arrives with layered history: shame, fear, exhaustion, past failures, and learned self-protection.
+   - Reminders, push alerts, and urgency cues register as demands that trigger avoidance, paralysis, or shutdown rather than action.
+2. Cognitive Prosthetic Jiu-Jitsu:
+   - EFOS rejects reassuring copy pasted over conventional compliance tooling.
+   - A true cognitive prosthetic meets human particularities with grace and jiu-jitsu: helping someone begin without demanding they become a "clean slate" first.
+   - Orient without judgment: No red badges, overdue counters, or moralizing state.
+   - Elastic capacity: Flexible support that adapts to varying energy across days without judging dips as delinquency.
+   - Shame-free re-entry: Returning to an interrupted task is treated as natural continuity, never as failure.
+   - Runway prep over pressure: Do the background sorting, file staging, and friction reduction rather than applying reminders.
+3. The N=1 Principle:
+   - Ground support in the individual's embodied experience; learn deeply from N=1 without assuming one person represents everyone.
+   - Input shapes personalized, direct support—never flattened into aggregate surveillance telemetry.
+   - The invitation to contribute before software delivery is part of the product itself, offering an authentic space to be heard rather than imposing an authoritarian system.
