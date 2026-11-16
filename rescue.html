@@ -122,8 +122,7 @@ footer{padding:2.5rem 0;border-top:1px solid var(--line);color:var(--muted);font
       <h2 style="margin-top:0">Request Document Rescue</h2>
       <p style="color:var(--muted);margin-bottom:1.5rem">Submit your document details below. We will review the formatting requirements and send you a secure payment link and formatted proof.</p>
 
-      <form action="/rescue.html" class="rescue-form" data-netlify="true" name="court-rescue" method="POST" enctype="multipart/form-data" netlify-honeypot="_gotcha">
-        <input type="hidden" name="form-name" value="court-rescue">
+      <form action="/api/rescue" class="rescue-form" name="court-rescue" method="POST" enctype="multipart/form-data">
         <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="grid-2">
@@ -164,7 +163,7 @@ footer{padding:2.5rem 0;border-top:1px solid var(--line);color:var(--muted);font
         </div>
 
         <div class="field">
-          <label for="file">Attach Document or Excerpt <span style="font-size:.85rem;color:var(--muted)">(PDF, DOCX, TXT up to 10MB)</span></label>
+          <label for="file">Attach Document or Excerpt <span style="font-size:.85rem;color:var(--muted)">(PDF, DOCX, TXT up to 4MB)</span></label>
           <input id="file" name="attachment" type="file" accept=".pdf,.docx,.doc,.txt,.rtf">
         </div>
 
@@ -190,29 +189,40 @@ footer{padding:2.5rem 0;border-top:1px solid var(--line);color:var(--muted);font
   form.addEventListener('submit', function(e){
     if(!window.fetch || !window.FormData) return;
     e.preventDefault();
+    var fileInput = form.querySelector('input[type="file"]');
+    var status = form.querySelector('.status');
+    if(fileInput && fileInput.files && fileInput.files[0] && fileInput.files[0].size > 4 * 1024 * 1024){
+      status.hidden = false;
+      status.className = 'status error';
+      status.textContent = 'Attachment exceeds the 4 MB limit. Please attach a smaller excerpt or submit without the file and we will send an upload link.';
+      return;
+    }
     var btn = form.querySelector('button[type="submit"]');
     var originalText = btn.textContent;
     btn.disabled = true;
     btn.textContent = 'Submitting...';
 
     var fd = new FormData(form);
-    fetch(form.getAttribute('action') || '/rescue.html', {
+    fetch(form.getAttribute('action') || '/api/rescue', {
       method: 'POST',
+      headers: { 'Accept': 'application/json' },
       body: fd
     }).then(function(res){
-      if(!res.ok) throw new Error('Submission failed');
-      var status = form.querySelector('.status');
+      return res.json().catch(function(){ return {}; }).then(function(data){
+        if(!res.ok) throw new Error(data.message || 'Submission failed');
+        return data;
+      });
+    }).then(function(data){
       status.hidden = false;
       status.className = 'status success';
-      status.textContent = 'Thank you! Your document rescue request has been received. We will review your files and email you shortly.';
+      status.textContent = data.message || 'Thank you! Your document rescue request has been received. We will review your files and email you shortly.';
       btn.textContent = 'Submitted Successfully';
     }).catch(function(err){
       btn.disabled = false;
       btn.textContent = originalText;
-      var status = form.querySelector('.status');
       status.hidden = false;
       status.className = 'status error';
-      status.textContent = 'Something went wrong submitting your request. Please email us directly or try again.';
+      status.textContent = (err && err.message && err.message !== 'Submission failed') ? err.message : 'Something went wrong submitting your request. Please try again.';
     });
   });
 })();

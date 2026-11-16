@@ -163,8 +163,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
       <p class="lede">EFOS is executive function software built around the Work-to-Rhythm Loop: bring the right context into view, pick a useful next step, and revisit the plan as things change.</p>
 
       <!-- ============ WAITLIST FORM #1 ============ -->
-      <form action='/' class='waitlist' data-waitlist id='waitlist' method='POST' name='waitlist' data-netlify='true' netlify-honeypot='_gotcha'>
-        <input type="hidden" name="form-name" value="waitlist">
+      <form action='/api/waitlist' class='waitlist' data-waitlist id='waitlist' method='POST' name='waitlist'>
         <div class="row">
           <div class="field grow">
             <label for="email-1">Email address</label>
@@ -277,8 +276,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
     <h2 id="join">Be one of the first to try a calmer rhythm</h2>
     <p class="lede">Join the waitlist for early access and early pricing. We'll write when there's something real to show.</p>
     <!-- ============ WAITLIST FORM #2 ============ -->
-    <form action='/' class='waitlist' data-waitlist method='POST' name='waitlist' data-netlify='true' netlify-honeypot='_gotcha'>
-        <input type="hidden" name="form-name" value="waitlist">
+    <form action='/api/waitlist' class='waitlist' data-waitlist method='POST' name='waitlist'>
       <div class="field">
         <label for="email-2">Email address</label>
         <input id="email-2" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="you@example.com">
@@ -308,27 +306,36 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
 <script>
 /* Waitlist progressive enhancement.
    The form endpoint is the `action` attribute on each <form data-waitlist>
-   Handled by Netlify Forms (data-netlify). Without JS the form posts normally. */
+   Handled by /api/waitlist. Without JS the form posts normally. */
 (function(){
   document.getElementById('yr').textContent = new Date().getFullYear();
   var forms = document.querySelectorAll('form[data-waitlist]');
   Array.prototype.forEach.call(forms, function(form){
     form.addEventListener('submit', function(e){
-      var action = form.getAttribute('action');
+      var action = form.getAttribute('action') || '/api/waitlist';
       if (!window.fetch || !window.URLSearchParams) return;
       e.preventDefault();
       var btn = form.querySelector('button[type=submit]');
       var label = btn.textContent;
       btn.disabled = true; btn.textContent = 'Sending\u2026';
-      fetch('/', {method:'POST', body:new URLSearchParams(new FormData(form)).toString(), headers:{'Content-Type':'application/x-www-form-urlencoded'}})
+      fetch(action, {
+        method:'POST',
+        body:new URLSearchParams(new FormData(form)).toString(),
+        headers:{'Content-Type':'application/x-www-form-urlencoded','Accept':'application/json'}
+      })
         .then(function(r){
-          if (!r.ok) throw new Error('bad status');
-          Array.prototype.forEach.call(form.children, function(c){ if(!c.classList.contains('status')) c.hidden = true; });
-          show(form, 'Thank you. You\u2019re on the list. We\u2019ll email you when early access opens.', false);
+          return r.json().catch(function(){ return {}; }).then(function(data){
+            if (!r.ok) throw new Error(data.message || 'bad status');
+            return data;
+          });
         })
-        .catch(function(){
+        .then(function(data){
+          Array.prototype.forEach.call(form.children, function(c){ if(!c.classList.contains('status')) c.hidden = true; });
+          show(form, data.message || 'Thank you. You\u2019re on the list. We\u2019ll email you when early access opens.', false);
+        })
+        .catch(function(err){
           btn.disabled = false; btn.textContent = label;
-          show(form, 'Something went wrong sending that. Please try again in a moment.', true);
+          show(form, (err && err.message && err.message !== 'bad status') ? err.message : 'Something went wrong sending that. Please try again in a moment.', true);
         });
     });
   });

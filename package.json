@@ -14,5 +14,9 @@
     "provenance"
   ],
   "author": "Annika Eriksson",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "busboy": "^1.6.0",
+    "nodemailer": "^10.6.0"
+  }
 }
