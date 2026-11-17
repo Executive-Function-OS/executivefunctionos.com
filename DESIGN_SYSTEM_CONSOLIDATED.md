@@ -51,3 +51,12 @@ Unified specification harmonizing the public Work-to-Rhythm landing page (warm p
 
 * All asset imports (CSS, SVGs, favicon, marks) must use strictly relative paths (`./favicon.svg`, `assets/...`) with zero absolute local filesystem references (`file:///home/annika/...`).
 * The design system is fully reversible and isolated in git branch `feat/unified-design-system`.
+
+## 5. Permanent AI-Safe Static HTML Architecture Rule
+
+All public research, governance, forensic, and legal compendia (including `oregon-city-accountability-research.html`, `dlcd-division47-rulemaking.html`, `retrospective-justice-foreclosure-forensics.html`, `citizen-grievance-registry.html`, `privity-paradox.html`, and related public nodes) must be authored as pure static HTML:
+* **Initial HTML Body Completeness**: All core content, tables, evidence classifications, quotes, citations, and findings must be directly present in the initial HTML body with zero dependency on client-side JavaScript.
+* **Semantic Elements & Real Tables**: Tabular data, evidence registries, and dockets must use real HTML tables (`<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>`, `<caption>`). Structure must use semantic elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<blockquote>`, `<q>`, `<h1>`–`<h6>`, `<code>`).
+* **Zero Client-Rendered Frameworks**: Do not introduce React, Vue, Svelte, Angular, or client-rendered hydration.
+* **Simple Fetch Legibility**: The document must be 100% complete and legible to simple fetch tools (`curl`, Python `urllib`, `wget`, `lynx`) and AI crawlers with no JavaScript execution engine.
+* **Progressive Enhancement**: Any script must be strictly non-essential progressive enhancement (such as clipboard copy helpers) that degrades completely without obscuring any content.

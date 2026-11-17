@@ -78,3 +78,12 @@ All agents across the team must internalize the fundamental difference between a
    - Ground support in the individual's embodied experience; learn deeply from N=1 without assuming one person represents everyone.
    - Input shapes personalized, direct support—never flattened into aggregate surveillance telemetry.
    - The invitation to contribute before software delivery is part of the product itself, offering an authentic space to be heard rather than imposing an authoritarian system.
+
+## 8. Permanent AI-Safe Static HTML Architecture Rule (Core Requirement)
+All public accountability research pages, governance compendia, legal repositories, and related public-facing documentary surfaces (including `oregon-city-accountability-research.html`, `dlcd-division47-rulemaking.html`, `retrospective-justice-foreclosure-forensics.html`, `citizen-grievance-registry.html`, `privity-paradox.html`, and related public nodes) MUST be pure static HTML:
+
+1. **Initial Body Completeness**: All core content, tables, evidence classifications, quotes, citations, and findings must be directly present in the initial HTML body as delivered by the server or filesystem. No core content may be injected or rendered via client-side JavaScript.
+2. **Semantic HTML & Real Tables**: Tabular data, evidence registries, and dockets must use real HTML tables (`<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>`, `<caption>`). Sections, headings, quotes, and callouts must use semantic tags (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<blockquote>`, `<q>`, `<h1>`–`<h6>`, `<code>`).
+3. **No Client-Rendered Frameworks**: Never introduce React, Vue, Svelte, Angular, Next.js client hydration, or any client-side JavaScript rendering engine for these pages.
+4. **Zero JS Dependency for Legibility**: The complete document must be 100% legible, structured, and auditable by simple fetch tools, text browsers (`curl`, `urllib`, `wget`, `lynx`, `w3m`), and non-JavaScript-executing AI web-crawlers and legal research crawlers.
+5. **Strict Progressive Enhancement Only**: Any scripts included on these pages must be strictly non-essential progressive enhancements (such as `navigator.clipboard.writeText` copy-to-clipboard helpers) that leave all content fully intact and readable when JavaScript is completely disabled.
