@@ -1,0 +1,21 @@
+name: Usability Audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  usability-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install audit tooling
+        run: npm install --no-save jsdom axe-core
+      - name: Audit static pages (axe-core + link integrity)
+        run: node scripts/usability_audit.mjs index.html rescue.html store.html lab.html citizen-grievance-registry.html cognitive_fragmentation_lab.html schema_canvas.html buttons.html

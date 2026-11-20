@@ -144,7 +144,7 @@
                 </div>
 
                 <div class="space-y-2">
-                    <input type="range" id="deadline-range" min="1" max="72" value="36" oninput="onSliderChange(this.value)" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer">
+                    <input type="range" id="deadline-range" aria-label="Hours until deadline" min="1" max="72" value="36" oninput="onSliderChange(this.value)" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer">
                     <div class="flex justify-between text-[10px] font-mono text-slate-500">
                         <span>T-1h (Subcritical Shatter)</span>
                         <span>T-12h (Critical Boundary)</span>
@@ -277,7 +277,7 @@
         <!-- TAB 3: INGEST -->
         <div id="tab-ingest" class="space-y-4 max-w-4xl mx-auto hidden">
             <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
-                <h3 class="font-bold text-white text-base">Paste Google Takeout / Drive Activity JSON</h3>
+                <h2 class="font-bold text-white text-base">Paste Google Takeout / Drive Activity JSON</h2>
                 <p class="text-xs text-slate-400">
                     All extraction and calculations happen 100% locally in your browser session. Zero data exfiltration.
                 </p>
