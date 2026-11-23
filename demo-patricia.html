@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Calm Companion — Simplified Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef2f4;
+  --card:#ffffff;
+  --ink:#1f2a33;
+  --soft:#4d5b66;
+  --line:#b9c6ce;
+  --accent:#1f6f78;
+  --on:#ffffff;
+  --wait:#f3e7c9;
+  --ok:#d7ede0;
+  --fs:20px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#161c20;
+    --card:#202830;
+    --ink:#e8eef1;
+    --soft:#a9b8c1;
+    --line:#3b4852;
+    --accent:#6cc3cc;
+    --on:#102024;
+    --wait:#3a3322;
+    --ok:#1f3a2b;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161c20;
+  --card:#202830;
+  --ink:#e8eef1;
+  --soft:#a9b8c1;
+  --line:#3b4852;
+  --accent:#6cc3cc;
+  --on:#102024;
+  --wait:#3a3322;
+  --ok:#1f3a2b;
+}
+*,*::before,*::after{box-sizing:inherit;animation:none!important;transition:none!important}
+html,body{height:100%;margin:0}
+body{
+  display:flex;
+  flex-direction:column;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-size:var(--fs);
+  line-height:1.55;
+}
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 14px;
+  background:var(--card);
+  border-bottom:2px solid var(--line);
+}
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  width:100%;
+  max-width:34rem;
+  margin:0 auto;
+}
+.top-btn{
+  min-height:48px;
+  padding:8px 14px;
+  font:inherit;
+  font-size:.9rem;
+  font-weight:700;
+  color:var(--ink);
+  background:var(--bg);
+  border:2px solid var(--line);
+  border-radius:12px;
+  cursor:pointer;
+}
+.top-btn.active{
+  border-color:var(--accent);
+  background:var(--accent);
+  color:var(--on);
+}
+main{
+  flex:1;
+  overflow-y:auto;
+  padding:20px 18px 32px;
+  max-width:34rem;
+  width:100%;
+  margin:0 auto;
+}
+h1{font-size:1.5rem;line-height:1.25;margin:0 0 14px}
+h2{font-size:1.25rem;line-height:1.3;margin:0 0 10px}
+p{margin:0 0 14px;max-width:32em}
+.note{color:var(--soft);font-size:.88rem}
+.card{
+  background:var(--card);
+  border:2px solid var(--line);
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:16px;
+}
+.big{
+  display:block;
+  width:100%;
+  min-height:56px;
+  padding:12px 16px;
+  margin:0 0 12px;
+  font:inherit;
+  font-weight:700;
+  text-align:left;
+  color:var(--ink);
+  background:var(--card);
+  border:2px solid var(--line);
+  border-radius:12px;
+  cursor:pointer;
+}
+.big.go{
+  background:var(--accent);
+  color:var(--on);
+  border-color:var(--accent);
+  text-align:center;
+}
+.big.sel{
+  border-color:var(--accent);
+  box-shadow:inset 0 0 0 2px var(--accent);
+}
+.big small{
+  display:block;
+  font-weight:400;
+  color:var(--soft);
+  margin-top:2px;
+}
+.big.go small{color:inherit}
+button:focus-visible,textarea:focus-visible{
+  outline:4px solid var(--accent);
+  outline-offset:2px;
+}
+textarea{
+  width:100%;
+  min-height:104px;
+  font:inherit;
+  padding:12px;
+  margin-bottom:12px;
+  color:var(--ink);
+  background:var(--card);
+  border:2px solid var(--line);
+  border-radius:12px;
+}
+.status{
+  display:inline-block;
+  padding:4px 12px;
+  border-radius:999px;
+  background:var(--ok);
+  color:var(--ink);
+  font-weight:700;
+  font-size:.9rem;
+  margin-bottom:10px;
+}
+.wait{
+  background:var(--wait);
+  border:2px solid var(--line);
+  border-radius:12px;
+  padding:14px;
+  margin-bottom:12px;
+}
+.wait-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+.filter-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:14px;
+}
+.undo-bar{
+  background:var(--card);
+  border:2px solid var(--accent);
+  border-radius:12px;
+  padding:12px 14px;
+  margin-bottom:16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.row{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.small{
+  min-height:48px;
+  width:auto;
+  margin:0;
+  padding:8px 16px;
+  font-size:.9rem;
+}
+nav{
+  display:flex;
+  gap:8px;
+  padding:10px 12px;
+  background:var(--card);
+  border-top:2px solid var(--line);
+}
+nav button{
+  flex:1;
+  min-height:56px;
+  padding:8px 6px;
+  font:inherit;
+  font-size:.85rem;
+  font-weight:700;
+  color:var(--ink);
+  background:transparent;
+  border:2px solid transparent;
+  border-radius:12px;
+  cursor:pointer;
+}
+nav button[aria-current="page"]{
+  border-color:var(--accent);
+  background:var(--bg);
+}
+dl{margin:0}
+dt{font-weight:700}
+dd{margin:0 0 14px;color:var(--soft)}
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <button type="button" class="top-btn" id="back-today-btn" data-s="today" aria-label="Back to today">← Back to today</button>
+    <button type="button" class="top-btn" id="read-aloud-btn" data-a="speak" aria-pressed="false">🔊 Read aloud</button>
+  </div>
+</header>
+<main id="main" tabindex="-1" aria-live="polite"></main>
+<nav aria-label="Main navigation">
+  <button type="button" data-s="today">Today</button>
+  <button type="button" data-s="park">Park &amp; saved</button>
+  <button type="button" data-s="choices">My choices</button>
+  <button type="button" data-s="details">Full details</button>
+</nav>
+<script>
+var DEFAULT_TODAY = {
+  title: "Mail your signed form",
+  body: "Your signed form is ready. Put it in the envelope and mail it. That’s all for today."
+};
+
+var DEFAULT_PARKED = [
+  { t: "Sign the housing agency form", e: "15", when: "Saved earlier" },
+  { t: "Re-read the background section", e: "60", when: "Saved earlier" }
+];
+
+var S = {
+  screen: "today",
+  done: false,
+  todayItem: Object.assign({}, DEFAULT_TODAY),
+  parked: DEFAULT_PARKED.slice(),
+  filter: "all",
+  draft: "",
+  effort: "15",
+  pick: null,
+  lastAction: null,
+  step: 0,
+  speaking: false,
+  prefs: { view: "", capture: "", size: "Normal", theme: "Auto" }
+};
+
+try {
+  var sp = localStorage.getItem("cc_prefs");
+  if (sp) Object.assign(S.prefs, JSON.parse(sp));
+  var sk = localStorage.getItem("cc_parked");
+  if (sk) {
+    var arr = JSON.parse(sk);
+    if (Array.isArray(arr)) S.parked = arr;
+  }
+  var st = localStorage.getItem("cc_today");
+  if (st) {
+    var obj = JSON.parse(st);
+    if (obj && obj.title) S.todayItem = obj;
+  }
+} catch (e) {}
+
+function saveAll() {
+  try {
+    localStorage.setItem("cc_prefs", JSON.stringify(S.prefs));
+    localStorage.setItem("cc_parked", JSON.stringify(S.parked));
+    localStorage.setItem("cc_today", JSON.stringify(S.todayItem));
+  } catch (e) {}
+}
+
+function esc(x) {
+  return String(x).replace(/[&<>"]/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+  });
+}
+
+function nowLabel() {
+  try {
+    return "Saved " + new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+  } catch (e) {
+    return "Saved just now";
+  }
+}
+
+function apply() {
+  var r = document.documentElement;
+  r.style.setProperty("--fs", S.prefs.size === "Large" ? "24px" : "20px");
+  if (S.prefs.theme === "Dark") r.setAttribute("data-theme", "dark");
+  else if (S.prefs.theme === "Light") r.setAttribute("data-theme", "light");
+  else r.removeAttribute("data-theme");
+}
+
+function stopSpeech() {
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+  S.speaking = false;
+  updateSpeechBtn();
+}
+
+function updateSpeechBtn() {
+  var btn = document.getElementById("read-aloud-btn");
+  if (!btn) return;
+  if (!("speechSynthesis" in window)) {
+    btn.style.display = "none";
+    return;
+  }
+  btn.textContent = S.speaking ? "■ Stop reading" : "🔊 Read aloud";
+  btn.classList.toggle("active", S.speaking);
+  btn.setAttribute("aria-pressed", S.speaking ? "true" : "false");
+}
+
+function toggleSpeech() {
+  if (!("speechSynthesis" in window)) return;
+  if (S.speaking) {
+    stopSpeech();
+    return;
+  }
+  var main = document.getElementById("main");
+  var text = main ? main.innerText.trim() : "";
+  if (!text) return;
+  window.speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.95;
+  u.onend = function () {
+    S.speaking = false;
+    updateSpeechBtn();
+  };
+  u.onerror = function () {
+    S.speaking = false;
+    updateSpeechBtn();
+  };
+  S.speaking = true;
+  updateSpeechBtn();
+  window.speechSynthesis.speak(u);
+}
+
+var Q = [
+  {
+    q: "When there’s an update, what is easiest to take in?",
+    k: "view",
+    o: [
+      ["One sentence", "Just what to do today."],
+      ["A simple timeline", "What happened and what’s next."],
+      ["The full papers", "Links to every document."]
+    ]
+  },
+  {
+    q: "If something happens, how would you like to record it?",
+    k: "capture",
+    o: [
+      ["Speak", "Tap once and talk."],
+      ["Take a photo", "The app reads it for you."],
+      ["Three quick taps", "Pick from short choices."]
+    ]
+  },
+  {
+    q: "How should the screen look?",
+    k: "comfort"
+  }
+];
+
+function today() {
+  var savedWord = S.parked.length === 1 ? "thought" : "thoughts";
+  var undoHtml = "";
+  if (S.lastAction && S.lastAction.screen === "today") {
+    undoHtml =
+      '<div class="undo-bar">' +
+      '<span>' + esc(S.lastAction.label) + '</span>' +
+      '<button type="button" class="big small" data-a="undo-move">Undo</button>' +
+      '</div>';
+  }
+
+  if (S.done) {
+    return (
+      '<h1>You’re done for today.</h1>' +
+      undoHtml +
+      '<div class="card">' +
+      '<span class="status">✓ Done</span>' +
+      '<p>Nothing else needs you today. Rest.</p>' +
+      '<button type="button" class="big" data-a="undo-done">Undo — I’m not done yet</button>' +
+      '</div>' +
+      '<button type="button" class="big" data-s="park">See all ' + S.parked.length + ' saved ' + savedWord + '<small>Everything you parked is ready whenever you want it.</small></button>'
+    );
+  }
+  return (
+    '<h1>Must do today</h1>' +
+    undoHtml +
+    '<div class="card">' +
+    '<span class="status">✓ Ready to submit</span>' +
+    '<h2>' + esc(S.todayItem.title) + '</h2>' +
+    '<p>' + esc(S.todayItem.body) + '</p>' +
+    '<button type="button" class="big go" data-a="done">I did it</button>' +
+    '<button type="button" class="big" data-s="details">Show me the details</button>' +
+    '</div>' +
+    '<button type="button" class="big" data-s="park">Can wait: ' + S.parked.length + ' saved ' + savedWord + '<small>Tap anytime to see or bring back everything you parked.</small></button>' +
+    '<p class="note">Sample content for a design preview.</p>'
+  );
+}
+
+function park() {
+  var h =
+    '<h1>Park a thought</h1>' +
+    '<p>Write it down to clear your head. Everything you park stays saved right here on this screen so you can get it back immediately whenever you come back.</p>';
+
+  if (S.lastAction && S.lastAction.screen === "park") {
+    h +=
+      '<div class="undo-bar">' +
+      '<span>' + esc(S.lastAction.label) + '</span>' +
+      '<button type="button" class="big small" data-a="undo-park">Undo</button>' +
+      '</div>';
+  }
+
+  h +=
+    '<textarea id="t" aria-label="Your thought" placeholder="What is on your mind?">' + esc(S.draft) + '</textarea>' +
+    '<p><b>How big is it?</b></p>' +
+    '<button type="button" class="big' + (S.effort === "15" ? " sel" : "") + '" data-e="15">' +
+    (S.effort === "15" ? "✓ " : "") + 'Quick<small>About 15 minutes</small></button>' +
+    '<button type="button" class="big' + (S.effort === "60" ? " sel" : "") + '" data-e="60">' +
+    (S.effort === "60" ? "✓ " : "") + 'Longer<small>About 1 hour</small></button>' +
+    '<button type="button" class="big go" data-a="park">Park it safely</button>';
+
+  h += '<h2 style="margin-top:28px">Everything you saved (' + S.parked.length + ')</h2>';
+  h += '<p class="note">Nothing is hidden or lost. Every item you offloaded is listed below and ready in one tap.</p>';
+
+  h +=
+    '<div class="filter-row">' +
+    '<button type="button" class="big small' + (S.filter === "all" ? " sel" : "") + '" data-f="all">' + (S.filter === "all" ? "✓ " : "") + 'All (' + S.parked.length + ')</button>' +
+    '<button type="button" class="big small' + (S.filter === "15" ? " sel" : "") + '" data-f="15">' + (S.filter === "15" ? "✓ " : "") + 'Quick</button>' +
+    '<button type="button" class="big small' + (S.filter === "60" ? " sel" : "") + '" data-f="60">' + (S.filter === "60" ? "✓ " : "") + 'Longer</button>' +
+    '</div>';
+
+  var visible = S.parked
+    .map(function (p, i) { return { p: p, i: i }; })
+    .filter(function (entry) { return S.filter === "all" || entry.p.e === S.filter; });
+
+  if (!visible.length) {
+    h += '<p class="note">Nothing in this group right now.</p>';
+  }
+
+  visible.forEach(function (entry) {
+    var p = entry.p;
+    var i = entry.i;
+    h +=
+      '<div class="wait">' +
+      '<div><strong>' + esc(p.t) + '</strong></div>' +
+      '<div class="note">' + (p.e === "15" ? "Quick · about 15 min" : "Longer · about 1 hour") + (p.when ? " · " + esc(p.when) : "") + '</div>' +
+      '<div class="wait-actions">' +
+      '<button type="button" class="big small go" data-a="promote" data-i="' + i + '">Move to today</button>' +
+      '<button type="button" class="big small" data-a="rm" data-i="' + i + '">Remove</button>' +
+      '</div>' +
+      '</div>';
+  });
+
+  h += '<button type="button" class="big" data-a="quick">I have 15 minutes. Pick one quick thing for me.</button>';
+  if (S.pick !== null) {
+    h +=
+      '<div class="card">' +
+      '<span class="status">✓ One quick thing</span>' +
+      '<p>' + (S.pick ? esc(S.pick) : "Nothing quick is waiting. You’re clear.") + '</p>' +
+      '</div>';
+  }
+  return h;
+}
+
+function choices() {
+  var q = Q[S.step];
+  var hasChoice = q.k === "comfort" ? true : Boolean(S.prefs[q.k]);
+  var h =
+    '<h1>My choices</h1>' +
+    '<p class="note">Question ' + (S.step + 1) + ' of ' + Q.length + '.</p>' +
+    '<h2>' + q.q + '</h2>';
+
+  if (q.k === "comfort") {
+    ["Normal", "Large"].forEach(function (v) {
+      var isSel = S.prefs.size === v;
+      h += '<button type="button" class="big' + (isSel ? " sel" : "") + '" data-p="size" data-v="' + v + '">' + (isSel ? "✓ " : "") + v + ' text</button>';
+    });
+    ["Auto", "Light", "Dark"].forEach(function (v) {
+      var isSel = S.prefs.theme === v;
+      var label = v === "Auto" ? "Match my device" : v + " screen";
+      h += '<button type="button" class="big' + (isSel ? " sel" : "") + '" data-p="theme" data-v="' + v + '">' + (isSel ? "✓ " : "") + label + '</button>';
+    });
+  } else {
+    q.o.forEach(function (o) {
+      var isSel = S.prefs[q.k] === o[0];
+      h += '<button type="button" class="big' + (isSel ? " sel" : "") + '" data-p="' + q.k + '" data-v="' + o[0] + '">' + (isSel ? "✓ " : "") + o[0] + '<small>' + o[1] + '</small></button>';
+    });
+  }
+
+  if (hasChoice) {
+    h += '<p><span class="status">✓ Preferences saved on this device</span></p>';
+  }
+
+  h +=
+    '<div class="row">' +
+    (S.step > 0 ? '<button type="button" class="big small" data-a="prev">Back</button>' : '<span></span>') +
+    (S.step < Q.length - 1
+      ? '<button type="button" class="big small go" data-a="next">Next</button>'
+      : '<button type="button" class="big small go" data-s="today">Finish</button>') +
+    '</div>';
+  return h;
+}
+
+function details() {
+  return (
+    '<h1>Full details</h1>' +
+    '<p class="note">The complete record. You never have to read this to stay on track.</p>' +
+    '<div class="card"><dl>' +
+    '<dt>Oct 28</dt><dd>Papers were delivered to the office.</dd>' +
+    '<dt>Nov 10</dt><dd>The office received the proof of mailing and asked for the original papers attached.</dd>' +
+    '<dt>Nov 23</dt><dd>The updated packet is ready to mail, with the housing agency form saved for later.</dd>' +
+    '</dl></div>' +
+    '<p class="note">Sample content for a design preview. File names and rule references stay on this screen only, for people who want them.</p>'
+  );
+}
+
+function render() {
+  apply();
+  var m = document.getElementById("main");
+  m.innerHTML = { today: today, park: park, choices: choices, details: details }[S.screen]();
+  var backBtn = document.getElementById("back-today-btn");
+  if (backBtn) {
+    backBtn.style.visibility = S.screen === "today" ? "hidden" : "visible";
+  }
+  updateSpeechBtn();
+  document.querySelectorAll("nav button").forEach(function (b) {
+    if (b.getAttribute("data-s") === S.screen) b.setAttribute("aria-current", "page");
+    else b.removeAttribute("aria-current");
+  });
+}
+
+function go(s) {
+  stopSpeech();
+  S.screen = s;
+  render();
+  document.getElementById("main").scrollTop = 0;
+}
+
+document.addEventListener("click", function (ev) {
+  var b = ev.target.closest("button");
+  if (!b) return;
+  var d = b.dataset;
+
+  if (d.a === "speak") {
+    toggleSpeech();
+    return;
+  }
+  if (d.s) {
+    go(d.s);
+    return;
+  }
+
+  var t = document.getElementById("t");
+  if (t) S.draft = t.value;
+
+  if (d.e) {
+    S.effort = d.e;
+  } else if (d.f) {
+    S.filter = d.f;
+  } else if (d.p) {
+    S.prefs[d.p] = d.v;
+    saveAll();
+  } else if (d.a === "done") {
+    stopSpeech();
+    S.done = true;
+    S.lastAction = null;
+  } else if (d.a === "undo-done") {
+    stopSpeech();
+    S.done = false;
+  } else if (d.a === "park") {
+    if (S.draft.trim()) {
+      var item = { t: S.draft.trim(), e: S.effort, when: nowLabel() };
+      S.parked.unshift(item);
+      S.lastAction = { screen: "park", type: "add", index: 0, item: item, label: "✓ Saved safely — ready whenever you come back." };
+      S.draft = "";
+      saveAll();
+    }
+  } else if (d.a === "rm") {
+    var idx = +d.i;
+    var removed = S.parked.splice(idx, 1)[0];
+    if (removed) {
+      S.lastAction = { screen: "park", type: "rm", index: idx, item: removed, label: "Removed from saved list." };
+      saveAll();
+    }
+  } else if (d.a === "promote") {
+    var pIdx = +d.i;
+    var chosen = S.parked.splice(pIdx, 1)[0];
+    if (chosen) {
+      var prevToday = Object.assign({}, S.todayItem);
+      var prevDone = S.done;
+      if (!S.done && prevToday.title) {
+        S.parked.unshift({ t: prevToday.title, e: "15", when: "Moved from today" });
+      }
+      S.todayItem = {
+        title: chosen.t,
+        body: "Brought back from your saved thoughts. Take it one step at a time."
+      };
+      S.done = false;
+      S.lastAction = {
+        screen: "today",
+        type: "promote",
+        prevToday: prevToday,
+        prevDone: prevDone,
+        promoted: chosen,
+        promotedIndex: pIdx,
+        wasSwapped: !prevDone && Boolean(prevToday.title),
+        label: "Moved to today. Previous item is safely saved."
+      };
+      saveAll();
+      go("today");
+      return;
+    }
+  } else if (d.a === "undo-move" && S.lastAction && S.lastAction.type === "promote") {
+    if (S.lastAction.wasSwapped) {
+      S.parked.shift();
+    }
+    S.parked.splice(S.lastAction.promotedIndex, 0, S.lastAction.promoted);
+    S.todayItem = S.lastAction.prevToday;
+    S.done = S.lastAction.prevDone;
+    S.lastAction = null;
+    saveAll();
+  } else if (d.a === "undo-park" && S.lastAction) {
+    if (S.lastAction.type === "add") {
+      S.parked.splice(S.lastAction.index, 1);
+      S.draft = S.lastAction.item.t;
+    } else if (S.lastAction.type === "rm") {
+      S.parked.splice(S.lastAction.index, 0, S.lastAction.item);
+    }
+    S.lastAction = null;
+    saveAll();
+  } else if (d.a === "quick") {
+    var q = S.parked.filter(function (p) { return p.e === "15"; })[0];
+    S.pick = q ? q.t : "";
+  } else if (d.a === "next") {
+    stopSpeech();
+    S.step++;
+  } else if (d.a === "prev") {
+    stopSpeech();
+    S.step--;
+  }
+
+  var keepScroll = d.a === "park" || d.a === "quick" || d.e || d.f || d.a === "rm" || d.a === "undo-park" || d.p;
+  var y = document.getElementById("main").scrollTop;
+  render();
+  document.getElementById("main").scrollTop = keepScroll ? y : 0;
+});
+
+render();
+</script>
+</body>
+</html>
